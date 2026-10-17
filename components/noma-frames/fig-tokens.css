@@ -1,0 +1,244 @@
+/* Generated from Figma Variables. First mode = :root default.
+   FLOAT tokens are unitless — multiply by 1px in calc() where a length is needed. */
+
+:root {
+  --builder-albl: "No milk";
+  --builder-alblar: "بدون حليب";
+  --builder-base: 22;
+  --builder-basetitle: "Coffee powder";
+  --builder-basetitlear: "بن القهوة";
+  --builder-coffeecolor: rgb(138,90,58); /* @kind color */
+  --builder-coffeeh: 0;
+  --builder-ctas: "Add to order · AED 22";
+  --builder-ctasar: "أضف إلى الطلب · 22 د.إ";
+  --builder-dm: 0;
+  --builder-dp: 0;
+  --builder-drink: "Flat White";
+  --builder-drinkar: "فلات وايت";
+  --builder-ds: 0;
+  --builder-dt: 0;
+  --builder-dz: 0;
+  --builder-hint: "Build it step by step — milk, then sugar, then coffee powder";
+  --builder-hintar: "ابنِ مشروبك خطوة بخطوة — الحليب ثم السكر ثم بن القهوة";
+  --builder-ice: 0;
+  --builder-il: "No ice";
+  --builder-ilar: "بدون ثلج";
+  --builder-ilbl: "Hot";
+  --builder-ilblar: "ساخن";
+  --builder-milk: 0;
+  --builder-milkh: 0;
+  --builder-ml: "No milk";
+  --builder-mlar: "بدون حليب";
+  --builder-pl: "None";
+  --builder-plar: "بدون";
+  --builder-powder: 0;
+  --builder-price: 22;
+  --builder-sl: "No sugar";
+  --builder-slar: "بدون سكر";
+  --builder-sugar: 0;
+  --builder-sugt: "Sugar";
+  --builder-sugtar: "السكر";
+  --builder-water: 0;
+  --builder-waterh: 0;
+  --builder-wl: "No water";
+  --builder-wlar: "بدون ماء";
+  --c2-bs: "3";
+  --c2-pr-alm: "AED 0";
+  --c2-pr-amer: "AED 0";
+  --c2-pr-cap: "AED 0";
+  --c2-pr-card: "AED 0";
+  --c2-pr-cold: "AED 0";
+  --c2-pr-cortado: "AED 0";
+  --c2-pr-croi: "AED 0";
+  --c2-pr-date: "AED 0";
+  --c2-pr-earl: "AED 0";
+  --c2-pr-espresso: "AED 0";
+  --c2-pr-flat: "AED 22";
+  --c2-pr-honey: "AED 0";
+  --c2-pr-icedlatte: "AED 0";
+  --c2-pr-imatcha: "AED 0";
+  --c2-pr-karak: "AED 0";
+  --c2-pr-matcha: "AED 0";
+  --c2-pr-mint: "AED 0";
+  --c2-pr-mocha: "AED 0";
+  --c2-pr-muff: "AED 0";
+  --c2-pr-pain: "AED 0";
+  --c2-pr-peach: "AED 0";
+  --c2-pr-spanish: "AED 52";
+  --c2-pr-waf: "Free";
+  --c2-prar-alm: "0 د.إ";
+  --c2-prar-amer: "0 د.إ";
+  --c2-prar-cap: "0 د.إ";
+  --c2-prar-card: "0 د.إ";
+  --c2-prar-cold: "0 د.إ";
+  --c2-prar-cortado: "0 د.إ";
+  --c2-prar-croi: "0 د.إ";
+  --c2-prar-date: "0 د.إ";
+  --c2-prar-earl: "0 د.إ";
+  --c2-prar-espresso: "0 د.إ";
+  --c2-prar-flat: "22 د.إ";
+  --c2-prar-honey: "0 د.إ";
+  --c2-prar-icedlatte: "0 د.إ";
+  --c2-prar-imatcha: "0 د.إ";
+  --c2-prar-karak: "0 د.إ";
+  --c2-prar-matcha: "0 د.إ";
+  --c2-prar-mint: "0 د.إ";
+  --c2-prar-mocha: "0 د.إ";
+  --c2-prar-muff: "0 د.إ";
+  --c2-prar-pain: "0 د.إ";
+  --c2-prar-peach: "0 د.إ";
+  --c2-prar-spanish: "52 د.إ";
+  --c2-prar-waf: "مجاني";
+  --c2-q-alm: 0;
+  --c2-q-amer: 0;
+  --c2-q-cap: 0;
+  --c2-q-card: 0;
+  --c2-q-cold: 0;
+  --c2-q-cortado: 0;
+  --c2-q-croi: 0;
+  --c2-q-date: 0;
+  --c2-q-earl: 0;
+  --c2-q-espresso: 0;
+  --c2-q-flat: 1;
+  --c2-q-honey: 0;
+  --c2-q-icedlatte: 0;
+  --c2-q-imatcha: 0;
+  --c2-q-karak: 0;
+  --c2-q-matcha: 0;
+  --c2-q-mint: 0;
+  --c2-q-mocha: 0;
+  --c2-q-muff: 0;
+  --c2-q-pain: 0;
+  --c2-q-peach: 0;
+  --c2-q-spanish: 2;
+  --c2-q-waf: 0;
+  --c2-qs-alm: "0";
+  --c2-qs-amer: "0";
+  --c2-qs-cap: "0";
+  --c2-qs-card: "0";
+  --c2-qs-cold: "0";
+  --c2-qs-cortado: "0";
+  --c2-qs-croi: "0";
+  --c2-qs-date: "0";
+  --c2-qs-earl: "0";
+  --c2-qs-espresso: "0";
+  --c2-qs-flat: "1";
+  --c2-qs-honey: "0";
+  --c2-qs-icedlatte: "0";
+  --c2-qs-imatcha: "0";
+  --c2-qs-karak: "0";
+  --c2-qs-matcha: "0";
+  --c2-qs-mint: "0";
+  --c2-qs-mocha: "0";
+  --c2-qs-muff: "0";
+  --c2-qs-pain: "0";
+  --c2-qs-peach: "0";
+  --c2-qs-spanish: "2";
+  --c2-qs-waf: "0";
+  --c2-sum: 3;
+  --cart-qty-flat-white: 1;
+  --cart-qty-spanish-latte: 2;
+  --cart-qty-total: 3;
+  --cart-text-badge: "3";
+  --cart-text-cta-ar: "متابعة إلى الدفع · 87 د.إ";
+  --cart-text-cta: "Continue to checkout · AED 87";
+  --cart-text-price-flat-white-ar: "29 د.إ";
+  --cart-text-price-flat-white: "AED 29";
+  --cart-text-price-spanish-latte-ar: "58 د.إ";
+  --cart-text-price-spanish-latte: "AED 58";
+  --cart-text-qty-flat-white: "1";
+  --cart-text-qty-spanish-latte: "2";
+  --cart-text-total-ar: "87 د.إ";
+  --cart-text-total: "AED 87";
+  --cartc-c3: "";
+  --cartc-c3ar: "";
+  --cartc-ch3: 0;
+  --cartc-i3: "Hot";
+  --cartc-i3ar: "ساخن";
+  --cartc-l3: 0;
+  --cartc-lh: "";
+  --cartc-lo: "0";
+  --cartc-lt: "";
+  --cartc-m3: "";
+  --cartc-m3ar: "";
+  --cartc-mh3: 0;
+  --cartc-name3: "";
+  --cartc-name3ar: "";
+  --cartc-p3: 0;
+  --cartc-q3s: "0";
+  --cartc-qty3: 0;
+  --cartc-r: 0;
+  --cartc-rh: "";
+  --cartc-ro: "";
+  --cartc-rt: "";
+  --cartc-s3: "";
+  --cartc-s3ar: "";
+  --cartc-th: "";
+  --cartc-to: "4";
+  --cartc-tot: 74;
+  --cartc-tt: "7";
+  --color-background-primary: rgb(255,255,255); /* @kind color */
+  --color-background-secondary: rgb(248,243,238); /* @kind color */
+  --color-border-default: rgb(232,222,214); /* @kind color */
+  --color-brand-primary-hover: rgb(69,43,30); /* @kind color */
+  --color-brand-primary-tint: rgb(243,233,225); /* @kind color */
+  --color-brand-primary: rgb(91,58,41); /* @kind color */
+  --color-brand-secondary-tint: rgb(239,236,255); /* @kind color */
+  --color-brand-secondary: rgb(107,78,255); /* @kind color */
+  --color-nav-item: var(--color-text-secondary); /* @kind color */
+  --color-status-error: rgb(217,45,32); /* @kind color */
+  --color-status-success: rgb(34,160,107); /* @kind color */
+  --color-status-warning: rgb(247,144,9); /* @kind color */
+  --color-text-primary: rgb(42,29,22); /* @kind color */
+  --color-text-secondary: rgb(112,100,92); /* @kind color */
+  --labels-primary: rgb(0,0,0); /* @kind color */
+  --loc-area: "Jumeirah";
+  --loc-areaar: "جميرا";
+  --loc-confirm: "Your pickup order is confirmed at Jumeirah.";
+  --loc-confirmar: "تم تأكيد طلب الاستلام من جميرا.";
+  --loc-storedesc: "Beach Road, Jumeirah 1, Dubai · open until 11 PM";
+  --loc-storedescar: "شارع الشاطئ، جميرا 1، دبي · مفتوح حتى 11 م";
+  --loc-storename: "Noma Jumeirah";
+  --loc-storenamear: "نوما جميرا";
+  --ord-fh: "";
+  --ord-fi: 0;
+  --ord-fo: "4";
+  --ord-ft: "1";
+  --ord-reason: "";
+  --ord-reasonar: "";
+  --ord-rh: "";
+  --ord-ri: 0;
+  --ord-ro: "0";
+  --ord-rt: "6";
+  --ord-tmp: 0;
+  --radius-full: 999;
+  --radius-lg: 16;
+  --radius-md: 12;
+  --radius-sm: 8;
+  --radius-xl: 24;
+  --spacing-12: 12;
+  --spacing-16: 16;
+  --spacing-20: 20;
+  --spacing-24: 24;
+  --spacing-2: 2;
+  --spacing-32: 32;
+  --spacing-40: 40;
+  --spacing-48: 48;
+  --spacing-4: 4;
+  --spacing-8: 8;
+}
+
+:root[data-mode="active"] {
+  --color-nav-item: var(--color-brand-primary); /* @kind color */
+}
+
+:root[data-theme="dark"], .dark {
+  --labels-primary: rgb(255,255,255); /* @kind color */
+  --labels-primary: rgb(255,255,255); /* @kind color */
+  --labels-primary: rgb(255,255,255); /* @kind color */
+  --labels-primary: rgb(255,255,255); /* @kind color */
+}
+
+:root[data-theme="light"], .light {
+  --labels-primary: rgb(0,0,0); /* @kind color */
+}

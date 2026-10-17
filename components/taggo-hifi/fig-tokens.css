@@ -1,0 +1,1814 @@
+/* Generated from Figma Variables. First mode = :root default.
+   FLOAT tokens are unitless — multiply by 1px in calc() where a length is needed. */
+
+:root {
+  --4: 4;
+  --acceptancerate: "92%";
+  --acceptedrides: "6";
+  --accident-ack-variant: "False";
+  --accident-damage-selected: "False";
+  --activedatelabel: "17 Sep 2026";
+  --activity-pastcargostatus: "Completed";
+  --activitycategory: "Scheduled";
+  --activityview: "Scheduled";
+  --addressreturn: "8672:26289";
+  --arrival-label: "Chauffeur arrives in";
+  --background-brand-default-2: var(--brand-800); /* @kind color */
+  --background-brand-default: var(--brand-800); /* @kind color */
+  --background-brand-hover: var(--brand-900); /* @kind color */
+  --background-danger-default-2: var(--red-500); /* @kind color */
+  --background-danger-default: var(--red-500); /* @kind color */
+  --background-danger-hover: var(--red-600); /* @kind color */
+  --background-danger-secondary: var(--red-200); /* @kind color */
+  --background-danger-tertiary-hover: var(--red-200); /* @kind color */
+  --background-danger-tertiary: var(--red-100); /* @kind color */
+  --background-default-default-hover: var(--gray-100); /* @kind color */
+  --background-default-default: var(--white-1000); /* @kind color */
+  --background-default-secondary-hover: var(--gray-200); /* @kind color */
+  --background-default-secondary: var(--gray-100); /* @kind color */
+  --background-disabled-default: var(--gray-300); /* @kind color */
+  --background-neutral-tertiary-hover: var(--slate-300); /* @kind color */
+  --background-neutral-tertiary: var(--slate-200); /* @kind color */
+  --backgrounds-grouped-secondary: rgb(255,255,255); /* @kind color */
+  --backgrounds-primary: rgb(255,255,255); /* @kind color */
+  --base-spacing-scale-2xl: 48;
+  --base-spacing-scale-3xl: 64;
+  --base-spacing-scale-lg: 24;
+  --base-spacing-scale-md: 16;
+  --base-spacing-scale-sm: 8;
+  --base-spacing-scale-xl: 32;
+  --base-spacing-scale-xs: 4;
+  --bike-selected: "False";
+  --black-100: rgba(12,12,13,0.05); /* @kind color */
+  --black-200: rgba(12,12,13,0.1); /* @kind color */
+  --body-font-family: var(--family-sans);
+  --body-font-weight-regular: var(--weight-regular);
+  --body-font-weight-strong: var(--weight-semibold);
+  --body-size-medium: var(--scale-03);
+  --booking-mode: "now";
+  --booking-status: "Draft";
+  --bookingstatus: "Scheduled";
+  --border-brand-default: var(--brand-800); /* @kind color */
+  --border-brand-tertiary: var(--brand-500); /* @kind color */
+  --border-danger-default: var(--red-700); /* @kind color */
+  --border-danger-secondary: var(--red-600); /* @kind color */
+  --border-danger-tertiary: var(--red-500); /* @kind color */
+  --border-default-default: var(--gray-300); /* @kind color */
+  --border-default-secondary: var(--gray-500); /* @kind color */
+  --border-disabled-default: var(--gray-400); /* @kind color */
+  --border-neutral-default: var(--slate-900); /* @kind color */
+  --border-neutral-secondary: var(--slate-600); /* @kind color */
+  --border-radius-2xl: 24;
+  --border-radius-full: 999;
+  --border-radius-lg: 12;
+  --border-radius-md: 8;
+  --border-radius-sm: 6;
+  --border-radius-xl: 16;
+  --border-radius-xs: 4;
+  --brand-100-2: rgb(245,245,245); /* @kind color */
+  --brand-100: rgb(245,245,245); /* @kind color */
+  --brand-300: rgb(217,217,217); /* @kind color */
+  --brand-400: rgb(179,179,179); /* @kind color */
+  --brand-500: rgb(117,117,117); /* @kind color */
+  --brand-800-2: rgb(44,44,44); /* @kind color */
+  --brand-800: rgb(44,44,44); /* @kind color */
+  --brand-900: rgb(30,30,30); /* @kind color */
+  --brand-b-800: rgb(119,0,0); /* @kind color */
+  --brand-colors-background-colors-card: rgb(255,255,255); /* @kind color */
+  --brand-colors-background-colors-overlay: rgba(0,0,0,0.6); /* @kind color */
+  --brand-colors-background-colors-secondary: var(--brand-colors-neutral-grays-50); /* @kind color */
+  --brand-colors-neutral-grays-400: rgb(148,163,184); /* @kind color */
+  --brand-colors-neutral-grays-500: rgb(100,116,139); /* @kind color */
+  --brand-colors-neutral-grays-50: rgb(248,250,252); /* @kind color */
+  --brand-colors-neutral-grays-700: rgb(51,65,85); /* @kind color */
+  --brand-colors-neutral-grays-900: rgb(15,23,42); /* @kind color */
+  --brand-colors-primary-50: rgb(254,253,248); /* @kind color */
+  --brand-colors-semantic-state-colors-stroke: var(--brand-colors-background-colors-overlay); /* @kind color */
+  --brand-colors-semantic-state-colors-success-500: rgb(34,197,94); /* @kind color */
+  --button-border-radius-full: 999;
+  --button-border-radius-lg: 12;
+  --button-border-radius-md: 8;
+  --button-border-radius-sm: 6;
+  --button-elevations-shadow-lg: rgba(0,0,0,0.1); /* @kind color */
+  --button-elevations-shadow-md: rgba(0,0,0,0.05); /* @kind color */
+  --button-elevations-shadow-sm: rgba(0,0,0,0.03); /* @kind color */
+  --button-label: "Recharge";
+  --button-padding-x-sm: 16;
+  --button-padding-x-xs: 12;
+  --button-padding-y-lg: 14;
+  --button-padding-y-sm: 10;
+  --button-padding-y-xl: 16;
+  --button-padding-y-xs: 8;
+  --button-size-md: 48;
+  --button-spacing-group-gap: 12;
+  --button-spacing-icon-gap: 8;
+  --button-spacing-margin-bottom: 16;
+  --button-states-primary-dark-active-dark: var(--colors-brand-colors-neutral-600); /* @kind color */
+  --button-states-primary-dark-bg-dark: var(--colors-brand-colors-neutral-500); /* @kind color */
+  --button-states-primary-dark-btn-dark: rgb(16,24,40); /* @kind color */
+  --button-states-primary-dark-disabled-dark: rgb(71,85,105); /* @kind color */
+  --button-states-primary-dark-hover-dark: var(--colors-brand-colors-neutral-100); /* @kind color */
+  --button-states-primary-dark-text-dark: rgb(255,255,255); /* @kind color */
+  --button-states-primary-light-active-light: var(--colors-brand-colors-neutral-100); /* @kind color */
+  --button-states-primary-light-bg-light: var(--colors-brand-colors-primary-50); /* @kind color */
+  --button-states-primary-light-btn-light: var(--primary); /* @kind color */
+  --button-states-primary-light-disabled-light: rgb(203,213,225); /* @kind color */
+  --button-states-primary-light-hover-light: var(--colors-brand-colors-neutral-100); /* @kind color */
+  --button-states-primary-light-text-light: rgb(255,255,255); /* @kind color */
+  --button-states-secondary-dark-bg-dark: rgba(0,0,0,0); /* @kind color */
+  --button-states-secondary-dark-border-dark: var(--colors-brand-colors-neutral-100); /* @kind color */
+  --button-states-secondary-dark-hover-dark: var(--colors-brand-colors-neutral-900); /* @kind color */
+  --button-states-secondary-dark-text-dark: var(--colors-brand-colors-neutral-100); /* @kind color */
+  --button-states-secondary-light-bg-light: rgba(0,0,0,0); /* @kind color */
+  --button-states-secondary-light-border-light: var(--colors-brand-colors-neutral-700); /* @kind color */
+  --button-states-secondary-light-hover-light: var(--colors-brand-colors-neutral-50); /* @kind color */
+  --button-states-secondary-light-text-light: var(--colors-brand-colors-neutral-600); /* @kind color */
+  --buttons-sizes-base-button-horizontal: 8;
+  --buttons-sizes-base-button-vertical: 8;
+  --buttons-sizes-large-button-border-radius: 12;
+  --buttons-sizes-large-button-font-size: 18;
+  --buttons-sizes-large-button-height: 56;
+  --buttons-sizes-large-button-padding-horizontal: 32;
+  --buttons-sizes-large-button-padding-vertical: 16;
+  --buttons-sizes-medium-button-border-radius: 8;
+  --buttons-sizes-medium-button-font-size: 16;
+  --buttons-sizes-medium-button-height: 48;
+  --buttons-sizes-medium-button-padding-horizontal: 24;
+  --buttons-sizes-medium-button-padding-vertical: 12;
+  --buttons-sizes-small-button-border-radius: 6;
+  --buttons-sizes-small-button-font-size: 14;
+  --buttons-sizes-small-button-height: 36;
+  --buttons-sizes-small-button-padding-horizontal: 16;
+  --buttons-sizes-small-button-padding-vertical: 8;
+  --calculation: 0;
+  --call-initial: "A";
+  --call-name: "Ahmed K. · 4.9 ★";
+  --callonarrivalfill: var(--colors-color-mode-backgrounds-container); /* @kind color */
+  --callonarrivalstroke: var(--colors-color-mode-border-default); /* @kind color */
+  --cancellation-policy: "Cancellation: AED 0 before a chauffeur is assigned. AED 25 after assignment.";
+  --cancellationfee: "AED 0";
+  --cancellationhint: "Choose one reason to continue.";
+  --cancellationreason: "Choose a reason";
+  --cancelreason: "";
+  --cancelreasonvariant0: "Default";
+  --cancelreasonvariant1: "Default";
+  --cancelreasonvariant2: "Default";
+  --cancelreasonvariant3: "Default";
+  --cancelreasonvariant4: "Default";
+  --car-selected: "False";
+  --card-entry-cardcvv: "CVV";
+  --card-entry-carderror: "";
+  --card-entry-cardexpiry: "MM/YY";
+  --card-entry-cardname: "Name on card";
+  --card-entry-cardnumber: "0000 0000 0000 0000";
+  --card-error: "";
+  --card-expiry: "MM/YY";
+  --card-name: "Name on card";
+  --card-number: "0000 0000 0000 0000";
+  --card-saved-card: "Visa •••• 8821";
+  --card-security-code: "CVV";
+  --cardearnings: "114.50";
+  --cardpct: "62%";
+  --cargo-dimensionsummary: "Not added";
+  --cargo-height: "—";
+  --cargo-item-2-cargo-dimensionsummary: "Not added";
+  --cargo-item-2-cargo-height: "—";
+  --cargo-item-2-cargo-length: "—";
+  --cargo-item-2-cargo-measurementdraft-height: "—";
+  --cargo-item-2-cargo-measurementdraft-length: "—";
+  --cargo-item-2-cargo-measurementdraft-summary: "Not added";
+  --cargo-item-2-cargo-measurementdraft-weight: "Not added";
+  --cargo-item-2-cargo-measurementdraft-width: "—";
+  --cargo-item-2-cargo-othertypelabel: "Other";
+  --cargo-item-2-cargo-quantitytitle: "Items";
+  --cargo-item-2-cargo-width: "—";
+  --cargo-item-2-cargotype: "";
+  --cargo-item-2-cargotypefill0: var(--colors-brand-colors-primary-50); /* @kind color */
+  --cargo-item-2-cargotypefill1: var(--colors-brand-colors-primary-50); /* @kind color */
+  --cargo-item-2-cargotypefill2: var(--colors-brand-colors-primary-50); /* @kind color */
+  --cargo-item-2-cargotypefill3: var(--colors-brand-colors-primary-50); /* @kind color */
+  --cargo-item-2-cargotypefill4: var(--colors-brand-colors-primary-50); /* @kind color */
+  --cargo-item-2-cargotypefill5: var(--colors-brand-colors-primary-50); /* @kind color */
+  --cargo-item-2-cargoweight: "Not added";
+  --cargo-item-2-quantity: 1;
+  --cargo-item-2-quantitylabel: "1";
+  --cargo-item-2-weight-0-fill: var(--colors-color-mode-text-primary); /* @kind color */
+  --cargo-item-2-weight-0-text: var(--colors-color-mode-backgrounds-container); /* @kind color */
+  --cargo-item-2-weight-1-fill: var(--colors-brand-colors-neutral-50); /* @kind color */
+  --cargo-item-2-weight-1-text: var(--colors-color-mode-text-primary); /* @kind color */
+  --cargo-item-2-weight-2-fill: var(--colors-brand-colors-neutral-50); /* @kind color */
+  --cargo-item-2-weight-2-text: var(--colors-color-mode-text-primary); /* @kind color */
+  --cargo-length: "—";
+  --cargo-measurementdraft-height: "—";
+  --cargo-measurementdraft-length: "—";
+  --cargo-measurementdraft-summary: "Not added";
+  --cargo-measurementdraft-weight: "Not added";
+  --cargo-measurementdraft-width: "—";
+  --cargo-othertypelabel: "Other";
+  --cargo-quantitytitle: "Items";
+  --cargo-reviewhint: "Choose a cargo type to continue";
+  --cargo-width: "—";
+  --cargotype: "";
+  --cargotypefill0: var(--colors-brand-colors-primary-50); /* @kind color */
+  --cargotypefill1: var(--colors-brand-colors-primary-50); /* @kind color */
+  --cargotypefill2: var(--colors-brand-colors-primary-50); /* @kind color */
+  --cargotypefill3: var(--colors-brand-colors-primary-50); /* @kind color */
+  --cargotypefill4: var(--colors-brand-colors-primary-50); /* @kind color */
+  --cargotypefill5: var(--colors-brand-colors-primary-50); /* @kind color */
+  --cargoweight: "Not added";
+  --cashearnings: "70.00";
+  --cashpct: "38%";
+  --cashtosettle: "70.00";
+  --cashtosettleafter: "0.00";
+  --category-highlight-documents: var(--colors-brand-colors-neutral-50); /* @kind color */
+  --category-highlight-electronics: var(--colors-brand-colors-neutral-50); /* @kind color */
+  --category-highlight-food: var(--colors-brand-colors-neutral-50); /* @kind color */
+  --category-highlight-furniture: var(--colors-brand-colors-neutral-50); /* @kind color */
+  --category-highlight-other: var(--colors-brand-colors-neutral-50); /* @kind color */
+  --category-highlight-package: var(--colors-brand-colors-primary-50); /* @kind color */
+  --category: "Cargo type: Package";
+  --chauffeur-eta: "~7 min";
+  --chauffeur-men-fill: rgb(240,221,80); /* @kind color */
+  --chauffeur-name: "Rashid A.";
+  --chauffeur-preference: "Men chauffeur";
+  --chauffeur-women-fill: rgba(0,0,0,0); /* @kind color */
+  --checkbox-checked: "True";
+  --color-1: rgb(255,255,255); /* @kind color */
+  --color-2: var(--primary); /* @kind color */
+  --color-icon-default: var(--neutral-opaque-neutral800); /* @kind color */
+  --color: var(--button-states-primary-light-text-light); /* @kind color */
+  --colors-blue-2: rgb(0,122,255); /* @kind color */
+  --colors-blue-3: rgb(0,136,255); /* @kind color */
+  --colors-blue: rgb(0,122,255); /* @kind color */
+  --colors-brand-colors-neutral-100: rgb(245,245,245); /* @kind color */
+  --colors-brand-colors-neutral-200: rgb(229,229,229); /* @kind color */
+  --colors-brand-colors-neutral-300: rgb(212,212,212); /* @kind color */
+  --colors-brand-colors-neutral-400: rgb(163,163,163); /* @kind color */
+  --colors-brand-colors-neutral-500: rgb(115,115,115); /* @kind color */
+  --colors-brand-colors-neutral-50: rgb(250,250,250); /* @kind color */
+  --colors-brand-colors-neutral-600: rgb(82,82,82); /* @kind color */
+  --colors-brand-colors-neutral-700: rgb(64,64,64); /* @kind color */
+  --colors-brand-colors-neutral-800: rgb(38,38,38); /* @kind color */
+  --colors-brand-colors-neutral-900: rgb(23,23,23); /* @kind color */
+  --colors-brand-colors-primary-100: rgb(254,243,199); /* @kind color */
+  --colors-brand-colors-primary-200: rgb(253,230,138); /* @kind color */
+  --colors-brand-colors-primary-300: rgb(252,211,77); /* @kind color */
+  --colors-brand-colors-primary-400: rgb(251,191,36); /* @kind color */
+  --colors-brand-colors-primary-500: rgb(240,221,80); /* @kind color */
+  --colors-brand-colors-primary-50: rgb(254,252,232); /* @kind color */
+  --colors-brand-colors-primary-600: rgb(214,158,46); /* @kind color */
+  --colors-brand-colors-primary-700: rgb(183,121,31); /* @kind color */
+  --colors-brand-colors-primary-800: rgb(151,90,22); /* @kind color */
+  --colors-brand-colors-primary-900: rgb(120,53,15); /* @kind color */
+  --colors-button-btn: var(--button-states-primary-light-btn-light); /* @kind color */
+  --colors-color-mode-backgrounds-bg-option-1: rgb(254,255,254); /* @kind color */
+  --colors-color-mode-backgrounds-bg-option-2: rgb(248,249,250); /* @kind color */
+  --colors-color-mode-backgrounds-brand-bg: var(--colors-brand-colors-primary-50); /* @kind color */
+  --colors-color-mode-backgrounds-card-bg: rgba(240,221,80,0.1); /* @kind color */
+  --colors-color-mode-backgrounds-container: var(--primary); /* @kind color */
+  --colors-color-mode-backgrounds-overlay: rgba(0,0,0,0.005); /* @kind color */
+  --colors-color-mode-backgrounds-primary: rgb(249,250,251); /* @kind color */
+  --colors-color-mode-backgrounds-secondary: var(--colors-brand-colors-neutral-50); /* @kind color */
+  --colors-color-mode-backgrounds-tertiary: rgb(255,255,255); /* @kind color */
+  --colors-color-mode-border-active: var(--colors-brand-colors-primary-500); /* @kind color */
+  --colors-color-mode-border-default: rgb(226,232,240); /* @kind color */
+  --colors-color-mode-border-interactive: rgb(14,165,233); /* @kind color */
+  --colors-color-mode-border-strong: rgb(203,213,225); /* @kind color */
+  --colors-color-mode-interactive-default: rgb(14,165,233); /* @kind color */
+  --colors-color-mode-interactive-hover: rgb(2,132,199); /* @kind color */
+  --colors-color-mode-interactive-link-visited: rgb(124,58,237); /* @kind color */
+  --colors-color-mode-text-disabled: var(--colors-brand-colors-neutral-400); /* @kind color */
+  --colors-color-mode-text-inverse: rgb(255,255,255); /* @kind color */
+  --colors-color-mode-text-primary: var(--colors-brand-colors-neutral-900); /* @kind color */
+  --colors-color-mode-text-secondary: var(--colors-brand-colors-neutral-700); /* @kind color */
+  --colors-color-mode-text-tertiary: var(--colors-brand-colors-neutral-500); /* @kind color */
+  --colors-green: rgb(52,199,89); /* @kind color */
+  --colors-orange: rgb(255,149,0); /* @kind color */
+  --colors-red: rgb(255,59,48); /* @kind color */
+  --colors-semantic-colors-border-default: var(--colors-brand-colors-neutral-200); /* @kind color */
+  --colors-semantic-colors-border-focus: var(--colors-brand-colors-primary-300); /* @kind color */
+  --colors-semantic-colors-border-interactive: var(--colors-brand-colors-primary-500); /* @kind color */
+  --colors-semantic-colors-border-strong: var(--colors-brand-colors-neutral-300); /* @kind color */
+  --colors-semantic-colors-error-dark: rgb(185,28,28); /* @kind color */
+  --colors-semantic-colors-error-default: rgb(220,38,38); /* @kind color */
+  --colors-semantic-colors-info-light: rgb(219,234,254); /* @kind color */
+  --colors-semantic-colors-success-dark: rgb(21,128,61); /* @kind color */
+  --colors-semantic-colors-success-default: rgb(22,163,74); /* @kind color */
+  --colors-semantic-colors-success-light: rgb(220,252,231); /* @kind color */
+  --colors-semantic-colors-warning-dark: rgb(194,65,12); /* @kind color */
+  --colors-semantic-colors-warning-default: rgb(234,88,12); /* @kind color */
+  --colors-semantic-colors-warning-light: rgb(254,215,170); /* @kind color */
+  --combo-button-font-size-chevron: 9;
+  --committedreceiveraddress: "Business Bay, Dubai";
+  --committedsenderaddress: "Al Reem Island, Abu Dhabi";
+  --component-spacing-card-gap-large: 28;
+  --component-spacing-card-gap-medium: 20;
+  --component-spacing-card-gap-small: 12;
+  --component-spacing-card-gap-xl: 32;
+  --component-spacing-card-margin-bottom: 16;
+  --component-spacing-card-margin-top: 16;
+  --component-spacing-card-padding: 16;
+  --component-spacing-footer-padding: 24;
+  --component-spacing-form-field-margin: 16;
+  --component-spacing-form-group-margin: 24;
+  --component-spacing-header-padding: 16;
+  --component-spacing-horizontal-t-b: 17;
+  --component-spacing-vertical-t-b: 18;
+  --confirm-with-side-button-confirm-with-side-button-translucent-blue: rgba(0,122,255,0.2); /* @kind color */
+  --confirm-with-side-button-system-blue-2: rgb(0,122,255); /* @kind color */
+  --confirm-with-side-button-system-blue: rgb(0,122,255); /* @kind color */
+  --continue-booking-opacity: 40;
+  --cornerradius-x-small: var(--4);
+  --couponfieldtext: "Enter coupon code";
+  --covered-truck-selected: "False";
+  --dark: rgb(29,78,216); /* @kind color */
+  --darkneutral-opaque-darkneutral800: rgb(159,173,188); /* @kind color */
+  --default: rgb(59,130,246); /* @kind color */
+  --delivery-bikefill: var(--colors-color-mode-backgrounds-container); /* @kind color */
+  --delivery-biketitle: "Instant";
+  --delivery-overlay-draftfee: "AED 27.00";
+  --delivery-overlay-draftservice: "Standard delivery";
+  --delivery-overlay-drafttax: "AED 1.35";
+  --delivery-overlay-drafttotal: "AED 28.35";
+  --delivery-overlay-priorityprice: "AED 42.00";
+  --delivery-overlay-standardprice: "AED 28.35";
+  --delivery-prioritytitle: "Priority delivery";
+  --delivery-standardtitle: "✓ Standard delivery";
+  --deliverydate: "Mon, 14 Sep";
+  --deliveryreturn: "cargo";
+  --deliveryservice: "Standard delivery";
+  --deliverytime: "10:00 AM";
+  --depth-025: 1;
+  --depth-0: 0;
+  --depth-100: 4;
+  --depth-negative-025: -1;
+  --destination-field-label: "Where to?";
+  --destination: "Najmat Abu Dhabi";
+  --donotstackfill: var(--colors-color-mode-backgrounds-container); /* @kind color */
+  --donotstackstroke: var(--colors-color-mode-border-default); /* @kind color */
+  --draft-pickup-date: "Fri, 11 Sep 2026";
+  --draft-pickup-time: "9:00 AM";
+  --draft: "0";
+  --draftdate: "Tue, 15 Sep 2026";
+  --draftdaylabel: "Sat, 19 Sep";
+  --draftdaylong: "Sat, 19 Sep 2026";
+  --draftdeliverydate: "Mon, 14 Sep";
+  --draftdeliverytime: "10:00 AM";
+  --draftpaymentmethod: "Visa •••• 8821";
+  --draftpickupdate: "Sun, 13 Sep";
+  --draftpickuptime: "10:00 AM";
+  --draftreceiveraddress: "Business Bay, Dubai";
+  --draftsenderaddress: "Al Reem Island, Abu Dhabi";
+  --drafttime: "9:00 AM";
+  --drafttimelabel: "12:00 PM";
+  --driver-assignment: "assigned";
+  --drivermessage: "Choose a message below.";
+  --dropoff-row-action-label: "Choose";
+  --drv-arrived: "Ahmed has arrived at the drop-off point";
+  --drv-check: "Ahmed is checking your car before loading";
+  --drv-head: "Ahmed is heading your way";
+  --drv-initial: "A";
+  --drv-name: "Ahmed K. · 4.9 ★";
+  --drv-plate: "Ahmed K. · DXB-B-54321";
+  --drv-secure: "Ahmed is securing your car on the truck";
+  --drv-truck: "Toyota Recovery Truck · DXB-B-54321";
+  --estimated-fare-2: "AED 180";
+  --estimated-fare: "AED 24";
+  --family-sans: "Inter";
+  --feeexplanation: "No driver assigned. No cancellation deduction.";
+  --fill-card-background: rgb(235,235,235); /* @kind color */
+  --fill-icon-background: rgb(242,242,247); /* @kind color */
+  --fill-section-background: rgb(255,255,255); /* @kind color */
+  --fill-tertiary-fill-color: rgba(116,116,128,0.12); /* @kind color */
+  --fills-quaternary: rgba(120,120,128,0.08); /* @kind color */
+  --fills-secondary: rgba(120,120,128,0.16); /* @kind color */
+  --fills-tertiary: rgba(120,120,128,0.12); /* @kind color */
+  --font-family-display: "sf pro";
+  --font-family-mono: "sf pro";
+  --font-family-primary: "Space Grotesk";
+  --font-family-secondary: "Dm Sans";
+  --font-letter-spacing-normal: 0;
+  --font-line-height-md: 32;
+  --font-line-height-sm: 24;
+  --font-line-height-xs: 16;
+  --font-size-2xl: 32;
+  --font-size-3xl: 40;
+  --font-size-4xl: 48;
+  --font-size-base: 16;
+  --font-size-lg: 20;
+  --font-size-md: 18;
+  --font-size-sm: 14;
+  --font-size-xl: 24;
+  --font-size-xs: 12;
+  --font-text-disabled: var(--brand-colors-neutral-grays-400); /* @kind color */
+  --font-text-primary: var(--brand-colors-neutral-grays-900); /* @kind color */
+  --font-text-tertiary: var(--brand-colors-neutral-grays-500); /* @kind color */
+  --font-weight-bold: "Bold";
+  --font-weight-extrabold: "ExtraBold";
+  --font-weight-light: "Light";
+  --font-weight-regular: "Regular";
+  --font-weight-semibold: "Semibold";
+  --fonts-font-sans: "Geist";
+  --formmessage: "1 of 4 • Contact details";
+  --fragilefill: var(--colors-color-mode-backgrounds-container); /* @kind color */
+  --fragilestroke: var(--colors-color-mode-border-default); /* @kind color */
+  --gar-dcconfirm: "New destination: Speedex Garage & Tyres";
+  --gar-dcline: "Speedex Garage & Tyres, Mussafah";
+  --gar-name: "Al Nahyan Auto Repair";
+  --gar-route: "Al Nahyan St, Abu Dhabi → Al Nahyan Auto Repair";
+  --gar-transport: "On the way to Al Nahyan Auto Repair";
+  --get-price-cta-opacity: 100;
+  --gray-100: rgb(245,245,245); /* @kind color */
+  --gray-200: rgb(230,230,230); /* @kind color */
+  --gray-300: rgb(217,217,217); /* @kind color */
+  --gray-400: rgb(179,179,179); /* @kind color */
+  --gray-500: rgb(117,117,117); /* @kind color */
+  --gray-600: rgb(68,68,68); /* @kind color */
+  --gray-700: rgb(56,56,56); /* @kind color */
+  --gray-800: rgb(44,44,44); /* @kind color */
+  --gray-900-2: rgb(30,30,30); /* @kind color */
+  --gray-900: rgb(30,30,30); /* @kind color */
+  --grays-black: rgb(0,0,0); /* @kind color */
+  --grays-gray: rgb(142,142,147); /* @kind color */
+  --grays-white-2: rgb(255,255,255); /* @kind color */
+  --grays-white: rgb(255,255,255); /* @kind color */
+  --grey-200: rgb(204,204,204); /* @kind color */
+  --grey-50: rgb(242,242,242); /* @kind color */
+  --grey-800: rgb(51,51,51); /* @kind color */
+  --grey-900: rgb(26,26,26); /* @kind color */
+  --home-indicator-home-indicator: rgb(0,0,0); /* @kind color */
+  --hover: 0;
+  --icon-brand-default: var(--brand-800); /* @kind color */
+  --icon-brand-on-brand: var(--brand-100); /* @kind color */
+  --icon-colors-dark-brand-dark: var(--colors-brand-colors-neutral-100); /* @kind color */
+  --icon-colors-dark-disabled-dark: var(--colors-color-mode-text-disabled); /* @kind color */
+  --icon-colors-dark-error-dark: var(--colors-semantic-colors-error-dark); /* @kind color */
+  --icon-colors-dark-primary-dark: var(--colors-color-mode-text-primary); /* @kind color */
+  --icon-colors-dark-secondary-dark: var(--colors-color-mode-text-secondary); /* @kind color */
+  --icon-colors-dark-success-dark: var(--colors-semantic-colors-success-dark); /* @kind color */
+  --icon-colors-dark-tertiary-dark: var(--colors-color-mode-text-tertiary); /* @kind color */
+  --icon-colors-dark-warning-dark: var(--colors-semantic-colors-warning-default); /* @kind color */
+  --icon-colors-light-brand-light: var(--colors-brand-colors-neutral-500); /* @kind color */
+  --icon-colors-light-disabled-light: var(--colors-color-mode-text-disabled); /* @kind color */
+  --icon-colors-light-error-light: var(--colors-semantic-colors-error-default); /* @kind color */
+  --icon-colors-light-primary-light: var(--colors-color-mode-text-primary); /* @kind color */
+  --icon-colors-light-secondary-light: var(--colors-color-mode-text-secondary); /* @kind color */
+  --icon-colors-light-success-light: var(--colors-semantic-colors-success-default); /* @kind color */
+  --icon-colors-light-tertiary-light: var(--colors-color-mode-text-tertiary); /* @kind color */
+  --icon-colors-light-warning-light: var(--colors-semantic-colors-warning-default); /* @kind color */
+  --icon-colors-primary: var(--brand-colors-neutral-grays-700); /* @kind color */
+  --icon-danger-default: var(--red-700); /* @kind color */
+  --icon-danger-on-danger-secondary: var(--red-700); /* @kind color */
+  --icon-danger-on-danger-tertiary: var(--red-700); /* @kind color */
+  --icon-danger-on-danger: var(--red-100); /* @kind color */
+  --icon-danger-tertiary: var(--red-500); /* @kind color */
+  --icon-default-default-2: var(--gray-900); /* @kind color */
+  --icon-default-default: var(--gray-900); /* @kind color */
+  --icon-default-secondary: var(--gray-500); /* @kind color */
+  --icon-default-tertiary: var(--gray-400); /* @kind color */
+  --icon-disabled-default: var(--gray-400); /* @kind color */
+  --icon-disabled-on-disabled: var(--gray-400); /* @kind color */
+  --icon-large: 40;
+  --icon-neutral-secondary: var(--slate-700); /* @kind color */
+  --icon-size-md: 24;
+  --icon-sizes-lg: 32;
+  --icon-sizes-md: 24;
+  --icon-sizes-sm: 16;
+  --icon-sizes-xl: 48;
+  --icon-sizes-xs: 12;
+  --icon-sizes-xxs: 8;
+  --instant-pickup-drafttime: "Select time";
+  --instant-pickup-guidance: "Required · 24/7 · UAE time (GMT+4)";
+  --instant-pickup-option-1-00-am: "1:00 AM";
+  --instant-pickup-option-1-00-pm: "1:00 PM";
+  --instant-pickup-option-1-30-am: "1:30 AM";
+  --instant-pickup-option-1-30-pm: "1:30 PM";
+  --instant-pickup-option-10-00-am: "10:00 AM";
+  --instant-pickup-option-10-00-pm: "10:00 PM";
+  --instant-pickup-option-10-30-am: "10:30 AM";
+  --instant-pickup-option-10-30-pm: "10:30 PM";
+  --instant-pickup-option-11-00-am: "11:00 AM";
+  --instant-pickup-option-11-00-pm: "11:00 PM";
+  --instant-pickup-option-11-30-am: "11:30 AM";
+  --instant-pickup-option-11-30-pm: "11:30 PM";
+  --instant-pickup-option-12-00-am: "12:00 AM";
+  --instant-pickup-option-12-00-pm: "12:00 PM";
+  --instant-pickup-option-12-30-am: "12:30 AM";
+  --instant-pickup-option-12-30-pm: "12:30 PM";
+  --instant-pickup-option-2-00-am: "2:00 AM";
+  --instant-pickup-option-2-00-pm: "2:00 PM";
+  --instant-pickup-option-2-30-am: "2:30 AM";
+  --instant-pickup-option-2-30-pm: "2:30 PM";
+  --instant-pickup-option-3-00-am: "3:00 AM";
+  --instant-pickup-option-3-00-pm: "3:00 PM";
+  --instant-pickup-option-3-30-am: "3:30 AM";
+  --instant-pickup-option-3-30-pm: "3:30 PM";
+  --instant-pickup-option-4-00-am: "4:00 AM";
+  --instant-pickup-option-4-00-pm: "4:00 PM";
+  --instant-pickup-option-4-30-am: "4:30 AM";
+  --instant-pickup-option-4-30-pm: "4:30 PM";
+  --instant-pickup-option-5-00-am: "5:00 AM";
+  --instant-pickup-option-5-00-pm: "5:00 PM";
+  --instant-pickup-option-5-30-am: "5:30 AM";
+  --instant-pickup-option-5-30-pm: "5:30 PM";
+  --instant-pickup-option-6-00-am: "6:00 AM";
+  --instant-pickup-option-6-00-pm: "6:00 PM";
+  --instant-pickup-option-6-30-am: "6:30 AM";
+  --instant-pickup-option-6-30-pm: "6:30 PM";
+  --instant-pickup-option-7-00-am: "7:00 AM";
+  --instant-pickup-option-7-00-pm: "7:00 PM";
+  --instant-pickup-option-7-30-am: "7:30 AM";
+  --instant-pickup-option-7-30-pm: "7:30 PM";
+  --instant-pickup-option-8-00-am: "8:00 AM";
+  --instant-pickup-option-8-00-pm: "8:00 PM";
+  --instant-pickup-option-8-30-am: "8:30 AM";
+  --instant-pickup-option-8-30-pm: "8:30 PM";
+  --instant-pickup-option-9-00-am: "9:00 AM";
+  --instant-pickup-option-9-00-pm: "9:00 PM";
+  --instant-pickup-option-9-30-am: "9:30 AM";
+  --instant-pickup-option-9-30-pm: "9:30 PM";
+  --instantchoicefill: var(--colors-brand-colors-primary-500); /* @kind color */
+  --instantchoicemark: 0.25;
+  --ios-primary-label: rgb(0,0,0); /* @kind color */
+  --ios-secondary-label: rgba(60,60,67,0.6); /* @kind color */
+  --ios-separator-non-opaque: rgba(84,84,86,0.34); /* @kind color */
+  --ios-system-blue: rgb(0,122,255); /* @kind color */
+  --keepdryfill: var(--colors-color-mode-backgrounds-container); /* @kind color */
+  --keepdrystroke: var(--colors-color-mode-border-default); /* @kind color */
+  --labels-primary-2: rgb(0,0,0); /* @kind color */
+  --labels-primary-3: rgb(0,0,0); /* @kind color */
+  --labels-primary: rgb(0,0,0); /* @kind color */
+  --labels-quaternary: rgba(60,60,67,0.18); /* @kind color */
+  --labels-secondary: rgba(60,60,67,0.6); /* @kind color */
+  --labels-tertiary-2: rgba(60,60,67,0.3); /* @kind color */
+  --labels-tertiary: rgba(60,60,67,0.3); /* @kind color */
+  --layout-spacing-badge-h-v: 4;
+  --layout-spacing-base-bottom-top: 8;
+  --layout-spacing-card-h-v: 2;
+  --layout-spacing-gap-4xl: 52;
+  --layout-spacing-gap-5xl: 56;
+  --layout-spacing-gap-base: 4;
+  --layout-spacing-gap-lg: 24;
+  --layout-spacing-gap-md: 16;
+  --layout-spacing-gap-sm: 12;
+  --layout-spacing-gap-xl: 32;
+  --layout-spacing-gap-xs: 8;
+  --layout-spacing-layout-gap-2: 8;
+  --layout-spacing-layout-gap: 16;
+  --layout-spacing-margin-bottom: 24;
+  --layout-spacing-padding-md-2: 24;
+  --layout-spacing-padding-md: 20;
+  --layout-spacing-padding-sm: 16;
+  --leading-leading-tight: 20;
+  --leave-it-at-the-destination-selected: "False";
+  --leaveatdoorfill: var(--colors-color-mode-backgrounds-container); /* @kind color */
+  --leaveatdoorstroke: var(--colors-color-mode-border-default); /* @kind color */
+  --light: rgb(254,202,202); /* @kind color */
+  --liquid-glass-depth-regular: 16;
+  --liquid-glass-dispersion: 0;
+  --liquid-glass-frost-regular: 7;
+  --liquid-glass-light-angle: -45;
+  --liquid-glass-refraction: 100;
+  --liquid-glass-splay-regular: 6;
+  --loc-emirate: "Abu Dhabi";
+  --macos-primary-label: rgb(0,0,0); /* @kind color */
+  --macos-secondary-label: rgba(0,0,0,0.5); /* @kind color */
+  --me-i-ll-be-there-selected: "True";
+  --miscellaneous-bar-border: rgba(0,0,0,0.3); /* @kind color */
+  --miscellaneous-floating-tab-pill-shadow: rgba(0,0,0,0.08); /* @kind color */
+  --miscellaneous-floating-tab-text-selected: var(--colors-blue-2); /* @kind color */
+  --miscellaneous-kit-section-fill-2: rgb(245,245,245); /* @kind color */
+  --miscellaneous-kit-section-fill: rgb(245,245,245); /* @kind color */
+  --miscellaneous-sidebar-fill-selected: rgb(255,255,255); /* @kind color */
+  --miscellaneous-sidebar-shadow-drag-over: rgba(0,0,0,0.2); /* @kind color */
+  --miscellaneous-sidebar-text-selected: var(--colors-blue-2); /* @kind color */
+  --mode-2: "Light";
+  --mode-3: "Light";
+  --mode-4: "Light";
+  --mode-5: "Light";
+  --mode: "Light";
+  --msg-cancelfee: "A cancellation fee of AED 120 was charged. The rest of your AED 480 hold has been released.";
+  --neutral-opaque-neutral800: rgb(68,84,111); /* @kind color */
+  --new-name: "Speedex Garage & Tyres";
+  --new-route: "Al Nahyan St, Abu Dhabi → Speedex Garage & Tyres";
+  --new-transport: "On the way to Speedex Garage & Tyres";
+  --next-cta-opacity: 100;
+  --no-i-ll-meet-you-there-selected: "True";
+  --number-2: 0;
+  --number: 1;
+  --onlinehours: "3h 15m";
+  --opacity-disabled: 40;
+  --opacity-focus: 100;
+  --opacity-full: 100;
+  --opacity-hover: 80;
+  --opacity-loading: 60;
+  --open-truck-selected: "True";
+  --ov-05a-confirm-opacity: 50;
+  --ov-05a-row1-display: "Taggo Garage · Al Aweer";
+  --ov-05a-row2-display: "Al Quoz Auto Service";
+  --ov-05a-row3-display: "Capital Motors Garage";
+  --overlay: rgba(0,0,0,0.005); /* @kind color */
+  --overlays-activity-view-controller: rgba(0,0,0,0.2); /* @kind color */
+  --padding-md: 12;
+  --padding-sm: 8;
+  --paidwith: "Visa ···· 4242";
+  --paidwithmeta: "Visa ···· 4242 · 17 Sep · 15:04";
+  --pay-line: "AED 480 · Taggo Wallet";
+  --pay-paid: "Paid with Taggo Wallet";
+  --payment-2: "Visa •••• 8821";
+  --payment-draft-selection: "Visa •••• 8821";
+  --payment-return-to: "live";
+  --payment-selection-0: var(--colors-brand-colors-neutral-50); /* @kind color */
+  --payment-selection-1: var(--colors-brand-colors-primary-500); /* @kind color */
+  --payment-selection-2: var(--colors-brand-colors-neutral-50); /* @kind color */
+  --payment: "Visa •••• 8821";
+  --paymentmethod: "Visa •••• 8821";
+  --paymentstate-selectedamount: 0;
+  --periodlabel: "Today";
+  --picker-return: "vehicle";
+  --pickerreturn: "cargo";
+  --pickup-2: "Sun, 13 Sep • 10:00 AM";
+  --pickup-date-2: "Fri, 11 Sep 2026";
+  --pickup-date: "Fri, 11 Sep 2026";
+  --pickup-selection-draftdate-fri-18-sep-2026: var(--colors-brand-colors-neutral-100); /* @kind color */
+  --pickup-selection-draftdate-fri-25-sep-2026: var(--colors-brand-colors-neutral-100); /* @kind color */
+  --pickup-selection-draftdate-mon-21-sep-2026: var(--colors-brand-colors-neutral-100); /* @kind color */
+  --pickup-selection-draftdate-mon-28-sep-2026: var(--colors-brand-colors-neutral-100); /* @kind color */
+  --pickup-selection-draftdate-sat-19-sep-2026: var(--colors-brand-colors-neutral-100); /* @kind color */
+  --pickup-selection-draftdate-sat-26-sep-2026: var(--colors-brand-colors-neutral-100); /* @kind color */
+  --pickup-selection-draftdate-sun-20-sep-2026: var(--colors-brand-colors-neutral-100); /* @kind color */
+  --pickup-selection-draftdate-sun-27-sep-2026: var(--colors-brand-colors-neutral-100); /* @kind color */
+  --pickup-selection-draftdate-thu-17-sep-2026: var(--colors-brand-colors-neutral-100); /* @kind color */
+  --pickup-selection-draftdate-thu-24-sep-2026: var(--colors-brand-colors-neutral-100); /* @kind color */
+  --pickup-selection-draftdate-tue-15-sep-2026: var(--colors-brand-colors-primary-500); /* @kind color */
+  --pickup-selection-draftdate-tue-22-sep-2026: var(--colors-brand-colors-neutral-100); /* @kind color */
+  --pickup-selection-draftdate-tue-29-sep-2026: var(--colors-brand-colors-neutral-100); /* @kind color */
+  --pickup-selection-draftdate-wed-16-sep-2026: var(--colors-brand-colors-neutral-100); /* @kind color */
+  --pickup-selection-draftdate-wed-23-sep-2026: var(--colors-brand-colors-neutral-100); /* @kind color */
+  --pickup-selection-draftdate-wed-30-sep-2026: var(--colors-brand-colors-neutral-100); /* @kind color */
+  --pickup-selection-drafttime-1-00-pm: var(--colors-brand-colors-neutral-100); /* @kind color */
+  --pickup-selection-drafttime-1-30-pm: var(--colors-brand-colors-neutral-100); /* @kind color */
+  --pickup-selection-drafttime-10-00-am: var(--colors-brand-colors-neutral-100); /* @kind color */
+  --pickup-selection-drafttime-10-30-am: var(--colors-brand-colors-neutral-100); /* @kind color */
+  --pickup-selection-drafttime-11-00-am: var(--colors-brand-colors-neutral-100); /* @kind color */
+  --pickup-selection-drafttime-11-30-am: var(--colors-brand-colors-neutral-100); /* @kind color */
+  --pickup-selection-drafttime-12-00-pm: var(--colors-brand-colors-neutral-100); /* @kind color */
+  --pickup-selection-drafttime-12-30-pm: var(--colors-brand-colors-neutral-100); /* @kind color */
+  --pickup-selection-drafttime-2-00-pm: var(--colors-brand-colors-neutral-100); /* @kind color */
+  --pickup-selection-drafttime-2-30-pm: var(--colors-brand-colors-neutral-100); /* @kind color */
+  --pickup-selection-drafttime-3-00-pm: var(--colors-brand-colors-neutral-100); /* @kind color */
+  --pickup-selection-drafttime-3-30-pm: var(--colors-brand-colors-neutral-100); /* @kind color */
+  --pickup-selection-drafttime-4-00-pm: var(--colors-brand-colors-neutral-100); /* @kind color */
+  --pickup-selection-drafttime-4-30-pm: var(--colors-brand-colors-neutral-100); /* @kind color */
+  --pickup-selection-drafttime-5-00-pm: var(--colors-brand-colors-neutral-100); /* @kind color */
+  --pickup-selection-drafttime-5-30-pm: var(--colors-brand-colors-neutral-100); /* @kind color */
+  --pickup-selection-drafttime-6-00-pm: var(--colors-brand-colors-neutral-100); /* @kind color */
+  --pickup-selection-drafttime-6-30-pm: var(--colors-brand-colors-neutral-100); /* @kind color */
+  --pickup-selection-drafttime-8-00-am: var(--colors-brand-colors-neutral-100); /* @kind color */
+  --pickup-selection-drafttime-8-30-am: var(--colors-brand-colors-neutral-100); /* @kind color */
+  --pickup-selection-drafttime-9-00-am: var(--colors-brand-colors-primary-500); /* @kind color */
+  --pickup-selection-drafttime-9-30-am: var(--colors-brand-colors-neutral-100); /* @kind color */
+  --pickup-selection-label-draftdate-fri-18-sep-2026: "Fri, 18 Sep";
+  --pickup-selection-label-draftdate-fri-25-sep-2026: "Fri, 25 Sep";
+  --pickup-selection-label-draftdate-mon-21-sep-2026: "Mon, 21 Sep";
+  --pickup-selection-label-draftdate-mon-28-sep-2026: "Mon, 28 Sep";
+  --pickup-selection-label-draftdate-sat-19-sep-2026: "Sat, 19 Sep";
+  --pickup-selection-label-draftdate-sat-26-sep-2026: "Sat, 26 Sep";
+  --pickup-selection-label-draftdate-sun-20-sep-2026: "Sun, 20 Sep";
+  --pickup-selection-label-draftdate-sun-27-sep-2026: "Sun, 27 Sep";
+  --pickup-selection-label-draftdate-thu-17-sep-2026: "Thu, 17 Sep";
+  --pickup-selection-label-draftdate-thu-24-sep-2026: "Thu, 24 Sep";
+  --pickup-selection-label-draftdate-tue-15-sep-2026: "✓ Tue, 15 Sep";
+  --pickup-selection-label-draftdate-tue-22-sep-2026: "Tue, 22 Sep";
+  --pickup-selection-label-draftdate-tue-29-sep-2026: "Tue, 29 Sep";
+  --pickup-selection-label-draftdate-wed-16-sep-2026: "Wed, 16 Sep";
+  --pickup-selection-label-draftdate-wed-23-sep-2026: "Wed, 23 Sep";
+  --pickup-selection-label-draftdate-wed-30-sep-2026: "Wed, 30 Sep";
+  --pickup-selection-label-drafttime-1-00-pm: "1:00 PM";
+  --pickup-selection-label-drafttime-1-30-pm: "1:30 PM";
+  --pickup-selection-label-drafttime-10-00-am: "10:00 AM";
+  --pickup-selection-label-drafttime-10-30-am: "10:30 AM";
+  --pickup-selection-label-drafttime-11-00-am: "11:00 AM";
+  --pickup-selection-label-drafttime-11-30-am: "11:30 AM";
+  --pickup-selection-label-drafttime-12-00-pm: "12:00 PM";
+  --pickup-selection-label-drafttime-12-30-pm: "12:30 PM";
+  --pickup-selection-label-drafttime-2-00-pm: "2:00 PM";
+  --pickup-selection-label-drafttime-2-30-pm: "2:30 PM";
+  --pickup-selection-label-drafttime-3-00-pm: "3:00 PM";
+  --pickup-selection-label-drafttime-3-30-pm: "3:30 PM";
+  --pickup-selection-label-drafttime-4-00-pm: "4:00 PM";
+  --pickup-selection-label-drafttime-4-30-pm: "4:30 PM";
+  --pickup-selection-label-drafttime-5-00-pm: "5:00 PM";
+  --pickup-selection-label-drafttime-5-30-pm: "5:30 PM";
+  --pickup-selection-label-drafttime-6-00-pm: "6:00 PM";
+  --pickup-selection-label-drafttime-6-30-pm: "6:30 PM";
+  --pickup-selection-label-drafttime-8-00-am: "8:00 AM";
+  --pickup-selection-label-drafttime-8-30-am: "8:30 AM";
+  --pickup-selection-label-drafttime-9-00-am: "✓ 9:00 AM";
+  --pickup-selection-label-drafttime-9-30-am: "9:30 AM";
+  --pickup-summary-2: "Now";
+  --pickup-summary: "Fri, 11 Sep · 9:00 AM";
+  --pickup-time-2: "9:00 AM";
+  --pickup-time: "9:00 AM";
+  --pickup: "Al Nahyan, Abu Dhabi";
+  --pickupdate: "Tue, 15 Sep 2026";
+  --pickupmode: "Scheduled pickup";
+  --pickuptime: "9:00 AM";
+  --plans-selected-plan: "silver";
+  --precision: 0;
+  --primary: rgb(255,255,255); /* @kind color */
+  --primarybtn-all: var(--colors-brand-colors-primary-500); /* @kind color */
+  --prioritychoicefill: var(--colors-color-mode-backgrounds-container); /* @kind color */
+  --prioritychoicemark: 0.25;
+  --q1-no-stroke: rgb(229,229,229); /* @kind color */
+  --q1-yes-stroke: rgb(229,229,229); /* @kind color */
+  --q2-no-stroke: rgb(229,229,229); /* @kind color */
+  --q2-yes-stroke: rgb(229,229,229); /* @kind color */
+  --quantity-2: 1;
+  --quantity: 1;
+  --quantitylabel-2: "1";
+  --quantitylabel: "1";
+  --radius-100: 4;
+  --radius-200: 8;
+  --radius-400: 16;
+  --radius-pill: 999;
+  --rb01-next-opacity: 40;
+  --rcpt-total: "AED 480";
+  --reason-helper: "Choose one reason to continue.";
+  --reason-selection-1: "Default";
+  --reason-selection-2: "Default";
+  --reason-selection-3: "Default";
+  --reason-selection-4: "Default";
+  --reason-selection-5: "Default";
+  --received: "Not recorded";
+  --receiveraddress: "Enter delivery address";
+  --receiveremirate: "Dubai";
+  --receivername: "Full name";
+  --receiverphone: "Phone number";
+  --red-1000: rgb(48,6,3); /* @kind color */
+  --red-100: rgb(254,233,231); /* @kind color */
+  --red-200: rgb(253,211,208); /* @kind color */
+  --red-400: rgb(244,119,106); /* @kind color */
+  --red-500-2: rgb(236,34,31); /* @kind color */
+  --red-500: rgb(236,34,31); /* @kind color */
+  --red-600-2: rgb(192,15,12); /* @kind color */
+  --red-600: rgb(192,15,12); /* @kind color */
+  --red-700: rgb(144,11,9); /* @kind color */
+  --red-800: rgb(105,8,7); /* @kind color */
+  --red-900: rgb(77,11,10); /* @kind color */
+  --rentalvehicleslist-btnbg-dark: var(--button-states-secondary-dark-hover-dark); /* @kind color */
+  --rentalvehicleslist-btnbg-light: var(--button-states-secondary-light-hover-light); /* @kind color */
+  --rentalvehicleslist-btntext-dark: var(--colors-color-mode-text-inverse); /* @kind color */
+  --rentalvehicleslist-btntext-light: var(--colors-color-mode-text-disabled); /* @kind color */
+  --rentalvehicleslist-selectedbodytype: "All";
+  --rentalvehicleslist-selectedbrand: "All";
+  --rentalvehicleslist-selectedfuel: "All";
+  --reschedulereason: "No reason added";
+  --return-to-ride: "arrived";
+  --ringdoorbellfill: var(--colors-color-mode-backgrounds-container); /* @kind color */
+  --ringdoorbellstroke: var(--colors-color-mode-border-default); /* @kind color */
+  --runs-and-drives-selected: "False";
+  --savedpickupdate: "Sun, 13 Sep";
+  --savedpickuptime: "10:00 AM";
+  --scale-03: 16;
+  --scale-06: 32;
+  --scale-07: 40;
+  --scheduledchoicefill: var(--colors-brand-colors-neutral-100); /* @kind color */
+  --scheduledchoicemark: 1;
+  --schedulereturn: "options";
+  --scheduletarget: "pickup";
+  --schemes-on-background: rgb(29,27,32); /* @kind color */
+  --schemes-on-error: rgb(255,255,255); /* @kind color */
+  --schemes-on-surface: rgb(29,27,32); /* @kind color */
+  --schemes-outline-variant: rgb(202,196,208); /* @kind color */
+  --schemes-primary: rgb(103,80,164); /* @kind color */
+  --schemes-secondary-container: rgb(232,222,248); /* @kind color */
+  --secondary: rgb(248,250,252); /* @kind color */
+  --selall: "false";
+  --selcustom: "false";
+  --select-bentayga-border: rgba(0,0,0,0); /* @kind color */
+  --select-bentayga-label: "Bentayga";
+  --select-bmw-7-border: rgba(0,0,0,0); /* @kind color */
+  --select-bmw-7-label: "BMW 7";
+  --select-ghost-border: rgba(0,0,0,0); /* @kind color */
+  --select-ghost-label: "Ghost";
+  --select-maybach-border: rgba(0,0,0,0); /* @kind color */
+  --select-maybach-label: "Maybach";
+  --select-range-rover-border: var(--colors-brand-colors-primary-400); /* @kind color */
+  --select-range-rover-label: "✓ Range Rover";
+  --selected-dropoff-emirate: "Select emirate";
+  --selected-dropoff-name: "Where should we take it?";
+  --selected-pickup-emirate: "Abu Dhabi";
+  --selected-rating: "0";
+  --selected-reason: "Plans changed";
+  --selected-receiver: "Me — I’ll be there";
+  --selected-ride-along: "No — I’ll meet you there";
+  --selected-truck-type: "Open truck";
+  --selected-vehicle-condition: "Won’t start, but rolls and steers";
+  --selected-vehicle-size: "SUV";
+  --selecteddaylabel: "Sat, 19 Sep";
+  --selecteddaylong: "Sat, 19 Sep 2026";
+  --selectedpayment: rgb(240,221,80); /* @kind color */
+  --selectedperiod: "today";
+  --selectedtimelabel: "12:00 PM";
+  --selmonth: "false";
+  --seltoday: "true";
+  --selweek: "false";
+  --semantic-spacing-aliases-spacing-lg: 24;
+  --semantic-spacing-aliases-spacing-md: 16;
+  --semantic-spacing-aliases-spacing-xl: 32;
+  --senderaddress: "Enter pickup address";
+  --senderemirate: "Abu Dhabi";
+  --sendername: "Full name";
+  --senderphone: "Phone number";
+  --separator-separator: rgb(198,198,200); /* @kind color */
+  --separators-non-opaque: rgba(84,84,86,0.34); /* @kind color */
+  --service: "Standard";
+  --servicefee: "AED 27.00";
+  --signaturerequiredfill: var(--colors-color-mode-backgrounds-container); /* @kind color */
+  --signaturerequiredstroke: var(--colors-color-mode-border-default); /* @kind color */
+  --size-text-sm: 14;
+  --size-text-xs: 12;
+  --slate-1000: rgb(36,36,36); /* @kind color */
+  --slate-100: rgb(243,243,243); /* @kind color */
+  --slate-200: rgb(227,227,227); /* @kind color */
+  --slate-300: rgb(205,205,205); /* @kind color */
+  --slate-500: rgb(148,148,148); /* @kind color */
+  --slate-600: rgb(118,118,118); /* @kind color */
+  --slate-700: rgb(90,90,90); /* @kind color */
+  --slate-900: rgb(48,48,48); /* @kind color */
+  --someone-else-selected: "False";
+  --sos-label: "Share my live location";
+  --space-100: 4;
+  --space-150: 6;
+  --space-200: 8;
+  --space-300: 12;
+  --space-400: 16;
+  --spacing-0: 0;
+  --standardchoicefill: var(--colors-brand-colors-primary-500); /* @kind color */
+  --standardchoicemark: 1;
+  --star-1-glyph: "☆";
+  --star-2-glyph: "☆";
+  --star-3-glyph: "☆";
+  --star-4-glyph: "☆";
+  --star-5-glyph: "☆";
+  --state-layers-primary-container-opacity-16: rgba(234,221,255,0.16); /* @kind color */
+  --static-body-large-font: var(--static-font-plain);
+  --static-body-large-line-height: 24;
+  --static-body-large-size: 16;
+  --static-body-large-tracking: 0.5;
+  --static-body-large-weight: var(--static-weight-regular);
+  --static-body-medium-line-height: 20;
+  --static-body-small-font: var(--static-font-plain);
+  --static-body-small-line-height: 16;
+  --static-body-small-size: 12;
+  --static-body-small-tracking: 0.4;
+  --static-body-small-weight: var(--static-weight-regular);
+  --static-display-small-line-height: 44;
+  --static-font-plain: "Roboto";
+  --static-headline-large-tracking: 0;
+  --static-headline-large-weight: var(--static-weight-regular);
+  --static-label-small-font: var(--static-font-plain);
+  --static-label-small-line-height: 16;
+  --static-label-small-size: 11;
+  --static-label-small-tracking: 0.5;
+  --static-label-small-weight: var(--static-weight-medium);
+  --static-weight-medium: "Medium";
+  --static-weight-regular: "Regular";
+  --status-warning-bg: rgb(254,243,199); /* @kind color */
+  --status-warning: rgb(180,83,9); /* @kind color */
+  --string-2: "String value";
+  --string: "Variant2";
+  --stroke-border: 1;
+  --stroke-focus-ring: 2;
+  --subcomponent-fill: rgb(170,170,170); /* @kind color */
+  --subcomponent-stroke: rgba(0,0,0,0.4); /* @kind color */
+  --support-message: "Choose an issue before sending.";
+  --support-reason: "";
+  --suv-selected: "True";
+  --svc-cta: "Confirm Towing";
+  --svc-status: "Towing selected — ready to continue";
+  --taxlabel: "AED 1.35";
+  --tertiary: rgb(241,245,249); /* @kind color */
+  --text-base-body-texts-buttons-font-size: 16;
+  --text-base-body-texts-buttons-font-weight: 400;
+  --text-base-body-texts-buttons-line-height: 24;
+  --text-brand-default: var(--brand-800); /* @kind color */
+  --text-brand-on-brand: var(--brand-100); /* @kind color */
+  --text-danger-default: var(--red-700); /* @kind color */
+  --text-danger-on-danger-tertiary: var(--red-700); /* @kind color */
+  --text-danger-on-danger: var(--red-100); /* @kind color */
+  --text-default-default: var(--gray-900); /* @kind color */
+  --text-default-secondary: var(--gray-500); /* @kind color */
+  --text-disabled-default: var(--gray-400); /* @kind color */
+  --text-disabled-on-disabled: var(--gray-400); /* @kind color */
+  --text-lg-section-headings-font-size: 24;
+  --text-lg-section-headings-font-weight: 600;
+  --text-lg-section-headings-line-height: 32;
+  --text-md-form-titles-font-size: 18;
+  --text-md-form-titles-font-weight: 500;
+  --text-md-form-titles-line-height: 28;
+  --text-neutral-default: var(--slate-900); /* @kind color */
+  --text-primary-label: rgb(0,0,0); /* @kind color */
+  --text-primary: rgb(20,24,31); /* @kind color */
+  --text-secondary-label: rgba(60,60,67,0.6); /* @kind color */
+  --text-secondary: rgb(107,114,128); /* @kind color */
+  --text-sm-descriptions-notes-font-size: 14;
+  --text-sm-descriptions-notes-font-weight: 400;
+  --text-sm-descriptions-notes-line-height: 20;
+  --text-styles-with-variable-font: var(--font-text-primary); /* @kind color */
+  --text-xl-page-title-font-size: 32;
+  --text-xl-page-title-font-weight: 700;
+  --text-xl-page-title-line-height: 40;
+  --text-xs-helper-texts-labels-font-size: 12;
+  --text-xs-helper-texts-labels-font-weight: 400;
+  --text-xs-helper-texts-labels-line-height: 16;
+  --text: "\"\"";
+  --thissideupfill: var(--colors-color-mode-backgrounds-container); /* @kind color */
+  --thissideupstroke: var(--colors-color-mode-border-default); /* @kind color */
+  --timing-later-fill: rgba(0,0,0,0); /* @kind color */
+  --timing-now-fill: rgb(240,221,80); /* @kind color */
+  --tip-amount-2: 0;
+  --tip-amount: "AED 35.00";
+  --tip-confirmed-amount: "0";
+  --tip-confirmed-total: "45";
+  --tip-label: "0";
+  --tip-total-label: "45";
+  --total-fare: "AED 180.00";
+  --total-paid: "AED 215.00";
+  --totalamounttext: "AED 28.35";
+  --totalearnings: "184.50";
+  --totallabel: "AED 28.35";
+  --tracking-banner: "";
+  --tracking-money: "AED 437 · held, nothing charged";
+  --tracking-photo-caption: "";
+  --tracking-primary-label: "";
+  --tracking-secondary-label: "Cancel — free";
+  --tracking-stamp: "Updated just now";
+  --tracking-subtitle: "Usually under 3 minutes · 3 trucks contacted";
+  --tracking-title: "Finding you a truck";
+  --tracking-tone: "Brand";
+  --trackingmessage: "Driver details will appear here once a pickup driver is assigned.";
+  --trackingstage: "Pickup";
+  --trackingstatus: "Pickup scheduled";
+  --triphistory-selectedtab: "Active";
+  --truck-selected: "False";
+  --typography-font-family-heading: "Sf Pro";
+  --typography-font-family-mono: "Sf Mono";
+  --typography-font-family-primary: "Sf Pro Display";
+  --typography-font-family-secondary: "Sf Pro Text";
+  --typography-font-sizes-body-lg: 18;
+  --typography-font-sizes-body-md: 16;
+  --typography-font-sizes-body-sm: 14;
+  --typography-font-sizes-card-body: 14;
+  --typography-font-sizes-card-caption: 8;
+  --typography-font-sizes-card-meta-size: 12;
+  --typography-font-sizes-card-sub-title: 14;
+  --typography-font-sizes-card-title: 16;
+  --typography-font-sizes-heading-heading-1: var(--text-xl-page-title-font-size);
+  --typography-font-sizes-heading-heading-2: var(--text-lg-section-headings-font-size);
+  --typography-font-sizes-heading-heading-3: 20;
+  --typography-font-sizes-heading-heading-4: 18;
+  --typography-font-sizes-specialized-badge-btn-text: 11;
+  --typography-font-sizes-specialized-button-size: 16;
+  --typography-font-sizes-specialized-caption: 12;
+  --typography-font-sizes-specialized-input-size: 16;
+  --typography-font-sizes-specialized-overline: 12;
+  --typography-font-weights-bold: 700;
+  --typography-font-weights-extrabold: 800;
+  --typography-font-weights-light: 300;
+  --typography-font-weights-medium: 500;
+  --typography-font-weights-regular: 400;
+  --typography-font-weights-semibold: 600;
+  --typography-letter-spacing-body: 0;
+  --typography-letter-spacing-button: 0.5;
+  --typography-letter-spacing-caption: 0.25;
+  --typography-letter-spacing-card-title: -1;
+  --typography-letter-spacing-heading: -0.5;
+  --typography-letter-spacing-sub-heading: -0.3;
+  --typography-line-height-body: 1.5;
+  --typography-line-height-caption: 1.4;
+  --typography-line-height-heading-1: 1.2;
+  --typography-line-height-heading-2: 1.25;
+  --typography-line-height-heading-3: 1.3;
+  --typography-line-height-heading-4: 1.35;
+  --ui-autolabel: "Auto-advance: On";
+  --vehicle-comfort-border: var(--colors-brand-colors-primary-400); /* @kind color */
+  --vehicle-comfort-label: "✓ Comfort";
+  --vehicle-economy-border: rgba(0,0,0,0); /* @kind color */
+  --vehicle-economy-label: "Economy";
+  --vehicle-name: "Range Rover";
+  --vehicle-plate: "Land Rover Range Rover — Black (AD 41207)";
+  --vehicle-premium-border: rgba(0,0,0,0); /* @kind color */
+  --vehicle-premium-label: "Premium";
+  --vehicle-summary: "Range Rover · 4 seats";
+  --vehicle: "Comfort · 4 seats";
+  --walletbalance: "114.50";
+  --weight-0-fill: var(--colors-color-mode-text-primary); /* @kind color */
+  --weight-0-text: var(--colors-color-mode-backgrounds-container); /* @kind color */
+  --weight-1-fill: var(--colors-brand-colors-neutral-50); /* @kind color */
+  --weight-1-text: var(--colors-color-mode-text-primary); /* @kind color */
+  --weight-2-fill: var(--colors-brand-colors-neutral-50); /* @kind color */
+  --weight-2-text: var(--colors-color-mode-text-primary); /* @kind color */
+  --weight-font-normal: 400;
+  --weight-highlight-20-50-kg: var(--colors-brand-colors-neutral-50); /* @kind color */
+  --weight-highlight-5-20-kg: var(--colors-brand-colors-neutral-50); /* @kind color */
+  --weight-highlight-custom: var(--colors-brand-colors-neutral-50); /* @kind color */
+  --weight-highlight-under-5-kg: var(--colors-brand-colors-primary-50); /* @kind color */
+  --weight-regular: 400;
+  --weight-semibold: 600;
+  --weight: "Weight: Under 5 kg";
+  --wheels-won-t-turn-selected: "False";
+  --white-1000-2: rgb(255,255,255); /* @kind color */
+  --white-1000: rgb(255,255,255); /* @kind color */
+  --white-100: rgb(255,255,255); /* @kind color */
+  --white-200: rgb(255,255,255); /* @kind color */
+  --white-400: rgba(255,255,255,0.4); /* @kind color */
+  --white-500-2: rgba(255,255,255,0.7); /* @kind color */
+  --white-500: rgb(255,255,255); /* @kind color */
+  --white-50: rgb(255,255,255); /* @kind color */
+  --won-t-start-but-rolls-and-steers-selected: "True";
+  --yellow-500: rgb(240,221,80); /* @kind color */
+  --yellow-900: rgb(61,55,5); /* @kind color */
+  --yes-just-me-selected: "False";
+  --yes-me-and-others-selected: "False";
+}
+
+:root[data-mode="desktop"] {
+  --font-family-display: "sf pro";
+  --font-family-mono: "sf pro";
+  --font-family-primary: "Space Grotesk";
+  --font-family-secondary: "Dm Sans";
+  --font-letter-spacing-normal: 0;
+  --font-line-height-md: 32;
+  --font-line-height-sm: 24;
+  --font-line-height-xs: 16;
+  --font-size-2xl: 32;
+  --font-size-3xl: 40;
+  --font-size-4xl: 48;
+  --font-size-base: 16;
+  --font-size-lg: 20;
+  --font-size-md: 18;
+  --font-size-sm: 16;
+  --font-size-xl: 24;
+  --font-size-xs: 12;
+  --font-text-disabled: rgb(255,255,255); /* @kind color */
+  --font-text-primary: rgb(255,255,255); /* @kind color */
+  --font-text-tertiary: rgb(255,255,255); /* @kind color */
+  --font-weight-bold: "Bold";
+  --font-weight-extrabold: "Bold";
+  --font-weight-light: "Light";
+  --font-weight-regular: "Regular";
+  --font-weight-semibold: "Bold";
+}
+
+:root[data-theme="dark"], .dark {
+  --background-brand-default-2: var(--brand-100); /* @kind color */
+  --background-brand-default: var(--brand-100); /* @kind color */
+  --background-brand-hover: var(--brand-300); /* @kind color */
+  --background-danger-default-2: var(--red-600); /* @kind color */
+  --background-danger-default: var(--red-600); /* @kind color */
+  --background-danger-hover: var(--red-700); /* @kind color */
+  --background-danger-secondary: var(--red-800); /* @kind color */
+  --background-danger-tertiary-hover: var(--red-1000); /* @kind color */
+  --background-danger-tertiary: var(--red-900); /* @kind color */
+  --background-default-default-hover: var(--gray-700); /* @kind color */
+  --background-default-default: var(--gray-900); /* @kind color */
+  --background-default-secondary-hover: var(--gray-900); /* @kind color */
+  --background-default-secondary: var(--gray-800); /* @kind color */
+  --background-disabled-default: var(--gray-700); /* @kind color */
+  --background-neutral-tertiary-hover: var(--slate-1000); /* @kind color */
+  --background-neutral-tertiary: var(--slate-900); /* @kind color */
+  --backgrounds-grouped-secondary: rgb(28,28,30); /* @kind color */
+  --backgrounds-grouped-secondary: rgb(36,36,38); /* @kind color */
+  --backgrounds-grouped-secondary: rgb(44,44,46); /* @kind color */
+  --backgrounds-grouped-secondary: rgb(54,54,56); /* @kind color */
+  --backgrounds-primary: rgb(0,0,0); /* @kind color */
+  --backgrounds-primary: rgb(0,0,0); /* @kind color */
+  --backgrounds-primary: rgb(28,28,30); /* @kind color */
+  --backgrounds-primary: rgb(36,36,38); /* @kind color */
+  --border-brand-default: var(--brand-100); /* @kind color */
+  --border-brand-tertiary: var(--brand-400); /* @kind color */
+  --border-danger-default: var(--red-200); /* @kind color */
+  --border-danger-secondary: var(--red-400); /* @kind color */
+  --border-danger-tertiary: var(--red-500); /* @kind color */
+  --border-default-default: var(--gray-600); /* @kind color */
+  --border-default-secondary: var(--gray-500); /* @kind color */
+  --border-disabled-default: var(--gray-600); /* @kind color */
+  --border-neutral-default: var(--slate-100); /* @kind color */
+  --border-neutral-secondary: var(--slate-500); /* @kind color */
+  --color-icon-default: var(--darkneutral-opaque-darkneutral800); /* @kind color */
+  --colors-blue-2: rgb(10,132,255); /* @kind color */
+  --colors-blue-2: rgb(10,132,255); /* @kind color */
+  --colors-blue-2: rgb(64,156,255); /* @kind color */
+  --colors-blue-2: rgb(64,156,255); /* @kind color */
+  --colors-blue-3: rgb(0,145,255); /* @kind color */
+  --colors-blue-3: rgb(92,184,255); /* @kind color */
+  --colors-blue: rgb(10,132,255); /* @kind color */
+  --colors-blue: rgb(10,132,255); /* @kind color */
+  --colors-green: rgb(48,209,88); /* @kind color */
+  --colors-green: rgb(48,209,88); /* @kind color */
+  --colors-green: rgb(48,219,91); /* @kind color */
+  --colors-green: rgb(48,219,91); /* @kind color */
+  --colors-orange: rgb(255,159,10); /* @kind color */
+  --colors-orange: rgb(255,159,10); /* @kind color */
+  --colors-orange: rgb(255,179,64); /* @kind color */
+  --colors-orange: rgb(255,179,64); /* @kind color */
+  --colors-red: rgb(255,105,97); /* @kind color */
+  --colors-red: rgb(255,105,97); /* @kind color */
+  --colors-red: rgb(255,69,58); /* @kind color */
+  --colors-red: rgb(255,69,58); /* @kind color */
+  --confirm-with-side-button-confirm-with-side-button-translucent-blue: rgba(10,132,255,0.2); /* @kind color */
+  --confirm-with-side-button-system-blue-2: rgb(10,132,255); /* @kind color */
+  --confirm-with-side-button-system-blue: rgb(10,132,255); /* @kind color */
+  --fill-card-background: rgb(38,37,38); /* @kind color */
+  --fill-icon-background: rgb(65,65,65); /* @kind color */
+  --fill-section-background: rgb(49,49,49); /* @kind color */
+  --fill-tertiary-fill-color: rgba(116,116,128,0.24); /* @kind color */
+  --fills-quaternary: rgba(120,120,128,0.18); /* @kind color */
+  --fills-quaternary: rgba(120,120,128,0.18); /* @kind color */
+  --fills-quaternary: rgba(120,120,128,0.26); /* @kind color */
+  --fills-quaternary: rgba(120,120,128,0.26); /* @kind color */
+  --fills-secondary: rgba(120,120,128,0.32); /* @kind color */
+  --fills-secondary: rgba(120,120,128,0.32); /* @kind color */
+  --fills-secondary: rgba(120,120,128,0.4); /* @kind color */
+  --fills-secondary: rgba(120,120,128,0.4); /* @kind color */
+  --fills-tertiary: rgba(120,120,128,0.24); /* @kind color */
+  --fills-tertiary: rgba(120,120,128,0.24); /* @kind color */
+  --fills-tertiary: rgba(120,120,128,0.32); /* @kind color */
+  --fills-tertiary: rgba(120,120,128,0.32); /* @kind color */
+  --grays-black: rgb(0,0,0); /* @kind color */
+  --grays-black: rgb(0,0,0); /* @kind color */
+  --grays-black: rgb(0,0,0); /* @kind color */
+  --grays-black: rgb(0,0,0); /* @kind color */
+  --grays-gray: rgb(142,142,147); /* @kind color */
+  --grays-gray: rgb(142,142,147); /* @kind color */
+  --grays-gray: rgb(174,174,178); /* @kind color */
+  --grays-gray: rgb(174,174,178); /* @kind color */
+  --grays-white-2: rgb(255,255,255); /* @kind color */
+  --grays-white-2: rgb(255,255,255); /* @kind color */
+  --grays-white: rgb(255,255,255); /* @kind color */
+  --grays-white: rgb(255,255,255); /* @kind color */
+  --grays-white: rgb(255,255,255); /* @kind color */
+  --grays-white: rgb(255,255,255); /* @kind color */
+  --home-indicator-home-indicator: rgb(255,255,255); /* @kind color */
+  --icon-brand-default: var(--brand-100); /* @kind color */
+  --icon-brand-on-brand: var(--brand-900); /* @kind color */
+  --icon-danger-default: var(--red-200); /* @kind color */
+  --icon-danger-on-danger-secondary: var(--red-100); /* @kind color */
+  --icon-danger-on-danger-tertiary: var(--red-100); /* @kind color */
+  --icon-danger-on-danger: var(--red-100); /* @kind color */
+  --icon-danger-tertiary: var(--red-500); /* @kind color */
+  --icon-default-default-2: var(--white-1000); /* @kind color */
+  --icon-default-default: var(--white-1000); /* @kind color */
+  --icon-default-secondary: var(--white-500-2); /* @kind color */
+  --icon-default-tertiary: var(--white-400); /* @kind color */
+  --icon-disabled-default: var(--gray-500); /* @kind color */
+  --icon-disabled-on-disabled: var(--gray-400); /* @kind color */
+  --icon-neutral-secondary: var(--slate-300); /* @kind color */
+  --ios-primary-label: rgb(255,255,255); /* @kind color */
+  --ios-primary-label: rgb(255,255,255); /* @kind color */
+  --ios-secondary-label: rgba(235,235,245,0.6); /* @kind color */
+  --ios-secondary-label: rgba(235,235,245,0.6); /* @kind color */
+  --ios-separator-non-opaque: rgba(84,84,86,0.6); /* @kind color */
+  --ios-separator-non-opaque: rgba(84,84,86,0.6); /* @kind color */
+  --ios-system-blue: rgb(10,132,255); /* @kind color */
+  --ios-system-blue: rgb(10,132,255); /* @kind color */
+  --labels-primary-2: rgb(255,255,255); /* @kind color */
+  --labels-primary-2: rgb(255,255,255); /* @kind color */
+  --labels-primary-2: rgb(255,255,255); /* @kind color */
+  --labels-primary-2: rgb(255,255,255); /* @kind color */
+  --labels-primary-3: rgb(255,255,255); /* @kind color */
+  --labels-primary-3: rgb(255,255,255); /* @kind color */
+  --labels-primary: rgb(255,255,255); /* @kind color */
+  --labels-primary: rgb(255,255,255); /* @kind color */
+  --labels-quaternary: rgba(235,235,245,0.16); /* @kind color */
+  --labels-quaternary: rgba(235,235,245,0.16); /* @kind color */
+  --labels-quaternary: rgba(235,235,245,0.4); /* @kind color */
+  --labels-quaternary: rgba(235,235,245,0.4); /* @kind color */
+  --labels-secondary: rgba(235,235,245,0.6); /* @kind color */
+  --labels-secondary: rgba(235,235,245,0.6); /* @kind color */
+  --labels-secondary: rgba(235,235,245,0.7); /* @kind color */
+  --labels-secondary: rgba(235,235,245,0.7); /* @kind color */
+  --labels-tertiary-2: rgba(235,235,245,0.3); /* @kind color */
+  --labels-tertiary-2: rgba(235,235,245,0.55); /* @kind color */
+  --labels-tertiary: rgba(235,235,245,0.3); /* @kind color */
+  --labels-tertiary: rgba(235,235,245,0.3); /* @kind color */
+  --labels-tertiary: rgba(235,235,245,0.55); /* @kind color */
+  --labels-tertiary: rgba(235,235,245,0.55); /* @kind color */
+  --macos-primary-label: rgb(255,255,255); /* @kind color */
+  --macos-primary-label: rgb(255,255,255); /* @kind color */
+  --macos-secondary-label: rgba(255,255,255,0.55); /* @kind color */
+  --macos-secondary-label: rgba(255,255,255,0.55); /* @kind color */
+  --miscellaneous-bar-border: rgba(255,255,255,0.15); /* @kind color */
+  --miscellaneous-bar-border: rgba(255,255,255,0.15); /* @kind color */
+  --miscellaneous-bar-border: rgba(255,255,255,0.15); /* @kind color */
+  --miscellaneous-bar-border: rgba(255,255,255,0.15); /* @kind color */
+  --miscellaneous-floating-tab-pill-shadow: rgba(0,0,0,0); /* @kind color */
+  --miscellaneous-floating-tab-pill-shadow: rgba(0,0,0,0); /* @kind color */
+  --miscellaneous-floating-tab-pill-shadow: rgba(0,0,0,0); /* @kind color */
+  --miscellaneous-floating-tab-pill-shadow: rgba(0,0,0,0); /* @kind color */
+  --miscellaneous-floating-tab-text-selected: rgb(255,255,255); /* @kind color */
+  --miscellaneous-floating-tab-text-selected: rgb(255,255,255); /* @kind color */
+  --miscellaneous-floating-tab-text-selected: rgb(255,255,255); /* @kind color */
+  --miscellaneous-floating-tab-text-selected: rgb(255,255,255); /* @kind color */
+  --miscellaneous-kit-section-fill-2: rgb(245,245,245); /* @kind color */
+  --miscellaneous-kit-section-fill-2: rgb(245,245,245); /* @kind color */
+  --miscellaneous-kit-section-fill-2: rgb(245,245,245); /* @kind color */
+  --miscellaneous-kit-section-fill-2: rgb(245,245,245); /* @kind color */
+  --miscellaneous-kit-section-fill: rgb(245,245,245); /* @kind color */
+  --miscellaneous-kit-section-fill: rgb(245,245,245); /* @kind color */
+  --miscellaneous-sidebar-fill-selected: rgba(142,142,147,0.25); /* @kind color */
+  --miscellaneous-sidebar-fill-selected: rgba(142,142,147,0.25); /* @kind color */
+  --miscellaneous-sidebar-fill-selected: rgba(144,144,153,0.3); /* @kind color */
+  --miscellaneous-sidebar-fill-selected: rgba(144,144,153,0.3); /* @kind color */
+  --miscellaneous-sidebar-shadow-drag-over: rgba(0,0,0,0.9); /* @kind color */
+  --miscellaneous-sidebar-shadow-drag-over: rgba(0,0,0,0.9); /* @kind color */
+  --miscellaneous-sidebar-shadow-drag-over: rgba(0,0,0,0.9); /* @kind color */
+  --miscellaneous-sidebar-shadow-drag-over: rgba(0,0,0,0.9); /* @kind color */
+  --miscellaneous-sidebar-text-selected: var(--grays-white); /* @kind color */
+  --miscellaneous-sidebar-text-selected: var(--grays-white); /* @kind color */
+  --miscellaneous-sidebar-text-selected: var(--grays-white); /* @kind color */
+  --miscellaneous-sidebar-text-selected: var(--grays-white); /* @kind color */
+  --mode-2: "Dark Elevated";
+  --mode-2: "Dark";
+  --mode-3: "Dark Elevated";
+  --mode-3: "Dark";
+  --mode-3: "IC - Dark Elevated";
+  --mode-3: "IC - Dark";
+  --mode-4: "Dark";
+  --mode-4: "IC - Dark";
+  --mode-5: "Dark";
+  --mode: "Dark Elevated";
+  --mode: "Dark";
+  --overlays-activity-view-controller: rgba(0,0,0,0.29); /* @kind color */
+  --overlays-activity-view-controller: rgba(0,0,0,0.29); /* @kind color */
+  --schemes-on-background: rgb(230,224,233); /* @kind color */
+  --schemes-on-background: rgb(230,224,233); /* @kind color */
+  --schemes-on-background: rgb(230,224,233); /* @kind color */
+  --schemes-on-error: rgb(0,0,0); /* @kind color */
+  --schemes-on-error: rgb(51,4,5); /* @kind color */
+  --schemes-on-error: rgb(96,20,16); /* @kind color */
+  --schemes-on-surface: rgb(230,224,233); /* @kind color */
+  --schemes-on-surface: rgb(255,249,255); /* @kind color */
+  --schemes-on-surface: rgb(255,255,255); /* @kind color */
+  --schemes-outline-variant: rgb(134,129,139); /* @kind color */
+  --schemes-outline-variant: rgb(206,200,212); /* @kind color */
+  --schemes-outline-variant: rgb(73,69,79); /* @kind color */
+  --schemes-primary: rgb(208,188,255); /* @kind color */
+  --schemes-primary: rgb(211,193,255); /* @kind color */
+  --schemes-primary: rgb(255,249,255); /* @kind color */
+  --schemes-secondary-container: rgb(152,135,197); /* @kind color */
+  --schemes-secondary-container: rgb(211,193,255); /* @kind color */
+  --schemes-secondary-container: rgb(74,68,88); /* @kind color */
+  --separator-separator: rgba(84,84,88,0.65); /* @kind color */
+  --separators-non-opaque: rgba(60,60,67,0.29); /* @kind color */
+  --separators-non-opaque: rgba(60,60,67,0.29); /* @kind color */
+  --separators-non-opaque: rgba(84,84,86,0.6); /* @kind color */
+  --separators-non-opaque: rgba(84,84,86,0.6); /* @kind color */
+  --state-layers-primary-container-opacity-16: rgba(152,135,197,0.16); /* @kind color */
+  --state-layers-primary-container-opacity-16: rgba(211,193,255,0.16); /* @kind color */
+  --state-layers-primary-container-opacity-16: rgba(79,55,139,0.16); /* @kind color */
+  --text-brand-default: var(--brand-100); /* @kind color */
+  --text-brand-on-brand: var(--brand-900); /* @kind color */
+  --text-danger-default: var(--red-200); /* @kind color */
+  --text-danger-on-danger-tertiary: var(--red-100); /* @kind color */
+  --text-danger-on-danger: var(--red-100); /* @kind color */
+  --text-default-default: var(--white-1000); /* @kind color */
+  --text-default-secondary: var(--white-500-2); /* @kind color */
+  --text-disabled-default: var(--gray-500); /* @kind color */
+  --text-disabled-on-disabled: var(--gray-400); /* @kind color */
+  --text-neutral-default: var(--slate-200); /* @kind color */
+  --text-primary-label: rgb(255,255,255); /* @kind color */
+  --text-secondary-label: rgba(235,235,245,0.6); /* @kind color */
+}
+
+:root[data-theme="light"], .light {
+  --background-brand-default: var(--brand-b-800); /* @kind color */
+  --background-danger-default: var(--red-500); /* @kind color */
+  --backgrounds-grouped-secondary: rgb(255,255,255); /* @kind color */
+  --backgrounds-primary: rgb(255,255,255); /* @kind color */
+  --colors-blue-2: rgb(0,64,221); /* @kind color */
+  --colors-blue-3: rgb(30,110,244); /* @kind color */
+  --colors-green: rgb(36,138,61); /* @kind color */
+  --colors-orange: rgb(201,52,0); /* @kind color */
+  --colors-red: rgb(215,0,21); /* @kind color */
+  --fills-quaternary: rgba(120,120,128,0.16); /* @kind color */
+  --fills-secondary: rgba(120,120,128,0.24); /* @kind color */
+  --fills-tertiary: rgba(120,120,128,0.2); /* @kind color */
+  --grays-black: rgb(0,0,0); /* @kind color */
+  --grays-gray: rgb(108,108,112); /* @kind color */
+  --grays-white-2: rgb(255,255,255); /* @kind color */
+  --grays-white: rgb(255,255,255); /* @kind color */
+  --icon-default-default: var(--gray-900); /* @kind color */
+  --labels-primary-2: rgb(0,0,0); /* @kind color */
+  --labels-primary-3: rgb(0,0,0); /* @kind color */
+  --labels-quaternary: rgba(60,60,67,0.55); /* @kind color */
+  --labels-secondary: rgba(60,60,67,0.8); /* @kind color */
+  --labels-tertiary-2: rgba(60,60,67,0.7); /* @kind color */
+  --labels-tertiary: rgba(60,60,67,0.7); /* @kind color */
+  --miscellaneous-bar-border: rgba(0,0,0,0.3); /* @kind color */
+  --miscellaneous-floating-tab-pill-shadow: rgba(0,0,0,0.08); /* @kind color */
+  --miscellaneous-floating-tab-text-selected: var(--colors-blue-2); /* @kind color */
+  --miscellaneous-kit-section-fill-2: rgb(245,245,245); /* @kind color */
+  --miscellaneous-sidebar-fill-selected: rgb(255,255,255); /* @kind color */
+  --miscellaneous-sidebar-shadow-drag-over: rgba(0,0,0,0.2); /* @kind color */
+  --miscellaneous-sidebar-text-selected: var(--grays-white); /* @kind color */
+  --mode-3: "IC - Light";
+  --mode-4: "IC - Light";
+  --overlays-activity-view-controller: rgba(0,0,0,0.2); /* @kind color */
+  --schemes-on-background: rgb(29,27,32); /* @kind color */
+  --schemes-on-background: rgb(29,27,32); /* @kind color */
+  --schemes-on-error: rgb(255,255,255); /* @kind color */
+  --schemes-on-error: rgb(255,255,255); /* @kind color */
+  --schemes-on-surface: rgb(0,0,0); /* @kind color */
+  --schemes-on-surface: rgb(29,27,32); /* @kind color */
+  --schemes-outline-variant: rgb(125,121,131); /* @kind color */
+  --schemes-outline-variant: rgb(69,65,74); /* @kind color */
+  --schemes-primary: rgb(39,23,78); /* @kind color */
+  --schemes-primary: rgb(73,57,113); /* @kind color */
+  --schemes-secondary-container: rgb(124,107,167); /* @kind color */
+  --schemes-secondary-container: rgb(73,57,113); /* @kind color */
+  --separators-non-opaque: rgba(60,60,67,0.29); /* @kind color */
+  --state-layers-primary-container-opacity-16: rgba(123,107,167,0.16); /* @kind color */
+  --state-layers-primary-container-opacity-16: rgba(73,57,113,0.16); /* @kind color */
+}
+
+:root[data-mode="monochrome-lt"] {
+  --schemes-on-background: rgb(29,27,32); /* @kind color */
+  --schemes-on-error: rgb(255,255,255); /* @kind color */
+  --schemes-on-surface: rgb(27,27,27); /* @kind color */
+  --schemes-outline-variant: rgb(198,198,198); /* @kind color */
+  --schemes-primary: rgb(0,0,0); /* @kind color */
+  --schemes-secondary-container: rgb(212,212,212); /* @kind color */
+  --state-layers-primary-container-opacity-16: rgba(59,59,59,0.16); /* @kind color */
+}
+
+:root[data-mode="monochrome-dt"] {
+  --schemes-on-background: rgb(230,224,233); /* @kind color */
+  --schemes-on-error: rgb(96,20,16); /* @kind color */
+  --schemes-on-surface: rgb(226,226,226); /* @kind color */
+  --schemes-outline-variant: rgb(71,71,71); /* @kind color */
+  --schemes-primary: rgb(255,255,255); /* @kind color */
+  --schemes-secondary-container: rgb(71,71,71); /* @kind color */
+  --state-layers-primary-container-opacity-16: rgba(212,212,212,0.16); /* @kind color */
+}
+
+:root[data-mode="pink-lt"] {
+  --schemes-on-background: rgb(29,27,32); /* @kind color */
+  --schemes-on-error: rgb(255,255,255); /* @kind color */
+  --schemes-on-surface: rgb(33,25,28); /* @kind color */
+  --schemes-outline-variant: rgb(212,194,199); /* @kind color */
+  --schemes-primary: rgb(138,75,104); /* @kind color */
+  --schemes-secondary-container: rgb(251,214,227); /* @kind color */
+  --state-layers-primary-container-opacity-16: rgba(254,176,209,0.16); /* @kind color */
+}
+
+:root[data-mode="pink-dt"] {
+  --schemes-on-background: rgb(230,224,233); /* @kind color */
+  --schemes-on-error: rgb(96,20,16); /* @kind color */
+  --schemes-on-surface: rgb(238,223,227); /* @kind color */
+  --schemes-outline-variant: rgb(80,67,72); /* @kind color */
+  --schemes-primary: rgb(254,176,209); /* @kind color */
+  --schemes-secondary-container: rgb(89,64,74); /* @kind color */
+  --state-layers-primary-container-opacity-16: rgba(109,51,80,0.16); /* @kind color */
+}
+
+:root[data-mode="rose-lt"] {
+  --schemes-on-background: rgb(29,27,32); /* @kind color */
+  --schemes-on-error: rgb(255,255,255); /* @kind color */
+  --schemes-on-surface: rgb(34,25,26); /* @kind color */
+  --schemes-outline-variant: rgb(215,194,195); /* @kind color */
+  --schemes-primary: rgb(143,74,86); /* @kind color */
+  --schemes-secondary-container: rgb(255,213,218); /* @kind color */
+  --state-layers-primary-container-opacity-16: rgba(253,166,179,0.16); /* @kind color */
+}
+
+:root[data-mode="rose-dt"] {
+  --schemes-on-background: rgb(230,224,233); /* @kind color */
+  --schemes-on-error: rgb(96,20,16); /* @kind color */
+  --schemes-on-surface: rgb(240,222,223); /* @kind color */
+  --schemes-outline-variant: rgb(82,67,69); /* @kind color */
+  --schemes-primary: rgb(255,178,189); /* @kind color */
+  --schemes-secondary-container: rgb(92,63,67); /* @kind color */
+  --state-layers-primary-container-opacity-16: rgba(114,51,63,0.16); /* @kind color */
+}
+
+:root[data-mode="red-lt"] {
+  --schemes-on-background: rgb(29,27,32); /* @kind color */
+  --schemes-on-error: rgb(255,255,255); /* @kind color */
+  --schemes-on-surface: rgb(35,25,24); /* @kind color */
+  --schemes-outline-variant: rgb(216,194,190); /* @kind color */
+  --schemes-primary: rgb(145,75,67); /* @kind color */
+  --schemes-secondary-container: rgb(255,211,205); /* @kind color */
+  --state-layers-primary-container-opacity-16: rgba(253,164,153,0.16); /* @kind color */
+}
+
+:root[data-mode="red-dt"] {
+  --schemes-on-background: rgb(230,224,233); /* @kind color */
+  --schemes-on-error: rgb(96,20,16); /* @kind color */
+  --schemes-on-surface: rgb(241,222,220); /* @kind color */
+  --schemes-outline-variant: rgb(83,67,65); /* @kind color */
+  --schemes-primary: rgb(255,167,155); /* @kind color */
+  --schemes-secondary-container: rgb(93,63,59); /* @kind color */
+  --state-layers-primary-container-opacity-16: rgba(115,52,44,0.16); /* @kind color */
+}
+
+:root[data-mode="orange-lt"] {
+  --schemes-on-background: rgb(29,27,32); /* @kind color */
+  --schemes-on-error: rgb(255,255,255); /* @kind color */
+  --schemes-on-surface: rgb(34,26,21); /* @kind color */
+  --schemes-outline-variant: rgb(215,194,184); /* @kind color */
+  --schemes-primary: rgb(141,79,40); /* @kind color */
+  --schemes-secondary-container: rgb(253,213,191); /* @kind color */
+  --state-layers-primary-container-opacity-16: rgba(255,174,127,0.16); /* @kind color */
+}
+
+:root[data-mode="orange-dt"] {
+  --schemes-on-background: rgb(230,224,233); /* @kind color */
+  --schemes-on-error: rgb(96,20,16); /* @kind color */
+  --schemes-on-surface: rgb(240,223,215); /* @kind color */
+  --schemes-outline-variant: rgb(82,68,60); /* @kind color */
+  --schemes-primary: rgb(255,182,140); /* @kind color */
+  --schemes-secondary-container: rgb(92,65,49); /* @kind color */
+  --state-layers-primary-container-opacity-16: rgba(111,56,18,0.16); /* @kind color */
+}
+
+:root[data-mode="yellow-lt"] {
+  --schemes-on-background: rgb(29,27,32); /* @kind color */
+  --schemes-on-error: rgb(255,255,255); /* @kind color */
+  --schemes-on-surface: rgb(31,27,19); /* @kind color */
+  --schemes-outline-variant: rgb(208,197,180); /* @kind color */
+  --schemes-primary: rgb(121,90,12); /* @kind color */
+  --schemes-secondary-container: rgb(242,221,184); /* @kind color */
+  --state-layers-primary-container-opacity-16: rgba(255,213,125,0.16); /* @kind color */
+}
+
+:root[data-mode="yellow-dt"] {
+  --schemes-on-background: rgb(230,224,233); /* @kind color */
+  --schemes-on-error: rgb(96,20,16); /* @kind color */
+  --schemes-on-surface: rgb(235,225,212); /* @kind color */
+  --schemes-outline-variant: rgb(77,70,57); /* @kind color */
+  --schemes-primary: rgb(233,193,108); /* @kind color */
+  --schemes-secondary-container: rgb(82,69,42); /* @kind color */
+  --state-layers-primary-container-opacity-16: rgba(109,80,0,0.16); /* @kind color */
+}
+
+:root[data-mode="chartreuse-lt"] {
+  --schemes-on-background: rgb(29,27,32); /* @kind color */
+  --schemes-on-error: rgb(255,255,255); /* @kind color */
+  --schemes-on-surface: rgb(27,28,20); /* @kind color */
+  --schemes-outline-variant: rgb(200,199,183); /* @kind color */
+  --schemes-primary: rgb(92,100,30); /* @kind color */
+  --schemes-secondary-container: rgb(227,229,193); /* @kind color */
+  --state-layers-primary-container-opacity-16: rgba(221,230,146,0.16); /* @kind color */
+}
+
+:root[data-mode="chartreuse-dt"] {
+  --schemes-on-background: rgb(230,224,233); /* @kind color */
+  --schemes-on-error: rgb(96,20,16); /* @kind color */
+  --schemes-on-surface: rgb(229,227,214); /* @kind color */
+  --schemes-outline-variant: rgb(71,72,59); /* @kind color */
+  --schemes-primary: rgb(195,205,124); /* @kind color */
+  --schemes-secondary-container: rgb(70,73,47); /* @kind color */
+  --state-layers-primary-container-opacity-16: rgba(67,75,6,0.16); /* @kind color */
+}
+
+:root[data-mode="green-lt"] {
+  --schemes-on-background: rgb(29,27,32); /* @kind color */
+  --schemes-on-error: rgb(255,255,255); /* @kind color */
+  --schemes-on-surface: rgb(24,29,24); /* @kind color */
+  --schemes-outline-variant: rgb(193,201,190); /* @kind color */
+  --schemes-primary: rgb(55,106,62); /* @kind color */
+  --schemes-secondary-container: rgb(209,229,206); /* @kind color */
+  --state-layers-primary-container-opacity-16: rgba(183,241,185,0.16); /* @kind color */
+}
+
+:root[data-mode="green-dt"] {
+  --schemes-on-background: rgb(230,224,233); /* @kind color */
+  --schemes-on-error: rgb(96,20,16); /* @kind color */
+  --schemes-on-surface: rgb(224,228,219); /* @kind color */
+  --schemes-outline-variant: rgb(66,73,64); /* @kind color */
+  --schemes-primary: rgb(156,212,159); /* @kind color */
+  --schemes-secondary-container: rgb(58,75,58); /* @kind color */
+  --state-layers-primary-container-opacity-16: rgba(29,81,40,0.16); /* @kind color */
+}
+
+:root[data-mode="teal-lt"] {
+  --schemes-on-background: rgb(29,27,32); /* @kind color */
+  --schemes-on-error: rgb(255,255,255); /* @kind color */
+  --schemes-on-surface: rgb(23,29,27); /* @kind color */
+  --schemes-outline-variant: rgb(190,201,197); /* @kind color */
+  --schemes-primary: rgb(0,107,96); /* @kind color */
+  --schemes-secondary-container: rgb(202,230,223); /* @kind color */
+  --state-layers-primary-container-opacity-16: rgba(158,242,227,0.16); /* @kind color */
+}
+
+:root[data-mode="teal-dt"] {
+  --schemes-on-background: rgb(230,224,233); /* @kind color */
+  --schemes-on-error: rgb(96,20,16); /* @kind color */
+  --schemes-on-surface: rgb(221,228,225); /* @kind color */
+  --schemes-outline-variant: rgb(63,73,70); /* @kind color */
+  --schemes-primary: rgb(130,213,199); /* @kind color */
+  --schemes-secondary-container: rgb(51,75,71); /* @kind color */
+  --state-layers-primary-container-opacity-16: rgba(0,107,95,0.16); /* @kind color */
+}
+
+:root[data-mode="cyan-lt"] {
+  --schemes-on-background: rgb(29,27,32); /* @kind color */
+  --schemes-on-error: rgb(255,255,255); /* @kind color */
+  --schemes-on-surface: rgb(23,28,30); /* @kind color */
+  --schemes-outline-variant: rgb(191,200,204); /* @kind color */
+  --schemes-primary: rgb(1,104,125); /* @kind color */
+  --schemes-secondary-container: rgb(206,231,240); /* @kind color */
+  --state-layers-primary-container-opacity-16: rgba(154,229,253,0.16); /* @kind color */
+}
+
+:root[data-mode="cyan-dt"] {
+  --schemes-on-background: rgb(230,224,233); /* @kind color */
+  --schemes-on-error: rgb(96,20,16); /* @kind color */
+  --schemes-on-surface: rgb(222,227,230); /* @kind color */
+  --schemes-outline-variant: rgb(64,72,75); /* @kind color */
+  --schemes-primary: rgb(134,209,234); /* @kind color */
+  --schemes-secondary-container: rgb(52,74,82); /* @kind color */
+  --state-layers-primary-container-opacity-16: rgba(0,103,124,0.16); /* @kind color */
+}
+
+:root[data-mode="blue-lt"] {
+  --schemes-on-background: rgb(29,27,32); /* @kind color */
+  --schemes-on-error: rgb(255,255,255); /* @kind color */
+  --schemes-on-surface: rgb(26,27,33); /* @kind color */
+  --schemes-outline-variant: rgb(197,198,208); /* @kind color */
+  --schemes-primary: rgb(72,94,146); /* @kind color */
+  --schemes-secondary-container: rgb(217,223,246); /* @kind color */
+  --state-layers-primary-container-opacity-16: rgba(173,195,254,0.16); /* @kind color */
+}
+
+:root[data-mode="blue-dt"] {
+  --schemes-on-background: rgb(230,224,233); /* @kind color */
+  --schemes-on-error: rgb(96,20,16); /* @kind color */
+  --schemes-on-surface: rgb(226,226,233); /* @kind color */
+  --schemes-outline-variant: rgb(68,70,79); /* @kind color */
+  --schemes-primary: rgb(176,198,255); /* @kind color */
+  --schemes-secondary-container: rgb(64,70,89); /* @kind color */
+  --state-layers-primary-container-opacity-16: rgba(46,69,120,0.16); /* @kind color */
+}
+
+:root[data-mode="indigo-lt"] {
+  --schemes-on-background: rgb(29,27,32); /* @kind color */
+  --schemes-on-error: rgb(255,255,255); /* @kind color */
+  --schemes-on-surface: rgb(28,27,33); /* @kind color */
+  --schemes-outline-variant: rgb(200,197,208); /* @kind color */
+  --schemes-primary: rgb(91,89,146); /* @kind color */
+  --schemes-secondary-container: rgb(224,221,246); /* @kind color */
+  --state-layers-primary-container-opacity-16: rgba(193,189,254,0.16); /* @kind color */
+}
+
+:root[data-mode="indigo-dt"] {
+  --schemes-on-background: rgb(230,224,233); /* @kind color */
+  --schemes-on-error: rgb(96,20,16); /* @kind color */
+  --schemes-on-surface: rgb(229,225,233); /* @kind color */
+  --schemes-outline-variant: rgb(71,70,79); /* @kind color */
+  --schemes-primary: rgb(197,192,255); /* @kind color */
+  --schemes-secondary-container: rgb(70,69,89); /* @kind color */
+  --state-layers-primary-container-opacity-16: rgba(68,64,120,0.16); /* @kind color */
+}
+
+:root[data-mode="purple-lt"] {
+  --schemes-on-background: rgb(29,27,32); /* @kind color */
+  --schemes-on-error: rgb(255,255,255); /* @kind color */
+  --schemes-on-surface: rgb(29,26,32); /* @kind color */
+  --schemes-outline-variant: rgb(203,196,207); /* @kind color */
+  --schemes-primary: rgb(107,84,141); /* @kind color */
+  --schemes-secondary-container: rgb(235,221,247); /* @kind color */
+  --state-layers-primary-container-opacity-16: rgba(217,189,254,0.16); /* @kind color */
+}
+
+:root[data-mode="purple-dt"] {
+  --schemes-on-background: rgb(230,224,233); /* @kind color */
+  --schemes-on-error: rgb(96,20,16); /* @kind color */
+  --schemes-on-surface: rgb(231,224,232); /* @kind color */
+  --schemes-outline-variant: rgb(74,69,78); /* @kind color */
+  --schemes-primary: rgb(214,187,251); /* @kind color */
+  --schemes-secondary-container: rgb(76,67,87); /* @kind color */
+  --state-layers-primary-container-opacity-16: rgba(82,60,115,0.16); /* @kind color */
+}
+
+:root[data-mode="darrk-mode"] {
+  --color: var(--button-states-primary-light-text-light); /* @kind color */
+  --colors-brand-colors-neutral-100: rgb(245,245,245); /* @kind color */
+  --colors-brand-colors-neutral-200: rgb(229,229,229); /* @kind color */
+  --colors-brand-colors-neutral-300: rgb(212,212,212); /* @kind color */
+  --colors-brand-colors-neutral-400: rgb(163,163,163); /* @kind color */
+  --colors-brand-colors-neutral-500: rgb(115,115,115); /* @kind color */
+  --colors-brand-colors-neutral-50: rgb(250,250,250); /* @kind color */
+  --colors-brand-colors-neutral-600: rgb(82,82,82); /* @kind color */
+  --colors-brand-colors-neutral-700: rgb(64,64,64); /* @kind color */
+  --colors-brand-colors-neutral-800: rgb(38,38,38); /* @kind color */
+  --colors-brand-colors-neutral-900: rgb(23,23,23); /* @kind color */
+  --colors-brand-colors-primary-100: rgb(254,243,199); /* @kind color */
+  --colors-brand-colors-primary-200: rgb(254,252,232); /* @kind color */
+  --colors-brand-colors-primary-300: rgb(252,211,77); /* @kind color */
+  --colors-brand-colors-primary-400: rgb(251,191,36); /* @kind color */
+  --colors-brand-colors-primary-500: rgb(240,221,80); /* @kind color */
+  --colors-brand-colors-primary-50: var(--colors-brand-colors-primary-300); /* @kind color */
+  --colors-brand-colors-primary-600: rgb(214,158,46); /* @kind color */
+  --colors-brand-colors-primary-700: rgb(183,121,31); /* @kind color */
+  --colors-brand-colors-primary-800: rgb(151,90,22); /* @kind color */
+  --colors-brand-colors-primary-900: rgb(120,53,15); /* @kind color */
+  --colors-button-btn: var(--button-states-primary-dark-btn-dark); /* @kind color */
+  --colors-color-mode-backgrounds-bg-option-1: rgb(82,82,82); /* @kind color */
+  --colors-color-mode-backgrounds-bg-option-2: rgb(255,255,255); /* @kind color */
+  --colors-color-mode-backgrounds-brand-bg: var(--colors-brand-colors-primary-900); /* @kind color */
+  --colors-color-mode-backgrounds-card-bg: rgba(240,221,80,0.1); /* @kind color */
+  --colors-color-mode-backgrounds-container: var(--colors-brand-colors-neutral-700); /* @kind color */
+  --colors-color-mode-backgrounds-overlay: rgba(0,0,0,0.007); /* @kind color */
+  --colors-color-mode-backgrounds-primary: var(--colors-brand-colors-neutral-900); /* @kind color */
+  --colors-color-mode-backgrounds-secondary: var(--colors-brand-colors-neutral-800); /* @kind color */
+  --colors-color-mode-backgrounds-tertiary: var(--colors-brand-colors-neutral-700); /* @kind color */
+  --colors-color-mode-border-active: rgb(56,189,248); /* @kind color */
+  --colors-color-mode-border-default: rgb(51,65,85); /* @kind color */
+  --colors-color-mode-border-interactive: rgb(56,189,248); /* @kind color */
+  --colors-color-mode-border-strong: rgb(71,85,105); /* @kind color */
+  --colors-color-mode-interactive-default: rgb(56,189,248); /* @kind color */
+  --colors-color-mode-interactive-hover: rgb(14,165,233); /* @kind color */
+  --colors-color-mode-interactive-link-visited: rgb(167,139,250); /* @kind color */
+  --colors-color-mode-text-disabled: var(--colors-brand-colors-neutral-500); /* @kind color */
+  --colors-color-mode-text-inverse: rgb(23,23,23); /* @kind color */
+  --colors-color-mode-text-primary: var(--colors-brand-colors-neutral-50); /* @kind color */
+  --colors-color-mode-text-secondary: var(--colors-brand-colors-neutral-200); /* @kind color */
+  --colors-color-mode-text-tertiary: var(--colors-brand-colors-neutral-400); /* @kind color */
+  --colors-semantic-colors-border-default: var(--colors-brand-colors-neutral-700); /* @kind color */
+  --colors-semantic-colors-border-focus: var(--colors-brand-colors-primary-400); /* @kind color */
+  --colors-semantic-colors-border-interactive: var(--colors-brand-colors-primary-500); /* @kind color */
+  --colors-semantic-colors-border-strong: var(--colors-brand-colors-neutral-600); /* @kind color */
+  --colors-semantic-colors-error-dark: rgb(185,28,28); /* @kind color */
+  --colors-semantic-colors-error-default: rgb(220,38,38); /* @kind color */
+  --colors-semantic-colors-info-light: rgb(219,234,254); /* @kind color */
+  --colors-semantic-colors-success-dark: rgb(21,128,61); /* @kind color */
+  --colors-semantic-colors-success-default: rgb(22,163,74); /* @kind color */
+  --colors-semantic-colors-success-light: rgb(220,252,231); /* @kind color */
+  --colors-semantic-colors-warning-dark: rgb(194,65,12); /* @kind color */
+  --colors-semantic-colors-warning-default: rgb(234,88,12); /* @kind color */
+  --colors-semantic-colors-warning-light: rgb(254,215,170); /* @kind color */
+  --dark: rgb(29,78,216); /* @kind color */
+  --default: rgb(59,130,246); /* @kind color */
+  --hover: 0;
+  --light: rgb(254,202,202); /* @kind color */
+  --overlay: rgba(0,0,0,0.005); /* @kind color */
+  --primary: rgb(255,255,255); /* @kind color */
+  --secondary: rgb(248,250,252); /* @kind color */
+  --selectedpayment: rgb(240,221,80); /* @kind color */
+  --tertiary: rgb(241,245,249); /* @kind color */
+}
+
+:root[data-mode="wireframe"] {
+  --static-font-plain: "Flow Circular";
+  --static-weight-medium: "Regular";
+  --static-weight-regular: "Regular";
+}
+
+:root[data-mode="value"] {
+  --triphistory-selectedtab: "completed";
+  --triphistory-selectedtab: "scheduled";
+}
+
+:root[data-mode="small"] {
+  --combo-button-font-size-chevron: 10;
+}
+
+:root[data-mode="medium"] {
+  --combo-button-font-size-chevron: 11;
+}
+
+:root[data-mode="large"] {
+  --combo-button-font-size-chevron: 12.5;
+}
+
+:root[data-mode="xl"] {
+  --combo-button-font-size-chevron: 13;
+}
+
+:root[data-mode="tinted"] {
+  --mode-5: "Tinted";
+}
+
+:root[data-mode="week"] {
+  --acceptancerate: "96%";
+  --acceptedrides: "38";
+  --activedatelabel: "14 – 17 Sep 2026 · 4 days";
+  --cardearnings: "824.10";
+  --cardpct: "64%";
+  --cashearnings: "460.00";
+  --cashpct: "36%";
+  --cashtosettle: "70.00";
+  --cashtosettleafter: "0.00";
+  --onlinehours: "28h 40m";
+  --paidwith: "Visa ···· 4242";
+  --paidwithmeta: "Visa ···· 4242 · 17 Sep · 15:04";
+  --periodlabel: "This Week";
+  --selall: "false";
+  --selcustom: "false";
+  --selectedperiod: "week";
+  --selmonth: "false";
+  --seltoday: "false";
+  --selweek: "true";
+  --totalearnings: "1,284.10";
+  --walletbalance: "114.50";
+}
+
+:root[data-mode="month"] {
+  --acceptancerate: "94%";
+  --acceptedrides: "147";
+  --activedatelabel: "1 – 17 Sep 2026 · 17 days";
+  --cardearnings: "2,878.20";
+  --cardpct: "58%";
+  --cashearnings: "2,084.20";
+  --cashpct: "42%";
+  --cashtosettle: "70.00";
+  --cashtosettleafter: "0.00";
+  --onlinehours: "112h 05m";
+  --paidwith: "Visa ···· 4242";
+  --paidwithmeta: "Visa ···· 4242 · 17 Sep · 15:04";
+  --periodlabel: "This Month";
+  --selall: "false";
+  --selcustom: "false";
+  --selectedperiod: "month";
+  --selmonth: "true";
+  --seltoday: "false";
+  --selweek: "false";
+  --totalearnings: "4,962.40";
+  --walletbalance: "114.50";
+}
+
+:root[data-mode="all"] {
+  --acceptancerate: "95%";
+  --acceptedrides: "1,164";
+  --activedatelabel: "Since 12 Mar 2025";
+  --cardearnings: "22,663.50";
+  --cardpct: "59%";
+  --cashearnings: "15,749.25";
+  --cashpct: "41%";
+  --cashtosettle: "70.00";
+  --cashtosettleafter: "0.00";
+  --onlinehours: "892h 30m";
+  --paidwith: "Visa ···· 4242";
+  --paidwithmeta: "Visa ···· 4242 · 17 Sep · 15:04";
+  --periodlabel: "All time";
+  --selall: "true";
+  --selcustom: "false";
+  --selectedperiod: "all";
+  --selmonth: "false";
+  --seltoday: "false";
+  --selweek: "false";
+  --totalearnings: "38,412.75";
+  --walletbalance: "114.50";
+}
+
+:root[data-mode="custom"] {
+  --acceptancerate: "93%";
+  --acceptedrides: "84";
+  --activedatelabel: "1 – 10 Sep 2026 · 10 days";
+  --cardearnings: "1,708.60";
+  --cardpct: "60%";
+  --cashearnings: "1,139.00";
+  --cashpct: "40%";
+  --cashtosettle: "70.00";
+  --cashtosettleafter: "0.00";
+  --onlinehours: "63h 20m";
+  --paidwith: "Visa ···· 4242";
+  --paidwithmeta: "Visa ···· 4242 · 17 Sep · 15:04";
+  --periodlabel: "Sep 1 – Sep 10";
+  --selall: "false";
+  --selcustom: "true";
+  --selectedperiod: "custom";
+  --selmonth: "false";
+  --seltoday: "false";
+  --selweek: "false";
+  --totalearnings: "2,847.60";
+  --walletbalance: "114.50";
+}
+
+:root[data-mode="settled"] {
+  --acceptancerate: "92%";
+  --acceptedrides: "6";
+  --activedatelabel: "17 Sep 2026 · AED 184.50 earned";
+  --cardearnings: "114.50";
+  --cardpct: "62%";
+  --cashearnings: "70.00";
+  --cashpct: "38%";
+  --cashtosettle: "0.00";
+  --cashtosettleafter: "0.00";
+  --onlinehours: "3h 15m";
+  --paidwith: "Visa ···· 4242";
+  --paidwithmeta: "Visa ···· 4242 · 17 Sep · 15:04";
+  --periodlabel: "Today";
+  --selall: "false";
+  --selcustom: "false";
+  --selectedperiod: "today";
+  --selmonth: "false";
+  --seltoday: "true";
+  --selweek: "false";
+  --totalearnings: "114.50";
+  --walletbalance: "114.50";
+}
