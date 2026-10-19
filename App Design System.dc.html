@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Alata&family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&display=swap">
+<style>
+[data-ads-noscroll]::-webkit-scrollbar { display:none; }
+</style>
+</helmet>
+<div ref="{{ rootRef }}" style="width:100%;display:flex;flex-direction:column;gap:96px;font-family:'Satoshi','Helvetica Neue',Arial,sans-serif;color:#EFEFF2">
+
+  <section data-screen-label="{{ label }}" style="display:grid;grid-template-columns:80px minmax(0,1fr);gap:24px">
+    <span style="font-family:'Clash Display',sans-serif;font-size:13px;color:#5C5C63">DS</span>
+    <div style="min-width:0">
+      <div style="display:flex;align-items:center;gap:10px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:{{ accent }}"><span style="width:8px;height:8px;border-radius:2px;background:{{ accent }}"></span>Design system · {{ name }}</div>
+      <h2 style="margin:14px 0 0;font-family:'Clash Display',sans-serif;font-weight:500;font-size:clamp(30px,4.4vw,56px);line-height:1.04;max-width:880px;text-wrap:pretty">{{ title }}</h2>
+      <p style="margin:18px 0 0;max-width:680px;font-size:16.5px;line-height:1.7;color:#B4B4BB;text-wrap:pretty">{{ intro }}</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:1px;margin-top:40px;border-radius:20px;overflow:hidden;border:1px solid #1F1F24;background:#1F1F24">
+        <sc-for list="{{ stats }}" as="s" hint-placeholder-count="5">
+          <div style="background:rgba(10,10,14,0.72);padding:20px">
+            <div style="font-family:'Clash Display',sans-serif;font-weight:500;font-size:clamp(30px,3.2vw,42px);line-height:1;color:{{ accent }};font-variant-numeric:tabular-nums">{{ s.v }}</div>
+            <div style="margin-top:8px;font-size:13px;line-height:1.45;color:#8C8C93">{{ s.l }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="display:grid;grid-template-columns:80px minmax(0,1fr);gap:24px">
+    <span></span>
+    <div style="min-width:0">
+      <div style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:0.1em;color:#5C5C63">01 · TOKEN ARCHITECTURE</div>
+      <h3 style="margin:10px 0 0;font-family:'Clash Display',sans-serif;font-weight:500;font-size:clamp(24px,2.8vw,34px)">Three layers, so one change travels everywhere.</h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:12px;margin-top:28px">
+        <sc-for list="{{ layers }}" as="l" hint-placeholder-count="3">
+          <div style="border-radius:20px;border:1px solid #1F1F24;background:rgba(14,14,22,0.58);padding:20px;display:flex;flex-direction:column;gap:14px">
+            <div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-size:17px;font-weight:500">{{ l.t }}</span><span style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;color:{{ accent }}">{{ l.n }}</span></div>
+            <div style="font-size:13.5px;line-height:1.55;color:#8C8C93">{{ l.d }}</div>
+            <div style="display:flex;flex-direction:column;gap:6px">
+              <sc-for list="{{ l.ex }}" as="x" hint-placeholder-count="3">
+                <div style="display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:10px;background:rgba(255,255,255,0.03);font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11.5px"><span style="flex-shrink:0;width:16px;height:16px;border-radius:5px;background:{{ x.c }};box-shadow:inset 0 0 0 1px rgba(255,255,255,0.15)"></span><span style="color:#D0D0D6;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ x.k }}</span></div>
+              </sc-for>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="margin-top:12px;padding:14px 18px;border-radius:14px;border:1px dashed #26262B;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;color:#B4B4BB;overflow-x:auto;white-space:nowrap" data-ads-noscroll="true">{{ chain }}</div>
+    </div>
+  </section>
+
+  <section style="display:grid;grid-template-columns:80px minmax(0,1fr);gap:24px">
+    <span></span>
+    <div style="min-width:0">
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px">
+        <div>
+          <div style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:0.1em;color:#5C5C63">02 · COLOUR</div>
+          <h3 style="margin:10px 0 0;font-family:'Clash Display',sans-serif;font-weight:500;font-size:clamp(24px,2.8vw,34px)">{{ colorTitle }}</h3>
+        </div>
+        <sc-if value="{{ hasModes }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;padding:4px;border-radius:100px;border:1px solid #26262B;background:rgba(14,14,22,0.6)">
+            <button onClick="{{ setLight }}" data-cursor-hover="true" style="border:none;cursor:pointer;padding:8px 16px;border-radius:100px;font-family:'Satoshi',sans-serif;font-size:13px;background:{{ lightBg }};color:{{ lightFg }}">Light</button>
+            <button onClick="{{ setDark }}" data-cursor-hover="true" style="border:none;cursor:pointer;padding:8px 16px;border-radius:100px;font-family:'Satoshi',sans-serif;font-size:13px;background:{{ darkBg }};color:{{ darkFg }}">Dark</button>
+          </div>
+        </sc-if>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px;margin-top:26px">
+        <sc-for list="{{ ramps }}" as="r" hint-placeholder-count="2">
+          <div>
+            <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:8px"><span style="font-weight:500">{{ r.n }}</span><span style="color:#5C5C63;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px">{{ r.note }}</span></div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(92px,1fr));border-radius:14px;overflow:hidden;border:1px solid #1F1F24">
+              <sc-for list="{{ r.steps }}" as="s" hint-placeholder-count="10">
+                <div style="height:78px;background:{{ s.c }};display:flex;flex-direction:column;justify-content:flex-end;padding:8px;box-sizing:border-box;color:{{ s.fg }};font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;line-height:1.35;outline:{{ s.ol }};outline-offset:-3px;min-width:0;overflow:hidden"><span style="font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ s.k }}</span><span style="opacity:0.75;white-space:nowrap">{{ s.h }}</span></div>
+              </sc-for>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+      <div data-eds-scope="true" data-theme="{{ mode }}" style="margin-top:20px;border-radius:20px;border:1px solid #1F1F24;background:rgba(14,14,22,0.58);padding:18px">
+        <div style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;letter-spacing:0.1em;color:#5C5C63">SEMANTIC TOKENS · WHAT SCREENS ACTUALLY USE</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,170px),1fr));gap:8px;margin-top:12px">
+          <sc-for list="{{ semantic }}" as="s" hint-placeholder-count="12">
+            <div style="display:flex;align-items:center;gap:10px;padding:8px;border-radius:12px;background:rgba(255,255,255,0.03)">
+              <span style="flex-shrink:0;width:34px;height:34px;border-radius:9px;background:{{ s.c }};box-shadow:inset 0 0 0 1px rgba(255,255,255,0.14);transition:background 0.4s ease"></span>
+              <span style="min-width:0"><span style="display:block;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11.5px;color:#EFEFF2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ s.k }}</span><span style="display:block;margin-top:2px;font-size:11.5px;color:#8C8C93;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ s.u }}</span></span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="display:grid;grid-template-columns:80px minmax(0,1fr);gap:24px">
+    <span></span>
+    <div style="min-width:0">
+      <div style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:0.1em;color:#5C5C63">03 · TYPOGRAPHY</div>
+      <h3 style="margin:10px 0 0;font-family:'Clash Display',sans-serif;font-weight:500;font-size:clamp(24px,2.8vw,34px)">{{ typeTitle }}</h3>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:26px">
+        <sc-for list="{{ families }}" as="f" hint-placeholder-count="3">
+          <div style="flex:1 1 220px;min-width:0;border-radius:20px;border:1px solid #1F1F24;background:rgba(14,14,22,0.58);padding:20px">
+            <div style="font-family:{{ f.css }};font-size:54px;line-height:1;color:#FFFFFF">Aa</div>
+            <div style="margin-top:14px;font-size:15px;font-weight:500">{{ f.n }}</div>
+            <div style="margin-top:3px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;color:{{ accent }}">{{ f.tok }}</div>
+            <div style="margin-top:8px;font-size:13px;line-height:1.5;color:#8C8C93">{{ f.u }}</div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="margin-top:12px;border-radius:20px;background:#FFFFFF;color:#1A1A1A;padding:22px 24px;display:flex;flex-direction:column;gap:2px">
+        <sc-for list="{{ typeScale }}" as="t" hint-placeholder-count="8">
+          <div style="display:grid;grid-template-columns:72px minmax(0,1fr) auto;gap:16px;align-items:baseline;padding:9px 0;border-bottom:1px solid #F0F0F0">
+            <span style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;color:#808080">{{ t.k }}</span>
+            <span style="font-family:{{ t.f }};font-size:{{ t.s }}px;font-weight:{{ t.w }};line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ t.sample }}</span>
+            <span style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;color:#808080;white-space:nowrap">{{ t.spec }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="display:grid;grid-template-columns:80px minmax(0,1fr);gap:24px">
+    <span></span>
+    <div style="min-width:0">
+      <div style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:0.1em;color:#5C5C63">04 · SPACING, RADIUS &amp; SIZE</div>
+      <h3 style="margin:10px 0 0;font-family:'Clash Display',sans-serif;font-weight:500;font-size:clamp(24px,2.8vw,34px)">{{ spaceTitle }}</h3>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:26px">
+        <div style="flex:1.2 1 300px;min-width:0;border-radius:20px;border:1px solid #1F1F24;background:rgba(14,14,22,0.58);padding:20px">
+          <div style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;letter-spacing:0.1em;color:#5C5C63">SPACING · {{ spacingCount }}</div>
+          <div style="display:flex;flex-direction:column;gap:7px;margin-top:14px">
+            <sc-for list="{{ spacing }}" as="s" hint-placeholder-count="10">
+              <div style="display:grid;grid-template-columns:72px 34px minmax(0,1fr);align-items:center;gap:10px"><span style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;color:#B4B4BB">{{ s.k }}</span><span style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;color:#5C5C63;text-align:right">{{ s.v }}</span><span style="height:8px;width:{{ s.w }}px;max-width:100%;border-radius:3px;background:{{ accent }}"></span></div>
+            </sc-for>
+          </div>
+        </div>
+        <div style="flex:1 1 280px;min-width:0;display:flex;flex-direction:column;gap:12px">
+          <div style="border-radius:20px;border:1px solid #1F1F24;background:rgba(14,14,22,0.58);padding:20px">
+            <div style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;letter-spacing:0.1em;color:#5C5C63">RADIUS · {{ radiusCount }}</div>
+            <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:14px">
+              <sc-for list="{{ radii }}" as="r" hint-placeholder-count="7">
+                <div style="display:flex;flex-direction:column;align-items:center;gap:6px"><span style="width:44px;height:44px;border:2px solid {{ accent }};border-radius:{{ r.v }}px;background:rgba(255,255,255,0.03)"></span><span style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;color:#8C8C93">{{ r.k }}</span></div>
+              </sc-for>
+            </div>
+          </div>
+          <div style="border-radius:20px;border:1px solid #1F1F24;background:rgba(14,14,22,0.58);padding:20px">
+            <div style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;letter-spacing:0.1em;color:#5C5C63">{{ sizeLabel }}</div>
+            <div style="display:flex;flex-wrap:wrap;align-items:flex-end;gap:14px;margin-top:14px">
+              <sc-for list="{{ sizes }}" as="z" hint-placeholder-count="6">
+                <div style="display:flex;flex-direction:column;align-items:center;gap:6px"><span style="width:{{ z.v }}px;height:{{ z.h }}px;border-radius:{{ z.r }}px;background:{{ z.c }}"></span><span style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;color:#8C8C93">{{ z.k }}</span></div>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section ref="{{ compRef }}" style="display:grid;grid-template-columns:80px minmax(0,1fr);gap:24px">
+    <span></span>
+    <div style="min-width:0">
+      <div style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:0.1em;color:#5C5C63">05 · COMPONENTS</div>
+      <h3 style="margin:10px 0 0;font-family:'Clash Display',sans-serif;font-weight:500;font-size:clamp(24px,2.8vw,34px)">{{ compTitle }}</h3>
+      <p style="margin:12px 0 0;max-width:640px;font-size:15px;line-height:1.7;color:#B4B4BB;text-wrap:pretty">{{ compIntro }}</p>
+
+      <sc-if value="{{ isEvents }}" hint-placeholder-val="{{ false }}">
+        <div data-eds-scope="true" data-theme="{{ mode }}" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:12px;margin-top:26px">
+          <sc-for list="{{ specimens }}" as="c" hint-placeholder-count="8">
+            <div style="border-radius:20px;overflow:hidden;border:1px solid #1F1F24;background:rgba(14,14,22,0.58);display:flex;flex-direction:column">
+              <div style="height:{{ c.boxH }}px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:{{ c.bg }};transition:background 0.4s ease">
+                <div style="width:{{ c.w }}px;height:{{ c.h }}px;transform:scale({{ c.s }});flex-shrink:0;display:flex;align-items:center;justify-content:center">
+                  <sc-if value="{{ near }}" hint-placeholder-val="{{ false }}"><x-import component-from-global-scope="{{ c.comp }}" from="./components/events-ds/Components.bundle.js" style="width:{{ c.w }}px;min-height:{{ c.h }}px" hint-size="200px,60px"></x-import></sc-if>
+                </div>
+              </div>
+              <div style="padding:14px 16px;border-top:1px solid #1F1F24">
+                <div style="display:flex;justify-content:space-between;gap:10px"><span style="font-size:14.5px;font-weight:500">{{ c.n }}</span><span style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;color:{{ accent }}">{{ c.v }}</span></div>
+                <div style="margin-top:4px;font-size:12.5px;line-height:1.5;color:#8C8C93">{{ c.d }}</div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isTaggo }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:26px">
+          <div style="flex:1.3 1 380px;min-width:0;border-radius:20px;background:#FFFFFF;color:#171717;padding:22px;font-family:Inter,sans-serif;display:flex;flex-direction:column;gap:18px">
+            <div style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;letter-spacing:0.1em;color:#737373">BUTTON · 3 SIZES × 3 STYLES · BUILT FROM BUTTON TOKENS</div>
+            <sc-for list="{{ btnRows }}" as="b" hint-placeholder-count="3">
+              <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px">
+                <span style="width:58px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;color:#737373">{{ b.k }}</span>
+                <span style="height:{{ b.h }}px;padding:0 {{ b.px }}px;border-radius:{{ b.r }}px;background:#F0DD50;color:#171717;display:inline-flex;align-items:center;font-size:{{ b.f }}px;font-weight:600">Book ride</span>
+                <span style="height:{{ b.h }}px;padding:0 {{ b.px }}px;border-radius:{{ b.r }}px;box-shadow:inset 0 0 0 1.5px #404040;color:#525252;display:inline-flex;align-items:center;font-size:{{ b.f }}px;font-weight:600">Schedule</span>
+                <span style="height:{{ b.h }}px;padding:0 {{ b.px }}px;border-radius:{{ b.r }}px;background:#101828;color:#FFFFFF;display:inline-flex;align-items:center;font-size:{{ b.f }}px;font-weight:600">Continue</span>
+                <span style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;color:#A3A3A3">{{ b.spec }}</span>
+              </div>
+            </sc-for>
+            <div style="border-top:1px solid #F0F0F0;padding-top:16px;display:flex;flex-direction:column;gap:10px">
+              <div style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;letter-spacing:0.1em;color:#737373">SELECTION STATES · DRIVEN BY VARIABLES</div>
+              <div style="display:flex;flex-wrap:wrap;gap:8px">
+                <sc-for list="{{ cargoChips }}" as="c" hint-placeholder-count="4">
+                  <button onClick="{{ c.pick }}" data-cursor-hover="true" style="height:40px;padding:0 14px;border-radius:12px;border:none;cursor:pointer;font-family:Inter,sans-serif;font-size:13px;font-weight:500;background:{{ c.bg }};color:{{ c.fg }};box-shadow:{{ c.sh }};transition:all 0.25s ease">{{ c.t }}</button>
+                </sc-for>
+              </div>
+              <div style="font-size:12.5px;line-height:1.5;color:#737373">Cargo weight options read from variables such as <span style="font-family:ui-monospace,'SF Mono',Menlo,monospace;color:#171717">weight-highlight-under-5-kg</span>, so one variable flip updates every selected state in the prototype.</div>
+            </div>
+          </div>
+          <div style="flex:1 1 300px;min-width:0;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+            <sc-for list="{{ taggoScreens }}" as="sc" hint-placeholder-count="2">
+              <div style="display:flex;flex-direction:column;gap:8px;align-items:center">
+                <div style="width:198px;height:430px;border-radius:30px;overflow:hidden;background:#FFFFFF;box-shadow:0 0 0 1.5px #9A9BA0,0 0 0 4px #1A1A1F,0 30px 60px rgba(0,0,0,0.5)">
+                  <div style="width:440px;height:956px;transform:scale(0.45);transform-origin:top left">
+                    <sc-if value="{{ near }}" hint-placeholder-val="{{ false }}"><x-import component-from-global-scope="{{ sc.comp }}" from="./components/taggo-hifi/Components.bundle.js" hint-size="440px,956px"></x-import></sc-if>
+                  </div>
+                </div>
+                <span style="font-size:12px;color:#8C8C93">{{ sc.label }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </sc-if>
+
+      <div style="margin-top:20px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:0.1em;color:#5C5C63">{{ familyLabel }}</div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:12px">
+        <sc-for list="{{ familyList }}" as="f" hint-placeholder-count="20">
+          <span style="padding:7px 12px;border-radius:10px;border:1px solid #1F1F24;background:rgba(14,14,22,0.58);font-size:12.5px;color:#D0D0D6">{{ f.n }}<span style="color:{{ accent }}"> {{ f.a }}</span></span>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="display:grid;grid-template-columns:80px minmax(0,1fr);gap:24px">
+    <span></span>
+    <div style="min-width:0">
+      <div style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:0.1em;color:#5C5C63">06 · HOW I RAN THE SYSTEM</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:28px;margin-top:20px">
+        <sc-for list="{{ rules }}" as="r" hint-placeholder-count="4">
+          <div style="border-top:2px solid {{ accent }};padding-top:16px">
+            <div style="font-family:'Clash Display',sans-serif;font-size:19px;font-weight:500">{{ r.t }}</div>
+            <p style="margin:8px 0 0;font-size:14.5px;line-height:1.65;color:#B4B4BB;text-wrap:pretty">{{ r.d }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;product&quot;: {&quot;editor&quot;: &quot;enum&quot;, &quot;options&quot;: [&quot;theevents&quot;, &quot;taggo&quot;], &quot;default&quot;: &quot;theevents&quot;, &quot;tsType&quot;: &quot;'theevents' | 'taggo'&quot;}}">
+const DS = {
+  theevents: {
+    name: 'TheEvents', label: 'TheEvents Design System', accent: '#F3A195',
+    title: 'Coral, cream and a token set built for two themes.',
+    intro: 'I built TheEvents on a Figma variable system before drawing the buyer and vendor flows. Raw primitives feed semantic roles, semantic roles feed components, and every colour role has a light and a dark value, so the whole app can switch theme without redrawing a screen.',
+    stats: [['352', 'Figma variables'], ['7', 'Variable collections'], ['38', 'Component sets'], ['56', 'Icons in one set'], ['2', 'Themes, light + dark']],
+    layers: [
+      { n: '26', t: 'Primitives', d: 'Raw values with no meaning attached: neutral, coral, cream, pink, green, amber, red.', ex: [['coral/400', 'rgb(226,126,114)'], ['cream/50', 'rgb(251,246,243)'], ['neutral/900', 'rgb(26,26,26)']] },
+      { n: '40', t: 'Semantic colour', d: 'Roles that screens actually use. Each one points to a primitive per theme.', ex: [['bg/brand → coral/400', 'rgb(226,126,114)'], ['bg/cream → cream/50', 'rgb(251,246,243)'], ['text/primary → neutral/900', 'rgb(26,26,26)']] },
+      { n: '59', t: 'Scales', d: 'Typography (25), spacing (12), radius (11) and size (11), named by t-shirt size.', ex: [['spacing/lg = 16', 'rgba(243,161,149,0.5)'], ['radius/lg = 12', 'rgba(243,161,149,0.35)'], ['icon/xl = 24', 'rgba(243,161,149,0.2)']] },
+    ],
+    chain: 'coral/400  →  bg/brand  →  Button · Type=Primary  →  “Add to cart” on Product, Cart and Checkout',
+    colorTitle: 'Coral for action, cream for warmth, neutrals for everything else.',
+    hasModes: true,
+    ramps: [
+      { n: 'Neutral', note: 'primitives · neutral/0 → 1000', steps: [['0', 'rgb(255,255,255)'], ['100', 'rgb(245,245,245)'], ['300', 'rgb(217,217,217)'], ['500', 'rgb(128,128,128)'], ['600', 'rgb(77,77,77)'], ['700', 'rgb(68,68,68)'], ['800', 'rgb(46,46,46)'], ['900', 'rgb(26,26,26)'], ['950', 'rgb(18,18,18)'], ['1000', 'rgb(0,0,0)']] },
+      { n: 'Brand & accents', note: 'coral · cream · pink · gold · status', steps: [['coral/400', 'rgb(226,126,114)', 1], ['coral/300', 'rgb(243,161,149)'], ['pink/50', 'rgb(255,235,238)'], ['cream/50', 'rgb(251,246,243)'], ['gold', 'rgb(212,175,55)'], ['green/700', 'rgb(46,125,50)'], ['green/50', 'rgb(226,245,226)'], ['amber/500', 'rgb(255,193,7)'], ['red/700', 'rgb(144,11,9)'], ['red/200', 'rgb(253,211,208)']] },
+    ],
+    semantic: [['bg/default', 'var(--bg-default)', 'Screen background'], ['bg/subtle', 'var(--bg-subtle)', 'Grouped sections'], ['bg/elevated', 'var(--bg-elevated)', 'Cards, sheets'], ['bg/cream', 'var(--bg-cream)', 'Warm highlight areas'], ['bg/brand', 'var(--bg-brand)', 'Primary actions'], ['bg/brand-tint', 'var(--bg-brand-tint)', 'Selected chips'], ['bg/inverse', 'var(--bg-inverse)', 'Dark CTAs, toasts'], ['text/primary', 'var(--text-primary)', 'Headings, body'], ['text/tertiary', 'var(--text-tertiary)', 'Meta, captions'], ['text/brand', 'var(--text-brand)', 'Links, prices on sale'], ['text/success', 'var(--text-success)', 'Delivered, refunded'], ['border/default', 'var(--border-default)', 'Card outlines']],
+    typeTitle: 'Inter for the interface, Alata for the moments that sell.',
+    families: [{ n: 'Inter', css: 'Inter,sans-serif', tok: 'font/family/primary', u: 'All UI text: navigation, product names, prices, forms.' }, { n: 'Alata', css: "Alata,'Satoshi',sans-serif", tok: 'font/family/title', u: 'Section titles and occasion headers on the home feed.' }, { n: 'SF Pro Display', css: "-apple-system,'SF Pro Display','Helvetica Neue',sans-serif", tok: 'font/family/secondary', u: 'System surfaces like the status bar and iOS sheets.' }],
+    typeScale: [['36', 36, 700, 'Inter', 'Celebrate together', 'size/36 · Bold'], ['28', 28, 700, 'Inter', 'Birthday collection', 'size/28 · Bold'], ['22', 22, 400, "Alata,sans-serif", 'Trending this week', 'Alata · size/22'], ['18', 18, 700, 'Inter', 'AED 249.00', 'size/18 · Bold'], ['16', 16, 600, 'Inter', 'Add to cart', 'size/16 · Semi Bold'], ['14', 14, 600, 'Inter', 'Luxury gift hamper', 'size/14 · Semi Bold'], ['13', 13, 500, 'Inter', 'Free delivery over AED 200', 'size/13 · Medium'], ['12', 12, 400, 'Inter', '4.8 · 1.2k reviews', 'size/12 · Regular'], ['10', 10, 700, 'Inter', 'BESTSELLER', 'size/10 · Bold']],
+    lineHeights: 'line-height tight 120 · normal 140 · relaxed 150',
+    spaceTitle: 'A t-shirt scale, with two half-steps for dense commerce layouts.',
+    spacing: [['3xs', 2], ['2xs', 4], ['xs', 6], ['sm', 8], ['sm-plus', 10], ['md', 12], ['md-plus', 14], ['lg', 16], ['xl', 20], ['2xl', 24], ['3xl', 28], ['4xl', 32]],
+    radii: [['none', 0], ['2xs', 2], ['xs', 4], ['sm', 6], ['md', 8], ['lg', 12], ['xl', 16], ['2xl', 20], ['3xl', 24], ['4xl', 32], ['full', 999]],
+    sizeLabel: 'ICON SIZES · 11',
+    sizes: [['2xs', 12], ['xs', 14], ['sm', 16], ['md', 18], ['lg', 20], ['xl', 24], ['2xl', 32]],
+    compTitle: 'Live components, straight from the Figma library.',
+    compIntro: 'These are the real core components, rendered from the file and reading the same variables. Switch the theme above and they follow.',
+    specimens: [
+      { comp: 'Button', n: 'Button', v: 'Type 3 × Size 2 × State 2', d: 'Primary, secondary and ghost in medium and large.', w: 200, h: 52, s: 1, boxH: 130 },
+      { comp: 'Badge', n: 'Badge', v: 'Type 5', d: 'Discount, New, Bestseller, AI Pick, Sold out.', w: 120, h: 30, s: 1.3, boxH: 130 },
+      { comp: 'SearchSection', n: 'Search', v: 'State 2 × Value 2', d: 'Search with AI and camera entry points, set over the hero header.', w: 440, h: 56, s: 0.62, boxH: 130, bg: 'linear-gradient(135deg,#E27E72,#1A1A1A)' },
+      { comp: 'InputField', n: 'Input Field', v: 'State 3 × Value 2', d: 'Default, focused and error with helper text.', w: 358, h: 90, s: 0.75, boxH: 130 },
+      { comp: 'PaymentMethodRow', n: 'PaymentMethodRow', v: 'State 2', d: 'Card, wallet and cash rows at checkout.', w: 358, h: 64, s: 0.75, boxH: 130 },
+      { comp: 'PriceRow', n: 'PriceRow', v: 'Type 3', d: 'Default, discount and total rows in the summary.', w: 358, h: 24, s: 0.75, boxH: 130 },
+      { comp: 'NavTab', n: 'NavTab', v: 'Tab 5 × State 2', d: 'Home, Categories, Cart, Orders, Profile.', w: 78, h: 50, s: 1.4, boxH: 130 },
+      { comp: 'ProductCard', n: 'ProductCard', v: 'State 4', d: 'Default, discount, sold out and skeleton.', w: 173, h: 260, s: 0.62, boxH: 200 },
+      { comp: 'Icons', n: 'Icon set', v: '56 glyphs', d: 'One 24px grid, 1.5px stroke, shared across buyer and vendor apps.', w: 1000, h: 300, s: 0.29, boxH: 200 },
+    ],
+    familyLabel: '38 COMPONENT SETS · VARIANT AXES',
+    familyList: [['Button', 'Type × Size × State'], ['Badge', 'Type 5'], ['Badges', 'Size 2'], ['Icon button', 'Style 4 × State 5'], ['AI Navigation Button', 'State 4'], ['NavTab', 'Tab 5 × State 2'], ['Segmented Control', 'Segments 4 × Selected 5'], ['Search bar', 'State 3 × Avatar 2'], ['Search', 'State 2 × Value 2'], ['Input Field', 'State 3 × Value 2'], ['Select Field', 'State 3 × Value 2'], ['Textarea Field', 'State 3 × Value 2'], ['ProductCard', 'State 4'], ['Product Information Card', '2'], ['ProductGallery', '4'], ['Makeup Artist Collection Card', 'State 4'], ['PaymentMethodRow', 'State 2'], ['PriceRow', 'Type 3'], ['FilterBottomSheet', '6'], ['Calendar', 'Size 6'], ['Generic avatar', 'Style 3'], ['Floating login card', '2'], ['Wishlist Icon', '2'], ['Star · Chevron · X · Phone', 'Size 6 each']],
+    rules: [
+      { t: 'Semantic first', d: 'Screens never reference a raw hex or primitive. That is what made the dark theme a mode switch instead of a redesign.' },
+      { t: 'States are variants', d: 'Sold out, skeleton, error and focused are designed variants, so developers see every state, not just the happy path.' },
+      { t: 'One icon grid', d: '56 icons on a shared grid and stroke, reused by the buyer app, the vendor portal and the AI assistant.' },
+      { t: 'Named for handoff', d: 'Token names match the scale developers use, like spacing/lg or radius/xl, so specs translate straight into code.' },
+    ],
+  },
+  taggo: {
+    name: 'Taggo', label: 'Taggo Design System', accent: '#F0DD50',
+    title: 'One yellow, one grid, six services.',
+    intro: 'Ride, rental, cargo, recovery and the AI assistant all had to feel like one product. I built Taggo on a variable system with a single brand ramp, a neutral ramp and component tokens for buttons, so every service shares the same parts, and light, dark and desktop modes come from the same source.',
+    stats: [['1,030', 'Variables used by the screens'], ['407', 'Colour variables'], ['3', 'Modes: light, dark, desktop'], ['10', 'Steps in the brand ramp'], ['3', 'Button sizes, tokenised']],
+    layers: [
+      { n: '20', t: 'Brand ramps', d: 'Primary yellow 50 → 900 and a neutral ramp 50 → 900.', ex: [['primary/500', 'rgb(240,221,80)'], ['primary/50', 'rgb(254,252,232)'], ['neutral/900', 'rgb(23,23,23)']] },
+      { n: 'mode', t: 'Colour modes', d: 'Backgrounds, text and borders, with values per mode so dark and desktop resolve themselves.', ex: [['text/primary → neutral/900', 'rgb(23,23,23)'], ['bg/brand-bg → primary/50', 'rgb(254,252,232)'], ['border/active → primary/500', 'rgb(240,221,80)']] },
+      { n: 'comp', t: 'Component tokens', d: 'Button sizes, states and service-specific fills, such as cargo type and weight highlights.', ex: [['primarybtn-all → primary/500', 'rgb(240,221,80)'], ['button/size/md = 48', 'rgba(240,221,80,0.4)'], ['weight-highlight-under-5-kg', 'rgb(254,252,232)']] },
+    ],
+    chain: 'primary/500  →  primarybtn-all  →  Button · Large  →  “Book ride”, “Confirm cargo”, “Rent now”',
+    colorTitle: 'Taggo yellow for action, neutrals for calm, system colours for status.',
+    hasModes: false,
+    ramps: [
+      { n: 'Primary', note: 'colors/brand/primary 50 → 900', steps: [['50', 'rgb(254,252,232)'], ['100', 'rgb(254,243,199)'], ['200', 'rgb(253,230,138)'], ['300', 'rgb(252,211,77)'], ['400', 'rgb(251,191,36)'], ['500', 'rgb(240,221,80)', 1], ['600', 'rgb(214,158,46)'], ['700', 'rgb(183,121,31)'], ['800', 'rgb(151,90,22)'], ['900', 'rgb(120,53,15)']] },
+      { n: 'Neutral', note: 'colors/brand/neutral 50 → 900', steps: [['50', 'rgb(250,250,250)'], ['100', 'rgb(245,245,245)'], ['200', 'rgb(229,229,229)'], ['300', 'rgb(212,212,212)'], ['400', 'rgb(163,163,163)'], ['500', 'rgb(115,115,115)'], ['600', 'rgb(82,82,82)'], ['700', 'rgb(64,64,64)'], ['800', 'rgb(38,38,38)'], ['900', 'rgb(23,23,23)']] },
+    ],
+    semantic: [['bg/primary', 'rgb(249,250,251)', 'App background'], ['bg/secondary', 'rgb(250,250,250)', 'Grouped sections'], ['bg/tertiary', 'rgb(255,255,255)', 'Cards, sheets'], ['bg/brand-bg', 'rgb(254,252,232)', 'Selected service'], ['bg/card-bg', 'rgba(240,221,80,0.1)', 'Highlighted cards'], ['text/primary', 'rgb(23,23,23)', 'Headings, body'], ['text/secondary', 'rgb(64,64,64)', 'Supporting copy'], ['text/tertiary', 'rgb(115,115,115)', 'Meta, captions'], ['border/default', 'rgb(226,232,240)', 'Inputs, cards'], ['border/active', 'rgb(240,221,80)', 'Focused, selected'], ['system/green', 'rgb(52,199,89)', 'Driver arrived, paid'], ['system/orange', 'rgb(255,149,0)', 'Surge, warnings']],
+    typeTitle: 'A scale from 12 to 48, with fixed line heights.',
+    families: [{ n: 'Space Grotesk', css: "'Space Grotesk',sans-serif", tok: 'font/family/primary', u: 'Primary family defined in the token set.' }, { n: 'DM Sans', css: "'DM Sans',sans-serif", tok: 'font/family/secondary', u: 'Secondary family for supporting text.' }, { n: 'Inter', css: 'Inter,sans-serif', tok: 'family/sans', u: 'Body family used across the rider and driver screens.' }],
+    typeScale: [['4xl', 48, 700, "'Space Grotesk',sans-serif", 'Move with Taggo', 'size/4xl 48'], ['3xl', 40, 700, "'Space Grotesk',sans-serif", 'Where to?', 'size/3xl 40'], ['2xl', 32, 600, "'Space Grotesk',sans-serif", 'AED 24', 'size/2xl 32 · lh 32'], ['xl', 24, 600, 'Inter', 'Driver assigned', 'size/xl 24'], ['lg', 20, 600, 'Inter', 'Choose your ride', 'size/lg 20'], ['md', 18, 600, 'Inter', 'Book ride', 'size/md 18 · button L'], ['base', 16, 400, 'Inter', 'Pickup at Dubai Mall, Gate 3', 'size/base 16 · lh 24'], ['sm', 14, 400, 'Inter', 'Arriving in 3 min', 'size/sm 14'], ['xs', 12, 400, 'Inter', 'Fare includes VAT', 'size/xs 12 · lh 16']],
+    spaceTitle: 'A doubling 4-point scale, so layouts snap across six services.',
+    spacing: [['xs', 4], ['sm', 8], ['md', 16], ['lg', 24], ['xl', 32], ['2xl', 48], ['3xl', 64]],
+    radii: [['xs', 4], ['sm', 6], ['md', 8], ['lg', 12], ['xl', 16], ['2xl', 24], ['full', 999]],
+    sizeLabel: 'BUTTON HEIGHTS · S / M / L',
+    sizes: [['S 36', 36], ['M 48', 48], ['L 56', 56]],
+    compTitle: 'Buttons and states as tokens, screens as proof.',
+    compIntro: 'Button size, padding, radius and font size are variables, so every service gets the same three buttons. The screens on the right are rendered from the Figma file and use those same tokens.',
+    btnRows: [['Small', 36, 16, 6, 14], ['Medium', 48, 24, 8, 16], ['Large', 56, 32, 12, 18]].map(b => ({ k: b[0], h: b[1], px: b[2], r: b[3], f: b[4], spec: b[1] + 'h · ' + b[2] + 'px · r' + b[3] + ' · ' + b[4] + 'px' })),
+    taggoScreens: [{ comp: 'HomeENG', label: 'Home · every service' }, { comp: 'VehiclePaymentSelection', label: 'Vehicle & payment' }],
+    familyLabel: 'SHARED ACROSS SERVICES',
+    familyList: [['Buttons', 'S / M / L × primary, secondary, dark'], ['Service tiles', 'Ride, rental, cargo, recovery'], ['Vehicle cards', 'Economy, Comfort, Premium'], ['Payment rows', 'Card, wallet, cash'], ['Cargo type chips', 'Variable-driven fills'], ['Weight selector', 'Under 5 kg → custom'], ['Location inputs', 'Pickup + drop-off'], ['Trip details', 'Route, fare, driver'], ['AI chat bubbles', 'Voice + text'], ['Rating', '5 stars + tags']],
+    rules: [
+      { t: 'One brand colour, used sparingly', d: 'Yellow marks the next action and the active selection. Everything else stays neutral so the map and the trip stay readable.' },
+      { t: 'Services share parts', d: 'Ride, rental, cargo and recovery reuse the same buttons, cards, inputs and payment rows, so a new service starts at eighty percent.' },
+      { t: 'Variables run the prototype', d: 'Selected cargo type, weight and pickup slots are variables, so stakeholders could click through real choices before any code.' },
+      { t: 'Modes from one source', d: 'Light, dark and desktop values sit on the same tokens, keeping the rider app, driver app and web consistent.' },
+    ],
+  },
+};
+const lum = (c) => { const m = c.match(/[\d.]+/g); if (!m) return 1; return (0.299 * m[0] + 0.587 * m[1] + 0.114 * m[2]) / 255; };
+
+class Component extends DCLogic {
+  state = { mode: 'light', near: false, cargo: 0 };
+  rootRef = React.createRef(); compRef = React.createRef();
+  componentDidMount() {
+    if ((this.props.product || 'theevents') === 'theevents' && !document.getElementById('eds-scoped-tokens')) {
+      fetch('components/events-ds/fig-tokens.css').then(r => r.text()).then(css => {
+        if (document.getElementById('eds-scoped-tokens')) return;
+        const scoped = css.replace(/:root\[data-theme="dark"\],\s*\.dark/g, '[data-eds-scope][data-theme="dark"]').replace(/:root\[data-theme="light"\],\s*\.light/g, '[data-eds-scope][data-theme="light-alt"]').replace(/:root\[data-mode="([^"]+)"\]/g, '[data-eds-scope][data-mode="$1"]').replace(/:root(?=\s*\{)/g, '[data-eds-scope]');
+        const st = document.createElement('style'); st.id = 'eds-scoped-tokens'; st.textContent = scoped; document.head.appendChild(st);
+      }).catch(() => {});
+    }
+    this.io = new IntersectionObserver((ents) => { ents.forEach(en => { if (en.isIntersecting !== this.state.near) this.setState({ near: en.isIntersecting }); }); }, { rootMargin: '600px 0px' });
+    if (this.compRef.current) this.io.observe(this.compRef.current);
+  }
+  componentWillUnmount() { this.io && this.io.disconnect(); }
+  renderVals() {
+    const key = this.props.product || 'theevents';
+    const d = DS[key] || DS.theevents, s = this.state;
+    const dark = s.mode === 'dark';
+    const max = Math.max(...d.spacing.map(x => x[1]));
+    const cargo = ['Under 5 kg', '5–20 kg', '20–50 kg', 'Custom'];
+    return {
+      rootRef: this.rootRef, compRef: this.compRef, near: s.near,
+      name: d.name, label: d.label, accent: d.accent, title: d.title, intro: d.intro,
+      stats: d.stats.map(x => ({ v: x[0], l: x[1] })),
+      layers: d.layers.map(l => ({ ...l, ex: l.ex.map(e => ({ k: e[0], c: e[1] })) })),
+      chain: d.chain, colorTitle: d.colorTitle, hasModes: d.hasModes,
+      mode: s.mode,
+      setLight: () => this.setState({ mode: 'light' }), setDark: () => this.setState({ mode: 'dark' }),
+      lightBg: dark ? 'transparent' : d.accent, lightFg: dark ? '#B4B4BB' : '#1A1A1A', darkBg: dark ? d.accent : 'transparent', darkFg: dark ? '#1A1A1A' : '#B4B4BB',
+      ramps: d.ramps.map(r => ({ n: r.n, note: r.note, steps: r.steps.map(x => ({ k: x[0], h: '#' + (x[1].match(/\d+/g) || []).slice(0, 3).map(n => (+n).toString(16).padStart(2, '0')).join('').toUpperCase(), c: x[1], fg: lum(x[1]) > 0.6 ? '#1A1A1A' : '#FFFFFF', ol: x[2] ? '2px solid #FFFFFF' : 'none' })) })),
+      semantic: d.semantic.map(x => ({ k: x[0], c: x[1], u: x[2] })),
+      typeTitle: d.typeTitle, families: d.families,
+      typeScale: d.typeScale.map(t => ({ k: t[0], s: t[1], w: t[2], f: t[3], sample: t[4], spec: t[5] })),
+      spaceTitle: d.spaceTitle, spacingCount: d.spacing.length + ' STEPS', radiusCount: d.radii.length + ' STEPS',
+      spacing: d.spacing.map(x => ({ k: x[0], v: x[1], w: Math.round(x[1] / max * 220) })),
+      radii: d.radii.map(x => ({ k: x[0], v: Math.min(x[1], 22) })),
+      sizeLabel: d.sizeLabel,
+      sizes: d.sizes.map(x => key === 'taggo' ? { k: x[0], v: 64, h: x[1], r: 8, c: d.accent } : { k: x[0] + ' · ' + x[1], v: x[1], h: x[1], r: 4, c: 'rgba(243,161,149,0.75)' }),
+      compTitle: d.compTitle, compIntro: d.compIntro,
+      isEvents: key === 'theevents', isTaggo: key === 'taggo',
+      specimens: (d.specimens || []).map(c => ({ ...c, bg: c.bg || 'var(--bg-default, #FFFFFF)' })),
+      btnRows: d.btnRows || [], taggoScreens: d.taggoScreens || [],
+      cargoChips: cargo.map((t, i) => ({ t, bg: i === s.cargo ? '#FEFCE8' : '#FAFAFA', fg: '#171717', sh: i === s.cargo ? 'inset 0 0 0 1.5px #F0DD50' : 'inset 0 0 0 1px #E2E8F0', pick: () => this.setState({ cargo: i }) })),
+      familyLabel: d.familyLabel, familyList: d.familyList.map(f => ({ n: f[0], a: f[1] })),
+      rules: d.rules,
+    };
+  }
+}
+</script>
+</body>
+</html>

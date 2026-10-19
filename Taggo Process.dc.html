@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+@keyframes tpBlink { 0%,49% { opacity:1; } 50%,100% { opacity:0; } }
+@keyframes tpIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:none; } }
+[data-tp-noscroll]::-webkit-scrollbar { display:none; }
+</style>
+</helmet>
+<div style="width:100%;display:flex;flex-direction:column;gap:140px;font-family:'Satoshi','Helvetica Neue',Arial,sans-serif;color:#EFEFF2">
+
+  <div ref="{{ refs.research }}" style="display:grid;grid-template-columns:80px minmax(0,1fr);gap:24px">
+    <span style="font-family:'Clash Display',sans-serif;font-size:13px;color:#5C5C63">07</span>
+    <div>
+      <div style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#F0DD50">Research</div>
+      <h2 style="margin:14px 0 0;font-family:'Clash Display',sans-serif;font-weight:500;font-size:clamp(28px,4vw,48px);line-height:1.05">Start with the people who ride.</h2>
+      <p style="margin:16px 0 0;max-width:600px;font-size:16px;line-height:1.7;color:#B4B4BB;text-wrap:pretty">Before any screen, I ran the research myself: interviews across four emirates, a competitive review, contextual inquiry at the airports, card sorting for the information architecture, and three rounds of usability testing.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:20px;margin-top:40px">
+        <div style="flex:1.5 1 420px;min-width:0;border-radius:16px;border:1px solid #1F1F24;background:rgba(8,8,14,0.62);overflow:hidden">
+          <div style="display:flex;align-items:center;gap:8px;padding:11px 14px;border-bottom:1px solid #1A1A1F;background:rgba(14,14,22,0.58);font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;color:#8C8C93"><span style="width:9px;height:9px;border-radius:50%;background:#FF5F57"></span><span style="width:9px;height:9px;border-radius:50%;background:#FEBC2E"></span><span style="width:9px;height:9px;border-radius:50%;background:#28C840"></span><span style="margin-left:8px">~/taggo — research</span></div>
+          <div data-tp-noscroll="true" style="padding:16px 18px;min-height:300px;overflow-x:auto;scrollbar-width:none;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12.5px;line-height:1.9;white-space:pre">
+            <sc-for list="{{ term }}" as="l" hint-placeholder-count="10">
+              <div style="color:{{ l.c }}">{{ l.pre }}<span style="color:{{ l.tc }}">{{ l.t }}</span><sc-if value="{{ l.caret }}" hint-placeholder-val="{{ false }}"><span style="display:inline-block;width:7px;height:14px;vertical-align:-2px;background:#F0DD50;animation:tpBlink 0.8s steps(1) infinite"></span></sc-if></div>
+            </sc-for>
+          </div>
+        </div>
+        <div style="flex:1 1 260px;display:flex;flex-direction:column;gap:12px">
+          <sc-for list="{{ market }}" as="m" hint-placeholder-count="3">
+            <div style="flex:1;border-radius:16px;border:1px solid #1F1F24;background:rgba(14,14,22,0.58);padding:18px 20px">
+              <div style="font-family:'Clash Display',sans-serif;font-weight:500;font-size:clamp(32px,3.6vw,44px);color:#F0DD50;font-variant-numeric:tabular-nums">{{ m.v }}</div>
+              <div style="margin-top:4px;font-size:14px;color:#B4B4BB">{{ m.l }}</div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div ref="{{ refs.segments }}" style="display:grid;grid-template-columns:80px minmax(0,1fr);gap:24px">
+    <span style="font-family:'Clash Display',sans-serif;font-size:13px;color:#5C5C63">08</span>
+    <div>
+      <div style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#F0DD50">Who it’s for</div>
+      <h2 style="margin:14px 0 0;font-family:'Clash Display',sans-serif;font-weight:500;font-size:clamp(28px,4vw,48px);line-height:1.05">Five riders, five reasons to move.</h2>
+      <p style="margin:16px 0 0;max-width:600px;font-size:16px;line-height:1.7;color:#B4B4BB;text-wrap:pretty">The interviews grouped into five segments. Each one shaped a different part of the product, from fixed fares for students to VIP service for business travellers.</p>
+      <div style="margin-top:40px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;color:#5C5C63">segments.json · share of riders</div>
+      <div style="display:flex;height:44px;margin-top:10px;border-radius:12px;overflow:hidden;background:#111114;border:1px solid #1F1F24">
+        <sc-for list="{{ segs }}" as="s" hint-placeholder-count="5">
+          <div onMouseEnter="{{ s.enter }}" onMouseLeave="{{ s.leave }}" style="width:{{ s.w }}%;background:{{ s.bg }};display:flex;align-items:center;padding:0 12px;box-sizing:border-box;overflow:hidden;white-space:nowrap;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;font-weight:600;color:#12110F;transition:width 1.1s cubic-bezier(0.16,1,0.3,1),background 0.3s ease;border-right:1px solid #0A0A0D;cursor:default">{{ s.pct }}</div>
+        </sc-for>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:12px;margin-top:16px">
+        <sc-for list="{{ segs }}" as="s" hint-placeholder-count="5">
+          <div onMouseEnter="{{ s.enter }}" onMouseLeave="{{ s.leave }}" style="border-radius:16px;border:1px solid {{ s.border }};background:{{ s.cardBg }};padding:18px;transition:all 0.3s ease;opacity:{{ s.op }}">
+            <div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-family:'Clash Display',sans-serif;font-weight:500;font-size:28px;color:{{ s.pctColor }}">{{ s.pct }}</span><span style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;color:#5C5C63">{{ s.id }}</span></div>
+            <div style="margin-top:6px;font-size:16px;font-weight:500">{{ s.label }}</div>
+            <div style="margin-top:6px;font-size:13px;line-height:1.55;color:#8C8C93">{{ s.need }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+
+  <div ref="{{ refs.diff }}" style="display:grid;grid-template-columns:80px minmax(0,1fr);gap:24px">
+    <span style="font-family:'Clash Display',sans-serif;font-size:13px;color:#5C5C63">09</span>
+    <div>
+      <div style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#F0DD50">Problem → solution</div>
+      <h2 style="margin:14px 0 0;font-family:'Clash Display',sans-serif;font-weight:500;font-size:clamp(28px,4vw,48px);line-height:1.05">Every pain point got a fix.</h2>
+      <p style="margin:16px 0 0;max-width:600px;font-size:16px;line-height:1.7;color:#B4B4BB;text-wrap:pretty">Five problems came out of research. Read it like a code diff: what riders lived with, removed, and what Taggo ships instead.</p>
+      <div style="margin-top:40px;border-radius:16px;border:1px solid #1F1F24;background:rgba(8,8,14,0.62);overflow:hidden">
+        <div style="display:flex;justify-content:space-between;padding:11px 16px;border-bottom:1px solid #1A1A1F;background:rgba(14,14,22,0.58);font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;color:#8C8C93"><span>ride-hailing-uae → taggo.diff</span><span><span style="color:#FF6B6B">−5</span>  <span style="color:#A5E075">+5</span></span></div>
+        <div style="padding:10px 0">
+          <sc-for list="{{ diff }}" as="d" hint-placeholder-count="5">
+            <div onMouseEnter="{{ d.enter }}" onMouseLeave="{{ d.leave }}" style="padding:6px 0;background:{{ d.rowBg }};transition:background 0.25s ease;cursor:default">
+              <div style="display:flex;gap:14px;padding:4px 18px;background:rgba(255,90,90,0.07);opacity:{{ d.opA }};transform:{{ d.tfA }};transition:all 0.5s ease;font-size:14px;line-height:1.5"><span style="flex-shrink:0;font-family:ui-monospace,'SF Mono',Menlo,monospace;color:#FF6B6B">−</span><span style="color:#D7A7A7;text-decoration:line-through;text-decoration-color:rgba(255,107,107,0.5)">{{ d.a }}</span></div>
+              <div style="display:flex;gap:14px;padding:4px 18px;background:rgba(165,224,117,0.08);opacity:{{ d.opB }};transform:{{ d.tfB }};transition:all 0.5s ease;font-size:14px;line-height:1.5"><span style="flex-shrink:0;font-family:ui-monospace,'SF Mono',Menlo,monospace;color:#A5E075">+</span><span style="color:#E3F2D3">{{ d.b }}</span></div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div ref="{{ refs.ia }}" style="display:grid;grid-template-columns:80px minmax(0,1fr);gap:24px">
+    <span style="font-family:'Clash Display',sans-serif;font-size:13px;color:#5C5C63">10</span>
+    <div>
+      <div style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#F0DD50">Information architecture</div>
+      <h2 style="margin:14px 0 0;font-family:'Clash Display',sans-serif;font-weight:500;font-size:clamp(28px,4vw,48px);line-height:1.05">Six services, one tap from home.</h2>
+      <p style="margin:16px 0 0;max-width:600px;font-size:16px;line-height:1.7;color:#B4B4BB;text-wrap:pretty">Card sorting set the structure: every service hangs off a single home screen, so switching from a ride to a rental never means relearning the app. Testing the IA early saved major rework later.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:20px;margin-top:40px">
+        <div style="flex:1 1 340px;min-width:0;border-radius:16px;border:1px solid #1F1F24;background:rgba(8,8,14,0.62);padding:18px 20px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:13px;line-height:1.95">
+          <sc-for list="{{ tree }}" as="n" hint-placeholder-count="14">
+            <div style="white-space:pre;opacity:{{ n.op }};transform:{{ n.tf }};transition:all 0.4s ease"><span style="color:#3A3A42">{{ n.guide }}</span><span style="color:{{ n.c }}">{{ n.name }}</span><span style="color:#5C5C63">{{ n.note }}</span></div>
+          </sc-for>
+        </div>
+        <div style="flex:1 1 300px;display:flex;flex-direction:column;gap:12px">
+          <div style="border-radius:16px;border:1px solid #1F1F24;background:rgba(14,14,22,0.58);padding:20px;display:flex;gap:28px">
+            <div><div style="font-family:'Clash Display',sans-serif;font-weight:500;font-size:40px;color:#F0DD50">6</div><div style="font-size:13px;color:#8C8C93">Service entry points</div></div>
+            <div><div style="font-family:'Clash Display',sans-serif;font-weight:500;font-size:40px;color:#F0DD50">1 tap</div><div style="font-size:13px;color:#8C8C93">To any service</div></div>
+          </div>
+          <div style="flex:1;border-radius:16px;border:1px solid #1F1F24;background:rgba(14,14,22,0.58);padding:20px">
+            <div style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;letter-spacing:0.1em;color:#5C5C63">HOME SCREEN STRUCTURE</div>
+            <div style="display:flex;flex-direction:column;gap:10px;margin-top:14px">
+              <sc-for list="{{ homeParts }}" as="h" hint-placeholder-count="5">
+                <div style="display:flex;gap:12px;align-items:center;font-size:14px;color:#D0D0D6"><span style="width:22px;height:22px;flex-shrink:0;border-radius:6px;background:rgba(240,221,80,0.12);color:#F0DD50;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;display:flex;align-items:center;justify-content:center">{{ h.n }}</span>{{ h.t }}</div>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div ref="{{ refs.ds }}" style="display:grid;grid-template-columns:80px minmax(0,1fr);gap:24px">
+    <span style="font-family:'Clash Display',sans-serif;font-size:13px;color:#5C5C63">11</span>
+    <div>
+      <div style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#F0DD50">Design system</div>
+      <h2 style="margin:14px 0 0;font-family:'Clash Display',sans-serif;font-weight:500;font-size:clamp(28px,4vw,48px);line-height:1.05">One system behind 70+ screens.</h2>
+      <p style="margin:16px 0 0;max-width:600px;font-size:16px;line-height:1.7;color:#B4B4BB;text-wrap:pretty">A vibrant yellow primary with neutral greys, a five-step type scale and 50+ reusable components, guided by two principles.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:20px;margin-top:40px">
+        <div style="flex:1 1 360px;min-width:0;border-radius:16px;border:1px solid #1F1F24;background:rgba(8,8,14,0.62);padding:18px 20px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:13px;line-height:2">
+          <div style="color:#5C5C63">/* tokens.css */</div>
+          <div style="color:#C792EA">:root <span style="color:#8C8C93">{</span></div>
+          <sc-for list="{{ colors }}" as="c" hint-placeholder-count="5">
+            <div style="display:flex;align-items:center;gap:10px;padding-left:18px;opacity:{{ c.op }};transition:opacity 0.4s ease"><span style="color:#7FDBFF">{{ c.v }}</span><span style="color:#8C8C93">:</span><span style="width:14px;height:14px;border-radius:4px;background:{{ c.hex }};box-shadow:0 0 0 1px rgba(255,255,255,0.15)"></span><span style="color:#A5E075">{{ c.hex }}</span><span style="color:#8C8C93">;</span></div>
+          </sc-for>
+          <div style="color:#8C8C93">}</div>
+          <div style="margin-top:14px;display:flex;flex-direction:column;gap:6px;font-family:'Inter',system-ui,sans-serif">
+            <sc-for list="{{ type }}" as="t" hint-placeholder-count="5">
+              <div style="display:flex;justify-content:space-between;gap:12px;align-items:baseline;border-top:1px solid #16161A;padding-top:6px"><span style="font-size:{{ t.size }}px;font-weight:{{ t.w }};color:#EFEFF2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ t.sample }}</span><span style="flex-shrink:0;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;color:#5C5C63">{{ t.spec }}</span></div>
+            </sc-for>
+          </div>
+        </div>
+        <div style="flex:1 1 300px;display:flex;flex-direction:column;gap:12px">
+          <sc-for list="{{ principles }}" as="p" hint-placeholder-count="2">
+            <div style="flex:1;border-radius:16px;border:1px solid #1F1F24;background:rgba(14,14,22,0.58);padding:20px">
+              <div style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;letter-spacing:0.1em;color:#F0DD50">{{ p.tag }}</div>
+              <div style="margin-top:6px;font-family:'Clash Display',sans-serif;font-weight:500;font-size:22px">{{ p.title }}</div>
+              <div style="display:flex;flex-direction:column;gap:7px;margin-top:12px">
+                <sc-for list="{{ p.items }}" as="i" hint-placeholder-count="5">
+                  <div style="display:flex;gap:10px;font-size:13.5px;line-height:1.5;color:#B4B4BB"><span style="color:#F0DD50;flex-shrink:0">✓</span>{{ i }}</div>
+                </sc-for>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const TERM = [
+  { cmd:'taggo research --interviews --emirates 4', out:'✓ 25 participants across 4 emirates' },
+  { cmd:'taggo research --competitive uber careem abu-dhabi-taxi', out:'✓ 3 competitors mapped' },
+  { cmd:'taggo research --contextual-inquiry DXB AUH', out:'✓ airport pickups observed at Dubai & Abu Dhabi' },
+  { cmd:'taggo research --card-sort', out:'✓ information architecture validated' },
+  { cmd:'taggo test --usability --rounds 3', out:'✓ 3 rounds · 15 participants' },
+];
+const MARKET = [{ n:10, suf:'M+', l:'UAE urban commuters' }, { n:90, suf:'%', l:'Smartphone adoption' }, { n:85, suf:'%', l:'Digital payment users' }];
+const SEGS = [
+  { pct:40, label:'Working professionals', need:'Daily commute, airport runs and meetings.', bg:'#F0DD50' },
+  { pct:20, label:'Students', need:'Budget-conscious, campus to city.', bg:'#D9C845' },
+  { pct:15, label:'Tourists', need:'Airport transfers and city exploration.', bg:'#C2B33C' },
+  { pct:15, label:'Families', need:'School runs and weekend outings.', bg:'#A99C33' },
+  { pct:10, label:'Business travellers', need:'VIP service and corporate accounts.', bg:'#8F842B' },
+];
+const DIFF = [
+  ['Surge pricing creates distrust — riders avoid booking during peak hours', 'Fixed-rate transparent pricing — fare shown before booking'],
+  ['Limited local payment options (no digital wallets, no cash toggle)', 'Digital wallet + cash + card payments with easy switching'],
+  ['No Arabic-first interface in competing apps', 'Full Arabic language & RTL layout support'],
+  ['Inconsistent driver quality with no transparent rating system', 'AI-powered driver matching with visible 4.8★ avg rating'],
+  ['No multi-service platform — separate apps needed for rides, rental, cargo', 'Unified platform — Ride, Rental, Cargo, VIP, Recovery in one app'],
+];
+const TREE = [
+  ['', 'taggo/', '', '#EFEFF2'],
+  ['├─ ', 'home', '  // one hub for everything', '#F0DD50'],
+  ['│  ├─ ', 'ride', '  · map-first booking', '#7FDBFF'],
+  ['│  ├─ ', 'rental', '  · day · week · month', '#7FDBFF'],
+  ['│  ├─ ', 'cargo', '  · matched to cargo weight', '#7FDBFF'],
+  ['│  ├─ ', 'vip', '  · luxury fleet, chauffeurs', '#7FDBFF'],
+  ['│  ├─ ', 'airport-transfer', '  · flight tracking', '#7FDBFF'],
+  ['│  └─ ', 'car-recovery', '  · breakdown in 2 taps', '#7FDBFF'],
+  ['├─ ', 'ai-assistant', '  · "book a ride to the airport"', '#C792EA'],
+  ['├─ ', 'wallet', '  · balance, top-up, 5 payment methods', '#A5E075'],
+  ['├─ ', 'membership', '  · Silver · Gold · Platinum', '#A5E075'],
+  ['└─ ', 'profile', '  · history, receipts, settings', '#A5E075'],
+];
+const HOME = ['Search bar with menu', 'Swipeable service cards: Ride, Rental, Cargo', 'Active ride or rental status card', 'Wallet balance and quick top-up', 'Explore UAE: popular destinations'];
+const LOFI = [
+  ['SplashScreen','Splash'], ['WelcomeScreen','Welcome'], ['Login','Log in'], ['OTP','Verify OTP'],
+  ['HomeScreen','Home'], ['Discover','Discover'], ['Location01','Set location'], ['CarTypes','Choose a car'],
+];
+const COLORS = [['--primary','#F0DD50'], ['--secondary','#9FA19E'], ['--accent','#83847F'], ['--dark','#1A1A1A'], ['--white','#FFFFFF']];
+const TYPE = [
+  { sample:'Book a Ride', size:20, w:600, spec:'20 · Semi Bold · Heading' },
+  { sample:'Car Rental Details', size:16, w:500, spec:'16 · Medium · Subheading' },
+  { sample:'Professional drivers available nearby', size:14, w:400, spec:'14 · Regular · Body' },
+  { sample:'Estimated arrival: 3 min', size:12, w:400, spec:'12 · Regular · Caption' },
+  { sample:'AED 25.00', size:11, w:500, spec:'11 · Medium · Label' },
+];
+const PRINCIPLES = [
+  { tag:'PRINCIPLE 01', title:'Clarity & Speed', items:['Map-first interface — location context is always visible', 'Bottom sheet progressive disclosure — show only what’s needed', 'Under 30s booking — minimum taps from open to confirmed', 'Persistent navigation bar for instant service switching', 'Skeleton screens & optimistic UI for perceived speed'] },
+  { tag:'PRINCIPLE 02', title:'Trust & Safety', items:['Upfront fare — no hidden charges or surge surprises', 'Driver photo, name, rating and car details visible before ride', 'Live GPS sharing with emergency contacts', 'Verified driver badges with background check indicators', 'In-app SOS button accessible during every ride'] },
+];
+const KEYS = ['research','segments','diff','ia','ds'];
+
+class Component extends DCLogic {
+  state = { segHov:-1, diffHov:-1, lofiHov:-1, play:0 };
+  refs = Object.fromEntries(KEYS.map(k => [k, React.createRef()]));
+  start = {};
+  vis = {};
+  componentDidMount() {
+    if (window.IntersectionObserver) {
+      this.io = new IntersectionObserver(es => es.forEach(en => { const k = en.target.getAttribute('data-k'); if (!k) return; this.vis[k] = en.isIntersecting; if (en.isIntersecting && !this.start[k]) { this.start[k] = performance.now(); this.forceUpdate(); } }), { threshold:0.15 });
+      KEYS.forEach(k => { const el = this.refs[k].current; if (el) { el.setAttribute('data-k', k); this.io.observe(el); } });
+    } else KEYS.forEach(k => { this.start[k] = performance.now(); this.vis[k] = true; });
+    this.iv = setInterval(() => { const now = performance.now(); if (KEYS.some(k => k !== 'lofi' && k !== 'ds' && this.vis[k] && this.start[k] && now - this.start[k] < 6000)) this.forceUpdate(); }, 80);
+    this.iv2 = setInterval(() => { if (this.vis.ds && this.start.ds && performance.now() - this.start.ds < 2000) this.forceUpdate(); }, 250);
+  }
+  componentWillUnmount() { clearInterval(this.iv); clearInterval(this.iv2); clearInterval(this.lv); if (this.io) this.io.disconnect(); }
+  t(k) { return this.start[k] ? (performance.now() - this.start[k]) / 1000 : -1; }
+  renderVals() {
+    const ease = x => 1 - Math.pow(1 - Math.min(1, Math.max(0, x)), 3);
+    const tr = this.t('research');
+    const term = []; let at = 0.2;
+    TERM.forEach((l, i) => {
+      const typeDur = l.cmd.length / 38;
+      const shown = tr < at ? 0 : Math.min(l.cmd.length, Math.floor((tr - at) * 38));
+      if (tr >= at) term.push({ pre:'$ ', t: l.cmd.slice(0, shown), c:'#F0DD50', tc:'#EFEFF2', caret: shown < l.cmd.length });
+      at += typeDur + 0.25;
+      if (tr >= at) term.push({ pre:'  ', t: l.out, c:'#A5E075', tc:'#A5E075', caret:false });
+      at += 0.35;
+    });
+    if (tr >= at) term.push({ pre:'$ ', t:'', c:'#F0DD50', tc:'#EFEFF2', caret:true });
+    if (tr < 0.2) term.push({ pre:'$ ', t:'', c:'#F0DD50', tc:'#EFEFF2', caret:true });
+    const market = MARKET.map((m, i) => ({ v: Math.round(m.n * ease((tr - 0.4 - i * 0.2) / 1.6)) + m.suf, l: m.l }));
+    const ts = this.t('segments'), sh = this.state.segHov;
+    const segs = SEGS.map((s, i) => ({
+      pct: s.pct + '%', label: s.label, need: s.need, id: 'seg_' + String(i + 1).padStart(2, '0'),
+      w: ts > 0.1 ? s.pct : 0, bg: sh < 0 || sh === i ? s.bg : '#2A2A2E',
+      border: sh === i ? 'rgba(240,221,80,0.6)' : '#1F1F24', cardBg: sh === i ? 'rgba(240,221,80,0.06)' : '#0E0E12',
+      pctColor: sh < 0 || sh === i ? '#F0DD50' : '#5C5C63', op: ts > 0.3 + i * 0.12 ? 1 : 0,
+      enter: () => this.setState({ segHov:i }), leave: () => this.setState({ segHov:-1 }),
+    }));
+    const td = this.t('diff'), dh = this.state.diffHov;
+    const diff = DIFF.map(([a, b], i) => {
+      const sa = td > 0.2 + i * 0.5, sb = td > 0.45 + i * 0.5;
+      return { a, b, opA: sa ? 1 : 0, tfA: sa ? 'none' : 'translateX(-10px)', opB: sb ? 1 : 0, tfB: sb ? 'none' : 'translateX(10px)', rowBg: dh === i ? 'rgba(240,221,80,0.05)' : 'transparent', enter: () => this.setState({ diffHov:i }), leave: () => this.setState({ diffHov:-1 }) };
+    });
+    const ti = this.t('ia');
+    const tree = TREE.map(([g, n, note, c], i) => { const on = ti > 0.15 + i * 0.12; return { guide:g, name:n, note, c, op: on ? 1 : 0, tf: on ? 'none' : 'translateX(-8px)' }; });
+    const tl = this.t('lofi'), lh = this.state.lofiHov;
+    const play = lh >= 0 ? lh : (tl > 0 ? this.state.play : -1);
+    const lofi = LOFI.map(([comp, label], i) => {
+      const on = i === play, past = play >= 0 && i < play;
+      return {
+        comp, label, n: String(i + 1).padStart(2, '0'), arrow: i < LOFI.length - 1,
+        dw: comp === 'Discover' ? 375 : 402, dh: comp === 'Discover' ? 812 : 874, s: comp === 'Discover' ? 0.4507 : 0.4204,
+        tf: on ? 'translateY(-10px)' : 'none',
+        shadow: on ? '0 24px 50px rgba(0,0,0,0.55),0 0 0 2px #F0DD50,0 0 36px rgba(240,221,80,0.35)' : '0 16px 36px rgba(0,0,0,0.45),0 0 0 1px rgba(255,255,255,0.06)',
+        filter: on || past || play < 0 ? 'none' : 'brightness(0.6)',
+        numColor: on ? '#F0DD50' : '#5C5C63', labelColor: on ? '#EFEFF2' : '#8C8C93',
+        arrowColor: past || on ? '#F0DD50' : '#2A2A30',
+        enter: () => this.setState({ lofiHov:i }), leave: () => this.setState({ lofiHov:-1 }),
+      };
+    });
+    const tds = this.t('ds');
+    return {
+      refs: this.refs, term, market, segs, diff, tree, lofi,
+      homeParts: HOME.map((t, i) => ({ n: String(i + 1).padStart(2, '0'), t })),
+      colors: COLORS.map(([v, hex], i) => ({ v, hex, op: tds > 0.2 + i * 0.15 ? 1 : 0.15 })),
+      type: TYPE, principles: PRINCIPLES,
+    };
+  }
+}
+</script>
+</body>
+</html>

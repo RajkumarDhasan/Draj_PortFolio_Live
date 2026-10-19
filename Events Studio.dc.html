@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+@keyframes evIn { from { opacity:0; transform:translateX(26px) scale(0.985); filter:blur(4px); } to { opacity:1; transform:none; filter:none; } }
+@keyframes evUp { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:none; } }
+@keyframes evRip { 0% { transform:translate(-50%,-50%) scale(0.2); opacity:0.55; } 100% { transform:translate(-50%,-50%) scale(2.6); opacity:0; } }
+@keyframes evDot { 0%,100% { transform:translate(-50%,-50%) scale(1); } 50% { transform:translate(-50%,-50%) scale(0.82); } }
+@keyframes evPop { 0% { transform:scale(0.3); opacity:0; } 60% { transform:scale(1.12); opacity:1; } 100% { transform:scale(1); } }
+@keyframes evBlink { 0%,49% { opacity:1; } 50%,100% { opacity:0; } }
+@keyframes evShim { from { transform:translateY(-100%); } to { transform:translateY(100%); } }
+@keyframes evSpin { to { transform:rotate(360deg); } }
+@keyframes evRide { 0% { left:18%; top:72%; } 50% { left:52%; top:46%; } 100% { left:78%; top:30%; } }
+[data-ev-noscroll]::-webkit-scrollbar { display:none; }
+@keyframes evPulse { 0% { box-shadow:0 0 0 0 rgba(46,125,50,0.45); } 100% { box-shadow:0 0 0 12px rgba(46,125,50,0); } }
+</style>
+</helmet>
+<div ref="{{ rootRef }}" style="width:100%;max-width:1240px;margin:0 auto;font-family:'Satoshi','Helvetica Neue',Arial,sans-serif;color:#EFEFF2">
+  <div style="border:1px solid #232328;border-radius:20px;background:#0B0B0E;overflow:hidden;box-shadow:0 40px 120px rgba(0,0,0,0.55),0 0 0 1px rgba(243,161,149,0.04)">
+    <div style="display:flex;align-items:center;gap:14px;padding:12px 16px;border-bottom:1px solid #1C1C21;background:rgba(14,14,22,0.58)">
+      <div style="display:flex;gap:7px"><span style="width:11px;height:11px;border-radius:50%;background:#FF5F57"></span><span style="width:11px;height:11px;border-radius:50%;background:#FEBC2E"></span><span style="width:11px;height:11px;border-radius:50%;background:#28C840"></span></div>
+      <div style="flex:1;text-align:center;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;color:#8C8C93">theevents-app — vibe session</div>
+      <button onClick="{{ togglePlay }}" data-cursor-hover="true" style="background:rgba(255,255,255,0.05);border:1px solid #26262B;color:#EFEFF2;border-radius:100px;padding:6px 12px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;cursor:pointer">{{ playLabel }}</button>
+    </div>
+    <div style="display:flex;flex-direction:row-reverse;flex-wrap:wrap">
+      <div style="flex:1 1 360px;min-width:0;display:flex;flex-direction:column;align-items:center;gap:22px;padding:28px 20px 30px;background:radial-gradient(120% 70% at 50% 30%,rgba(243,161,149,0.12),rgba(0,0,0,0) 70%)">
+        <div style="display:flex;align-items:center;gap:8px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:0.08em;color:#8C8C93;text-transform:uppercase"><span style="width:6px;height:6px;border-radius:50%;background:#28C840;box-shadow:0 0 10px #28C840"></span>Live preview · iPhone</div>
+        <div style="width:300px;height:628px;flex-shrink:0;border-radius:48px;background:#141417;padding:9px;box-sizing:border-box;box-shadow:inset 0 0 0 1.5px #2C2C31,0 30px 80px rgba(0,0,0,0.6)">
+          <div style="position:relative;width:282px;height:610px;border-radius:40px;overflow:hidden;background:#FBF6F3">
+            <div style="position:absolute;left:0;top:0;width:390px;height:844px;transform:scale(0.7231);transform-origin:top left;font-family:'Inter',system-ui,sans-serif;color:#1A1A1A;-webkit-font-smoothing:antialiased">
+
+              <sc-if value="{{ show.boot }}" hint-placeholder-val="{{ false }}">
+                <div style="position:absolute;inset:0;background:#FBF6F3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px">
+                  <div style="width:36px;height:36px;border-radius:50%;border:3px solid #EADFD8;border-top-color:#1A1A1A;animation:evSpin 0.9s linear infinite"></div>
+                  <div style="font-size:15px;color:#808080">Generating preview…</div>
+                </div>
+              </sc-if>
+
+              <sc-if value="{{ show.welcome }}" hint-placeholder-val="{{ true }}">
+                <div style="position:absolute;inset:0;background:#FBF6F3;animation:evIn 0.55s cubic-bezier(.2,.8,.2,1)">
+                  <div style="height:50px;display:flex;align-items:center;justify-content:space-between;padding:0 30px 0 34px;font-size:15px;font-weight:600"><span>9:41</span><span style="width:24px;height:11px;border-radius:3px;border:1.5px solid #1A1A1A;padding:1px;box-sizing:border-box"><span style="display:block;height:100%;width:80%;background:#1A1A1A;border-radius:1px"></span></span></div>
+                  <div style="position:absolute;left:0;right:0;top:250px;display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 32px">
+                    <div style="width:88px;height:88px;border-radius:24px;background:#1A1A1A;color:#fff;display:flex;align-items:center;justify-content:center;font-size:40px;font-weight:700;letter-spacing:-0.02em;animation:evPop 0.7s ease 0.15s both">te</div>
+                    <h1 style="margin:22px 0 0;font-size:34px;line-height:1.12;font-weight:700;letter-spacing:-0.02em;animation:evUp 0.6s ease 0.3s both">Shopping that knows you</h1>
+                    <p style="margin:14px 0 0;font-size:16px;line-height:1.5;color:#4D4D4D;animation:evUp 0.6s ease 0.45s both">AI-picked products, one-tap checkout and delivery you can track live — all in one place.</p>
+                  </div>
+                  <div style="position:absolute;left:24px;right:24px;top:660px;height:54px;border-radius:100px;background:#1A1A1A;color:#fff;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:600">Get Started</div>
+                  <div style="position:absolute;left:0;right:0;top:736px;text-align:center;font-size:16px;font-weight:600">I already have an account</div>
+                  <div style="position:absolute;left:0;right:0;top:782px;text-align:center;font-size:11px;color:#808080">By continuing you agree to our Terms &amp; Privacy Policy</div>
+                </div>
+              </sc-if>
+
+              <sc-if value="{{ show.home }}" hint-placeholder-val="{{ false }}">
+                <div style="position:absolute;inset:0;background:#fff;animation:evIn 0.55s cubic-bezier(.2,.8,.2,1)">
+                  <div style="height:50px;display:flex;align-items:center;justify-content:space-between;padding:0 30px 0 34px;font-size:15px;font-weight:600"><span>9:41</span><span style="width:24px;height:11px;border-radius:3px;border:1.5px solid #1A1A1A;padding:1px;box-sizing:border-box"><span style="display:block;height:100%;width:80%;background:#1A1A1A;border-radius:1px"></span></span></div>
+                  <div style="padding:8px 20px 0;display:flex;flex-direction:column;gap:14px">
+                    <div style="display:flex;align-items:center;justify-content:space-between">
+                      <div><div style="font-size:11px;color:#808080;letter-spacing:0.04em">DELIVER TO</div><div style="margin-top:3px;font-size:16px;font-weight:600;display:flex;align-items:center;gap:6px"><span style="width:9px;height:9px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);border:2px solid #1A1A1A"></span>Dubai Marina, Tower 3</div></div>
+                      <div style="position:relative;width:44px;height:44px;border-radius:50%;background:#F5F5F5;display:flex;align-items:center;justify-content:center"><span style="width:14px;height:14px;border:2px solid #1A1A1A;border-radius:7px 7px 2px 2px"></span><span style="position:absolute;right:9px;top:9px;width:8px;height:8px;border-radius:50%;background:#E27E72"></span></div>
+                    </div>
+                    <div style="height:48px;border-radius:100px;background:#F5F5F5;display:flex;align-items:center;gap:10px;padding:0 18px;font-size:15px;color:#808080"><span style="color:#E27E72;font-size:16px">✦</span>Search or ask AI anything…</div>
+                    <div style="display:flex;gap:8px;overflow:hidden">
+                      <span style="flex-shrink:0;padding:9px 16px;border-radius:100px;background:#1A1A1A;color:#fff;font-size:13px;font-weight:500">All</span>
+                      <span style="flex-shrink:0;padding:9px 16px;border-radius:100px;border:1px solid #EBEBE8;font-size:13px">Electronics</span>
+                      <span style="flex-shrink:0;padding:9px 16px;border-radius:100px;border:1px solid #EBEBE8;font-size:13px">Fashion</span>
+                      <span style="flex-shrink:0;padding:9px 16px;border-radius:100px;border:1px solid #EBEBE8;font-size:13px">Home</span>
+                      <span style="flex-shrink:0;padding:9px 16px;border-radius:100px;border:1px solid #EBEBE8;font-size:13px">Beauty</span>
+                    </div>
+                    <div style="border-radius:20px;background:#FBF0EC;padding:20px 22px;animation:evUp 0.5s ease 0.15s both">
+                      <div style="font-size:11px;color:#E27E72;letter-spacing:0.06em">SUMMER EDIT</div>
+                      <div style="margin-top:8px;font-size:22px;line-height:1.2;font-weight:700;letter-spacing:-0.01em">Up to 50% off<br>summer essentials</div>
+                      <div style="display:inline-block;margin-top:14px;padding:9px 16px;border-radius:100px;background:#1A1A1A;color:#fff;font-size:13px;font-weight:600">Shop Now</div>
+                    </div>
+                    <div style="display:flex;align-items:flex-end;justify-content:space-between;animation:evUp 0.5s ease 0.3s both">
+                      <div><div style="font-size:18px;font-weight:700"><span style="color:#E27E72">✦</span> Picked for you</div><div style="margin-top:2px;font-size:12px;color:#4D4D4D">Based on your style &amp; recent views</div></div>
+                      <div style="font-size:13px;font-weight:500">See All</div>
+                    </div>
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;animation:evUp 0.5s ease 0.42s both">
+                      <div><div style="height:150px;border-radius:16px;background:radial-gradient(circle at 50% 40%,#FBF7F3,#ECE3DA)"></div><div style="margin-top:8px;font-size:10px;color:#808080">LINEN &amp; CO</div><div style="font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Relaxed linen shirt — sand</div><div style="font-size:11px;color:#4D4D4D"><span style="color:#FFC107">★</span> 4.9 (1.2k)</div><div style="font-size:15px;font-weight:700">AED 189</div></div>
+                      <div><div style="height:150px;border-radius:16px;background:radial-gradient(circle at 50% 40%,#F7F7F8,#E2E4E7)"></div><div style="margin-top:8px;font-size:10px;color:#808080">AURORA</div><div style="font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Minimalist ceramic table lamp</div><div style="font-size:11px;color:#4D4D4D"><span style="color:#FFC107">★</span> 4.8 (860)</div><div style="font-size:15px;font-weight:700">AED 249</div></div>
+                    </div>
+                  </div>
+                  <div style="position:absolute;left:0;right:0;bottom:0;height:84px;border-top:1px solid #EFEFEF;background:#fff;display:grid;grid-template-columns:repeat(5,1fr);padding-top:10px;font-size:11px;color:#808080;text-align:center">
+                    <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#1A1A1A;font-weight:600"><span style="width:18px;height:16px;border:2px solid #1A1A1A;border-radius:3px 3px 4px 4px"></span>Home</div>
+                    <div style="display:flex;flex-direction:column;align-items:center;gap:4px"><span style="width:16px;height:16px;border:2px solid #9A9A9A;border-radius:4px"></span>Categories</div>
+                    <div style="display:flex;flex-direction:column;align-items:center;gap:4px"><span style="width:18px;height:14px;border:2px solid #9A9A9A;border-radius:2px 2px 6px 6px"></span>Cart</div>
+                    <div style="display:flex;flex-direction:column;align-items:center;gap:4px"><span style="width:16px;height:16px;border:2px solid #9A9A9A;border-radius:3px;transform:rotate(45deg) scale(0.85)"></span>Orders</div>
+                    <div style="display:flex;flex-direction:column;align-items:center;gap:4px"><span style="width:16px;height:16px;border:2px solid #9A9A9A;border-radius:50%"></span>Profile</div>
+                  </div>
+                </div>
+              </sc-if>
+
+              <sc-if value="{{ show.ai }}" hint-placeholder-val="{{ false }}">
+                <div style="position:absolute;inset:0;background:#fff;animation:evIn 0.55s cubic-bezier(.2,.8,.2,1)">
+                  <div style="height:50px;display:flex;align-items:center;justify-content:space-between;padding:0 30px 0 34px;font-size:15px;font-weight:600"><span>9:41</span><span style="width:24px;height:11px;border-radius:3px;border:1.5px solid #1A1A1A;padding:1px;box-sizing:border-box"><span style="display:block;height:100%;width:80%;background:#1A1A1A;border-radius:1px"></span></span></div>
+                  <div style="padding:8px 20px 0;display:flex;flex-direction:column;gap:14px">
+                    <div style="display:flex;align-items:center;gap:10px">
+                      <span style="font-size:26px;line-height:1;color:#1A1A1A">‹</span>
+                      <div style="flex:1;height:46px;border-radius:100px;background:#F5F5F5;display:flex;align-items:center;gap:10px;padding:0 16px;font-size:14px;overflow:hidden;white-space:nowrap"><span style="color:#E27E72">✦</span><span>{{ ai.query }}</span><span style="width:1.5px;height:18px;background:#1A1A1A;margin-left:-8px;animation:evBlink 0.9s steps(1) infinite"></span></div>
+                    </div>
+                    <sc-if value="{{ ai.thinking }}" hint-placeholder-val="{{ false }}">
+                      <div style="border-radius:20px;background:#FFEBEE;padding:16px 18px;display:flex;align-items:center;gap:10px;font-size:13px;color:#E27E72;font-weight:600"><span style="width:14px;height:14px;border-radius:50%;border:2px solid #F3C4BC;border-top-color:#E27E72;animation:evSpin 0.8s linear infinite"></span>Finding gifts that match her style…</div>
+                    </sc-if>
+                    <sc-if value="{{ ai.answer }}" hint-placeholder-val="{{ false }}">
+                      <div style="border-radius:20px;background:#FFEBEE;padding:16px 18px;animation:evUp 0.5s ease both">
+                        <div style="font-size:13px;color:#E27E72;font-weight:600">✦ AI Shopping Assistant</div>
+                        <div style="margin-top:8px;font-size:14px;line-height:1.5">Based on her love of minimalist jewellery and the pieces you’ve browsed together, here are 6 gifts under AED 300. The gold-vermeil pendant is the closest match to her style — and it arrives gift-wrapped by Thursday.</div>
+                        <div style="margin-top:8px;font-size:11px;color:#808080">AI-generated from your preferences · Always check details</div>
+                      </div>
+                      <div style="display:flex;gap:8px;overflow:hidden;animation:evUp 0.5s ease 0.1s both">
+                        <span style="flex-shrink:0;padding:8px 14px;border-radius:100px;border:1px solid #EBEBE8;font-size:13px">More romantic</span>
+                        <span style="flex-shrink:0;padding:8px 14px;border-radius:100px;border:1px solid #EBEBE8;font-size:13px">Under AED 200</span>
+                        <span style="flex-shrink:0;padding:8px 14px;border-radius:100px;border:1px solid #EBEBE8;font-size:13px">Jewellery</span>
+                      </div>
+                      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;animation:evUp 0.5s ease 0.22s both">
+                        <div><div style="position:relative;height:150px;border-radius:16px;background:radial-gradient(circle at 50% 40%,#FBF5E6,#EADBB4);box-shadow:0 0 0 2px #E27E72"><span style="position:absolute;left:10px;top:10px;padding:4px 8px;border-radius:6px;background:#E27E72;color:#fff;font-size:10px;font-weight:700">Best match</span></div><div style="margin-top:8px;font-size:10px;color:#808080">MIRA</div><div style="font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Gold-vermeil pendant necklace</div><div style="font-size:11px;color:#4D4D4D"><span style="color:#FFC107">★</span> 4.9 (2.2k)</div><div style="font-size:15px;font-weight:700">AED 289</div></div>
+                        <div><div style="height:150px;border-radius:16px;background:radial-gradient(circle at 50% 40%,#FBF1F0,#EDD3D0)"></div><div style="margin-top:8px;font-size:10px;color:#808080">SOLEIL</div><div style="font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Silk scarf — dusty rose print</div><div style="font-size:11px;color:#4D4D4D"><span style="color:#FFC107">★</span> 4.8 (640)</div><div style="font-size:15px;font-weight:700">AED 199</div></div>
+                        <div><div style="height:150px;border-radius:16px;background:radial-gradient(circle at 50% 40%,#F9F4EC,#E6DACB)"></div><div style="margin-top:8px;font-size:10px;color:#808080">AURA</div><div style="font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Scented candle trio — amber</div><div style="font-size:15px;font-weight:700">AED 149</div></div>
+                        <div><div style="height:150px;border-radius:16px;background:radial-gradient(circle at 50% 40%,#F8F8F6,#E3E1DC)"></div><div style="margin-top:8px;font-size:10px;color:#808080">MIRA</div><div style="font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Pearl huggie earrings</div><div style="font-size:15px;font-weight:700">AED 249</div></div>
+                      </div>
+                    </sc-if>
+                  </div>
+                </div>
+              </sc-if>
+
+              <sc-if value="{{ show.product }}" hint-placeholder-val="{{ false }}">
+                <div style="position:absolute;inset:0;background:#fff;animation:evIn 0.55s cubic-bezier(.2,.8,.2,1)">
+                  <div style="position:relative;height:400px;background:radial-gradient(circle at 50% 46%,#FDF8EC,#E9D9AF)">
+                    <div style="height:50px;display:flex;align-items:center;justify-content:space-between;padding:0 30px 0 34px;font-size:15px;font-weight:600"><span>9:41</span><span style="width:24px;height:11px;border-radius:3px;border:1.5px solid #1A1A1A;padding:1px;box-sizing:border-box"><span style="display:block;height:100%;width:80%;background:#1A1A1A;border-radius:1px"></span></span></div>
+                    <div style="display:flex;justify-content:space-between;padding:4px 20px"><span style="width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,0.85);display:flex;align-items:center;justify-content:center;font-size:24px">‹</span><span style="width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,0.85);display:flex;align-items:center;justify-content:center;font-size:15px">♡</span></div>
+                    <div style="position:absolute;left:20px;bottom:18px;padding:6px 12px;border-radius:100px;background:rgba(255,255,255,0.9);font-size:12px;font-weight:500">▶ Video · 360°</div>
+                    <div style="position:absolute;left:50%;bottom:26px;transform:translateX(-50%);display:flex;gap:5px"><span style="width:18px;height:6px;border-radius:3px;background:#1A1A1A"></span><span style="width:6px;height:6px;border-radius:3px;background:rgba(26,26,26,0.25)"></span><span style="width:6px;height:6px;border-radius:3px;background:rgba(26,26,26,0.25)"></span><span style="width:6px;height:6px;border-radius:3px;background:rgba(26,26,26,0.25)"></span></div>
+                  </div>
+                  <div style="padding:16px 20px 0;display:flex;flex-direction:column;gap:10px">
+                    <div style="display:flex;justify-content:space-between;font-size:12px"><span style="font-weight:600">MIRA OFFICIAL ✓</span><span style="color:#4D4D4D">★ 4.9 · 2,214 reviews</span></div>
+                    <div style="font-size:21px;font-weight:600;letter-spacing:-0.01em">Gold-vermeil pendant necklace</div>
+                    <div style="display:flex;align-items:center;gap:10px"><span style="font-size:24px;font-weight:800">AED 289</span><span style="font-size:14px;color:#808080;text-decoration:line-through">AED 349</span><span style="padding:3px 7px;border-radius:6px;background:#E27E72;color:#fff;font-size:12px;font-weight:600">-17%</span></div>
+                    <div style="font-size:12px;color:#808080">Inclusive of VAT · Earn 145 loyalty points</div>
+                    <div style="border-radius:16px;background:#F5F5F5;padding:12px 14px;display:flex;flex-direction:column;gap:8px;animation:evUp 0.5s ease 0.2s both">
+                      <div><div style="font-size:13px;color:#2E7D32;font-weight:600">Free delivery by Thu, 17 Jul</div><div style="font-size:11px;color:#808080">Gift-wrapped · order within 4h 12m</div></div>
+                      <div><div style="font-size:13px;font-weight:600">30-day free returns</div><div style="font-size:11px;color:#808080">Full refund, no questions asked</div></div>
+                    </div>
+                    <div style="border-radius:100px;background:#FFEBEE;padding:11px 16px;font-size:13px;color:#E27E72;font-weight:500;animation:evUp 0.5s ease 0.35s both">✦ Ask AI — “Will it suit a minimalist style?”</div>
+                  </div>
+                  <div style="position:absolute;left:0;right:0;bottom:0;height:96px;border-top:1px solid #EFEFEF;background:#fff;display:flex;gap:10px;padding:12px 18px 0;box-sizing:border-box">
+                    <span style="width:52px;height:52px;flex-shrink:0;border-radius:50%;background:#F5F5F5;display:flex;align-items:center;justify-content:center;font-size:18px">♡</span>
+                    <span style="flex:1;height:52px;border-radius:100px;border:1.5px solid #1A1A1A;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:600">Add to Cart</span>
+                    <span style="flex:1;height:52px;border-radius:100px;background:#1A1A1A;color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:600">Buy Now</span>
+                  </div>
+                </div>
+              </sc-if>
+
+              <sc-if value="{{ show.cart }}" hint-placeholder-val="{{ false }}">
+                <div style="position:absolute;inset:0;background:#fff;animation:evIn 0.55s cubic-bezier(.2,.8,.2,1)">
+                  <div style="height:50px;display:flex;align-items:center;justify-content:space-between;padding:0 30px 0 34px;font-size:15px;font-weight:600"><span>9:41</span><span style="width:24px;height:11px;border-radius:3px;border:1.5px solid #1A1A1A;padding:1px;box-sizing:border-box"><span style="display:block;height:100%;width:80%;background:#1A1A1A;border-radius:1px"></span></span></div>
+                  <div style="padding:8px 20px 0;display:flex;flex-direction:column;gap:16px">
+                    <div style="display:flex;align-items:center;justify-content:space-between"><span style="width:42px;height:42px;border-radius:50%;background:#F5F5F5;display:flex;align-items:center;justify-content:center;font-size:24px">‹</span><span style="font-size:18px;font-weight:600">Cart (1)</span><span style="width:42px"></span></div>
+                    <sc-if value="{{ cart.toast }}" hint-placeholder-val="{{ false }}"><div style="border-radius:14px;background:#1A1A1A;color:#fff;padding:12px 14px;font-size:13px;display:flex;justify-content:space-between;animation:evUp 0.4s ease both"><span>Added to cart</span><span style="color:#F3A195">Undo</span></div></sc-if>
+                    <div style="display:flex;gap:14px;padding:14px;border-radius:18px;border:1px solid #EBEBE8">
+                      <div style="width:84px;height:84px;flex-shrink:0;border-radius:14px;background:radial-gradient(circle at 50% 40%,#FDF8EC,#E9D9AF)"></div>
+                      <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:3px">
+                        <div style="font-size:10px;color:#808080">MIRA</div>
+                        <div style="font-size:14px;font-weight:500">Gold-vermeil pendant necklace</div>
+                        <div style="font-size:12px;color:#808080">Gold · 45 cm</div>
+                        <div style="display:flex;align-items:center;justify-content:space-between;margin-top:4px"><span style="font-size:15px;font-weight:700">AED 289</span><span style="display:flex;align-items:center;gap:12px;padding:4px 10px;border-radius:100px;background:#F5F5F5;font-size:14px"><span>−</span><span style="font-weight:600">1</span><span>+</span></span></div>
+                      </div>
+                    </div>
+                    <div style="display:flex;align-items:center;justify-content:space-between;padding:14px;border-radius:18px;background:#FBF6F3">
+                      <div><div style="font-size:14px;font-weight:600">Gift wrap &amp; note</div><div style="font-size:12px;color:#808080">{{ cart.wrapNote }}</div></div>
+                      <span style="width:46px;height:28px;border-radius:100px;background:{{ cart.trackBg }};position:relative;transition:background 0.3s ease"><span style="position:absolute;top:3px;left:{{ cart.knob }}px;width:22px;height:22px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,0.2);transition:left 0.3s cubic-bezier(.2,.8,.2,1)"></span></span>
+                    </div>
+                    <div style="display:flex;flex-direction:column;gap:10px;font-size:14px;padding-top:4px">
+                      <div style="display:flex;justify-content:space-between"><span style="color:#4D4D4D">Subtotal (1 item)</span><span>AED 289</span></div>
+                      <div style="display:flex;justify-content:space-between"><span style="color:#4D4D4D">Gift wrap</span><span style="color:#2E7D32">Free</span></div>
+                      <div style="display:flex;justify-content:space-between"><span style="color:#4D4D4D">Delivery</span><span style="color:#2E7D32">Free</span></div>
+                      <div style="height:1px;background:#EBEBE8"></div>
+                      <div style="display:flex;justify-content:space-between;font-size:17px;font-weight:700"><span>Total</span><span>AED 289</span></div>
+                    </div>
+                  </div>
+                  <div style="position:absolute;left:20px;right:20px;top:744px;height:54px;border-radius:100px;background:#1A1A1A;color:#fff;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:600">Checkout — AED 289</div>
+                </div>
+              </sc-if>
+
+              <sc-if value="{{ show.checkout }}" hint-placeholder-val="{{ false }}">
+                <div style="position:absolute;inset:0;background:#fff;animation:evIn 0.55s cubic-bezier(.2,.8,.2,1)">
+                  <div style="height:50px;display:flex;align-items:center;justify-content:space-between;padding:0 30px 0 34px;font-size:15px;font-weight:600"><span>9:41</span><span style="width:24px;height:11px;border-radius:3px;border:1.5px solid #1A1A1A;padding:1px;box-sizing:border-box"><span style="display:block;height:100%;width:80%;background:#1A1A1A;border-radius:1px"></span></span></div>
+                  <div style="padding:8px 20px 0;display:flex;flex-direction:column;gap:12px">
+                    <div style="display:flex;align-items:center;justify-content:space-between"><span style="width:42px;height:42px;border-radius:50%;background:#F5F5F5;display:flex;align-items:center;justify-content:center;font-size:24px">‹</span><span style="font-size:18px;font-weight:600">Checkout</span><span style="width:42px"></span></div>
+                    <div style="height:52px;border-radius:100px;background:#1A1A1A;color:#fff;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:600"> Apple Pay</div>
+                    <div style="display:flex;align-items:center;gap:10px;font-size:12px;color:#808080"><span style="flex:1;height:1px;background:#E5E5E5"></span>or pay another way<span style="flex:1;height:1px;background:#E5E5E5"></span></div>
+                    <div style="font-size:17px;font-weight:700">Delivery</div>
+                    <div style="padding:12px 14px;border-radius:14px;border:1px solid #EBEBE8;display:flex;justify-content:space-between;align-items:center"><div><div style="font-size:14px;font-weight:600">Home — Dubai Marina</div><div style="font-size:12px;color:#808080">Tower 3, Apt 1204 · +971 50 123 4567</div></div><span style="font-size:13px">Change</span></div>
+                    <div style="padding:12px 14px;border-radius:14px;border:1px solid #EBEBE8;display:flex;justify-content:space-between;align-items:center"><div><div style="font-size:14px;font-weight:600">Thursday, 17 July</div><div style="font-size:12px;color:#808080">9:00 AM – 1:00 PM · Free</div></div><span style="font-size:13px">Change</span></div>
+                    <div style="font-size:17px;font-weight:700">Payment</div>
+                    <div style="padding:12px 14px;border-radius:14px;border:1.5px solid #1A1A1A;display:flex;gap:12px;align-items:center"><span style="width:18px;height:18px;border-radius:50%;border:5px solid #1A1A1A;box-sizing:border-box"></span><div style="flex:1"><div style="font-size:14px;font-weight:600">Visa ending 4242</div><div style="font-size:12px;color:#808080">Expires 08/27 · 3D Secure</div></div></div>
+                    <div style="padding:12px 14px;border-radius:14px;border:1px solid #EBEBE8;display:flex;gap:12px;align-items:center"><span style="width:18px;height:18px;border-radius:50%;border:1.5px solid #D9D9D9;box-sizing:border-box"></span><div style="flex:1"><div style="font-size:14px;font-weight:600">Mastercard ending 8810</div><div style="font-size:12px;color:#808080">Expires 02/26</div></div></div>
+                    <div style="display:flex;justify-content:space-between;font-size:16px;font-weight:700;padding-top:6px"><span>Total</span><span>AED 289.00</span></div>
+                  </div>
+                  <div style="position:absolute;left:20px;right:20px;top:744px;height:54px;border-radius:100px;background:#1A1A1A;color:#fff;display:flex;align-items:center;justify-content:center;gap:10px;font-size:17px;font-weight:600">
+                    <sc-if value="{{ co.busy }}" hint-placeholder-val="{{ false }}"><span style="width:16px;height:16px;border-radius:50%;border:2px solid rgba(255,255,255,0.3);border-top-color:#fff;animation:evSpin 0.7s linear infinite"></span></sc-if>
+                    {{ co.label }}
+                  </div>
+                  <div style="position:absolute;left:0;right:0;top:806px;text-align:center;font-size:11px;color:#808080">Payments are encrypted and 3D Secure protected</div>
+                </div>
+              </sc-if>
+
+              <sc-if value="{{ show.confirmed }}" hint-placeholder-val="{{ false }}">
+                <div style="position:absolute;inset:0;background:#fff;animation:evIn 0.55s cubic-bezier(.2,.8,.2,1)">
+                  <div style="height:50px;display:flex;align-items:center;justify-content:space-between;padding:0 30px 0 34px;font-size:15px;font-weight:600"><span>9:41</span><span style="width:24px;height:11px;border-radius:3px;border:1.5px solid #1A1A1A;padding:1px;box-sizing:border-box"><span style="display:block;height:100%;width:80%;background:#1A1A1A;border-radius:1px"></span></span></div>
+                  <div style="padding:90px 24px 0;display:flex;flex-direction:column;align-items:center;text-align:center">
+                    <div style="width:92px;height:92px;border-radius:50%;background:#2E7D32;color:#fff;display:flex;align-items:center;justify-content:center;font-size:44px;font-weight:700;animation:evPop 0.7s cubic-bezier(.2,.8,.2,1) 0.2s both,evPulse 1.4s ease-out 0.9s 2">✓</div>
+                    <div style="margin-top:22px;font-size:27px;font-weight:700;letter-spacing:-0.01em;animation:evUp 0.5s ease 0.45s both">Order confirmed</div>
+                    <div style="margin-top:8px;font-size:15px;color:#4D4D4D;animation:evUp 0.5s ease 0.55s both">Arriving Thursday, 17 July · gift-wrapped</div>
+                    <div style="margin-top:28px;width:100%;border-radius:18px;background:#F7F7F8;padding:16px 18px;box-sizing:border-box;display:flex;flex-direction:column;gap:12px;font-size:14px;text-align:left;animation:evUp 0.5s ease 0.7s both">
+                      <div style="display:flex;justify-content:space-between"><span style="color:#808080">Order</span><span style="font-weight:600">#TE-48291</span></div>
+                      <div style="display:flex;justify-content:space-between"><span style="color:#808080">Paid</span><span>Visa •••• 4242 · AED 289</span></div>
+                      <div style="display:flex;justify-content:space-between"><span style="color:#808080">Points earned</span><span style="color:#B8922A;font-weight:600">+145</span></div>
+                    </div>
+                  </div>
+                  <div style="position:absolute;left:20px;right:20px;top:690px;height:54px;border-radius:100px;background:#1A1A1A;color:#fff;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:600">Track Order</div>
+                  <div style="position:absolute;left:0;right:0;top:766px;text-align:center;font-size:15px;font-weight:600">Continue shopping</div>
+                </div>
+              </sc-if>
+
+              <sc-if value="{{ show.track }}" hint-placeholder-val="{{ false }}">
+                <div style="position:absolute;inset:0;background:#fff;animation:evIn 0.55s cubic-bezier(.2,.8,.2,1)">
+                  <div style="height:50px;display:flex;align-items:center;justify-content:space-between;padding:0 30px 0 34px;font-size:15px;font-weight:600"><span>9:41</span><span style="width:24px;height:11px;border-radius:3px;border:1.5px solid #1A1A1A;padding:1px;box-sizing:border-box"><span style="display:block;height:100%;width:80%;background:#1A1A1A;border-radius:1px"></span></span></div>
+                  <div style="padding:8px 20px 0;display:flex;flex-direction:column;gap:14px">
+                    <div style="display:flex;align-items:center;justify-content:space-between"><span style="width:42px;height:42px;border-radius:50%;background:#F5F5F5;display:flex;align-items:center;justify-content:center;font-size:24px">‹</span><span style="font-size:18px;font-weight:600">Track Order</span><span style="width:42px"></span></div>
+                    <div style="border-radius:18px;background:#E3F4E1;padding:14px 18px">
+                      <div style="font-size:11px;color:#2E7D32;letter-spacing:0.06em">ARRIVING TODAY</div>
+                      <div style="font-size:28px;font-weight:700;letter-spacing:-0.01em">2:00 PM – 4:00 PM</div>
+                      <div style="font-size:13px;color:#4D4D4D">Order #TE-48291 · 1 item · Out for delivery</div>
+                    </div>
+                    <div style="position:relative;height:190px;border-radius:18px;overflow:hidden;background-color:#EEF0EA;background-image:linear-gradient(#E1E5DC 2px,transparent 2px),linear-gradient(90deg,#E1E5DC 2px,transparent 2px);background-size:46px 46px">
+                      <div style="position:absolute;left:18%;top:72%;width:62%;height:3px;background:repeating-linear-gradient(90deg,#1A1A1A 0 8px,transparent 8px 14px);transform-origin:left center;transform:rotate(-35deg)"></div>
+                      <div style="position:absolute;left:78%;top:30%;width:16px;height:16px;border-radius:50%;background:#E27E72;border:3px solid #fff;transform:translate(-50%,-50%);box-shadow:0 2px 6px rgba(0,0,0,0.2)"></div>
+                      <div style="position:absolute;width:18px;height:18px;border-radius:50%;background:#1A1A1A;border:3px solid #fff;box-shadow:0 0 0 6px rgba(26,26,26,0.12);transform:translate(-50%,-50%);animation:evRide 6s linear both"></div>
+                      <div style="position:absolute;left:12px;top:12px;padding:5px 11px;border-radius:100px;background:#1A1A1A;color:#fff;font-size:12px;display:flex;align-items:center;gap:6px"><span style="width:7px;height:7px;border-radius:50%;background:#4CAF50"></span>Live</div>
+                    </div>
+                    <div style="display:flex;flex-direction:column;gap:0">
+                      <sc-for list="{{ track.steps }}" as="st" hint-placeholder-count="5">
+                        <div style="display:flex;gap:14px">
+                          <div style="display:flex;flex-direction:column;align-items:center;width:16px"><span style="width:14px;height:14px;border-radius:50%;background:{{ st.dot }};border:2px solid {{ st.ring }};box-sizing:border-box;transition:background 0.4s ease,border-color 0.4s ease"></span><span style="flex:1;width:2px;min-height:22px;background:{{ st.line }};transition:background 0.4s ease"></span></div>
+                          <div style="padding-bottom:10px;margin-top:-2px"><div style="font-size:14px;font-weight:500;color:{{ st.tc }}">{{ st.t }}</div><div style="font-size:12px;color:#808080">{{ st.s }}</div></div>
+                        </div>
+                      </sc-for>
+                    </div>
+                  </div>
+                  <div style="position:absolute;left:20px;right:20px;top:740px;padding:12px 14px;border-radius:18px;border:1px solid #EBEBE8;display:flex;align-items:center;gap:12px;box-sizing:border-box">
+                    <span style="width:42px;height:42px;border-radius:50%;background:#F5F5F5;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:600">A</span>
+                    <div style="flex:1"><div style="font-size:14px;font-weight:600">Ahmed is delivering you</div><div style="font-size:12px;color:#808080">Aramex · AWB 3920 1148 22</div></div>
+                    <span style="padding:9px 16px;border-radius:100px;border:1.5px solid #1A1A1A;font-size:14px;font-weight:600">Contact</span>
+                  </div>
+                </div>
+              </sc-if>
+
+              <sc-if value="{{ reload }}" hint-placeholder-val="{{ false }}">
+                <div style="position:absolute;inset:0;pointer-events:none;overflow:hidden"><div style="position:absolute;left:0;right:0;top:0;height:100%;background:linear-gradient(180deg,rgba(243,161,149,0) 0%,rgba(243,161,149,0.22) 50%,rgba(243,161,149,0) 100%);animation:evShim 0.5s ease-out both"></div></div>
+              </sc-if>
+              <sc-if value="{{ tap.on }}" hint-placeholder-val="{{ false }}">
+                <div style="position:absolute;left:{{ tap.x }}px;top:{{ tap.y }}px;width:0;height:0;pointer-events:none">
+                  <span style="position:absolute;left:0;top:0;width:80px;height:80px;border-radius:50%;background:rgba(243,161,149,0.55);animation:evRip 0.7s ease-out both"></span>
+                  <span style="position:absolute;left:0;top:0;width:30px;height:30px;border-radius:50%;background:rgba(26,26,26,0.35);border:2px solid rgba(255,255,255,0.9);animation:evDot 0.5s ease both"></span>
+                </div>
+              </sc-if>
+              <div style="position:absolute;left:50%;top:11px;transform:translateX(-50%);width:120px;height:34px;border-radius:20px;background:#000"></div>
+              <div style="position:absolute;bottom:8px;left:50%;transform:translateX(-50%);width:134px;height:5px;border-radius:3px;background:#1A1A1A"></div>
+            </div>
+          </div>
+        </div>
+        <div style="width:100%;max-width:340px;min-height:118px">
+          <div style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:0.08em;color:#F3A195">{{ cap.n }} — HOW IT HELPS</div>
+          <div style="margin-top:8px;font-family:'Clash Display',sans-serif;font-weight:500;font-size:22px;line-height:1.2">{{ cap.title }}</div>
+          <p style="margin:8px 0 0;font-size:14px;line-height:1.6;color:#B4B4BB;text-wrap:pretty">{{ cap.body }}</p>
+        </div>
+      </div>
+
+      <div style="flex:999 1 420px;min-width:0;display:flex;flex-direction:column;border-right:1px solid #1C1C21;font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace">
+        <div data-ev-noscroll="true" style="display:flex;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid #1C1C21;background:rgba(14,14,22,0.58)">
+          <sc-for list="{{ files }}" as="f" hint-placeholder-count="8">
+            <button onClick="{{ f.go }}" data-cursor-hover="true" style="flex-shrink:0;display:flex;align-items:center;gap:7px;padding:11px 14px;background:{{ f.bg }};border:none;border-right:1px solid #1C1C21;border-bottom:1.5px solid {{ f.bar }};color:{{ f.color }};font-family:inherit;font-size:12px;cursor:pointer"><span style="width:6px;height:6px;border-radius:50%;background:{{ f.dot }}"></span>{{ f.name }}</button>
+          </sc-for>
+        </div>
+        <div style="padding:20px 22px 0;display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;gap:12px;align-items:flex-start">
+            <span style="flex-shrink:0;width:24px;height:24px;border-radius:7px;background:#1F1F24;display:flex;align-items:center;justify-content:center;font-size:11px;color:#B4B4BB">RD</span>
+            <div style="font-family:'Satoshi',sans-serif;font-size:15px;line-height:1.5;color:#EFEFF2;text-wrap:pretty">{{ prompt }}</div>
+          </div>
+          <div style="display:flex;gap:12px;align-items:center;font-size:12px;color:#8C8C93">
+            <span style="flex-shrink:0;width:24px;height:24px;border-radius:7px;background:linear-gradient(135deg,#F3A195,#E07E6E);display:flex;align-items:center;justify-content:center;font-size:12px;color:#12110F">✦</span>
+            <span>{{ agent }}</span>
+          </div>
+        </div>
+        <div data-ev-noscroll="true" style="margin:16px 22px 0;flex:1;min-height:250px;border-radius:12px;background:rgba(8,8,14,0.62);border:1px solid #1A1A1F;padding:16px 0;overflow-x:auto;scrollbar-width:none;font-size:12.5px;line-height:1.75">
+          <sc-for list="{{ codeLines }}" as="ln" hint-placeholder-count="6">
+            <div style="display:flex;gap:16px;white-space:pre;padding:0 16px;background:{{ ln.bg }}">
+              <span style="width:18px;flex-shrink:0;text-align:right;color:#3A3A42">{{ ln.n }}</span>
+              <span><sc-for list="{{ ln.toks }}" as="tk" hint-placeholder-count="4"><span style="color:{{ tk.c }}">{{ tk.t }}</span></sc-for><sc-if value="{{ ln.caret }}" hint-placeholder-val="{{ false }}"><span style="display:inline-block;width:7px;height:15px;vertical-align:-3px;background:#F3A195;animation:evBlink 0.8s steps(1) infinite"></span></sc-if></span>
+            </div>
+          </sc-for>
+        </div>
+        <div style="margin:12px 22px 20px;display:flex;align-items:center;gap:10px;font-size:12px;color:{{ term.color }}">
+          <span style="color:#5C5C63">$</span>{{ term.text }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,118px),1fr));gap:8px;margin-top:18px">
+    <sc-for list="{{ files }}" as="f" hint-placeholder-count="8">
+      <button onClick="{{ f.go }}" data-cursor-hover="true" style="position:relative;overflow:hidden;text-align:left;background:{{ f.chipBg }};border:1px solid {{ f.chipBorder }};border-radius:12px;padding:10px 12px;color:#EFEFF2;cursor:pointer;font-family:'Satoshi',sans-serif">
+        <div style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;color:{{ f.numColor }}">{{ f.n }}</div>
+        <div style="margin-top:3px;font-size:13px">{{ f.label }}</div>
+        <span style="position:absolute;left:0;bottom:0;height:2px;width:{{ f.prog }}%;background:#F3A195"></span>
+      </button>
+    </sc-for>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1240,&quot;height&quot;:900}}">
+const C = { k:'#C792EA', s:'#A5E075', tag:'#7FDBFF', attr:'#FFCB6B', f:'#82AAFF', v:'#EFEFF2', p:'#8C8C93', c:'#5C5C63' };
+const RELOAD = 1700;
+const SCENES = [
+  { key:'welcome', file:'Welcome.tsx', label:'Welcome', dur:5200, tap:[195,687],
+    prompt:'Start with a welcome screen that says what the app does in one line.',
+    title:'One clear promise', body:'AI-picked products, one-tap checkout and live delivery tracking are stated on the very first screen.',
+    code:['export function Welcome() {','  return (','    <Screen bg="cream">','      <Logo mark="te" />','      <Title>Shopping that knows you</Title>','      <Button primary onPress={start}>Get Started</Button>','    </Screen>','  );','}'] },
+  { key:'home', file:'Home.tsx', label:'Home', dur:5200, tap:[195,170],
+    prompt:'Make home personal: delivery address, AI search, and picks for this shopper.',
+    title:'A feed that starts with you', body:'Delivery address, AI search and picks based on style and recent views come before any promotion.',
+    code:['const picks = useAI().recommend({','  basedOn: [\'style\', \'recentViews\'],','});','','<Header deliverTo={user.address} />','<SearchBar hint="Search or ask AI anything…" />','<Chips items={categories} />','<Section title="Picked for you" items={picks} />'] },
+  { key:'ai', file:'AskAI.tsx', label:'Ask AI', dur:7000, tap:[100,540],
+    prompt:'Let people search in plain language and get a short, reasoned answer.',
+    title:'Ask like you’d ask a friend', body:'Plain-language search returns a short list within budget and explains why, instead of thousands of results.',
+    code:['const q = \'anniversary gift for my wife under AED 300\';','const { summary, items } = await ai.shop(q, {','  budget: 300,','  taste: user.style,','});','','<AIAnswer text={summary} />','<ProductGrid items={items.slice(0, 6)} />'] },
+  { key:'product', file:'Product.tsx', label:'Product', dur:5400, tap:[150,795],
+    prompt:'Product page: price, delivery date, returns and an Ask AI shortcut in one view.',
+    title:'Answers beside the price', body:'Delivery date, free returns and an Ask AI shortcut sit next to the buy buttons, so doubts are cleared before leaving the page.',
+    code:['<Gallery images={p.images} video360 />','<Price value={p.price} was={p.mrp} />','<Points earn={p.price * 0.5} />','<DeliveryPromise by={eta(p)} returns="30 days" />','<AskAI suggest="Will it suit a minimalist style?" />','<BuyBar onAdd={cart.add} onBuy={checkout} />'] },
+  { key:'cart', file:'Cart.tsx', label:'Cart', dur:5600, tap:[195,771],
+    prompt:'Most orders are gifts. Put gift wrap and a note right in the cart.',
+    title:'Gifting built in', body:'Gift wrap and a note are one toggle in the cart, not a setting to hunt for.',
+    code:['const [wrap, setWrap] = useState(false);','','<CartItem item={p} qty={1} />','<Toggle label="Gift wrap & note"','  value={wrap} onChange={setWrap} />','<Summary total={cart.total} />','<Button primary>Checkout</Button>'] },
+  { key:'checkout', file:'Checkout.tsx', label:'Checkout', dur:5600, tap:[195,771],
+    prompt:'Checkout in one tap. Pre-fill everything we already know.',
+    title:'One tap to pay', body:'Saved address, delivery slot and card are pre-filled, with Apple Pay at the top.',
+    code:['<ApplePay amount={total} />','<Address value={user.defaultAddress} />','<Slot value={nextFreeSlot()} />','<Payment saved={user.cards} selected="visa-4242" />','<Button primary onPress={placeOrder}>','  Place Order','</Button>'] },
+  { key:'confirmed', file:'Confirmed.tsx', label:'Confirmed', dur:5200, tap:[195,717],
+    prompt:'Confirm instantly: order number, delivery day and points earned.',
+    title:'Instant reassurance', body:'Order number, delivery day, payment and loyalty points earned, all on one calm screen.',
+    code:['const order = await api.placeOrder(cart);','haptics.success();','','<Success title="Order confirmed" eta={order.eta} />','<Receipt id={order.id} paid={order.card} />','<Points earned={order.points} />'] },
+  { key:'track', file:'Track.tsx', label:'Tracking', dur:6800, tap:null,
+    prompt:'Live tracking from warehouse to door, with the courier one tap away.',
+    title:'Always know where it is', body:'Live status from the fulfilment centre to the door, with the courier a tap away.',
+    code:['const live = useLiveOrder(order.id);','','<ETA window={live.window} />','<LiveMap courier={live.courier} />','<Timeline steps={live.steps} />','<Courier name={live.courier.name} onContact={call} />'] },
+];
+const KW = /^(const|await|return|export|function|import|from|true|false)$/;
+function tokenize(line) {
+  const out = []; const re = /('[^']*'|"[^"]*")|(<\/?[A-Z][A-Za-z0-9]*|\/?>)|([A-Za-z_][A-Za-z0-9_]*)(=)?|(\s+)|([^\sA-Za-z_'"]+)/g; let m;
+  while ((m = re.exec(line))) {
+    if (m[1]) out.push({ t:m[1], c:C.s });
+    else if (m[2]) out.push({ t:m[2], c:C.tag });
+    else if (m[3]) { if (m[4]) { out.push({ t:m[3], c:C.attr }); out.push({ t:'=', c:C.p }); } else out.push({ t:m[3], c: KW.test(m[3]) ? C.k : (line[re.lastIndex] === '(' ? C.f : C.v) }); }
+    else out.push({ t:m[5] || m[6], c:C.p });
+  }
+  return out;
+}
+SCENES.forEach(s => { s.toks = s.code.map(tokenize); s.len = s.code.reduce((a, l) => a + l.length, 0); });
+const QUERY = 'anniversary gift for my wife under AED 300';
+const TRACK = [
+  { t:'Order confirmed', s:'Tue, 15 Jul · 10:24 AM' },
+  { t:'Packed at fulfilment centre', s:'Tue, 15 Jul · 6:02 PM' },
+  { t:'Shipped with Aramex', s:'Wed, 16 Jul · 8:15 AM' },
+  { t:'Out for delivery', s:'Today · 1:38 PM' },
+  { t:'Delivered', s:'Expected 2–4 PM' },
+];
+
+class Component extends DCLogic {
+  state = { i:0, el:0, playing:true };
+  rootRef = React.createRef();
+  componentDidMount() {
+    this.visible = true; this.last = performance.now();
+    this.iv = setInterval(() => this.tick(), 50);
+    if (window.IntersectionObserver && this.rootRef.current) {
+      this.io = new IntersectionObserver(es => { this.visible = es[0].isIntersecting; }, { threshold: 0.15 });
+      this.io.observe(this.rootRef.current);
+    }
+  }
+  componentWillUnmount() { clearInterval(this.iv); if (this.io) this.io.disconnect(); }
+  tick() {
+    const now = performance.now(), dt = Math.min(120, now - this.last); this.last = now;
+    if (!this.state.playing || !this.visible || document.hidden) return;
+    let { i, el } = this.state; el += dt;
+    if (el >= SCENES[i].dur) { i = (i + 1) % SCENES.length; el = 0; }
+    this.setState({ i, el });
+  }
+  go(k) { this.setState({ i:k, el:0 }); }
+  renderVals() {
+    const { i, el, playing } = this.state;
+    const sc = SCENES[i];
+    const live = el >= RELOAD;
+    const shownIdx = live ? i : i - 1;
+    const se = live ? el - RELOAD : 1e9;
+    const show = { boot: shownIdx < 0 };
+    SCENES.forEach((s, k) => { show[s.key] = k === shownIdx; });
+    const budget = Math.floor(el / (RELOAD - 250) * sc.len);
+    let left = budget, caretSet = false;
+    const codeLines = sc.toks.map((toks, li) => {
+      const vis = [];
+      for (const tk of toks) { if (left <= 0) break; const part = tk.t.slice(0, left); left -= tk.t.length; vis.push({ t:part, c:tk.c }); }
+      const done = left > 0;
+      const caret = !caretSet && (!done || li === sc.toks.length - 1);
+      if (caret) caretSet = true;
+      return { n: li + 1, toks: vis, caret, bg: caret && !live ? 'rgba(243,161,149,0.06)' : 'transparent' };
+    });
+    const tapAt = sc.dur - RELOAD - 1150;
+    const tapOn = !!sc.tap && live && se > tapAt && se < tapAt + 800;
+    const qLen = shownIdx === 2 ? Math.floor(Math.min(1, Math.max(0, (se - 150) / 1300)) * QUERY.length) : QUERY.length;
+    const tlLit = shownIdx === 7 ? Math.min(4, Math.floor(se / 450)) : 3;
+    const coBusy = shownIdx === 5 && se > tapAt + 250;
+    const wrapOn = shownIdx === 4 ? se > 1100 : true;
+    return {
+      rootRef: this.rootRef,
+      show, reload: el >= RELOAD - 80 && el < RELOAD + 450,
+      tap: { on: tapOn, x: sc.tap ? sc.tap[0] : 0, y: sc.tap ? sc.tap[1] : 0 },
+      ai: { query: QUERY.slice(0, qLen), thinking: shownIdx === 2 && se > 1500 && se < 2300, answer: shownIdx !== 2 || se >= 2300 },
+      cart: { toast: shownIdx === 4 && se < 1600, knob: wrapOn ? 21 : 3, trackBg: wrapOn ? '#1A1A1A' : '#D9D9D9', wrapNote: wrapOn ? '“Happy anniversary” · free' : 'Add wrapping and a message' },
+      co: { busy: coBusy, label: coBusy ? 'Processing…' : 'Place Order — AED 289' },
+      track: { steps: TRACK.map((s, k) => { const on = k <= tlLit, curr = k === tlLit && k < 4; return { t:s.t, s:s.s, dot: on ? (curr ? '#1A1A1A' : '#4CAF50') : '#fff', ring: on ? (curr ? '#1A1A1A' : '#4CAF50') : '#D9D9D9', line: k >= 4 ? 'transparent' : (k < tlLit ? '#4CAF50' : '#E5E5E5'), tc: on ? '#1A1A1A' : '#808080' }; }) },
+      cap: { n: String(i + 1).padStart(2, '0') + ' / 08', title: sc.title, body: sc.body },
+      prompt: sc.prompt,
+      agent: live ? 'Built ' + sc.file + ' · preview updated' : 'Writing ' + sc.file + '…',
+      codeLines,
+      term: live ? { text: '✓ compiled ' + sc.file + ' · hot reload ' + (96 + i * 13) + 'ms', color: '#A5E075' } : { text: 'vite · generating ' + sc.file + ' (' + Math.min(100, Math.round(el / (RELOAD - 250) * 100)) + '%)', color: '#8C8C93' },
+      playLabel: playing ? '❚❚  Pause' : '▶  Play',
+      togglePlay: () => { this.last = performance.now(); this.setState(s => ({ playing: !s.playing })); },
+      files: SCENES.map((s, k) => ({
+        name: s.file, label: s.label, n: String(k + 1).padStart(2, '0'), go: () => this.go(k),
+        bg: k === i ? '#0B0B0E' : 'transparent', bar: k === i ? '#F3A195' : 'transparent', color: k === i ? '#EFEFF2' : '#5C5C63',
+        dot: k < i ? '#A5E075' : (k === i ? '#F3A195' : '#2A2A30'),
+        chipBg: k === i ? 'rgba(243,161,149,0.08)' : '#0E0E12', chipBorder: k === i ? 'rgba(243,161,149,0.45)' : '#1F1F24',
+        numColor: k <= i ? '#F3A195' : '#5C5C63',
+        prog: k < i ? 100 : (k === i ? Math.round(el / s.dur * 100) : 0),
+      })),
+    };
+  }
+}
+</script>
+</body>
+</html>

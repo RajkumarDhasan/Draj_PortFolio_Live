@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+@keyframes tdBlink { 0%,49% { opacity:1; } 50%,100% { opacity:0; } }
+</style>
+</helmet>
+<div style="width:100%;display:flex;flex-direction:column;gap:140px;font-family:'Satoshi','Helvetica Neue',Arial,sans-serif;color:#EFEFF2">
+
+  <div ref="{{ refs.log }}" style="display:grid;grid-template-columns:80px minmax(0,1fr);gap:24px">
+    <span style="font-family:'Clash Display',sans-serif;font-size:13px;color:#5C5C63">12</span>
+    <div>
+      <div style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#F0DD50">Testing → handoff</div>
+      <h2 style="margin:14px 0 0;font-family:'Clash Display',sans-serif;font-weight:500;font-size:clamp(28px,4vw,48px);line-height:1.05">From first interview to dev handoff.</h2>
+      <p style="margin:16px 0 0;max-width:620px;font-size:16px;line-height:1.7;color:#B4B4BB;text-wrap:pretty">The whole project as a commit history. Every step, from research to annotated specs, was owned end to end as the solo designer.</p>
+      <div style="margin-top:40px;border-radius:16px;border:1px solid #1F1F24;background:rgba(8,8,14,0.62);overflow:hidden">
+        <div style="display:flex;justify-content:space-between;padding:11px 16px;border-bottom:1px solid #1A1A1F;background:rgba(14,14,22,0.58);font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;color:#8C8C93"><span>git log --oneline taggo</span><span>branch: main</span></div>
+        <div style="padding:14px 0;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:13px">
+          <sc-for list="{{ commits }}" as="c" hint-placeholder-count="9">
+            <div style="display:flex;gap:14px;align-items:flex-start;padding:7px 18px;opacity:{{ c.op }};transform:{{ c.tf }};transition:all 0.45s ease">
+              <div style="display:flex;flex-direction:column;align-items:center;width:12px;flex-shrink:0;padding-top:4px"><span style="width:10px;height:10px;border-radius:50%;background:{{ c.dot }};box-shadow:0 0 10px {{ c.dot }}"></span></div>
+              <span style="flex-shrink:0;color:#FFCB6B">{{ c.hash }}</span>
+              <span style="flex-shrink:0;color:{{ c.typeColor }}">{{ c.type }}</span>
+              <span style="color:#D0D0D6;font-family:'Satoshi',sans-serif;font-size:14px;line-height:1.45">{{ c.msg }}</span>
+            </div>
+          </sc-for>
+          <sc-if value="{{ shipped }}" hint-placeholder-val="{{ false }}">
+            <div style="margin:10px 18px 4px;padding:12px 14px;border-radius:10px;background:rgba(240,221,80,0.08);border:1px solid rgba(240,221,80,0.35);color:#F0DD50">✓ tag v1.0 · handed off to development<span style="display:inline-block;width:7px;height:14px;margin-left:6px;vertical-align:-2px;background:#F0DD50;animation:tdBlink 0.8s steps(1) infinite"></span></div>
+          </sc-if>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div ref="{{ refs.impact }}" style="display:grid;grid-template-columns:80px minmax(0,1fr);gap:24px">
+    <span style="font-family:'Clash Display',sans-serif;font-size:13px;color:#5C5C63">13</span>
+    <div>
+      <div style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#F0DD50">Impact</div>
+      <h2 style="margin:14px 0 0;font-family:'Clash Display',sans-serif;font-weight:500;font-size:clamp(28px,4vw,48px);line-height:1.05">What the design delivers.</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px;margin-top:40px">
+        <sc-for list="{{ metrics }}" as="m" hint-placeholder-count="6">
+          <div style="position:relative;overflow:hidden;border-radius:18px;border:1px solid #1F1F24;background:rgba(14,14,22,0.58);padding:22px">
+            <div style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;letter-spacing:0.1em;color:#5C5C63">{{ m.key }}</div>
+            <div style="margin-top:10px;font-family:'Clash Display',sans-serif;font-weight:500;font-size:clamp(40px,4.4vw,56px);line-height:1;color:#F0DD50;font-variant-numeric:tabular-nums">{{ m.v }}</div>
+            <div style="margin-top:10px;font-size:15px;font-weight:500">{{ m.label }}</div>
+            <div style="margin-top:4px;font-size:13px;color:#8C8C93">{{ m.sub }}</div>
+            <span style="position:absolute;left:0;bottom:0;height:2px;width:{{ m.bar }}%;background:#F0DD50;transition:width 1.4s cubic-bezier(0.16,1,0.3,1)"></span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:80px minmax(0,1fr);gap:24px">
+    <span style="font-family:'Clash Display',sans-serif;font-size:13px;color:#5C5C63">14</span>
+    <div>
+      <div style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#F0DD50">Reflection</div>
+      <h2 style="margin:14px 0 0;font-family:'Clash Display',sans-serif;font-weight:500;font-size:clamp(28px,4vw,48px);line-height:1.05">What I learned, and what’s next.</h2>
+      <div style="display:flex;flex-wrap:wrap;gap:20px;margin-top:40px">
+        <div style="flex:1.3 1 380px;min-width:0;border-radius:16px;border:1px solid #1F1F24;background:rgba(8,8,14,0.62);padding:20px">
+          <div style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;color:#A5E075">// what I learned</div>
+          <div style="display:flex;flex-direction:column;gap:14px;margin-top:14px">
+            <sc-for list="{{ learned }}" as="l" hint-placeholder-count="5">
+              <div style="display:flex;gap:14px;font-size:14.5px;line-height:1.6;color:#D0D0D6"><span style="flex-shrink:0;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;color:#5C5C63;padding-top:3px">{{ l.n }}</span>{{ l.t }}</div>
+            </sc-for>
+          </div>
+        </div>
+        <div style="flex:1 1 300px;min-width:0;border-radius:16px;border:1px solid rgba(240,221,80,0.25);background:rgba(240,221,80,0.04);padding:20px">
+          <div style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;color:#F0DD50">// TODO: next time</div>
+          <div style="display:flex;flex-direction:column;gap:14px;margin-top:14px">
+            <sc-for list="{{ next }}" as="l" hint-placeholder-count="3">
+              <div style="display:flex;gap:12px;font-size:14.5px;line-height:1.6;color:#D0D0D6"><span style="flex-shrink:0;color:#F0DD50">☐</span>{{ l }}</div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const COMMITS = [
+  ['research', 'User interviews — 25 participants across 4 emirates', '#8BE9FF'],
+  ['research', 'Competitive analysis of Uber, Careem and Abu Dhabi Taxi; airport contextual inquiry', '#8BE9FF'],
+  ['ia', 'Card sorting → one home hub with 6 service entry points', '#C9BCFF'],
+  ['wireframe', 'Lo-fi core flows for ride, rental and cargo', '#C9BCFF'],
+  ['design-system', 'Complete design system with 50+ components', '#FFCB6B'],
+  ['ui', '70+ production-ready screens (User + Driver apps)', '#FFCB6B'],
+  ['prototype', 'Interactive prototypes for all core flows', '#FF8A6B'],
+  ['test', '3 rounds · 15 participants — cash-first payment flow made essential', '#A5E075'],
+  ['handoff', 'Annotated dev handoff specs with redlines + 17-slide branding deck', '#F0DD50'],
+];
+const HASHES = ['a3f91c2', '7b0de44', 'c58a1f0', '19e6b7d', 'e2c4089', '4d7f3a1', 'b91e5c6', '08ac2f3', 'f6d1e90'];
+const METRICS = [
+  { key:'BOOKING_TIME', n:30, pre:'< ', suf:'s', label:'Booking time', sub:'From app open to ride confirmed' },
+  { key:'DRIVER_RATING', n:4.8, dec:1, suf:'★', label:'Driver avg. rating', sub:'AI-powered driver matching' },
+  { key:'COVERAGE', n:7, label:'Emirates covered', sub:'Full coverage with Arabic support' },
+  { key:'HIDDEN_FEES', n:0, suf:'%', label:'Hidden fees', sub:'Transparent fixed-rate pricing' },
+  { key:'SCREENS', n:70, suf:'+', label:'Screens designed', sub:'User app + Driver app + components' },
+  { key:'REVENUE', n:3.5, dec:1, suf:'×', label:'Revenue potential', sub:'Rides, rental and cargo streams' },
+];
+const LEARNED = [
+  'Designing a multi-service platform requires strong information architecture — IA testing early saved major rework later',
+  'UAE-first localization is more than translation — RTL layouts, prayer time considerations, and Dirham currency formatting needed dedicated design passes',
+  'Component-driven design paid off at scale — 50+ reusable components meant faster iteration and developer consistency',
+  'Usability testing with real UAE commuters revealed that cash-first payment flow was essential (not an afterthought)',
+  'Driver app required a completely different design lens — one-handed use, glanceable info, and audio feedback patterns',
+];
+const NEXT = ['Start with a design token system from day one instead of retrofitting', 'Run more driver-side testing earlier — driver needs were underrepresented in initial research', 'Build in accessibility audits at the component level rather than page level'];
+const KEYS = ['log', 'impact'];
+
+class Component extends DCLogic {
+  refs = Object.fromEntries(KEYS.map(k => [k, React.createRef()]));
+  start = {};
+  vis = {};
+  componentDidMount() {
+    if (window.IntersectionObserver) {
+      this.io = new IntersectionObserver(es => es.forEach(en => { const k = en.target.getAttribute('data-k'); if (!k) return; this.vis[k] = en.isIntersecting; if (en.isIntersecting && !this.start[k]) { this.start[k] = performance.now(); this.forceUpdate(); } }), { threshold:0.2 });
+      KEYS.forEach(k => { const el = this.refs[k].current; if (el) { el.setAttribute('data-k', k); this.io.observe(el); } });
+    } else KEYS.forEach(k => { this.start[k] = performance.now(); });
+    this.iv = setInterval(() => { const now = performance.now(); if (KEYS.some(k => this.vis[k] && this.start[k] && now - this.start[k] < 5000)) this.forceUpdate(); }, 80);
+  }
+  componentWillUnmount() { clearInterval(this.iv); if (this.io) this.io.disconnect(); }
+  t(k) { return this.start[k] ? (performance.now() - this.start[k]) / 1000 : -1; }
+  renderVals() {
+    const ease = x => 1 - Math.pow(1 - Math.min(1, Math.max(0, x)), 3);
+    const tl = this.t('log'), tm = this.t('impact');
+    return {
+      refs: this.refs,
+      commits: COMMITS.map(([type, msg, col], i) => { const on = tl > 0.2 + i * 0.32; return { hash: HASHES[i], type: type + ':', msg, typeColor: col, dot: on ? col : '#2A2A30', op: on ? 1 : 0, tf: on ? 'none' : 'translateY(6px)' }; }),
+      shipped: tl > 0.2 + COMMITS.length * 0.32 + 0.3,
+      metrics: METRICS.map((m, i) => {
+        const p = ease((tm - 0.2 - i * 0.12) / 1.5);
+        const v = m.n * p;
+        return { key: m.key, label: m.label, sub: m.sub, bar: tm > 0 ? 100 : 0, v: (m.pre || '') + (m.dec ? v.toFixed(m.dec) : Math.round(v)) + (m.suf || '') };
+      }),
+      learned: LEARNED.map((t, i) => ({ n: String(i + 1).padStart(2, '0'), t })),
+      next: NEXT,
+    };
+  }
+}
+</script>
+</body>
+</html>

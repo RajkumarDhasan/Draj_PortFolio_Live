@@ -71,6 +71,7 @@ a:hover { color:#FF5A3C; }
 <div ref="{{ rootRef }}" style="position:relative;min-height:100vh;background:transparent;color:#EFEFF2;font-family:'Satoshi','Helvetica Neue',Arial,sans-serif;cursor:{{ cursorCss }}">
 
 {{ aiFx }}
+{{ cosmicLesson }}
 <sc-if value="{{ showLoader }}" hint-placeholder-val="{{ true }}">
 <div data-loader-panel="true" style="position:fixed;inset:0;background:#0A0A0D;z-index:999;display:flex;align-items:center;justify-content:center;transition:transform 0.7s cubic-bezier(0.76,0,0.24,1);transform:{{ loaderPanelTransform }};pointer-events:{{ preloaderPointerEvents }}">
     <sc-if value="{{ reducedMotion }}" hint-placeholder-val="{{ false }}">
@@ -190,7 +191,7 @@ a:hover { color:#FF5A3C; }
 </section>
 
 <section data-reveal="true" style="padding:0 clamp(20px,6vw,56px) 140px;opacity:0;transform:translateY(24px);transition:opacity 0.9s cubic-bezier(0.16,1,0.3,1),transform 0.9s cubic-bezier(0.16,1,0.3,1)">
-  <div style="display:grid;grid-template-columns:80px 1fr;gap:24px;border-top:1px solid #1C1C21;padding-top:36px">
+  <div style="display:grid;grid-template-columns:clamp(22px,6vw,80px) minmax(0,1fr);gap:clamp(12px,3vw,24px);border-top:1px solid #1C1C21;padding-top:36px">
     <span style="font-family:'Clash Display',sans-serif;font-size:13px;color:#5C5C63">01</span>
     <p style="margin:0;font-family:'Clash Display',sans-serif;font-weight:500;font-size:clamp(24px,3.4vw,42px);line-height:1.3;max-width:900px">Design is my primary skill.<br>Code and AI are my accelerators.</p>
   </div>
@@ -198,7 +199,7 @@ a:hover { color:#FF5A3C; }
 
 <section data-reveal="true" onMouseMove="{{ onCapabilitiesMouseMove }}" style="padding:120px clamp(20px,6vw,56px) 140px;position:relative;overflow:hidden;opacity:0;transform:translateY(24px);transition:opacity 0.9s cubic-bezier(0.16,1,0.3,1),transform 0.9s cubic-bezier(0.16,1,0.3,1)">
   <div style="position:absolute;inset:0;pointer-events:none;background-image:none;background-size:64px 64px"></div>
-  <div style="position:relative;display:grid;grid-template-columns:80px 1fr;gap:24px">
+  <div style="position:relative;display:grid;grid-template-columns:clamp(22px,6vw,80px) minmax(0,1fr);gap:clamp(12px,3vw,24px)">
     <span style="font-family:'Clash Display',sans-serif;font-size:13px;color:#5C5C63">02</span>
     <div>
       <div style="overflow:hidden">
@@ -221,7 +222,7 @@ a:hover { color:#FF5A3C; }
 </section>
 
 <section data-reveal="true" style="padding:0 clamp(20px,6vw,56px) 140px;opacity:0;transform:translateY(24px);transition:opacity 0.9s cubic-bezier(0.16,1,0.3,1),transform 0.9s cubic-bezier(0.16,1,0.3,1)">
-  <div style="display:grid;grid-template-columns:80px 1fr;gap:24px">
+  <div style="display:grid;grid-template-columns:clamp(22px,6vw,80px) minmax(0,1fr);gap:clamp(12px,3vw,24px)">
     <span style="font-family:'Clash Display',sans-serif;font-size:13px;color:#5C5C63">03</span>
     <div>
       <div style="overflow:hidden">
@@ -269,7 +270,7 @@ a:hover { color:#FF5A3C; }
       </div>
     </div>
 
-    <div style="position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px;align-items:center;margin-top:56px">
+    <div style="position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:40px;align-items:center;margin-top:56px">
       <div>
         <div data-reveal="true" style="overflow:hidden;opacity:0;transform:translateY(30px);transition:opacity 0.9s cubic-bezier(0.16,1,0.3,1) 0.05s,transform 0.9s cubic-bezier(0.16,1,0.3,1) 0.05s">
           <h2 style="margin:0;font-family:'Clash Display',sans-serif;font-weight:500;font-size:clamp(44px,8vw,120px);line-height:0.95;color:#12110F;letter-spacing:-0.02em">{{ p.name }}</h2>
@@ -321,7 +322,7 @@ a:hover { color:#FF5A3C; }
 
 <section data-reveal="true" style="padding:120px clamp(20px,6vw,56px) 100px;position:relative;overflow:hidden;background:transparent;opacity:0;transform:translateY(24px);transition:opacity 0.9s cubic-bezier(0.16,1,0.3,1),transform 0.9s cubic-bezier(0.16,1,0.3,1)">
   <div style="position:absolute;inset:0;pointer-events:none;background-image:none;background-size:64px 64px"></div>
-  <div style="position:relative;display:grid;grid-template-columns:80px 1fr;gap:24px">
+  <div style="position:relative;display:grid;grid-template-columns:clamp(22px,6vw,80px) minmax(0,1fr);gap:clamp(12px,3vw,24px)">
     <span style="font-family:'Clash Display',sans-serif;font-size:13px;color:#5C5C63">04</span>
     <div>
       <div style="overflow:hidden">
@@ -356,7 +357,7 @@ a:hover { color:#FF5A3C; }
 
 <section style="padding:0 clamp(20px,6vw,56px) 140px;background:transparent">
   <a href="#/lab" data-cursor-hover="true" data-cursor-label="Explore" onClick="{{ onNavLab }}" style="display:block;text-decoration:none;position:relative;padding-top:100px">
-    <div data-reveal="true" style="opacity:0;transform:translateY(24px);transition:opacity 0.9s cubic-bezier(0.16,1,0.3,1),transform 0.9s cubic-bezier(0.16,1,0.3,1);display:grid;grid-template-columns:80px 1fr;gap:24px">
+    <div data-reveal="true" style="opacity:0;transform:translateY(24px);transition:opacity 0.9s cubic-bezier(0.16,1,0.3,1),transform 0.9s cubic-bezier(0.16,1,0.3,1);display:grid;grid-template-columns:clamp(22px,6vw,80px) minmax(0,1fr);gap:clamp(12px,3vw,24px)">
       <span style="font-family:'Clash Display',sans-serif;font-size:13px;color:#5C5C63">05</span>
       <div>
         <div style="overflow:hidden">
@@ -380,7 +381,7 @@ a:hover { color:#FF5A3C; }
   </a>
 </section>
 
-<section data-reveal="true" style="padding:140px clamp(20px,6vw,56px);display:grid;grid-template-columns:80px 1fr;gap:24px;opacity:0;transform:translateY(24px);transition:opacity 0.9s cubic-bezier(0.16,1,0.3,1),transform 0.9s cubic-bezier(0.16,1,0.3,1)">
+<section data-reveal="true" style="padding:140px clamp(20px,6vw,56px);display:grid;grid-template-columns:clamp(22px,6vw,80px) minmax(0,1fr);gap:clamp(12px,3vw,24px);opacity:0;transform:translateY(24px);transition:opacity 0.9s cubic-bezier(0.16,1,0.3,1),transform 0.9s cubic-bezier(0.16,1,0.3,1)">
   <span style="font-family:'Clash Display',sans-serif;font-size:13px;color:#5C5C63">06</span>
   <div style="max-width:760px">
     <h2 style="margin:0 0 20px;font-family:'Clash Display',sans-serif;font-weight:500;font-size:clamp(28px,4vw,48px)">About</h2>
@@ -398,7 +399,7 @@ a:hover { color:#FF5A3C; }
 <!-- ============ WORK ============ -->
 <sc-if value="{{ isWork }}" hint-placeholder-val="{{ false }}">
 <section data-screen-label="Work" style="padding:150px clamp(20px,6vw,56px) 60px">
-  <div style="display:grid;grid-template-columns:80px 1fr;gap:24px">
+  <div style="display:grid;grid-template-columns:clamp(22px,6vw,80px) minmax(0,1fr);gap:clamp(12px,3vw,24px)">
     <span style="font-family:'Clash Display',sans-serif;font-size:13px;color:#5C5C63">02</span>
     <div>
       <h1 style="margin:0 0 24px;font-family:'Clash Display',sans-serif;font-weight:500;font-size:clamp(48px,9vw,120px);line-height:1">Work</h1>
@@ -432,7 +433,7 @@ a:hover { color:#FF5A3C; }
     <image-slot id="rp-logo-{{ activeProject.id }}" shape="rounded" radius="12" placeholder="Logo" style="width:100%;height:100%"></image-slot>
   </div>
   <h1 style="margin:20px 0 40px;font-family:'Clash Display',sans-serif;font-weight:500;font-size:clamp(42px,9vw,120px);line-height:1">{{ activeProject.name }}</h1>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:24px;border-top:1px solid #1C1C21;border-bottom:1px solid #1C1C21;padding:24px 0;margin-bottom:40px">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr));gap:24px;border-top:1px solid #1C1C21;border-bottom:1px solid #1C1C21;padding:24px 0;margin-bottom:40px">
     <div><div style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:#5C5C63;margin-bottom:6px">Role</div><div style="font-size:15px">{{ activeProject.role }}</div></div>
     <div><div style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:#5C5C63;margin-bottom:6px">Year</div><div style="font-size:15px">{{ activeProject.year }}</div></div>
     <div><div style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:#5C5C63;margin-bottom:6px">Platform</div><div style="font-size:15px">{{ activeProject.platform }}</div></div>
@@ -529,7 +530,7 @@ a:hover { color:#FF5A3C; }
 
 <section data-screen-label="Cinematic Intro" style="padding:0 clamp(20px,6vw,56px) 80px">{{ activeProject.cinematicIntro }}</section>
 
-<section style="padding:0 clamp(20px,6vw,56px) 100px;display:grid;grid-template-columns:80px 1fr;gap:24px">
+<section style="padding:0 clamp(20px,6vw,56px) 100px;display:grid;grid-template-columns:clamp(22px,6vw,80px) minmax(0,1fr);gap:clamp(12px,3vw,24px)">
   <span style="font-family:'Clash Display',sans-serif;font-size:13px;color:#5C5C63">01</span>
   <div style="max-width:820px">
     <h2 style="margin:0 0 24px;font-family:'Clash Display',sans-serif;font-weight:500;font-size:clamp(26px,3.6vw,40px)">Overview</h2>
@@ -556,7 +557,7 @@ a:hover { color:#FF5A3C; }
 <section data-reveal="true" onMouseMove="{{ onExperienceMouseMove }}" onMouseLeave="{{ onExperienceMouseLeave }}" style="position:relative;overflow:hidden;min-height:96vh;display:flex;flex-direction:column;justify-content:center;padding:100px clamp(20px,6vw,56px);background:transparent;opacity:0;transform:translateY(24px);transition:opacity 0.9s cubic-bezier(0.16,1,0.3,1),transform 0.9s cubic-bezier(0.16,1,0.3,1)">
   <div style="position:absolute;inset:0;pointer-events:none;background-image:none;background-size:60px 60px"></div>
 
-  <div style="position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:56px;align-items:center">
+  <div style="position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:56px;align-items:center">
     <div>
       <div data-reveal="true" style="opacity:0;transform:translateY(16px);transition:opacity 0.7s cubic-bezier(0.16,1,0.3,1),transform 0.7s cubic-bezier(0.16,1,0.3,1)">
         <span style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:{{ activeProject.accent }}">Interactive Product Preview</span>
@@ -741,7 +742,7 @@ a:hover { color:#FF5A3C; }
   <dc-import name="Events Studio" hint-size="100%,820px"></dc-import>
 </section>
 
-<section data-reveal="true" style="padding:0 clamp(20px,6vw,56px) 100px;display:grid;grid-template-columns:80px 1fr;gap:24px">
+<section data-reveal="true" style="padding:0 clamp(20px,6vw,56px) 100px;display:grid;grid-template-columns:clamp(22px,6vw,80px) minmax(0,1fr);gap:clamp(12px,3vw,24px)">
   <span style="font-family:'Clash Display',sans-serif;font-size:13px;color:#5C5C63">02</span>
   <div>
     <h2 style="margin:0 0 20px;font-family:'Clash Display',sans-serif;font-weight:500;font-size:clamp(26px,3.6vw,40px)">The App Journey</h2>
@@ -764,7 +765,7 @@ a:hover { color:#FF5A3C; }
 
 <section data-screen-label="Bringing the Experience to Life" style="padding:110px clamp(16px,5vw,56px) 120px;background:transparent;border-top:1px solid #16161A;overflow:hidden">
   <div style="max-width:1240px;margin:0 auto">
-    <div style="display:grid;grid-template-columns:80px 1fr;gap:24px;margin-bottom:48px">
+    <div style="display:grid;grid-template-columns:clamp(22px,6vw,80px) minmax(0,1fr);gap:clamp(12px,3vw,24px);margin-bottom:48px">
       <span style="font-family:'Clash Display',sans-serif;font-size:13px;color:#5C5C63">03</span>
       <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px">
         <h2 style="margin:0;font-family:'Clash Display',sans-serif;font-weight:500;font-size:clamp(26px,3.6vw,40px)">Bringing the Experience to Life</h2>
@@ -777,7 +778,7 @@ a:hover { color:#FF5A3C; }
 
 <section data-screen-label="Every Screen" style="padding:110px clamp(16px,5vw,56px) 110px;background:transparent">
   <div style="max-width:1240px;margin:0 auto">
-    <div style="display:grid;grid-template-columns:80px 1fr;gap:24px;margin-bottom:40px">
+    <div style="display:grid;grid-template-columns:clamp(22px,6vw,80px) minmax(0,1fr);gap:clamp(12px,3vw,24px);margin-bottom:40px">
       <span style="font-family:'Clash Display',sans-serif;font-size:13px;color:#5C5C63">04</span>
       <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px">
         <div>
@@ -793,7 +794,7 @@ a:hover { color:#FF5A3C; }
 
 <section data-screen-label="About TheEvents" style="padding:20px clamp(16px,5vw,56px) 130px;background:transparent">
   <div style="max-width:1240px;margin:0 auto">
-    <div style="display:grid;grid-template-columns:80px 1fr;gap:24px;margin-bottom:40px">
+    <div style="display:grid;grid-template-columns:clamp(22px,6vw,80px) minmax(0,1fr);gap:clamp(12px,3vw,24px);margin-bottom:40px">
       <span style="font-family:'Clash Display',sans-serif;font-size:13px;color:#5C5C63">05</span>
       <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px">
         <div>
@@ -815,7 +816,7 @@ a:hover { color:#FF5A3C; }
 
 <sc-if value="{{ activeProject.showGeneric }}" hint-placeholder-val="{{ true }}">
 <sc-if value="{{ activeProject.problem }}" hint-placeholder-val="{{ false }}">
-<section style="padding:0 clamp(20px,6vw,56px) 100px;display:grid;grid-template-columns:80px 1fr;gap:24px">
+<section style="padding:0 clamp(20px,6vw,56px) 100px;display:grid;grid-template-columns:clamp(22px,6vw,80px) minmax(0,1fr);gap:clamp(12px,3vw,24px)">
   <span style="font-family:'Clash Display',sans-serif;font-size:13px;color:#5C5C63">02</span>
   <div style="max-width:820px">
     <h2 style="margin:0 0 24px;font-family:'Clash Display',sans-serif;font-weight:500;font-size:clamp(26px,3.6vw,40px)">Problem</h2>
@@ -829,11 +830,11 @@ a:hover { color:#FF5A3C; }
 </sc-if>
 
 <sc-if value="{{ activeProject.audience }}" hint-placeholder-val="{{ false }}">
-<section style="padding:0 clamp(20px,6vw,56px) 100px;display:grid;grid-template-columns:80px 1fr;gap:24px">
+<section style="padding:0 clamp(20px,6vw,56px) 100px;display:grid;grid-template-columns:clamp(22px,6vw,80px) minmax(0,1fr);gap:clamp(12px,3vw,24px)">
   <span style="font-family:'Clash Display',sans-serif;font-size:13px;color:#5C5C63">03</span>
   <div style="max-width:900px">
     <h2 style="margin:0 0 24px;font-family:'Clash Display',sans-serif;font-weight:500;font-size:clamp(26px,3.6vw,40px)">Target Audience</h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:20px">
       <sc-for list="{{ activeProject.audience }}" as="seg" hint-placeholder-count="5">
         <div style="border-top:1px solid #1C1C21;padding-top:14px">
           <div style="font-family:'Clash Display',sans-serif;font-size:26px;color:#FF5A3C;margin-bottom:6px">{{ seg.pct }}</div>
@@ -845,7 +846,7 @@ a:hover { color:#FF5A3C; }
 </section>
 </sc-if>
 
-<section style="padding:0 clamp(20px,6vw,56px) 100px;display:grid;grid-template-columns:80px 1fr;gap:24px">
+<section style="padding:0 clamp(20px,6vw,56px) 100px;display:grid;grid-template-columns:clamp(22px,6vw,80px) minmax(0,1fr);gap:clamp(12px,3vw,24px)">
   <span style="font-family:'Clash Display',sans-serif;font-size:13px;color:#5C5C63">{{ activeProject.processStepNum }}</span>
   <div>
     <h2 style="margin:0 0 32px;font-family:'Clash Display',sans-serif;font-weight:500;font-size:clamp(26px,3.6vw,40px)">Process</h2>
@@ -860,7 +861,7 @@ a:hover { color:#FF5A3C; }
   </div>
 </section>
 
-<section style="padding:0 clamp(20px,6vw,56px) 100px;display:grid;grid-template-columns:80px 1fr;gap:24px">
+<section style="padding:0 clamp(20px,6vw,56px) 100px;display:grid;grid-template-columns:clamp(22px,6vw,80px) minmax(0,1fr);gap:clamp(12px,3vw,24px)">
   <span style="font-family:'Clash Display',sans-serif;font-size:13px;color:#5C5C63">{{ activeProject.dsStepNum }}</span>
   <div style="max-width:900px">
     <h2 style="margin:0 0 24px;font-family:'Clash Display',sans-serif;font-weight:500;font-size:clamp(26px,3.6vw,40px)">Design System</h2>
@@ -875,7 +876,7 @@ a:hover { color:#FF5A3C; }
         </sc-for>
       </div>
     </sc-if>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr));gap:16px">
       <sc-for list="{{ activeProject.dsFacts }}" as="fact" hint-placeholder-count="4">
         <div style="border-top:1px solid #1C1C21;padding-top:14px">
           <div style="font-family:'Clash Display',sans-serif;font-size:28px;color:#EFEFF2">{{ fact.value }}</div>
@@ -886,13 +887,13 @@ a:hover { color:#FF5A3C; }
   </div>
 </section>
 
-<section style="padding:0 clamp(20px,6vw,56px) 100px;display:grid;grid-template-columns:80px 1fr;gap:24px">
+<section style="padding:0 clamp(20px,6vw,56px) 100px;display:grid;grid-template-columns:clamp(22px,6vw,80px) minmax(0,1fr);gap:clamp(12px,3vw,24px)">
   <span style="font-family:'Clash Display',sans-serif;font-size:13px;color:#5C5C63">{{ activeProject.screensStepNum }}</span>
   <div>
     <h2 style="margin:0 0 32px;font-family:'Clash Display',sans-serif;font-weight:500;font-size:clamp(26px,3.6vw,40px)">Key Screens</h2>
     <div style="display:flex;flex-direction:column">
       <sc-for list="{{ activeProject.screens }}" as="sc" hint-placeholder-count="5">
-        <div style="display:grid;grid-template-columns:1fr 2fr;gap:24px;padding:24px 0;border-top:1px solid #1C1C21">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:24px;padding:24px 0;border-top:1px solid #1C1C21">
           <h3 style="margin:0;font-family:'Clash Display',sans-serif;font-weight:500;font-size:20px">{{ sc.label }}</h3>
           <p style="margin:0;font-size:15px;line-height:1.6;color:#B4B4BB">{{ sc.detail }}</p>
         </div>
@@ -901,11 +902,11 @@ a:hover { color:#FF5A3C; }
   </div>
 </section>
 
-<section style="padding:0 clamp(20px,6vw,56px) 100px;display:grid;grid-template-columns:80px 1fr;gap:24px">
+<section style="padding:0 clamp(20px,6vw,56px) 100px;display:grid;grid-template-columns:clamp(22px,6vw,80px) minmax(0,1fr);gap:clamp(12px,3vw,24px)">
   <span style="font-family:'Clash Display',sans-serif;font-size:13px;color:#5C5C63">{{ activeProject.featuresStepNum }}</span>
   <div>
     <h2 style="margin:0 0 32px;font-family:'Clash Display',sans-serif;font-weight:500;font-size:clamp(26px,3.6vw,40px)">Features Designed</h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:32px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:32px">
       <sc-for list="{{ activeProject.features }}" as="f" hint-placeholder-count="5">
         <div>
           <h3 style="margin:0 0 8px;font-family:'Clash Display',sans-serif;font-weight:500;font-size:18px;color:{{ activeProject.accent }}">{{ f.name }}</h3>
@@ -917,11 +918,11 @@ a:hover { color:#FF5A3C; }
 </section>
 
 <section style="padding:0 clamp(20px,6vw,56px) 100px;background:transparent;color:#EFEFF2;padding-top:80px;margin-bottom:100px;border-top:1px solid #1C1C21;border-bottom:1px solid #1C1C21">
-  <div style="display:grid;grid-template-columns:80px 1fr;gap:24px">
+  <div style="display:grid;grid-template-columns:clamp(22px,6vw,80px) minmax(0,1fr);gap:clamp(12px,3vw,24px)">
     <span style="font-family:'Clash Display',sans-serif;font-size:13px;color:#8C8C93">{{ activeProject.metricsStepNum }}</span>
     <div style="padding-bottom:80px">
       <h2 style="margin:0 0 32px;font-family:'Clash Display',sans-serif;font-weight:500;font-size:clamp(26px,3.6vw,40px)">Impact &amp; Metrics</h2>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:28px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:28px">
         <sc-for list="{{ activeProject.metrics }}" as="m" hint-placeholder-count="6">
           <div>
             <div style="font-family:'Clash Display',sans-serif;font-size:clamp(28px,4vw,44px);color:#EFEFF2;text-shadow:0 0 24px rgba(139,233,255,0.35)">{{ m.value }}</div>
@@ -934,7 +935,7 @@ a:hover { color:#FF5A3C; }
 </section>
 
 <sc-if value="{{ activeProject.reflections }}" hint-placeholder-val="{{ false }}">
-<section style="padding:0 clamp(20px,6vw,56px) 100px;display:grid;grid-template-columns:80px 1fr;gap:24px">
+<section style="padding:0 clamp(20px,6vw,56px) 100px;display:grid;grid-template-columns:clamp(22px,6vw,80px) minmax(0,1fr);gap:clamp(12px,3vw,24px)">
   <span style="font-family:'Clash Display',sans-serif;font-size:13px;color:#5C5C63">{{ activeProject.reflectStepNum }}</span>
   <div style="max-width:820px;display:flex;flex-direction:column;gap:36px">
     <h2 style="margin:0;font-family:'Clash Display',sans-serif;font-weight:500;font-size:clamp(26px,3.6vw,40px)">Reflections</h2>
@@ -977,7 +978,7 @@ a:hover { color:#FF5A3C; }
 
 <!-- ============ ABOUT ============ -->
 <sc-if value="{{ isAbout }}" hint-placeholder-val="{{ false }}">
-<section data-screen-label="About" style="padding:150px clamp(20px,6vw,56px) 100px;display:grid;grid-template-columns:80px 1fr;gap:24px">
+<section data-screen-label="About" style="padding:150px clamp(20px,6vw,56px) 100px;display:grid;grid-template-columns:clamp(22px,6vw,80px) minmax(0,1fr);gap:clamp(12px,3vw,24px)">
   <span style="font-family:'Clash Display',sans-serif;font-size:13px;color:#5C5C63">03</span>
   <div>
     <h1 style="margin:0 0 40px;font-family:'Clash Display',sans-serif;font-weight:500;font-size:clamp(44px,8vw,110px);line-height:1">About</h1>
@@ -1003,13 +1004,13 @@ a:hover { color:#FF5A3C; }
   </div>
 </section>
 
-<section data-reveal="true" style="padding:0 clamp(20px,6vw,56px) 100px;display:grid;grid-template-columns:80px 1fr;gap:24px;opacity:0;transform:translateY(24px);transition:opacity 0.9s cubic-bezier(0.16,1,0.3,1),transform 0.9s cubic-bezier(0.16,1,0.3,1)">
+<section data-reveal="true" style="padding:0 clamp(20px,6vw,56px) 100px;display:grid;grid-template-columns:clamp(22px,6vw,80px) minmax(0,1fr);gap:clamp(12px,3vw,24px);opacity:0;transform:translateY(24px);transition:opacity 0.9s cubic-bezier(0.16,1,0.3,1),transform 0.9s cubic-bezier(0.16,1,0.3,1)">
   <span style="font-family:'Clash Display',sans-serif;font-size:13px;color:#5C5C63">04</span>
   <div>
     <h2 style="margin:0 0 32px;font-family:'Clash Display',sans-serif;font-weight:500;font-size:clamp(26px,3.6vw,40px)">Experience</h2>
     <div style="display:flex;flex-direction:column">
       <sc-for list="{{ employment }}" as="job" hint-placeholder-count="4">
-        <div style="display:grid;grid-template-columns:1fr 2fr auto;gap:20px;padding:24px 0;border-top:1px solid #1C1C21;align-items:baseline">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:20px;padding:24px 0;border-top:1px solid #1C1C21;align-items:baseline">
           <h3 style="margin:0;font-family:'Clash Display',sans-serif;font-weight:500;font-size:20px">{{ job.company }}</h3>
           <div>
             <div style="font-size:15px;color:#EFEFF2">{{ job.title }}</div>
@@ -1022,9 +1023,9 @@ a:hover { color:#FF5A3C; }
   </div>
 </section>
 
-<section data-reveal="true" style="padding:0 clamp(20px,6vw,56px) 100px;display:grid;grid-template-columns:80px 1fr;gap:24px;opacity:0;transform:translateY(24px);transition:opacity 0.9s cubic-bezier(0.16,1,0.3,1),transform 0.9s cubic-bezier(0.16,1,0.3,1)">
+<section data-reveal="true" style="padding:0 clamp(20px,6vw,56px) 100px;display:grid;grid-template-columns:clamp(22px,6vw,80px) minmax(0,1fr);gap:clamp(12px,3vw,24px);opacity:0;transform:translateY(24px);transition:opacity 0.9s cubic-bezier(0.16,1,0.3,1),transform 0.9s cubic-bezier(0.16,1,0.3,1)">
   <span style="font-family:'Clash Display',sans-serif;font-size:13px;color:#5C5C63">05</span>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:40px">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:40px">
     <sc-for list="{{ skillGroups }}" as="g" hint-placeholder-count="3">
       <div>
         <h4 style="margin:0 0 16px;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:#5C5C63">{{ g.title }}</h4>
@@ -1038,7 +1039,7 @@ a:hover { color:#FF5A3C; }
   </div>
 </section>
 
-<section data-reveal="true" style="padding:0 clamp(20px,6vw,56px) 160px;display:grid;grid-template-columns:80px 1fr;gap:24px;opacity:0;transform:translateY(24px);transition:opacity 0.9s cubic-bezier(0.16,1,0.3,1),transform 0.9s cubic-bezier(0.16,1,0.3,1)">
+<section data-reveal="true" style="padding:0 clamp(20px,6vw,56px) 160px;display:grid;grid-template-columns:clamp(22px,6vw,80px) minmax(0,1fr);gap:clamp(12px,3vw,24px);opacity:0;transform:translateY(24px);transition:opacity 0.9s cubic-bezier(0.16,1,0.3,1),transform 0.9s cubic-bezier(0.16,1,0.3,1)">
   <span style="font-family:'Clash Display',sans-serif;font-size:13px;color:#5C5C63">06</span>
   <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:32px;align-items:center">
     <div>
@@ -1052,7 +1053,7 @@ a:hover { color:#FF5A3C; }
 
 <!-- ============ THINKING LAB ============ -->
 <sc-if value="{{ isLab }}" hint-placeholder-val="{{ false }}">
-<section data-screen-label="Thinking Lab" style="padding:150px clamp(20px,6vw,56px) 60px;display:grid;grid-template-columns:80px 1fr;gap:24px">
+<section data-screen-label="Thinking Lab" style="padding:150px clamp(20px,6vw,56px) 60px;display:grid;grid-template-columns:clamp(22px,6vw,80px) minmax(0,1fr);gap:clamp(12px,3vw,24px)">
   <span style="font-family:'Clash Display',sans-serif;font-size:13px;color:#5C5C63">04</span>
   <div>
     <h1 style="margin:0 0 24px;font-family:'Clash Display',sans-serif;font-weight:500;font-size:clamp(44px,8vw,110px);line-height:1">Thinking Lab</h1>
@@ -1060,7 +1061,7 @@ a:hover { color:#FF5A3C; }
   </div>
 </section>
 <sc-for list="{{ labNotes }}" as="note" hint-placeholder-count="5">
-  <div data-reveal="true" style="padding:48px clamp(20px,6vw,56px);border-top:1px solid #1C1C21;display:grid;grid-template-columns:1fr 2fr;gap:32px;opacity:0;transform:translateY(24px);transition:opacity 0.9s cubic-bezier(0.16,1,0.3,1),transform 0.9s cubic-bezier(0.16,1,0.3,1)">
+  <div data-reveal="true" style="padding:48px clamp(20px,6vw,56px);border-top:1px solid #1C1C21;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:32px;opacity:0;transform:translateY(24px);transition:opacity 0.9s cubic-bezier(0.16,1,0.3,1),transform 0.9s cubic-bezier(0.16,1,0.3,1)">
     <div>
       <div style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:{{ note.color }};margin-bottom:10px">{{ note.tag }}</div>
       <h3 style="margin:0;font-family:'Clash Display',sans-serif;font-weight:500;font-size:clamp(22px,2.6vw,30px)">{{ note.title }}</h3>
@@ -1074,15 +1075,15 @@ a:hover { color:#FF5A3C; }
 <!-- ============ CONTACT ============ -->
 <sc-if value="{{ isContact }}" hint-placeholder-val="{{ false }}">
 <section data-screen-label="Contact" style="padding:150px clamp(20px,6vw,56px) 60px">
-  <div style="display:grid;grid-template-columns:80px 1fr;gap:24px">
+  <div style="display:grid;grid-template-columns:clamp(22px,6vw,80px) minmax(0,1fr);gap:clamp(12px,3vw,24px)">
     <span style="font-family:'Clash Display',sans-serif;font-size:13px;color:#5C5C63">05</span>
     <h1 style="margin:0;font-family:'Clash Display',sans-serif;font-weight:500;font-size:clamp(52px,10vw,140px);line-height:0.98">Let's work<br>together</h1>
   </div>
 </section>
 
-<section style="padding:0 clamp(20px,6vw,56px) 100px;display:grid;grid-template-columns:80px 1fr;gap:24px">
+<section style="padding:0 clamp(20px,6vw,56px) 100px;display:grid;grid-template-columns:clamp(22px,6vw,80px) minmax(0,1fr);gap:clamp(12px,3vw,24px)">
   <span></span>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:32px;border-top:1px solid #1C1C21;border-bottom:1px solid #1C1C21;padding:32px 0">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:32px;border-top:1px solid #1C1C21;border-bottom:1px solid #1C1C21;padding:32px 0">
     <a href="mailto:drajkumar13@gmail.com?subject=Portfolio%20Enquiry" data-cursor-hover="true" aria-label="Send an email to Rajkumar">
       <div style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:#5C5C63;margin-bottom:8px">Email</div>
       <div style="font-size:17px">drajkumar13@gmail.com</div>
@@ -1106,10 +1107,10 @@ a:hover { color:#FF5A3C; }
   </div>
 </section>
 
-<section style="padding:0 clamp(20px,6vw,56px) 160px;display:grid;grid-template-columns:80px 1fr;gap:24px">
+<section style="padding:0 clamp(20px,6vw,56px) 160px;display:grid;grid-template-columns:clamp(22px,6vw,80px) minmax(0,1fr);gap:clamp(12px,3vw,24px)">
   <span></span>
   <form onSubmit="{{ onSubmitForm }}" style="max-width:680px;display:flex;flex-direction:column;gap:28px">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:24px">
       <div style="display:flex;flex-direction:column;gap:8px">
         <label style="font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:#5C5C63">Name</label>
         <input type="text" value="{{ formData.name }}" onChange="{{ onFieldChange('name') }}" disabled="{{ formDisabled }}" style="background:none;border:none;border-bottom:1px solid #33333A;color:#EFEFF2;font-size:17px;padding:8px 0;font-family:'Satoshi',sans-serif;outline:none" style-focus="border-color:#FF5A3C">
@@ -1487,7 +1488,8 @@ function OpeningFilm(props) {
       dpr = Math.min(2, window.devicePixelRatio || 1); W = window.innerWidth; H = window.innerHeight;
       cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr); cv.style.width = W + 'px'; cv.style.height = H + 'px';
       noisePat = ctx.createPattern(noise, 'repeat');
-      const rx = Math.max(90, Math.min(W / 2 - 190, 520)), ry = Math.min(H * 0.21, 200);
+      const mob = W < 640;
+      const rx = mob ? W * 0.3 : Math.max(90, Math.min(W / 2 - 190, 520)), ry = mob ? Math.min(H * 0.17, 170) : Math.min(H * 0.21, 200);
       nodes = NODES.map((label, i) => { const ang = -Math.PI / 2 + i * (Math.PI * 2 / NODES.length) + (i % 2 ? 0.12 : -0.08); return { label, col: NCOL[i], dx: Math.cos(ang) * rx, dy: Math.sin(ang) * ry, ang }; });
     };
     layout();
@@ -1530,7 +1532,7 @@ function OpeningFilm(props) {
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.globalAlpha = 1; ctx.globalCompositeOperation = 'source-over'; ctx.filter = 'none';
       ctx.fillStyle = '#07070A'; ctx.fillRect(0, 0, W, H);
-      const cx = W / 2;
+      const cx = W / 2, M = W < 640;
       const exitP = eio(prog(t, T.exit - 0.15, 0.55));
       const riseP = eio(prog(t, T.rise, 0.9)), nameUp = eio(prog(t, T.rise + 0.1, 1.1));
       const gcy = H * 0.42 - riseP * H * 0.2;
@@ -1637,8 +1639,8 @@ function OpeningFilm(props) {
           ctx.globalAlpha = (0.5 + p.h * 0.45) * p.ap * ga; ctx.fillStyle = ng; ctx.fillRect(p.x - hr, p.y - hr, hr * 2, hr * 2);
           ctx.globalAlpha = p.ap * ga; ctx.fillStyle = n.col; ctx.beginPath(); ctx.arc(p.x, p.y, (3.6 + Math.sin(t * 3 + i) * 0.5 + p.h * 2) * p.depth, 0, 6.283); ctx.fill();
           if (p.h > 0.05) { ctx.strokeStyle = n.col; ctx.lineWidth = 1; ctx.globalAlpha = ga * p.h * 0.7; ctx.beginPath(); ctx.arc(p.x, p.y, 9 + p.h * 5, 0, 6.283); ctx.stroke(); }
-          ctx.globalAlpha = p.ap * ga * (0.72 + 0.28 * Math.max(p.h, waveOn > 0 ? 0 : 1)); ctx.font = '500 12px ' + MONO; ctx.textBaseline = 'middle';
-          const vert = Math.abs(Math.cos(n.ang)) < 0.2, right = Math.cos(n.ang) >= -0.05;
+          ctx.globalAlpha = p.ap * ga * (0.72 + 0.28 * Math.max(p.h, waveOn > 0 ? 0 : 1)); ctx.font = '500 ' + (M ? 10.5 : 12) + 'px ' + MONO; ctx.textBaseline = 'middle';
+          const vert = M || Math.abs(Math.cos(n.ang)) < 0.2, right = Math.cos(n.ang) >= -0.05;
           ctx.textAlign = vert ? 'center' : (right ? 'left' : 'right');
           const off = 14 + p.h * 4;
           const lx = p.x + (vert ? 0 : (right ? off : -off)), ly = p.y + (vert ? (Math.sin(n.ang) < 0 ? -18 - p.h * 3 : 18 + p.h * 3) : 0);
@@ -1656,7 +1658,7 @@ function OpeningFilm(props) {
       // orb hub
       const orbA = Math.max(eo(prog(t, T.think - 0.1, 0.5)) * (1 - riseP), 0);
       if (orbA > 0.001) {
-        const base = Math.min(W, H) * 0.045;
+        const base = Math.min(W, H) * (M ? 0.07 : 0.045);
         const pul = base * (1 + 0.12 * Math.sin(t * 5)) * (1 + 1.2 * Math.sin(prog(t, T.rise, 0.7) * Math.PI));
         ctx.globalCompositeOperation = 'lighter';
         const og = ctx.createRadialGradient(cx, gcy, 0, cx, gcy, pul * 4);
@@ -1674,18 +1676,20 @@ function OpeningFilm(props) {
       if (sw > 0 && sw < 1) { ctx.strokeStyle = 'rgba(139,233,255,' + (0.45 * (1 - sw)) + ')'; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.arc(cx, gcy, eo(sw) * Math.max(W, H) * 0.6, 0, 6.283); ctx.stroke(); }
       // full name + role
       const zoom = 1 + exitP * 0.3;
-      let nfs = Math.min(W * 0.085, H * 0.11, 112);
+      const NLINES = M ? ['Rajkumar', 'Dhasan'] : ['Rajkumar Dhasan'];
+      let nfs = M ? Math.min(W * 0.21, H * 0.1, 112) : Math.min(W * 0.085, H * 0.11, 112);
       ctx.font = '600 ' + nfs + 'px ' + DISP;
-      { const mw = ctx.measureText('Rajkumar Dhasan.').width; if (mw > W * 0.9) nfs *= (W * 0.9) / mw; }
-      const ny = H * 0.8 + (H * 0.28 - H * 0.8) * nameUp;
-      const roleY = ny + nfs * 0.78;
+      { const mw = Math.max(...NLINES.map(l => ctx.measureText(l + '.').width)); if (mw > W * 0.88) nfs *= (W * 0.88) / mw; }
+      const NLH = nfs * 0.98, nHalf = (NLINES.length - 1) * NLH / 2;
+      const ny = H * 0.8 + (H * (M ? 0.25 : 0.28) - H * 0.8) * nameUp;
+      const roleY = ny + nHalf + nfs * (M ? 0.85 : 0.78);
       if (t >= T.nameIn) {
         const nA = 1 - exitP;
         ctx.save(); ctx.translate(cx, ny); ctx.scale(zoom, zoom); ctx.translate(-cx, -ny);
         ctx.font = '600 ' + nfs + 'px ' + DISP; ctx.textBaseline = 'middle'; ctx.textAlign = 'left';
         const NAME = 'Rajkumar Dhasan';
-        const ws = NAME.split('').map(c => ctx.measureText(c).width), dotW = ctx.measureText('.').width;
-        const tot = ws.reduce((s, w) => s + w, 0) + dotW;
+        const dotW = ctx.measureText('.').width;
+        const tot = Math.max(...NLINES.map((l, li) => ctx.measureText(l).width + (li === NLINES.length - 1 ? dotW : 0)));
         const gl = eo(prog(t, T.nameIn, 1.2)) * nA;
         ctx.globalCompositeOperation = 'lighter';
         const gg = ctx.createRadialGradient(cx, ny, 0, cx, ny, tot * 0.7); gg.addColorStop(0, 'rgba(123,97,255,' + 0.2 * gl + ')'); gg.addColorStop(1, 'rgba(0,0,0,0)'); ctx.fillStyle = gg; ctx.fillRect(cx - tot, ny - tot, tot * 2, tot * 2);
@@ -1693,31 +1697,37 @@ function OpeningFilm(props) {
         const shift = ((t - T.nameIn) * 0.18) % 1;
         const tg = ctx.createLinearGradient(cx - tot / 2 - tot * shift, 0, cx + tot * 1.5 - tot * shift, 0);
         tg.addColorStop(0, '#FFFFFF'); tg.addColorStop(0.25, '#C9BCFF'); tg.addColorStop(0.45, '#8BE9FF'); tg.addColorStop(0.6, '#FFFFFF'); tg.addColorStop(0.85, '#FFB4A2'); tg.addColorStop(1, '#FFFFFF');
-        ctx.save(); ctx.beginPath(); ctx.rect(0, ny - nfs * 0.8, W, nfs * 1.25); ctx.clip();
-        let x = cx - tot / 2;
-        NAME.split('').forEach((ch, i) => {
-          const p = eo(prog(t, T.nameIn + i * 0.05, 0.75));
-          if (ch !== ' ' && p > 0) {
-            ctx.globalAlpha = nA * Math.min(1, p * 1.4);
-            try { ctx.filter = 'blur(' + ((1 - p) * 6).toFixed(1) + 'px)'; } catch (er) {}
-            ctx.fillStyle = i < 8 ? '#EFEFF2' : tg;
-            ctx.fillText(ch, x, ny + (1 - p) * nfs * 0.95);
-            ctx.filter = 'none';
-          }
-          x += ws[i];
+        let x = 0, gi = 0, lineY = ny;
+        NLINES.forEach((line, li) => {
+          lineY = ny - nHalf + li * NLH;
+          const lw = ctx.measureText(line).width + (li === NLINES.length - 1 ? dotW : 0);
+          ctx.save(); ctx.beginPath(); ctx.rect(0, lineY - nfs * 0.8, W, nfs * 1.25); ctx.clip();
+          x = cx - lw / 2;
+          line.split('').forEach((ch) => {
+            const i = gi++;
+            const p = eo(prog(t, T.nameIn + i * 0.05, 0.75));
+            if (ch !== ' ' && p > 0) {
+              ctx.globalAlpha = nA * Math.min(1, p * 1.4);
+              try { ctx.filter = 'blur(' + ((1 - p) * 6).toFixed(1) + 'px)'; } catch (er) {}
+              ctx.fillStyle = i < 8 ? '#EFEFF2' : tg;
+              ctx.fillText(ch, x, lineY + (1 - p) * nfs * 0.95);
+              ctx.filter = 'none';
+            }
+            x += ctx.measureText(ch).width;
+          });
+          if (li < NLINES.length - 1) gi++;
+          if (li === NLINES.length - 1) { const dp = eo(prog(t, T.nameIn + 0.95, 0.5)); if (dp > 0) { ctx.globalAlpha = nA * dp; ctx.fillStyle = '#FF5A3C'; ctx.fillText('.', x, lineY + (1 - dp) * nfs * 0.6); } }
+          ctx.restore();
         });
-        const dp = eo(prog(t, T.nameIn + 0.95, 0.5));
-        if (dp > 0) { ctx.globalAlpha = nA * dp; ctx.fillStyle = '#FF5A3C'; ctx.fillText('.', x, ny + (1 - dp) * nfs * 0.6); }
-        ctx.restore();
         const swp = prog(t, T.nameIn + 1.2, 0.9);
-        if (swp > 0 && swp < 1) { ctx.globalCompositeOperation = 'lighter'; ctx.globalAlpha = 0.45 * nA; const sx = cx - tot / 2 - 80 + (tot + 160) * swp; const sg = ctx.createLinearGradient(sx - 70, 0, sx + 70, 0); sg.addColorStop(0, 'rgba(255,255,255,0)'); sg.addColorStop(0.5, 'rgba(255,255,255,0.55)'); sg.addColorStop(1, 'rgba(255,255,255,0)'); ctx.fillStyle = sg; ctx.fillText(NAME, cx - tot / 2, ny); ctx.globalCompositeOperation = 'source-over'; }
+        if (swp > 0 && swp < 1) { ctx.globalCompositeOperation = 'lighter'; ctx.globalAlpha = 0.45 * nA; const sx = cx - tot / 2 - 80 + (tot + 160) * swp; const sg = ctx.createLinearGradient(sx - 70, 0, sx + 70, 0); sg.addColorStop(0, 'rgba(255,255,255,0)'); sg.addColorStop(0.5, 'rgba(255,255,255,0.55)'); sg.addColorStop(1, 'rgba(255,255,255,0)'); ctx.fillStyle = sg; NLINES.forEach((l, li) => { ctx.textAlign = 'center'; ctx.fillText(l, cx - (li === NLINES.length - 1 ? dotW / 2 : 0), ny - nHalf + li * NLH); }); ctx.textAlign = 'left'; ctx.globalCompositeOperation = 'source-over'; }
         // role
         const rA = eo(prog(t, T.nameIn + 0.7, 0.5)) * nA;
         if (rA > 0) {
           const ROLE = 'PRODUCT DESIGNER';
           const lockN = Math.floor(prog(t, T.nameIn + 0.75, 0.7) * ROLE.length);
           const shown = ROLE.split('').map((c, i) => i < lockN || c === ' ' ? c : scr[(Math.floor(t * 22) + i * 5) % scr.length]).join('');
-          const rfs = Math.max(11, Math.min(15, W / 90));
+          const rfs = M ? 13 : Math.max(11, Math.min(15, W / 90));
           ctx.font = '500 ' + rfs + 'px ' + MONO; ctx.globalAlpha = rA; ctx.fillStyle = '#B4B4BB';
           const rw = spaced(shown, cx, roleY, rfs * 0.42);
           const ll = eo(prog(t, T.nameIn + 0.9, 0.8)) * Math.min(120, W * 0.12);
@@ -1755,7 +1765,7 @@ function OpeningFilm(props) {
           const planet = (k, p) => {
             if (p <= 0 || p >= 1) return;
             const s = STAGES[k], side = k % 2 ? 1 : -1, tex = PTEX.get(k % 5);
-            const z = 7 * Math.pow(1 - p, 1.6) + 0.5, R = Math.min(W, H) * 0.34 / z;
+            const z = 7 * Math.pow(1 - p, 1.6) + 0.5, R = Math.min(W, H) * (M ? 0.5 : 0.34) / z;
             const X = side * (W < 760 ? 0.55 : 0.95), Y = (k % 3 - 1) * 0.18 + 0.12;
             const px = cx + X / z * f, py = vy + Y / z * f;
             const fade = Math.min(1, p * 5) * (p > 0.86 ? Math.max(0, (1 - p) / 0.14) : 1);
@@ -1772,7 +1782,7 @@ function OpeningFilm(props) {
             ctx.restore();
             ctx.strokeStyle = 'rgba(190,220,255,0.35)'; ctx.lineWidth = Math.max(1, R * 0.018); ctx.beginPath(); ctx.arc(px, py, R, Math.PI * 0.85, Math.PI * 1.6); ctx.stroke();
             if (ringed) ring(true);
-            if (p > 0.18 && p < 0.8) { ctx.globalAlpha = sA * fade * Math.min(1, (p - 0.18) * 6) * Math.min(1, (0.8 - p) * 6); ctx.font = '500 10px ' + MONO; ctx.fillStyle = s.col; ctx.textBaseline = 'middle'; ctx.textAlign = side > 0 ? 'right' : 'left'; const lx = px - side * (R + 26); ctx.fillRect(Math.min(lx, px - side * R * 1.05), py, Math.abs(lx - (px - side * R * 1.05)), 1); ctx.fillText('PLANET ' + s.n + ' · ' + s.tag, lx - side * 6, py); }
+            if (p > 0.18 && p < 0.8 && !M) { ctx.globalAlpha = sA * fade * Math.min(1, (p - 0.18) * 6) * Math.min(1, (0.8 - p) * 6); ctx.font = '500 10px ' + MONO; ctx.fillStyle = s.col; ctx.textBaseline = 'middle'; ctx.textAlign = side > 0 ? 'right' : 'left'; const lx = px - side * (R + 26); ctx.fillRect(Math.min(lx, px - side * R * 1.05), py, Math.abs(lx - (px - side * R * 1.05)), 1); ctx.fillText('PLANET ' + s.n + ' · ' + s.tag, lx - side * 6, py); }
             ctx.restore();
           };
           if (!allDone) { if (cur > 0) planet(cur - 1, Math.min(0.999, 0.82 + lt / DUR * 0.4)); planet(cur, Math.min(0.82, lt / DUR * 0.82)); }
@@ -1781,12 +1791,13 @@ function OpeningFilm(props) {
         }
         ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
         // segment progress + index
-        const segW = Math.min(36, W * 0.07), segG = 6, totW = N * segW + (N - 1) * segG, sx0 = cx - totW / 2, sy0 = cy0 - Math.min(W * 0.075, H * 0.1, 96) * 1.15;
+        const pfs0 = M ? Math.min(W * 0.15, 64) : Math.min(W * 0.075, H * 0.1, 96);
+        const segW = M ? W * 0.12 : Math.min(36, W * 0.07), segG = 6, totW = N * segW + (N - 1) * segG, sx0 = cx - totW / 2, sy0 = cy0 - pfs0 * 1.15;
         STAGES.forEach((s, k) => { const f = allDone ? 1 : (k < cur ? 1 : k === cur ? clamp(lt / DUR, 0, 1) : 0); ctx.globalAlpha = sA; ctx.fillStyle = '#1F1F24'; ctx.fillRect(sx0 + k * (segW + segG), sy0, segW, 2); ctx.fillStyle = s.col; ctx.fillRect(sx0 + k * (segW + segG), sy0, segW * f, 2); });
         ctx.font = '500 11px ' + MONO; ctx.fillStyle = allDone ? '#8C8C93' : pc.col; ctx.globalAlpha = sA;
         spaced(allDone ? 'HOW I WORK' : 'PRINCIPLE ' + pc.n + ' / 0' + N, cx, sy0 - 18, 2.5); ctx.textAlign = 'center';
         if (!allDone) {
-          let fs = Math.min(W * 0.075, H * 0.1, 96);
+          let fs = pfs0;
           ctx.font = '600 ' + fs + 'px ' + DISP; { const mw = ctx.measureText(pc.k).width; if (mw > W * 0.88) { fs *= W * 0.88 / mw; ctx.font = '600 ' + fs + 'px ' + DISP; } }
           const lp = eo(prog(lt, 0.02, 0.6)), outP = cur < N - 1 || true ? eio(prog(lt, DUR - 0.32, 0.32)) : 0;
           const keep = Math.floor(pc.k.length * lp);
@@ -1807,7 +1818,7 @@ function OpeningFilm(props) {
           }
           ctx.filter = 'none';
           if (lp < 1) { const lx = cx - ww / 2 - 20 + (ww + 40) * lp; const lg = ctx.createLinearGradient(lx - 40, 0, lx + 4, 0); lg.addColorStop(0, hexA(pc.col, 0)); lg.addColorStop(1, hexA(pc.col, 0.9)); ctx.globalAlpha = sA; ctx.fillStyle = lg; ctx.fillRect(lx - 40, wy - fs * 0.7, 44, fs * 1.4); ctx.fillStyle = '#FFFFFF'; ctx.fillRect(lx, wy - fs * 0.75, 1.5, fs * 1.5); }
-          const dfs = Math.max(14, Math.min(19, W / 62));
+          const dfs = M ? 17 : Math.max(14, Math.min(19, W / 62));
           ctx.font = '400 ' + dfs + 'px ' + SANS;
           const dn = Math.floor(prog(lt, 0.35, 0.75) * pc.d.length);
           const lines = wrap(pc.d.slice(0, dn), Math.min(560, W * 0.86));
@@ -1816,7 +1827,7 @@ function OpeningFilm(props) {
           if (dn < pc.d.length && dn > 0 && Math.floor(t * 4) % 2 === 0) { const last = lines[lines.length - 1] || ''; ctx.fillStyle = pc.col; ctx.fillRect(cx + ctx.measureText(last).width / 2 + 3, wy + fs * 0.85 + (lines.length - 1) * dfs * 1.5 - dfs * 0.55, 2, dfs * 1.1); }
         } else {
           const el2 = el - N * DUR;
-          const tfs = Math.max(13, Math.min(22, W / 48));
+          const tfs = M ? 20 : Math.max(13, Math.min(22, W / 48));
           ctx.font = '600 ' + tfs + 'px ' + DISP;
           const gap = tfs * 1.6;
           const ws = STAGES.map(s => ctx.measureText(s.tag).width);
@@ -1848,12 +1859,12 @@ function OpeningFilm(props) {
         ctx.globalAlpha = hA; ctx.font = '500 11px ' + MONO; ctx.textBaseline = 'middle'; ctx.fillStyle = '#5C5C63';
         const stage = t < T.think ? 'PROMPT' : t < T.graph ? 'REASONING' : t < T.rise ? 'MAPPING' : t < T.story ? 'IDENTITY' : 'PRINCIPLES';
         ctx.textAlign = 'left'; ctx.fillText('● ' + stage, Math.max(20, W * 0.04), H - 40);
-        ctx.textAlign = 'center'; ctx.fillText(Math.round(clamp(t / T.exit, 0, 1) * 100) + '%', cx, H - 40);
+        if (!M) { ctx.textAlign = 'center'; ctx.fillText(Math.round(clamp(t / T.exit, 0, 1) * 100) + '%', cx, H - 40); }
         ctx.globalAlpha = 1;
       }
       if (t >= T.bh) {
         const bp = eo(prog(t, T.bh, 1.4)), ex = prog(t, T.exit - 0.8, 1.3), grow = 1 + Math.pow(ex, 3) * 40;
-        const bx = cx, by = H * 0.56, rs = Math.min(W, H) * 0.075 * bp * grow, diag = Math.hypot(W, H);
+        const bx = cx, by = H * 0.56, rs = Math.min(W, H) * (M ? 0.13 : 0.075) * bp * grow, diag = Math.hypot(W, H);
         ctx.save();
         ctx.globalAlpha = Math.min(1, 0.55 * bp * (0.5 + ex)); ctx.fillStyle = '#000'; ctx.fillRect(0, 0, W, H); ctx.globalAlpha = 1;
         const huge = rs > diag * 0.7;
@@ -2024,6 +2035,7 @@ function SpaceBackdrop() {
       });
       if (!reduced) {
         nextBurst -= dt;
+        if (nextBurst <= 0 && focus > 0.4) nextBurst = 1;
         if (nextBurst <= 0) { const col = BCOL[(Math.random() * BCOL.length) | 0]; bursts.push({ x: W * (0.1 + Math.random() * 0.8), y: H * (0.12 + Math.random() * 0.6), t0: t, col, v: 70 + Math.random() * 80, sp: Array.from({ length: 34 }, (_, i) => ({ a: i / 34 * 6.283 + Math.random() * 0.2, k: 0.6 + Math.random() * 0.5 })) }); nextBurst = 2.6 + Math.random() * 2.8; }
         for (let i = bursts.length - 1; i >= 0; i--) {
           const bb = bursts[i], age = t - bb.t0; if (age > 2.2) { bursts.splice(i, 1); continue; }
@@ -2045,14 +2057,16 @@ function SpaceBackdrop() {
       ctx.drawImage(milky, -S / 2, -S / 2, S, S);
       ctx.restore();
     };
-    let t0 = 0, lastT = 0;
+    let t0 = 0, lastT = 0, focus = 0;
     const draw = (now) => {
       if (!t0) t0 = now; const t = (now - t0) / 1000, dt = Math.min(0.05, t - lastT); lastT = t; curT = t;
       const TH = THEMES[theme], tf = eo(Math.min(1, (t - themeT) / 0.9));
       const sy = window.scrollY, dy = sy - lastY; lastY = sy;
       vel += (dy - vel) * 0.18; boost *= 0.94;
       smx += (mx - smx) * 0.04; smy += (my - smy) * 0.04;
-      const warp = Math.min(90, Math.abs(vel) * 1.4 + boost * 70), dir = vel < 0 ? -1 : 1;
+      const fTarget = theme !== 'home' ? Math.min(1, Math.max(0, (sy - H * 0.35) / (H * 0.7))) : 0;
+      focus += (fTarget - focus) * 0.08;
+      const warp = Math.min(90, Math.abs(vel) * 1.4 + boost * 70) * (1 - focus * 0.9), dir = vel < 0 ? -1 : 1;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.globalCompositeOperation = 'source-over'; ctx.globalAlpha = 1;
       ctx.fillStyle = TH.bg; ctx.fillRect(0, 0, W, H);
       ctx.globalAlpha = tf; ctx.drawImage(nebOf(theme), -W * 0.05 + (smx - 0.5) * -24, -H * 0.25 + Math.sin(sy * 0.0005) * H * 0.22, W * 1.1, H * 1.5);
@@ -2082,7 +2096,8 @@ function SpaceBackdrop() {
       drawLayer(1); drawLayer(2);
       if (TH.extra === 'orbit') drawOrbit(t, sy, tf);
       if (TH.extra === 'party') drawParty(t, sy, dt, tf);
-      if (!reduced && TH.extra !== 'party') {
+      if (focus > 0.01) { ctx.globalAlpha = focus * 0.74; ctx.fillStyle = TH.bg; ctx.fillRect(0, 0, W, H); }
+      if (!reduced && TH.extra !== 'party' && focus < 0.4) {
         nextShoot -= dt;
         if (!shoot && nextShoot <= 0) { const ang = Math.PI * (0.78 + Math.random() * 0.12); shoot = { x: W * (0.35 + Math.random() * 0.6), y: H * Math.random() * 0.45, ang, p: 0, len: 120 + Math.random() * 120 }; nextShoot = 6 + Math.random() * 7; }
         if (shoot) {
@@ -2364,6 +2379,103 @@ function CinematicIntro(props) {
         e('button', { onClick: play, 'data-cursor-hover': 'true', style: { background: 'none', border: '1px solid #33333A', color: '#EFEFF2', borderRadius: 100, padding: '9px 16px', fontSize: 12, letterSpacing: '0.06em', textTransform: 'uppercase', cursor: 'pointer', fontFamily: 'inherit' } }, '↻ Replay'))));
 }
 
+const COSMIC = {
+  taggo: { name: 'Taggo', accent: '#F0DD50', glow: 'rgba(240,221,80,0.45)', body: 'night', lessons: [
+    { key: 'Taggo Story', title: "Hick's Law", fact: 'Decision time grows with every option you add. Each extra choice on a first screen slows people down, even when the choices are good.', tie: 'the opening question stays simple: where to?' },
+    { key: 'Taggo Process', title: 'The Double Diamond', fact: 'The UK Design Council introduced it in 2005: diverge to explore the problem, converge on one, then diverge and converge again on the solution.', tie: 'research and solution each got their own diamond.' },
+    { key: 'Taggo Journey', title: 'The peak-end rule', fact: 'Daniel Kahneman showed people judge an experience mostly by its most intense moment and by how it ends, not by the average.', tie: 'drop-off, payment and rating are designed as carefully as booking.' },
+    { key: 'Taggo Arabic', title: 'RTL mirrors, but not everything', fact: 'In right-to-left layouts navigation and order flip, but phone numbers, clocks, media controls and Latin brand names keep their left-to-right direction.', tie: 'every screen was checked in both directions.' },
+    { key: 'Taggo In Hand', title: 'The two-second glance', fact: 'NHTSA guidelines say in-car tasks should need glances of two seconds or less, and no more than twelve seconds of total eyes-off-road time.', tie: 'the driver app uses large targets and one action per screen.' },
+    { key: 'Taggo Delivery', title: 'The labor illusion', fact: 'Buell and Norton (2011) found people value a service more when they can see the work happening, even if it takes longer.', tie: 'live courier tracking turns waiting into watching.' },
+    { key: 'Taggo Design System', title: 'Where design tokens came from', fact: "The term was coined by Salesforce's Lightning Design System team around 2014: name a value once, and every platform reads the same source.", tie: 'rider and driver apps share one token set.' }
+  ] },
+  theevents: { name: 'TheEvents', accent: '#FF5A3C', glow: 'rgba(123,97,255,0.5)', body: 'burst', lessons: [
+    { key: 'Built Live', title: 'The Doherty threshold', fact: 'An IBM paper from 1982 found productivity rises sharply when a system responds in under 400 milliseconds. Below that, people stay in flow.', tie: 'prompts render the screen instantly, so iteration never stalls.' },
+    { key: 'Bringing the Experience to Life', title: 'Motion has a sweet spot', fact: 'Most interface transitions read best between 200 and 300 milliseconds. Shorter feels abrupt; longer feels sluggish.', tie: 'screen transitions stay inside that window.' },
+    { key: 'Every Screen', title: 'Rough invites honesty', fact: 'Bill Buxton argues sketches get better critique than polished mockups because they look unfinished, so people feel free to question them.', tie: 'every flow was wireframed before any colour was added.' },
+    { key: 'About TheEvents', title: 'The Zeigarnik effect', fact: 'People remember unfinished tasks better than finished ones. A visible, incomplete step keeps pulling attention back.', tie: 'saved events and checkout steps stay visible until done.' },
+    { key: 'TheEvents Design System', title: 'Dark mode is not inverted', fact: 'Pure white on pure black can blur for people with astigmatism. Material Design recommends a dark grey surface like #121212 instead of #000.', tie: 'the dark theme uses tinted surfaces, not black.' }
+  ] },
+  noma: { name: 'Noma', accent: '#D9A066', glow: 'rgba(217,160,102,0.45)', body: 'cream', lessons: [
+    { key: 'Noma Role', title: 'The aesthetic-usability effect', fact: 'In a 1995 Hitachi study, people rated better-looking ATM layouts as easier to use, even with identical functions.', tie: 'visual craft and usability were designed together.' },
+    { key: 'What Noma Is', title: "Jakob's Law", fact: 'People spend most of their time in other apps, so they expect yours to work the same way. Familiar patterns cost nothing to learn.', tie: 'ordering follows the patterns customers already know.' },
+    { key: 'Noma Research', title: 'Five users go a long way', fact: 'Jakob Nielsen found that testing with five users uncovers about 85% of usability problems. More small rounds beat one large one.', tie: 'research ran in short, repeated rounds.' },
+    { key: 'Noma Personas', title: 'Where personas began', fact: 'Alan Cooper introduced personas in his 1999 book The Inmates Are Running the Asylum, as a way to design for one specific person.', tie: 'each persona is built from real interview notes.' },
+    { key: 'Noma Wireframes', title: 'Why "wireframe"', fact: 'The word comes from 3D computer graphics, where a wire-frame model shows only the edges of an object before surfaces are added.', tie: 'structure came first, surfaces later.' },
+    { key: 'Drink Builder', title: 'The IKEA effect', fact: 'Norton, Mochon and Ariely (2012) showed people value things more when they helped make them.', tie: 'building a drink yourself makes it feel like yours.' },
+    { key: 'Ordering Flow', title: 'The goal-gradient effect', fact: 'In a 2006 study, café customers bought coffee faster as they got closer to a free one. A 12-stamp card with 2 stamps pre-filled was completed faster than a blank 10-stamp card.', tie: 'progress through checkout is always visible.' },
+    { key: 'Noma Edge Cases', title: 'Prevent, then explain', fact: "Nielsen's fifth heuristic: preventing an error is better than writing a good error message for it.", tie: 'sold-out options are disabled before they can be picked.' },
+    { key: 'Noma Design System', title: 'Warm colours, real contrast', fact: 'WCAG AA asks for 4.5:1 contrast for body text and 3:1 for large text. Cream and caramel palettes often fail this without care.', tie: 'every text pairing was checked against AA.' },
+    { key: 'Bilingual', title: 'Arabic has no capitals', fact: 'Arabic letters have no upper case, and most change shape by position: isolated, initial, medial and final.', tie: 'labels use weight and size for emphasis, never all-caps.' },
+    { key: 'Noma Contribution', title: 'The Kano model', fact: 'Noriaki Kano showed in 1984 that features which delight today become basic expectations tomorrow.', tie: 'the roadmap keeps space for the next delight.' }
+  ] }
+};
+
+function CosmicLesson({ projectId, reduced }) {
+  const h = React.createElement;
+  const cfg = COSMIC[projectId];
+  const [cur, setCur] = React.useState(-1);
+  const [phase, setPhase] = React.useState('idle');
+  const [seen, setSeen] = React.useState([]);
+  const timers = React.useRef([]); const hover = React.useRef(false); const last = React.useRef(-1); const shown = React.useRef(new Set()); const showRef = React.useRef(null);
+  const clear = () => { timers.current.forEach(clearTimeout); timers.current = []; };
+  const later = (fn, ms) => { timers.current.push(setTimeout(fn, ms)); };
+  const close = () => { clear(); setPhase('closing'); later(() => setPhase('idle'), reduced ? 0 : 700); };
+  const schedule = () => { const tick = () => { if (hover.current) later(tick, 800); else close(); }; later(tick, 12000); };
+  const show = (i) => { clear(); setCur(i); setSeen(s => s.includes(i) ? s : [...s, i]); if (reduced) { setPhase('open'); schedule(); return; } setPhase('star'); later(() => { setPhase('open'); schedule(); }, 800); };
+  showRef.current = show;
+  React.useEffect(() => {
+    if (!cfg) return;
+    let raf = 0;
+    const check = () => {
+      raf = 0; if (window.scrollY < 240) return;
+      const vh = window.innerHeight; let hit = -1;
+      document.querySelectorAll('section[data-screen-label]').forEach(el => {
+        const i = cfg.lessons.findIndex(l => l.key === el.getAttribute('data-screen-label')); if (i < 0) return;
+        const r = el.getBoundingClientRect(); if (r.top < vh * 0.5 && r.bottom > vh * 0.3) hit = i;
+      });
+      if (hit < 0 || hit === last.current) return; last.current = hit;
+      if (shown.current.has(hit)) return; shown.current.add(hit); showRef.current(hit);
+    };
+    const on = () => { if (!raf) raf = requestAnimationFrame(check); };
+    window.addEventListener('scroll', on, { passive: true }); window.addEventListener('resize', on);
+    return () => { window.removeEventListener('scroll', on); window.removeEventListener('resize', on); cancelAnimationFrame(raf); clear(); };
+  }, [projectId]);
+  if (!cfg) return null;
+  const L = cur >= 0 ? cfg.lessons[cur] : null;
+  const open = phase === 'open' && !!L; const starOn = phase === 'star' || phase === 'open';
+  const total = cfg.lessons.length; const pad = (x) => String(x).padStart(2, '0');
+  const ease = 'cubic-bezier(0.16,1,0.3,1)'; const T = reduced ? 'none' : null;
+  const origin = 'at calc(100% - 22px) calc(100% + 34px)';
+  const A = cfg.accent;
+  const body = cfg.body === 'night'
+    ? [h('div', { key: 'p', style: { position: 'absolute', inset: 0, borderRadius: '50%', background: 'radial-gradient(circle at 62% 56%, #F0DD50 0 1.2px, transparent 2px), radial-gradient(circle at 44% 66%, #F0DD50 0 1px, transparent 1.8px), radial-gradient(circle at 70% 38%, #FFB547 0 1px, transparent 1.8px), radial-gradient(circle at 34% 30%, #3A5C8F 0%, #12244A 45%, #050B1C 82%)', boxShadow: 'inset -8px -6px 14px rgba(0,0,0,0.6), 0 0 24px ' + cfg.glow } }),
+       h('div', { key: 'o', style: { position: 'absolute', inset: -8, borderRadius: '50%', border: '1.5px solid transparent', borderTopColor: A, borderRightColor: 'rgba(240,221,80,0.35)', transform: 'rotate(-28deg)' } })]
+    : cfg.body === 'burst'
+    ? [h('div', { key: 'h', style: { position: 'absolute', left: -6, right: -6, top: 21, height: 2, background: 'linear-gradient(90deg, transparent, #FF5A3C, transparent)' } }),
+       h('div', { key: 'v', style: { position: 'absolute', top: -6, bottom: -6, left: 21, width: 2, background: 'linear-gradient(180deg, transparent, #7B61FF, transparent)' } }),
+       h('div', { key: 'd', style: { position: 'absolute', inset: 8, background: 'linear-gradient(90deg, transparent, rgba(255,90,60,0.6), transparent)', height: 1.5, top: 21, transform: 'rotate(45deg)' } }),
+       h('div', { key: 'd2', style: { position: 'absolute', inset: 8, background: 'linear-gradient(90deg, transparent, rgba(123,97,255,0.6), transparent)', height: 1.5, top: 21, transform: 'rotate(-45deg)' } }),
+       h('div', { key: 'c', style: { position: 'absolute', left: 14, top: 14, width: 16, height: 16, borderRadius: '50%', background: 'radial-gradient(circle, #FFFFFF 0%, #FF8A70 40%, rgba(255,90,60,0) 72%)', boxShadow: '0 0 26px ' + cfg.glow } })]
+    : [h('div', { key: 'p', style: { position: 'absolute', inset: 2, borderRadius: '50%', background: 'radial-gradient(circle at 35% 30%, #FBF1DE 0%, #E3C79C 45%, #A86E3A 88%)', boxShadow: 'inset -6px -5px 12px rgba(80,40,10,0.45), 0 0 24px ' + cfg.glow } }),
+       h('div', { key: 'r', style: { position: 'absolute', left: -12, top: 14, width: 68, height: 16, borderRadius: '50%', border: '1.5px solid rgba(217,160,102,0.85)', borderTopColor: 'transparent', transform: 'rotate(-16deg)' } })];
+  return h('div', { 'data-aifx-skip': 'true', 'aria-live': 'polite', style: { position: 'fixed', right: 'clamp(16px,4vw,40px)', bottom: 24, zIndex: 480, display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 12, pointerEvents: 'none', fontFamily: "'Satoshi','Helvetica Neue',Arial,sans-serif" } },
+    h('div', { onMouseEnter: () => { hover.current = true; }, onMouseLeave: () => { hover.current = false; }, style: { pointerEvents: open ? 'auto' : 'none', width: 'min(360px, calc(100vw - 32px))', boxSizing: 'border-box', background: 'rgba(8,8,12,0.9)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', border: '1px solid rgba(255,255,255,0.09)', borderRadius: 16, padding: '18px 20px 16px', boxShadow: '0 24px 60px -24px ' + cfg.glow, clipPath: open ? 'circle(170% ' + origin + ')' : 'circle(0% ' + origin + ')', opacity: open ? 1 : 0, transition: T || ('clip-path 0.8s ' + ease + ', opacity 0.5s ease') } },
+      L ? [
+        h('div', { key: 'e', style: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12 } },
+          h('span', { style: { fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: A } }, 'Learn something · ' + pad(cur + 1) + ' / ' + pad(total)),
+          h('button', { onClick: close, 'aria-label': 'Close note', 'data-cursor-hover': 'true', style: { background: 'none', border: 'none', color: '#8C8C93', fontSize: 18, lineHeight: 1, cursor: 'pointer', padding: 4 } }, '×')),
+        h('h4', { key: 't', style: { margin: '10px 0 8px', fontFamily: "'Clash Display',sans-serif", fontWeight: 500, fontSize: 21, lineHeight: 1.2, color: '#EFEFF2' } }, L.title),
+        h('p', { key: 'f', style: { margin: 0, fontSize: 14.5, lineHeight: 1.6, color: '#C9C9CF', textWrap: 'pretty' } }, L.fact),
+        h('div', { key: 'i', style: { marginTop: 14, paddingTop: 12, borderTop: '1px solid rgba(255,255,255,0.07)', fontSize: 13, lineHeight: 1.5, color: '#9A9AA2' } }, h('span', { style: { color: A } }, 'In ' + cfg.name + ': '), L.tie)
+      ] : null),
+    h('div', { style: { display: 'flex', alignItems: 'center', gap: 14 } },
+      h('div', { style: { pointerEvents: seen.length ? 'auto' : 'none', opacity: seen.length && !open ? 1 : 0, transform: seen.length && !open ? 'none' : 'translateX(8px)', transition: T || ('opacity 0.5s ease, transform 0.5s ' + ease), display: 'flex', alignItems: 'center', gap: 8, padding: '6px 10px 6px 14px', borderRadius: 999, background: 'rgba(8,8,12,0.7)', border: '1px solid rgba(255,255,255,0.07)', backdropFilter: 'blur(10px)', WebkitBackdropFilter: 'blur(10px)' } },
+        h('span', { style: { fontSize: 11, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#8C8C93', whiteSpace: 'nowrap' } }, 'Learned ' + seen.length + '/' + total),
+        h('div', { style: { display: 'flex' } }, cfg.lessons.map((l, i) => { const lit = seen.includes(i); return h('button', { key: i, title: lit ? l.title : 'Keep scrolling', 'aria-label': lit ? 'Reopen: ' + l.title : 'Locked note', disabled: !lit, onClick: () => show(i), 'data-cursor-hover': lit ? 'true' : undefined, style: { width: 16, height: 22, padding: 0, border: 'none', background: 'none', cursor: lit ? 'pointer' : 'default', display: 'flex', alignItems: 'center', justifyContent: 'center' } }, h('span', { style: { width: lit ? 6 : 4, height: lit ? 6 : 4, borderRadius: '50%', background: lit ? A : 'rgba(255,255,255,0.18)', boxShadow: lit ? '0 0 8px ' + cfg.glow : 'none', transition: 'all 0.4s ease' } })); }))),
+      h('button', { onClick: () => { if (cur >= 0) show(cur); }, 'aria-label': 'Open note', 'data-cursor-hover': 'true', style: { pointerEvents: starOn ? 'auto' : 'none', position: 'relative', width: 44, height: 44, padding: 0, border: 'none', background: 'none', cursor: 'pointer', opacity: starOn ? 1 : 0, transform: starOn ? (phase === 'star' ? 'scale(1.15)' : 'scale(1)') : 'scale(0.2) rotate(-40deg)', transition: T || ('opacity 0.6s ease, transform 0.8s ' + ease) } }, body)));
+}
+
 class Component extends DCLogic {
   state = {
     route: 'home', projectId: null,
@@ -2536,7 +2648,7 @@ class Component extends DCLogic {
     }
 
     if (this.reducedMotion) {
-      this._preloadTimer = setTimeout(() => this.finishLoader(), 450);
+      this._preloadTimer = setTimeout(() => this.finishLoader(), 1600);
       document.querySelectorAll('[data-reveal]').forEach(el => { el.style.opacity = '1'; el.style.transform = 'none'; });
     } else {
       if (!/filmseek/.test(location.search)) this._filmSafety = setTimeout(() => this.filmDone(), 24000);
@@ -2941,6 +3053,7 @@ class Component extends DCLogic {
 
     return {
       journeyRef: this.journeyRef, journeyTrackRef: this.journeyTrackRef, journeyBarRef: this.journeyBarRef, journeyCountRef: this.journeyCountRef, fanRef: this.fanRef,
+      cosmicLesson: s.route === 'project' ? React.createElement(CosmicLesson, { key: s.projectId, projectId: s.projectId, reduced: !!this.reducedMotion }) : null,
       isHome: s.route === 'home', isWork: s.route === 'work', isProject: s.route === 'project',
       isAbout: s.route === 'about', isLab: s.route === 'lab', isContact: s.route === 'contact',
       projects, activeProject: (() => {

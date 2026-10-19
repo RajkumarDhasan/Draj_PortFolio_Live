@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="components/wireframes/fig-tokens.css">
+<style>
+@keyframes wwScan { from { top:-10%; } to { top:110%; } }
+@keyframes wwIn { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:none; } }
+@keyframes wwBlink { 0%,49% { opacity:1; } 50%,100% { opacity:0; } }
+</style>
+</helmet>
+<div style="width:100%;font-family:'Satoshi','Helvetica Neue',Arial,sans-serif;color:#EFEFF2">
+  <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:28px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12px">
+    <span style="color:#5C5C63;margin-right:6px">flow =</span>
+    <sc-for list="{{ flows }}" as="f" hint-placeholder-count="7">
+      <button onMouseEnter="{{ f.enter }}" onMouseLeave="{{ f.leave }}" data-cursor-hover="true" style="display:flex;align-items:center;gap:8px;padding:7px 12px;border-radius:100px;border:1px solid {{ f.border }};background:{{ f.bg }};color:{{ f.color }};font-family:inherit;font-size:12px;cursor:default;transition:all 0.25s ease">{{ f.name }}<span style="color:#3A3A42">{{ f.arrow }}</span></button>
+    </sc-for>
+  </div>
+  <div style="position:relative;border-radius:24px;border:1px solid #1C1C21;background-color:#0A0A0D;background-image:radial-gradient(rgba(239,239,242,0.09) 1px,transparent 1px);background-size:22px 22px;padding:clamp(18px,3vw,36px)">
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,195px),1fr));gap:clamp(18px,2.4vw,32px) clamp(14px,2vw,24px)">
+      <sc-for list="{{ cards }}" as="c" hint-placeholder-count="10">
+        <div onMouseEnter="{{ c.enter }}" onMouseLeave="{{ c.leave }}" data-cursor-hover="true" style="display:flex;flex-direction:column;align-items:center;gap:12px;opacity:{{ c.op }};transform:{{ c.tf }};transition:transform 0.45s cubic-bezier(0.16,1,0.3,1),opacity 0.3s ease">
+          <div style="width:195px;display:flex;justify-content:space-between;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;letter-spacing:0.08em"><span style="color:#F3A195">{{ c.n }}</span><span style="color:#5C5C63">{{ c.flowUp }}</span></div>
+          <div style="position:relative;width:195px;height:422px;border-radius:20px;overflow:hidden;background:#fff;box-shadow:{{ c.shadow }};transition:box-shadow 0.4s ease">
+            <div style="width:390px;height:844px;transform:scale(0.5);transform-origin:top left;pointer-events:none">
+              <x-import component-from-global-scope="{{ c.comp }}" from="./components/wireframes/Components.bundle.js" hint-size="390px,844px"></x-import>
+            </div>
+            <sc-if value="{{ c.hot }}" hint-placeholder-val="{{ false }}">
+              <div style="position:absolute;left:0;right:0;height:60px;background:linear-gradient(180deg,rgba(243,161,149,0),rgba(243,161,149,0.28),rgba(243,161,149,0));animation:wwScan 1.4s linear infinite;pointer-events:none"></div>
+              <div style="position:absolute;left:8px;right:8px;bottom:8px;border-radius:14px;background:rgba(10,10,13,0.92);border:1px solid rgba(243,161,149,0.35);padding:12px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;line-height:1.6;animation:wwIn 0.3s ease both;backdrop-filter:blur(6px)">
+                <div style="color:#5C5C63">// why it works</div>
+                <div style="color:#D0D0D6;font-family:'Satoshi',sans-serif;font-size:12px;line-height:1.5;margin-top:4px">{{ c.note }}</div>
+              </div>
+            </sc-if>
+          </div>
+          <div style="width:195px">
+            <div style="font-family:'Clash Display',sans-serif;font-weight:500;font-size:17px">{{ c.title }}</div>
+            <div style="margin-top:3px;font-size:13px;line-height:1.45;color:#8C8C93">{{ c.hint }}</div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+  <div style="margin-top:16px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;color:#5C5C63">Hover a screen to read the decision behind it<span style="display:inline-block;width:6px;height:12px;margin-left:4px;vertical-align:-2px;background:#F3A195;animation:wwBlink 0.9s steps(1) infinite"></span></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const WF = [
+  { comp:'Screen1Home', flow:'Discover', title:'Home', hint:'Where every visit starts: search, categories and collections.', note:'Search, categories and curated collections surface first — the busiest single screen in the app, so hierarchy had to work at a glance.' },
+  { comp:'Screen6CategoryDetail', flow:'Explore', title:'Category Browse', hint:'All products inside one category.', note:'Drilling into a category keeps the same card grid as home, so users never relearn how to scan products.' },
+  { comp:'Screen7FilteredResults', flow:'Explore', title:'Filtered Results', hint:'Narrow a long list with filters and sort.', note:'Filters and sort sit in a persistent bar above the grid, so narrowing results never costs a full navigation.' },
+  { comp:'ComparePerfumesVertical', flow:'Select', title:'Compare', hint:'Two or three products, side by side.', note:'A dedicated compare view lets shoppers line up two or three products side by side before deciding.' },
+  { comp:'WishlistScreen', flow:'Save', title:'Wishlist', hint:'Items saved for later.', note:'Saved items are one tap from checkout, turning wishlists into a holding pattern for later purchase rather than a dead end.' },
+  { comp:'CartScreen', flow:'Cart', title:'Cart', hint:'Review items, coupons and delivery before paying.', note:'Cart totals, coupon entry and delivery estimate are visible without scrolling, reducing abandonment at the step that matters most.' },
+  { comp:'ShippingAddressScreen', flow:'Checkout', title:'Shipping', hint:'Where the order should be delivered.', note:'Address entry is isolated from payment so errors are caught early, before a user has committed card details.' },
+  { comp:'PaymentScreen', flow:'Checkout', title:'Payment', hint:'Pick a saved card or cash on delivery.', note:'Saved cards and cash-on-delivery sit side by side — reflecting how UAE shoppers actually pay.' },
+  { comp:'OrderSummaryScreen', flow:'Checkout', title:'Order Summary', hint:'One last check before placing the order.', note:'One final review screen consolidates items, address and payment so nothing is confirmed blind.' },
+  { comp:'Screen2MyOrders', flow:'Track', title:'My Orders', hint:'Past and current orders with their status.', note:'Order history and status tracking close the loop after purchase, encouraging repeat visits.' },
+];
+const FLOWS = ['Discover','Explore','Select','Save','Cart','Checkout','Track'];
+
+class Component extends DCLogic {
+  state = { hov:-1, flow:null };
+  renderVals() {
+    const { hov, flow } = this.state;
+    const activeFlow = flow || (hov >= 0 ? WF[hov].flow : null);
+    return {
+      flows: FLOWS.map((f, k) => {
+        const on = activeFlow === f;
+        return { name:f, arrow: k < FLOWS.length - 1 ? '→' : '', enter: () => this.setState({ flow:f }), leave: () => this.setState({ flow:null }),
+          border: on ? 'rgba(243,161,149,0.6)' : '#1F1F24', bg: on ? 'rgba(243,161,149,0.12)' : 'rgba(255,255,255,0.02)', color: on ? '#EFEFF2' : '#8C8C93' };
+      }),
+      cards: WF.map((w, k) => {
+        const hot = hov === k, inFlow = activeFlow ? w.flow === activeFlow : true;
+        return {
+          comp:w.comp, title:w.title, hint:w.hint, note:w.note, n:String(k + 1).padStart(2, '0'), flowUp:w.flow.toUpperCase(),
+          hot, op: inFlow ? 1 : 0.28,
+          tf: hot ? 'translateY(-10px) scale(1.03)' : 'none',
+          shadow: hot ? '0 30px 60px rgba(0,0,0,0.6),0 0 0 2px #F3A195,0 0 40px rgba(243,161,149,0.35)' : '0 20px 40px rgba(0,0,0,0.45),0 0 0 1px rgba(255,255,255,0.06)',
+          enter: () => this.setState({ hov:k }), leave: () => this.setState({ hov:-1 }),
+        };
+      }),
+    };
+  }
+}
+</script>
+</body>
+</html>

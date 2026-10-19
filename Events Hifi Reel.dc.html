@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="components/hifi/fig-tokens.css">
+<link rel="stylesheet" href="components/hifi/fig-assets.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Geist:wght@300;400;500;600;700&amp;family=Geist+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+[data-hr-noscroll]::-webkit-scrollbar { display:none; }
+@keyframes hrBlink { 0%,49% { opacity:1; } 50%,100% { opacity:0; } }
+@keyframes hrIn { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:none; } }
+@keyframes hrSweep { from { transform:translateX(-100%); } to { transform:translateX(100%); } }
+</style>
+</helmet>
+<div ref="{{ rootRef }}" onMouseEnter="{{ onEnter }}" onMouseLeave="{{ onLeave }}" style="position:relative;width:100%;font-family:'Satoshi','Helvetica Neue',Arial,sans-serif;color:#EFEFF2">
+  <div style="position:relative;max-width:760px;margin:0 auto;height:54px;border-radius:100px;background:rgba(255,255,255,0.04);border:1px solid #26262B;display:flex;align-items:center;gap:12px;padding:0 10px 0 22px;font-family:'Geist Mono',ui-monospace,Menlo,monospace;font-size:13px;overflow:hidden">
+    <span style="color:#F3A195">❯</span>
+    <span style="flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis"><span style="color:#C792EA">render</span><span style="color:#8C8C93">(</span><span style="color:#A5E075">{{ cmd }}</span><span style="color:#8C8C93">{{ cmdClose }}</span><span style="display:inline-block;width:7px;height:15px;vertical-align:-3px;margin-left:2px;background:#F3A195;animation:hrBlink 0.8s steps(1) infinite"></span></span>
+    <span style="flex-shrink:0;padding:8px 14px;border-radius:100px;background:{{ statusBg }};color:{{ statusColor }};font-size:11px;letter-spacing:0.06em;transition:background 0.3s ease,color 0.3s ease">{{ status }}</span>
+    <span style="position:absolute;left:0;bottom:0;height:1.5px;width:{{ scanPct }}%;background:linear-gradient(90deg,#C9BCFF,#8BE9FF,#F3A195)"></span>
+  </div>
+
+  <div ref="{{ stageRef }}" onMouseMove="{{ onStageMove }}" onMouseLeave="{{ onStageLeave }}" style="position:relative;height:{{ stageH }}px;margin-top:28px;perspective:1700px;overflow:hidden">
+    <div style="position:absolute;left:50%;top:50%;width:70%;height:70%;transform:translate(-50%,-50%);background:radial-gradient(closest-side,rgba(243,161,149,0.20),rgba(243,161,149,0));pointer-events:none"></div>
+    <div style="position:absolute;left:0;right:0;bottom:0;height:40%;background-image:linear-gradient(rgba(243,161,149,0.10) 1px,transparent 1px),linear-gradient(90deg,rgba(243,161,149,0.10) 1px,transparent 1px);background-size:44px 44px;transform:perspective(500px) rotateX(62deg);transform-origin:bottom center;-webkit-mask-image:linear-gradient(to top,#000,transparent);mask-image:linear-gradient(to top,#000,transparent);pointer-events:none"></div>
+    <div style="position:absolute;left:50%;top:50%;width:0;height:0;transform-style:preserve-3d;transform:rotateX({{ tiltX }}deg) rotateY({{ tiltY }}deg);transition:transform 0.5s cubic-bezier(0.16,1,0.3,1)">
+      <sc-for list="{{ cards }}" as="c" hint-placeholder-count="5">
+        <div onClick="{{ c.go }}" data-cursor-hover="true" style="position:absolute;left:{{ c.left }}px;top:{{ c.top }}px;width:{{ c.w }}px;height:{{ c.h }}px;transform:{{ c.tf }};opacity:{{ c.op }};z-index:{{ c.z }};visibility:{{ c.vis }};transition:transform 0.85s cubic-bezier(0.16,1,0.3,1),opacity 0.6s ease;cursor:pointer">
+          <div ref="{{ c.ref }}" style="position:absolute;inset:0;border-radius:{{ c.r }}px;overflow:hidden;background:#fff;box-shadow:0 40px 80px rgba(0,0,0,0.55),0 0 0 1px rgba(255,255,255,0.08);filter:{{ c.filter }};transition:filter 0.6s ease">
+            <div style="width:440px;height:956px;transform:scale({{ c.s }});transform-origin:top left">
+              <x-import component-from-global-scope="{{ c.comp }}" from="./components/hifi/Components.bundle.js" hint-size="440px,956px"></x-import>
+            </div>
+            <sc-if value="{{ c.scanning }}" hint-placeholder-val="{{ false }}">
+              <div style="position:absolute;left:0;right:0;bottom:0;top:{{ scanPct }}%;pointer-events:none;backdrop-filter:grayscale(1) contrast(0.55) brightness(1.35) blur(1.5px);-webkit-backdrop-filter:grayscale(1) contrast(0.55) brightness(1.35) blur(1.5px);background-color:rgba(18,18,24,0.72);background-image:linear-gradient(rgba(139,233,255,0.16) 1px,transparent 1px),linear-gradient(90deg,rgba(139,233,255,0.16) 1px,transparent 1px);background-size:14px 14px">
+                <div style="position:absolute;left:0;right:0;top:-1px;height:2px;background:#F3A195;box-shadow:0 0 18px 4px rgba(243,161,149,0.75)"></div>
+                <div style="position:absolute;left:12px;top:10px;font-family:'Geist Mono',ui-monospace,monospace;font-size:10px;color:#8BE9FF;letter-spacing:0.06em">{{ scanLabel }}</div>
+              </div>
+            </sc-if>
+            <sc-if value="{{ c.inspecting }}" hint-placeholder-val="{{ false }}">
+              <div style="position:absolute;inset:0;pointer-events:none;clip-path:circle(92px at {{ insp.x }}px {{ insp.y }}px);backdrop-filter:invert(1) hue-rotate(180deg) contrast(1.15);-webkit-backdrop-filter:invert(1) hue-rotate(180deg) contrast(1.15);background-image:linear-gradient(rgba(139,233,255,0.22) 1px,transparent 1px),linear-gradient(90deg,rgba(139,233,255,0.22) 1px,transparent 1px);background-size:12px 12px"></div>
+              <div style="position:absolute;left:{{ insp.x }}px;top:{{ insp.y }}px;width:184px;height:184px;margin:-92px 0 0 -92px;border-radius:50%;border:1.5px solid rgba(243,161,149,0.9);box-shadow:0 0 30px rgba(243,161,149,0.45),inset 0 0 24px rgba(139,233,255,0.25);pointer-events:none"></div>
+              <sc-if value="{{ insp.hasBox }}" hint-placeholder-val="{{ false }}">
+                <div style="position:absolute;left:{{ insp.bx }}px;top:{{ insp.by }}px;width:{{ insp.bw }}px;height:{{ insp.bh }}px;outline:1.5px solid #F3A195;background:rgba(243,161,149,0.10);pointer-events:none;transition:all 0.12s ease"></div>
+                <div style="position:absolute;left:{{ insp.lx }}px;top:{{ insp.ly }}px;max-width:calc(100% - 12px);padding:5px 8px;border-radius:6px;background:#0A0A0D;border:1px solid rgba(243,161,149,0.6);font-family:'Geist Mono',ui-monospace,monospace;font-size:10px;line-height:1.45;color:#EFEFF2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;pointer-events:none;box-shadow:0 8px 20px rgba(0,0,0,0.4)"><span style="color:#F3A195">{{ insp.name }}</span><br><span style="color:#8BE9FF">{{ insp.meta }}</span></div>
+              </sc-if>
+              <div style="position:absolute;left:{{ insp.x }}px;top:{{ insp.y }}px;margin:100px 0 0 -40px;width:80px;text-align:center;font-family:'Geist Mono',ui-monospace,monospace;font-size:10px;color:#F3A195;pointer-events:none;text-shadow:0 0 6px rgba(0,0,0,0.6)">{{ insp.coord }}</div>
+            </sc-if>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <div style="margin-top:14px;text-align:center;font-family:'Geist Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.06em;color:{{ hintColor }};transition:color 0.3s ease">{{ hintText }}</div>
+  <div style="display:flex;flex-wrap:wrap;gap:28px;margin-top:28px;align-items:flex-start">
+    <div style="flex:1 1 300px;min-width:0">
+      <div style="font-family:'Geist Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.1em;color:#F3A195">{{ cap.n }} · FIGMA {{ cap.node }}</div>
+      <div style="margin-top:10px;font-family:'Clash Display',sans-serif;font-weight:500;font-size:clamp(24px,3vw,32px);line-height:1.1">{{ cap.title }}</div>
+      <p style="margin:10px 0 0;max-width:460px;font-size:15px;line-height:1.65;color:#B4B4BB;text-wrap:pretty">{{ cap.body }}</p>
+    </div>
+    <div style="flex:1 1 300px;min-width:0;border-radius:14px;background:rgba(8,8,14,0.62);border:1px solid #1C1C21;padding:14px 16px;font-family:'Geist Mono',ui-monospace,monospace;font-size:12px;line-height:1.9">
+      <sc-for list="{{ log }}" as="l" hint-placeholder-count="4">
+        <div style="display:flex;gap:10px;animation:hrIn 0.35s ease both"><span style="color:{{ l.c }}">{{ l.i }}</span><span style="color:#B4B4BB">{{ l.t }}</span></div>
+      </sc-for>
+    </div>
+  </div>
+
+  <div data-hr-noscroll="true" style="display:flex;gap:6px;margin-top:22px;overflow-x:auto;scrollbar-width:none;padding-bottom:4px">
+    <sc-for list="{{ strip }}" as="s" hint-placeholder-count="13">
+      <button onClick="{{ s.go }}" data-cursor-hover="true" style="position:relative;flex:1 0 auto;min-width:92px;overflow:hidden;text-align:left;padding:9px 12px;border-radius:10px;background:{{ s.bg }};border:1px solid {{ s.border }};color:{{ s.color }};font-family:'Geist Mono',ui-monospace,monospace;font-size:11px;cursor:pointer;white-space:nowrap">
+        {{ s.n }} {{ s.label }}
+        <span style="position:absolute;left:0;bottom:0;height:2px;width:{{ s.prog }}%;background:#F3A195"></span>
+      </button>
+    </sc-for>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const SCREENS = [
+  { comp:'Splash', node:'449:10492', label:'Splash', title:'A warm first frame', body:'The brand gradient and mark set the tone before anything loads.' },
+  { comp:'AIPickedForYou', node:'570:6535', label:'AI Picks', title:'Picked for you, daily', body:'A personal feed ranked by style, history and recent views.' },
+  { comp:'Screen1AIGiftFinder', node:'652:8898', label:'Gift Finder', title:'Gifts by occasion and budget', body:'Tell the assistant who it is for and the budget; it returns a short, reasoned list.' },
+  { comp:'AIVoiceAssistant', node:'516:10476', label:'Voice', title:'Shop by voice', body:'Ask out loud and get products back without typing.' },
+  { comp:'VisualSearchCamera', node:'516:10509', label:'Visual Search', title:'Search with the camera', body:'Point the camera at something you like to find it, or similar items, in the catalogue.' },
+  { comp:'ProductGallery3', node:'570:6030', label:'Gallery', title:'A gallery that sells', body:'Full-bleed imagery, video and 360° views before the details.' },
+  { comp:'ProductPriceCompare', node:'570:10741', label:'Compare', title:'Compare sellers in one view', body:'Price, delivery and rating for the same product across sellers.' },
+  { comp:'GiftWrapping', node:'570:10988', label:'Gift Wrap', title:'Wrap it and say something', body:'Choose wrapping and add a message as part of the order.' },
+  { comp:'Checkout', node:'598:7754', label:'Checkout', title:'Checkout without friction', body:'Address, slot and saved payment are pre-filled, ready to confirm.' },
+  { comp:'OrderTracking01', node:'615:11913', label:'Tracking', title:'Always know where it is', body:'Live status from the fulfilment centre to the door.' },
+  { comp:'Screen1LoyaltyProgram', node:'625:9289', label:'Loyalty', title:'Points that add up', body:'Tiers, balance and rewards in one place, earned on every order.' },
+  { comp:'MakeupArtistProfile', node:'637:17433', label:'Artists', title:'Book beauty professionals', body:'Portfolio, reviews and booking for makeup artists, inside the same app.' },
+  { comp:'ScreenDashboard', node:'710:15333', label:'Vendor', title:'The seller side', body:'Sales, orders and payouts for vendors on a mobile dashboard.' },
+];
+const N = SCREENS.length;
+const STEP = 3800, TYPE = 600, SCAN0 = 650, SCAN1 = 1750;
+
+class Component extends DCLogic {
+  state = { i:0, el:0, w:1200, tx:0, ty:0, insp:null };
+  rootRef = React.createRef();
+  stageRef = React.createRef();
+  cardRefs = SCREENS.map(() => React.createRef());
+  hexOf(c) { const m = (c || '').match(/rgba?\(([^)]+)\)/); if (!m) return c || 'none'; const p = m[1].split(',').map(x => parseFloat(x)); if (p.length > 3 && p[3] === 0) return 'none'; return '#' + p.slice(0, 3).map(v => Math.round(v).toString(16).padStart(2, '0')).join('').toUpperCase(); }
+  stageMove(e) {
+    const st = this.stageRef.current; if (!st) return;
+    const r = st.getBoundingClientRect();
+    const nx = (e.clientX - r.left) / r.width - 0.5, ny = (e.clientY - r.top) / r.height - 0.5;
+    const card = this.cardRefs[this.state.i].current;
+    let insp = null;
+    if (card) {
+      const cr = card.getBoundingClientRect();
+      if (e.clientX >= cr.left && e.clientX <= cr.right && e.clientY >= cr.top && e.clientY <= cr.bottom) {
+        const sc = cr.width / 440, x = e.clientX - cr.left, y = e.clientY - cr.top;
+        insp = { x, y, hasBox:false, coord: 'x ' + Math.round(x / sc) + '  y ' + Math.round(y / sc) };
+        let el = document.elementFromPoint(e.clientX, e.clientY);
+        while (el && el !== card && card.contains(el)) { const b = el.getBoundingClientRect(); if (b.width >= 8 && b.height >= 8 && b.width < cr.width * 0.98) break; el = el.parentElement; }
+        if (el && el !== card && card.contains(el)) {
+          const er = el.getBoundingClientRect(), cs = getComputedStyle(el);
+          const isText = Array.prototype.some.call(el.childNodes, n => n.nodeType === 3 && n.nodeValue.trim());
+          const isImg = el.tagName === 'IMG' || (cs.backgroundImage && cs.backgroundImage !== 'none');
+          const kind = isText ? 'Text' : (isImg ? 'Image' : (el.tagName === 'svg' || el.closest('svg') ? 'Vector' : 'Frame'));
+          const rad = parseFloat(cs.borderTopLeftRadius) || 0;
+          const meta = isText ? (cs.fontFamily.split(',')[0].replace(/["']/g, '') + ' ' + cs.fontWeight + ' · ' + Math.round(parseFloat(cs.fontSize) || 0) + 'px · ' + this.hexOf(cs.color))
+            : ('fill ' + this.hexOf(cs.backgroundColor) + (rad ? ' · radius ' + Math.round(rad / sc) : '') + (cs.display === 'flex' ? ' · auto-layout' : ''));
+          const bx = er.left - cr.left, by = er.top - cr.top;
+          Object.assign(insp, { hasBox:true, bx, by, bw: er.width, bh: er.height, lx: Math.max(6, Math.min(bx, cr.width - 150)), ly: by > 40 ? by - 38 : by + er.height + 6,
+            name: kind + ' · ' + Math.round(er.width / sc) + '×' + Math.round(er.height / sc), meta });
+        }
+      }
+    }
+    this.hover = !!insp;
+    this.setState({ tx: nx, ty: ny, insp });
+  }
+  componentDidMount() {
+    this.visible = true; this.hover = false; this.last = performance.now();
+    this.measure = () => { const r = this.rootRef.current; if (r) this.setState({ w: r.clientWidth || 1200 }); };
+    this.measure(); window.addEventListener('resize', this.measure);
+    this.iv = setInterval(() => this.tick(), 50);
+    if (window.IntersectionObserver && this.rootRef.current) { this.io = new IntersectionObserver(es => { this.visible = es[0].isIntersecting; }, { threshold: 0.1 }); this.io.observe(this.rootRef.current); }
+  }
+  componentWillUnmount() { clearInterval(this.iv); window.removeEventListener('resize', this.measure); if (this.io) this.io.disconnect(); }
+  tick() {
+    const now = performance.now(), dt = Math.min(120, now - this.last); this.last = now;
+    if (!this.visible || document.hidden) return;
+    let { i, el } = this.state;
+    if (this.hover && el >= SCAN1) return;
+    el += dt;
+    if (el >= STEP) { i = (i + 1) % N; el = 0; }
+    this.setState({ i, el });
+  }
+  go(k) { this.setState({ i:k, el:0 }); }
+  renderVals() {
+    const { i, el, w, tx, ty, insp } = this.state;
+    const sc = SCREENS[i];
+    const mobile = w < 640;
+    const cardH = mobile ? 470 : 600, s = cardH / 956, cardW = Math.round(440 * s);
+    const stageH = cardH + (mobile ? 50 : 80);
+    const spread = mobile ? cardW * 0.42 : Math.min(cardW * 0.7, w / 7);
+    const scanP = Math.min(1, Math.max(0, (el - SCAN0) / (SCAN1 - SCAN0)));
+    const scanPct = Math.round((el < SCAN0 ? 0 : scanP) * 1000) / 10;
+    const label = '"' + sc.label + '"';
+    const typed = Math.floor(Math.min(1, el / TYPE) * label.length);
+    const cards = SCREENS.map((x, k) => {
+      let d = k - i; if (d > N / 2) d -= N; if (d < -N / 2) d += N;
+      const a = Math.abs(d), show = a <= (mobile ? 2 : 3);
+      const rot = Math.max(-55, Math.min(55, -d * 32));
+      return {
+        comp: x.comp, s, w: cardW, h: cardH, left: -cardW / 2, top: -cardH / 2, r: Math.round(32 * s),
+        tf: 'translateX(' + Math.round(d * spread + Math.sign(d) * (a ? cardW * 0.18 : 0)) + 'px) translateZ(' + (-a * 170) + 'px) rotateY(' + rot + 'deg)',
+        op: show ? (a === 0 ? 1 : Math.max(0.25, 1 - a * 0.24)) : 0, vis: show ? 'visible' : 'hidden', z: 100 - a,
+        filter: a === 0 ? 'none' : 'brightness(0.55) saturate(0.7)',
+        scanning: a === 0 && el < SCAN1 + 80, inspecting: a === 0 && !!insp, ref: this.cardRefs[k],
+        go: () => this.go(k),
+      };
+    });
+    const t = (ms) => el >= ms;
+    const log = [{ i:'❯', c:'#F3A195', t:'fetch frame ' + sc.node + ' · 440×956' }];
+    if (t(SCAN0 - 100)) log.push({ i:'✓', c:'#A5E075', t:'tokens resolved · bg, radius, spacing' });
+    if (t(SCAN0 + 400)) log.push({ i:'✓', c:'#A5E075', t:'components mounted · ' + sc.comp });
+    if (t(SCAN1)) log.push({ i:'●', c:'#8BE9FF', t:'rendered as live code · ' + (i + 1) + ' / ' + N });
+    return {
+      rootRef: this.rootRef, stageRef: this.stageRef,
+      onStageMove: (e) => this.stageMove(e), onStageLeave: () => { this.hover = false; this.setState({ tx:0, ty:0, insp:null }); },
+      tiltX: (-ty * 7).toFixed(2), tiltY: (tx * 12).toFixed(2),
+      insp: insp || { x:0, y:0, hasBox:false, coord:'' },
+      hintText: insp ? (insp.hasBox ? 'INSPECTING · ' + insp.name.toUpperCase() : 'INSPECTING') : 'HOVER THE FRONT SCREEN TO INSPECT IT',
+      hintColor: insp ? '#F3A195' : '#5C5C63',
+      onEnter: () => { this.hover = true; }, onLeave: () => { this.hover = false; },
+      cmd: label.slice(0, typed), cmdClose: typed >= label.length ? ')' : '',
+      status: el < SCAN0 ? 'QUEUED' : (el < SCAN1 ? 'RENDERING ' + Math.round(scanP * 100) + '%' : 'LIVE'),
+      statusBg: el < SCAN1 ? 'rgba(139,233,255,0.10)' : 'rgba(165,224,117,0.14)',
+      statusColor: el < SCAN1 ? '#8BE9FF' : '#A5E075',
+      scanPct, scanLabel: 'compiling ' + sc.comp + '…',
+      stageH, cards, log,
+      cap: { n: String(i + 1).padStart(2, '0') + ' / ' + N, node: sc.node, title: sc.title, body: sc.body },
+      strip: SCREENS.map((x, k) => ({
+        n: String(k + 1).padStart(2, '0'), label: x.label, go: () => this.go(k),
+        bg: k === i ? 'rgba(243,161,149,0.10)' : 'rgba(255,255,255,0.02)', border: k === i ? 'rgba(243,161,149,0.5)' : '#1F1F24', color: k === i ? '#EFEFF2' : '#8C8C93',
+        prog: k === i ? Math.round(el / STEP * 100) : 0,
+      })),
+    };
+  }
+}
+</script>
+</body>
+</html>
