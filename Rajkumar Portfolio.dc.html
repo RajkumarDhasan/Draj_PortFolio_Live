@@ -77,8 +77,27 @@ a:hover { color:#FF5A3C; }
 
 <div ref="{{ rootRef }}" style="position:relative;min-height:100vh;background:transparent;color:#EFEFF2;font-family:'Satoshi','Helvetica Neue',Arial,sans-serif;cursor:{{ cursorCss }}">
 
+{{ aiFx }}
+{{ cosmicLesson }}
+<sc-if value="{{ showLoader }}" hint-placeholder-val="{{ true }}">
+<div data-loader-panel="true" style="position:fixed;inset:0;background:#0A0A0D;z-index:999;display:flex;align-items:center;justify-content:center;transition:transform 0.7s cubic-bezier(0.76,0,0.24,1);transform:{{ loaderPanelTransform }};pointer-events:{{ preloaderPointerEvents }}">
+    <sc-if value="{{ reducedMotion }}" hint-placeholder-val="{{ false }}">
+      <div style="font-family:'Clash Display',sans-serif;text-align:center;opacity:{{ loaderExitOpacity }};transition:opacity 0.4s ease">
+        <div style="font-size:clamp(36px,7vw,64px);font-weight:600;letter-spacing:-0.01em">DRAJ</div>
+        <div style="font-size:13px;letter-spacing:0.25em;color:#8C8C93;margin-top:10px">UI/UX &amp; PRODUCT DESIGNER</div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ fullMotion }}" hint-placeholder-val="{{ true }}">
+    <div style="position:absolute;inset:0">{{ openingFilm }}</div>
+    </sc-if>
+  </div>
+</sc-if>
+
+<!-- overlay for page transitions -->
+<div style="position:fixed;inset:0;background:#030307;box-shadow:0 -40px 80px rgba(123,97,255,0.25);z-index:900;pointer-events:none;transform:scaleY({{ transitionScale }});transform-origin:bottom;transition:transform 0.55s cubic-bezier(0.76,0,0.24,1)"></div>
+
 <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
-<div data-screen-label="Mobile App" style="min-height:100svh;background:#05050A;color:#EFEFF2;padding-bottom:calc(110px + env(safe-area-inset-bottom));overflow-x:clip">
+<div data-screen-label="Mobile App" style="min-height:100svh;background:transparent;color:#EFEFF2;padding-bottom:calc(110px + env(safe-area-inset-bottom));overflow-x:clip">
 
   <div style="position:fixed;top:0;left:0;right:0;z-index:70;min-height:calc(env(safe-area-inset-top) + 60px);padding:calc(env(safe-area-inset-top) + 10px) 16px 10px;display:flex;align-items:center;gap:12px;background:{{ mBarBg }};backdrop-filter:{{ mBarBlur }};-webkit-backdrop-filter:{{ mBarBlur }};border-bottom:1px solid {{ mBarBorder }};transition:background 0.3s ease,border-color 0.3s ease">
     <sc-if value="{{ mIsProject }}" hint-placeholder-val="{{ false }}">
@@ -100,7 +119,7 @@ a:hover { color:#FF5A3C; }
   <div data-screen-label="M Home" style="padding:calc(env(safe-area-inset-top) + 80px) 20px 0;display:flex;flex-direction:column;gap:40px;animation:rp-app-content 0.45s cubic-bezier(0.16,1,0.3,1) both">
     <div style="display:flex;flex-direction:column;gap:20px">
       <div style="display:flex;align-items:center;gap:14px">
-        <img src="uploads/mine.png" alt="Rajkumar Dhasan" style="width:60px;height:60px;flex:none;border-radius:20px;object-fit:cover;object-position:50% 20%;background:#121218">
+        <div style="width:60px;height:60px;flex:none;border-radius:20px;overflow:hidden;background:#121218"><image-slot id="rp-about-photo" shape="rect" src="uploads/mine.png" placeholder="Profile photo" style="width:100%;height:100%"></image-slot></div>
         <div style="display:flex;flex-direction:column;gap:3px;min-width:0">
           <span style="font-family:'Clash Display',sans-serif;font-size:20px;font-weight:600">Rajkumar Dhasan</span>
           <span style="font-size:13px;color:#8C8C93">UI/UX &amp; Product Designer · Abu Dhabi, UAE</span>
@@ -128,7 +147,7 @@ a:hover { color:#FF5A3C; }
       </div>
     </div>
 
-    <div style="display:flex;flex-direction:column;gap:16px">
+    <div data-reveal="true" style="opacity:0;transform:translateY(24px);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1);display:flex;flex-direction:column;gap:16px">
       <div style="display:flex;justify-content:space-between;align-items:baseline">
         <h2 style="margin:0;font-family:'Clash Display',sans-serif;font-weight:500;font-size:22px">Selected Work</h2>
         <a href="#/work" onClick="{{ mGoWork }}" style="font-size:14px;font-weight:500;color:#FF5A3C;padding:10px 0">See all</a>
@@ -153,7 +172,7 @@ a:hover { color:#FF5A3C; }
       </div>
     </div>
 
-    <div style="display:flex;flex-direction:column;gap:16px">
+    <div data-reveal="true" style="opacity:0;transform:translateY(24px);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1);display:flex;flex-direction:column;gap:16px">
       <div style="display:flex;flex-direction:column;gap:4px">
         <h2 style="margin:0;font-family:'Clash Display',sans-serif;font-weight:500;font-size:22px">What I do</h2>
         <span style="font-size:13px;color:#8C8C93">Tap a skill to read more</span>
@@ -171,7 +190,7 @@ a:hover { color:#FF5A3C; }
       </div>
     </div>
 
-    <div style="display:flex;flex-direction:column;gap:16px">
+    <div data-reveal="true" style="opacity:0;transform:translateY(24px);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1);display:flex;flex-direction:column;gap:16px">
       <h2 style="margin:0;font-family:'Clash Display',sans-serif;font-weight:500;font-size:22px">How I work</h2>
       <div data-m-scroller="true" style="display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -20px;padding:0 20px;scroll-padding:0 20px;scrollbar-width:none">
         <sc-for list="{{ mStages }}" as="st" hint-placeholder-count="5">
@@ -184,13 +203,13 @@ a:hover { color:#FF5A3C; }
       </div>
     </div>
 
-    <a href="#/lab" onClick="{{ mGoLab }}" style="display:flex;flex-direction:column;gap:14px;padding:22px;border-radius:24px;background:#0E0E14;border:1px solid #1C1C21;color:#EFEFF2" style-active="transform:scale(0.98)">
+    <a href="#/lab" onClick="{{ mGoLab }}" data-reveal="true" style="opacity:0;transform:translateY(24px);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1);display:flex;flex-direction:column;gap:14px;padding:22px;border-radius:24px;background:#0E0E14;border:1px solid #1C1C21;color:#EFEFF2" style-active="transform:scale(0.98)">
       <span style="align-self:flex-start;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;font-weight:700;color:#FF5A3C;background:rgba(255,90,60,0.12);padding:6px 10px;border-radius:8px">Thinking Lab</span>
       <span style="font-family:'Clash Display',sans-serif;font-size:21px;font-weight:500;line-height:1.3">Notes from process — how research, design systems and AI-assisted workflows shape the way I design.</span>
       <span style="display:flex;justify-content:space-between;align-items:center;font-size:13px;color:#8C8C93"><span>{{ mLabCount }} notes</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></span>
     </a>
 
-    <div style="padding:26px 22px;border-radius:28px;background:#FF5A3C;color:#0A0A0D;display:flex;flex-direction:column;gap:20px">
+    <div data-reveal="true" style="opacity:0;transform:translateY(24px);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1);padding:26px 22px;border-radius:28px;background:#FF5A3C;color:#0A0A0D;display:flex;flex-direction:column;gap:20px">
       <span style="font-family:'Clash Display',sans-serif;font-size:34px;font-weight:500;line-height:1">Let's work<br>together.</span>
       <a href="#/contact" onClick="{{ mGoContact }}" style="height:52px;border-radius:16px;background:#0A0A0D;color:#EFEFF2;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:600" style-active="transform:scale(0.97)">Start a conversation</a>
     </div>
@@ -205,7 +224,7 @@ a:hover { color:#FF5A3C; }
       <span style="font-size:14px;color:#8C8C93">{{ mProjectCount }} case studies</span>
     </div>
     <sc-for list="{{ mProjects }}" as="p" hint-placeholder-count="3">
-      <a href="{{ p.href }}" onClick="{{ p.onOpen }}" style="display:flex;flex-direction:column;border-radius:28px;overflow:hidden;background:#0E0E14;border:1px solid #1C1C21;color:#EFEFF2;transition:transform 0.2s ease" style-active="transform:scale(0.98)">
+      <a href="{{ p.href }}" onClick="{{ p.onOpen }}" data-reveal="true" style="display:flex;flex-direction:column;border-radius:28px;overflow:hidden;background:#0E0E14;border:1px solid #1C1C21;color:#EFEFF2;opacity:0;transform:translateY(24px);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1);" style-active="transform:scale(0.98)">
         <div style="position:relative;height:280px;overflow:hidden;background:{{ p.gradient }}">
           <span style="position:absolute;top:18px;left:18px;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;font-weight:700;color:#12110F;background:rgba(255,255,255,0.45);padding:6px 10px;border-radius:8px">{{ p.index }} · {{ p.year }}</span>
           <img src="{{ p.cover }}" alt="{{ p.name }} app screen" style="position:absolute;left:50%;top:22%;width:52%;transform:translateX(-50%) rotate(-5deg);filter:drop-shadow(0 24px 40px rgba(0,0,0,0.35))">
@@ -425,22 +444,22 @@ a:hover { color:#FF5A3C; }
   <sc-if value="{{ mIsAbout }}" hint-placeholder-val="{{ false }}">
   <div data-screen-label="M About" style="padding:calc(env(safe-area-inset-top) + 76px) 20px 0;display:flex;flex-direction:column;gap:40px;animation:rp-app-content 0.45s cubic-bezier(0.16,1,0.3,1) both">
     <div style="position:relative;aspect-ratio:1/1.1;border-radius:28px;overflow:hidden;background:#0E0E14">
-      <img src="uploads/mine.png" alt="Rajkumar Dhasan" style="width:100%;height:100%;object-fit:cover;object-position:50% 20%">
+      <image-slot id="rp-about-photo" shape="rect" src="uploads/mine.png" placeholder="Profile photo" style="width:100%;height:100%"></image-slot>
       <div style="position:absolute;inset:auto 0 0 0;padding:60px 20px 20px;background:linear-gradient(180deg,rgba(5,5,10,0) 0%,rgba(5,5,10,0.92) 100%);display:flex;flex-direction:column;gap:4px">
         <span style="font-family:'Clash Display',sans-serif;font-size:28px;font-weight:600">Rajkumar Dhasan</span>
         <span style="font-size:14px;color:#D0D0D6">UI/UX &amp; Product Designer · Abu Dhabi, UAE</span>
       </div>
     </div>
-    <div style="display:flex;flex-direction:column;gap:16px">
+    <div data-reveal="true" style="opacity:0;transform:translateY(24px);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1);display:flex;flex-direction:column;gap:16px">
       <p style="margin:0;font-family:'Clash Display',sans-serif;font-weight:500;font-size:24px;line-height:1.3;color:#FF5A3C">Design is my primary skill. Code and AI are my accelerators.</p>
       <p style="margin:0;font-size:16px;line-height:1.7;color:#D0D0D6">UI/UX Designer with 6+ years of experience designing end-to-end digital products across mobility, fintech and e-commerce in the UAE. At Kief Consultancies &amp; Technologies (Abu Dhabi), I've served as the sole designer across multiple live products — owning the full lifecycle: user research, information architecture, high-fidelity UI, design systems and developer-ready Figma handoffs.</p>
       <p style="margin:0;font-size:16px;line-height:1.7;color:#D0D0D6">I bring a hybrid background in full-stack development (HTML, CSS, Java), which lets me collaborate precisely with engineers, and I apply UX psychology principles — Fitts' Law, Hick's Law, Gestalt, Jakob's Law — to deliver intuitive, research-informed experiences.</p>
     </div>
-    <div style="display:flex;flex-direction:column;gap:16px">
+    <div data-reveal="true" style="opacity:0;transform:translateY(24px);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1);display:flex;flex-direction:column;gap:16px">
       <h2 style="margin:0;font-family:'Clash Display',sans-serif;font-weight:500;font-size:22px">My Journey</h2>
       <div style="display:flex;flex-direction:column">
         <sc-for list="{{ mJourney }}" as="j" hint-placeholder-count="4">
-          <div style="display:grid;grid-template-columns:18px minmax(0,1fr);gap:14px">
+          <div data-reveal="true" style="opacity:0;transform:translateY(24px);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1);display:grid;grid-template-columns:18px minmax(0,1fr);gap:14px">
             <div style="display:flex;flex-direction:column;align-items:center;padding-top:24px">
               <span style="width:10px;height:10px;flex:none;border-radius:50%;background:{{ j.dot }};box-shadow:0 0 0 5px {{ j.ring }}"></span>
               <span style="flex:1;width:1px;background:#26262D;margin-top:8px;display:{{ j.lineDisplay }}"></span>
@@ -458,7 +477,7 @@ a:hover { color:#FF5A3C; }
         </sc-for>
       </div>
     </div>
-    <div style="display:flex;flex-direction:column;gap:22px">
+    <div data-reveal="true" style="opacity:0;transform:translateY(24px);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1);display:flex;flex-direction:column;gap:22px">
       <h2 style="margin:0;font-family:'Clash Display',sans-serif;font-weight:500;font-size:22px">Skills</h2>
       <sc-for list="{{ mSkills }}" as="g" hint-placeholder-count="3">
         <div style="display:flex;flex-direction:column;gap:10px">
@@ -578,28 +597,11 @@ a:hover { color:#FF5A3C; }
 </sc-if>
 
 <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
-{{ aiFx }}
-{{ cosmicLesson }}
-<sc-if value="{{ showLoader }}" hint-placeholder-val="{{ true }}">
-<div data-loader-panel="true" style="position:fixed;inset:0;background:#0A0A0D;z-index:999;display:flex;align-items:center;justify-content:center;transition:transform 0.7s cubic-bezier(0.76,0,0.24,1);transform:{{ loaderPanelTransform }};pointer-events:{{ preloaderPointerEvents }}">
-    <sc-if value="{{ reducedMotion }}" hint-placeholder-val="{{ false }}">
-      <div style="font-family:'Clash Display',sans-serif;text-align:center;opacity:{{ loaderExitOpacity }};transition:opacity 0.4s ease">
-        <div style="font-size:clamp(36px,7vw,64px);font-weight:600;letter-spacing:-0.01em">DRAJ</div>
-        <div style="font-size:13px;letter-spacing:0.25em;color:#8C8C93;margin-top:10px">UI/UX &amp; PRODUCT DESIGNER</div>
-      </div>
-    </sc-if>
-    <sc-if value="{{ fullMotion }}" hint-placeholder-val="{{ true }}">
-    <div style="position:absolute;inset:0">{{ openingFilm }}</div>
-    </sc-if>
-  </div>
-</sc-if>
-
 <div ref="{{ cursorRef }}" style="position:fixed;top:0;left:0;width:16px;height:16px;border-radius:50%;background:#FF5A3C;pointer-events:none;z-index:998;mix-blend-mode:difference;transform:translate(-50%,-50%);will-change:transform;display:{{ cursorDisplay }};display:flex;align-items:center;justify-content:center;transition:width 0.3s cubic-bezier(0.16,1,0.3,1),height 0.3s cubic-bezier(0.16,1,0.3,1),background 0.3s ease">
   <span ref="{{ cursorLabelRef }}" style="font-size:11px;font-weight:600;letter-spacing:0.04em;color:#0A0A0D;white-space:nowrap;opacity:0"></span>
 </div>
 
-<!-- overlay for page transitions -->
-<div style="position:fixed;inset:0;background:#030307;box-shadow:0 -40px 80px rgba(123,97,255,0.25);z-index:900;pointer-events:none;transform:scaleY({{ transitionScale }});transform-origin:bottom;transition:transform 0.55s cubic-bezier(0.76,0,0.24,1)"></div>
+
 
 <header style="position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content:space-between;align-items:flex-start;padding:28px clamp(20px,5vw,56px);pointer-events:none;background:{{ headerBg }};backdrop-filter:{{ headerBlur }};-webkit-backdrop-filter:{{ headerBlur }};border-bottom:1px solid {{ headerBorder }};transition:background 0.4s ease,border-color 0.4s ease">
   <a href="#/" data-cursor-hover="true" onClick="{{ onNavHome }}" style="pointer-events:auto;display:flex;flex-direction:column;line-height:1.15">
@@ -2966,7 +2968,7 @@ function CosmicLesson({ projectId, reduced }) {
        h('div', { key: 'c', style: { position: 'absolute', left: 14, top: 14, width: 16, height: 16, borderRadius: '50%', background: 'radial-gradient(circle, #FFFFFF 0%, #FF8A70 40%, rgba(255,90,60,0) 72%)', boxShadow: '0 0 26px ' + cfg.glow } })]
     : [h('div', { key: 'p', style: { position: 'absolute', inset: 2, borderRadius: '50%', background: 'radial-gradient(circle at 35% 30%, #FBF1DE 0%, #E3C79C 45%, #A86E3A 88%)', boxShadow: 'inset -6px -5px 12px rgba(80,40,10,0.45), 0 0 24px ' + cfg.glow } }),
        h('div', { key: 'r', style: { position: 'absolute', left: -12, top: 14, width: 68, height: 16, borderRadius: '50%', border: '1.5px solid rgba(217,160,102,0.85)', borderTopColor: 'transparent', transform: 'rotate(-16deg)' } })];
-  return h('div', { 'data-aifx-skip': 'true', 'aria-live': 'polite', style: { position: 'fixed', right: 'clamp(16px,4vw,40px)', bottom: 24, zIndex: 480, display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 12, pointerEvents: 'none', fontFamily: "'Satoshi','Helvetica Neue',Arial,sans-serif" } },
+  return h('div', { 'data-aifx-skip': 'true', 'aria-live': 'polite', style: { position: 'fixed', right: 'clamp(16px,4vw,40px)', bottom: window.innerWidth < 768 ? 'calc(92px + env(safe-area-inset-bottom))' : 24, zIndex: 480, display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 12, pointerEvents: 'none', fontFamily: "'Satoshi','Helvetica Neue',Arial,sans-serif" } },
     h('div', { onMouseEnter: () => { hover.current = true; }, onMouseLeave: () => { hover.current = false; }, style: { pointerEvents: open ? 'auto' : 'none', width: 'min(360px, calc(100vw - 32px))', boxSizing: 'border-box', background: 'rgba(8,8,12,0.9)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', border: '1px solid rgba(255,255,255,0.09)', borderRadius: 16, padding: '18px 20px 16px', boxShadow: '0 24px 60px -24px ' + cfg.glow, clipPath: open ? 'circle(170% ' + origin + ')' : 'circle(0% ' + origin + ')', opacity: open ? 1 : 0, transition: T || ('clip-path 0.8s ' + ease + ', opacity 0.5s ease') } },
       L ? [
         h('div', { key: 'e', style: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12 } },
@@ -3004,9 +3006,16 @@ class Component extends DCLogic {
 
   mNav(route, projectId) {
     const h = projectId ? `/work/${projectId}` : (route === 'home' ? '/' : `/${route}`);
-    if (window.location.hash !== '#' + h) window.location.hash = h;
-    this.setState({ route, projectId: projectId || null, mSeg: 'overview', mOpenFeat: -1, mSheet: null });
-    window.scrollTo({ top: 0, behavior: 'instant' });
+    const doNav = () => {
+      if (window.location.hash !== '#' + h) window.location.hash = h;
+      this.setState({ route, projectId: projectId || null, mSeg: 'overview', mOpenFeat: -1, mSheet: null });
+      window.scrollTo({ top: 0, behavior: 'instant' });
+      setTimeout(() => this.setState({ transitioning: false }), 30);
+      setTimeout(() => this.setupReveal(), 100);
+    };
+    if (this.reducedMotion) { doNav(); return; }
+    this.setState({ transitioning: true });
+    setTimeout(doNav, 420);
   }
 
   mSetSeg(k) {
@@ -3184,7 +3193,7 @@ class Component extends DCLogic {
   componentDidMount() {
     window.addEventListener('scroll', this.updateTaggoScroll, { passive: true });
     window.addEventListener('resize', this.onTaggoResize);
-    this._mResize = () => { const m = window.innerWidth < 768; if (m !== this.state.mobile) this.setState({ mobile: m }); };
+    this._mResize = () => { const m = window.innerWidth < 768; if (m !== this.state.mobile) { this.setState({ mobile: m }); setTimeout(() => this.setupReveal(), 100); } };
     window.addEventListener('resize', this._mResize);
     this._taggoTimer = setInterval(() => {
       if (this.state.taggoSvcPaused || this.state.projectId !== 'taggo' || this.state.route !== 'project') return;
