@@ -8,7 +8,10 @@
 <body>
 <x-dc>
 <helmet>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#05050A">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <title>Rajkumar Dhasan — UI/UX &amp; Product Designer</title>
 <meta name="description" content="Rajkumar Dhasan is a UI/UX &amp; Product Designer based in Abu Dhabi, UAE. Design is his primary skill; code and AI are his accelerators.">
 <meta property="og:title" content="Rajkumar Dhasan — UI/UX &amp; Product Designer">
@@ -55,8 +58,12 @@
 @keyframes rp-gradflow { 0% { background-position:0% 50%; } 100% { background-position:300% 50%; } }
 @keyframes rp-orbpulse { 0%,100% { transform:scale(1); opacity:0.9; } 50% { transform:scale(1.35); opacity:0.5; } }
 @keyframes rp-letterup { from { transform:translateY(105%); } to { transform:translateY(0); } }
-html { scroll-behavior:smooth; }
-body { margin:0; background:#05050A; color:#EFEFF2; font-family:'Satoshi', 'Helvetica Neue', Arial, sans-serif; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+@keyframes rp-m-push { from { opacity:0; transform:translateX(18%); } to { opacity:1; transform:translateX(0); } }
+[data-m-scroller]::-webkit-scrollbar { display:none; }
+* { -webkit-tap-highlight-color:transparent; }
+html { scroll-behavior:smooth; overflow-x:hidden; overflow-x:clip; }
+body { margin:0; background:#05050A; color:#EFEFF2; font-family:'Satoshi', 'Helvetica Neue', Arial, sans-serif; -webkit-font-smoothing:antialiased; overflow-x:hidden; overflow-x:clip; max-width:100vw; }
+img, video, svg, canvas, iframe { max-width:100%; }
 * { box-sizing:border-box; }
 a { color:#EFEFF2; text-decoration:none; }
 a:hover { color:#FF5A3C; }
@@ -70,6 +77,507 @@ a:hover { color:#FF5A3C; }
 
 <div ref="{{ rootRef }}" style="position:relative;min-height:100vh;background:transparent;color:#EFEFF2;font-family:'Satoshi','Helvetica Neue',Arial,sans-serif;cursor:{{ cursorCss }}">
 
+<sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+<div data-screen-label="Mobile App" style="min-height:100svh;background:#05050A;color:#EFEFF2;padding-bottom:calc(110px + env(safe-area-inset-bottom));overflow-x:clip">
+
+  <div style="position:fixed;top:0;left:0;right:0;z-index:70;min-height:calc(env(safe-area-inset-top) + 60px);padding:calc(env(safe-area-inset-top) + 10px) 16px 10px;display:flex;align-items:center;gap:12px;background:{{ mBarBg }};backdrop-filter:{{ mBarBlur }};-webkit-backdrop-filter:{{ mBarBlur }};border-bottom:1px solid {{ mBarBorder }};transition:background 0.3s ease,border-color 0.3s ease">
+    <sc-if value="{{ mIsProject }}" hint-placeholder-val="{{ false }}">
+      <a href="#/work" onClick="{{ mGoWork }}" aria-label="Back to work" style="width:40px;height:40px;flex:none;border-radius:50%;background:rgba(5,5,10,0.6);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;color:#EFEFF2" style-active="transform:scale(0.92)">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 6-6 6 6 6"></path></svg>
+      </a>
+    </sc-if>
+    <sc-if value="{{ mNotProject }}" hint-placeholder-val="{{ true }}">
+      <a href="#/" onClick="{{ mGoHome }}" aria-label="Home" style="width:40px;height:40px;flex:none;border-radius:13px;background:#FF5A3C;color:#0A0A0D;font-family:'Clash Display',sans-serif;font-weight:700;font-size:14px;letter-spacing:0.02em;display:flex;align-items:center;justify-content:center">DR</a>
+    </sc-if>
+    <span style="flex:1;min-width:0;text-align:center;font-family:'Clash Display',sans-serif;font-size:17px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:{{ mBarTitleOpacity }};transition:opacity 0.25s ease">{{ mBarTitle }}</span>
+    <a href="uploads/Draj_Product Designer.pdf" download="Draj-UIUX-Product-Designer-Resume.pdf" aria-label="Download resume" style="width:40px;height:40px;flex:none;border-radius:50%;background:rgba(5,5,10,0.6);border:1px solid #26262D;display:flex;align-items:center;justify-content:center;color:#EFEFF2" style-active="transform:scale(0.92)">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg>
+    </a>
+  </div>
+
+  <!-- M HOME -->
+  <sc-if value="{{ mIsHome }}" hint-placeholder-val="{{ true }}">
+  <div data-screen-label="M Home" style="padding:calc(env(safe-area-inset-top) + 80px) 20px 0;display:flex;flex-direction:column;gap:40px;animation:rp-app-content 0.45s cubic-bezier(0.16,1,0.3,1) both">
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <div style="display:flex;align-items:center;gap:14px">
+        <img src="uploads/mine.png" alt="Rajkumar Dhasan" style="width:60px;height:60px;flex:none;border-radius:20px;object-fit:cover;object-position:50% 20%;background:#121218">
+        <div style="display:flex;flex-direction:column;gap:3px;min-width:0">
+          <span style="font-family:'Clash Display',sans-serif;font-size:20px;font-weight:600">Rajkumar Dhasan</span>
+          <span style="font-size:13px;color:#8C8C93">UI/UX &amp; Product Designer · Abu Dhabi, UAE</span>
+        </div>
+      </div>
+      <h1 style="margin:0;font-family:'Clash Display',sans-serif;font-weight:500;font-size:34px;line-height:1.08;letter-spacing:-0.01em;text-wrap:balance">Design is my primary skill. <span style="color:#FF5A3C">Code and AI are my accelerators.</span></h1>
+      <p style="margin:0;font-size:15px;line-height:1.6;color:#B4B4BB;text-wrap:pretty">UI/UX Designer with 6+ years of experience designing end-to-end digital products across mobility, fintech and e-commerce in the UAE.</p>
+      <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:4px">
+        <a href="mailto:drajkumar13@gmail.com?subject=Portfolio%20Enquiry" style="display:flex;flex-direction:column;align-items:center;gap:8px;color:#EFEFF2" style-active="transform:scale(0.94)">
+          <span style="width:100%;height:56px;border-radius:18px;background:#0E0E14;border:1px solid #1C1C21;display:flex;align-items:center;justify-content:center;color:#FF5A3C"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"></rect><path d="m4 7 8 6 8-6"></path></svg></span>
+          <span style="font-size:12px;color:#B4B4BB">Email</span>
+        </a>
+        <a href="tel:+971542644838" style="display:flex;flex-direction:column;align-items:center;gap:8px;color:#EFEFF2" style-active="transform:scale(0.94)">
+          <span style="width:100%;height:56px;border-radius:18px;background:#0E0E14;border:1px solid #1C1C21;display:flex;align-items:center;justify-content:center;color:#FF5A3C"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"></path></svg></span>
+          <span style="font-size:12px;color:#B4B4BB">Call</span>
+        </a>
+        <a href="https://www.linkedin.com/in/draj-kumar" target="_blank" rel="noreferrer" style="display:flex;flex-direction:column;align-items:center;gap:8px;color:#EFEFF2" style-active="transform:scale(0.94)">
+          <span style="width:100%;height:56px;border-radius:18px;background:#0E0E14;border:1px solid #1C1C21;display:flex;align-items:center;justify-content:center;color:#FF5A3C;font-family:'Satoshi',sans-serif;font-weight:700;font-size:19px">in</span>
+          <span style="font-size:12px;color:#B4B4BB">LinkedIn</span>
+        </a>
+        <a href="uploads/Draj_Product Designer.pdf" download="Draj-UIUX-Product-Designer-Resume.pdf" style="display:flex;flex-direction:column;align-items:center;gap:8px;color:#EFEFF2" style-active="transform:scale(0.94)">
+          <span style="width:100%;height:56px;border-radius:18px;background:#0E0E14;border:1px solid #1C1C21;display:flex;align-items:center;justify-content:center;color:#FF5A3C"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg></span>
+          <span style="font-size:12px;color:#B4B4BB">Resume</span>
+        </a>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <div style="display:flex;justify-content:space-between;align-items:baseline">
+        <h2 style="margin:0;font-family:'Clash Display',sans-serif;font-weight:500;font-size:22px">Selected Work</h2>
+        <a href="#/work" onClick="{{ mGoWork }}" style="font-size:14px;font-weight:500;color:#FF5A3C;padding:10px 0">See all</a>
+      </div>
+      <div data-m-scroller="true" onScroll="{{ mOnFeatScroll }}" style="display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -20px;padding:0 20px;scroll-padding:0 20px;scrollbar-width:none;-webkit-overflow-scrolling:touch">
+        <sc-for list="{{ mProjects }}" as="p" hint-placeholder-count="3">
+          <a href="{{ p.href }}" onClick="{{ p.onOpen }}" style="flex:0 0 84%;scroll-snap-align:start;position:relative;aspect-ratio:4/5;border-radius:28px;overflow:hidden;background:{{ p.gradient }};color:#12110F;display:block;transition:transform 0.2s ease" style-active="transform:scale(0.98)">
+            <div style="position:absolute;top:22px;left:22px;right:22px;display:flex;flex-direction:column;gap:8px;z-index:2">
+              <span style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;font-weight:700;color:#12110F">{{ p.index }} · {{ p.category }}</span>
+              <span style="font-family:'Clash Display',sans-serif;font-size:36px;font-weight:600;line-height:1">{{ p.name }}</span>
+              <span style="font-size:14px;line-height:1.4;max-width:85%;color:#2A2722">{{ p.teaser }}</span>
+            </div>
+            <img src="{{ p.cover }}" alt="{{ p.name }} app screen" style="position:absolute;left:50%;top:44%;width:60%;transform:translateX(-50%) rotate(-6deg);filter:drop-shadow(0 24px 40px rgba(0,0,0,0.35))">
+            <span style="position:absolute;right:18px;bottom:18px;width:48px;height:48px;border-radius:50%;background:#12110F;color:#EFEFF2;display:flex;align-items:center;justify-content:center;z-index:2"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></span>
+          </a>
+        </sc-for>
+      </div>
+      <div style="display:flex;justify-content:center;gap:6px">
+        <sc-for list="{{ mFeatDots }}" as="d" hint-placeholder-count="3">
+          <span style="height:6px;border-radius:3px;width:{{ d.w }};background:{{ d.bg }};transition:width 0.3s ease,background 0.3s ease"></span>
+        </sc-for>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <div style="display:flex;flex-direction:column;gap:4px">
+        <h2 style="margin:0;font-family:'Clash Display',sans-serif;font-weight:500;font-size:22px">What I do</h2>
+        <span style="font-size:13px;color:#8C8C93">Tap a skill to read more</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px">
+        <sc-for list="{{ mCaps }}" as="c" hint-placeholder-count="10">
+          <button onClick="{{ c.onClick }}" style="min-height:96px;padding:16px;border-radius:20px;background:#0E0E14;border:1px solid #1C1C21;color:#EFEFF2;font-family:'Satoshi',sans-serif;text-align:left;display:flex;flex-direction:column;justify-content:space-between;gap:10px;cursor:pointer;transition:transform 0.15s ease" style-active="transform:scale(0.96);background:#14141B">
+            <span style="font-family:'Clash Display',sans-serif;font-size:12px;color:#5C5C63">{{ c.n }}</span>
+            <span style="display:flex;flex-direction:column;gap:3px">
+              <span style="font-size:15px;font-weight:600;line-height:1.25">{{ c.name }}</span>
+              <span style="font-size:12px;color:#8C8C93;line-height:1.35">{{ c.tool }}</span>
+            </span>
+          </button>
+        </sc-for>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <h2 style="margin:0;font-family:'Clash Display',sans-serif;font-weight:500;font-size:22px">How I work</h2>
+      <div data-m-scroller="true" style="display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -20px;padding:0 20px;scroll-padding:0 20px;scrollbar-width:none">
+        <sc-for list="{{ mStages }}" as="st" hint-placeholder-count="5">
+          <div style="flex:0 0 74%;scroll-snap-align:start;padding:20px;border-radius:22px;background:#0E0E14;border:1px solid #1C1C21;display:flex;flex-direction:column;gap:10px;min-height:180px">
+            <span style="font-family:'Clash Display',sans-serif;font-size:13px;color:#FF5A3C">{{ st.n }}</span>
+            <span style="font-family:'Clash Display',sans-serif;font-size:21px;font-weight:500">{{ st.title }}</span>
+            <span style="font-size:14px;line-height:1.55;color:#B4B4BB">{{ st.desc }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+
+    <a href="#/lab" onClick="{{ mGoLab }}" style="display:flex;flex-direction:column;gap:14px;padding:22px;border-radius:24px;background:#0E0E14;border:1px solid #1C1C21;color:#EFEFF2" style-active="transform:scale(0.98)">
+      <span style="align-self:flex-start;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;font-weight:700;color:#FF5A3C;background:rgba(255,90,60,0.12);padding:6px 10px;border-radius:8px">Thinking Lab</span>
+      <span style="font-family:'Clash Display',sans-serif;font-size:21px;font-weight:500;line-height:1.3">Notes from process — how research, design systems and AI-assisted workflows shape the way I design.</span>
+      <span style="display:flex;justify-content:space-between;align-items:center;font-size:13px;color:#8C8C93"><span>{{ mLabCount }} notes</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></span>
+    </a>
+
+    <div style="padding:26px 22px;border-radius:28px;background:#FF5A3C;color:#0A0A0D;display:flex;flex-direction:column;gap:20px">
+      <span style="font-family:'Clash Display',sans-serif;font-size:34px;font-weight:500;line-height:1">Let's work<br>together.</span>
+      <a href="#/contact" onClick="{{ mGoContact }}" style="height:52px;border-radius:16px;background:#0A0A0D;color:#EFEFF2;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:600" style-active="transform:scale(0.97)">Start a conversation</a>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- M WORK -->
+  <sc-if value="{{ mIsWork }}" hint-placeholder-val="{{ false }}">
+  <div data-screen-label="M Work" style="padding:calc(env(safe-area-inset-top) + 76px) 20px 0;display:flex;flex-direction:column;gap:24px;animation:rp-app-content 0.45s cubic-bezier(0.16,1,0.3,1) both">
+    <div style="display:flex;flex-direction:column;gap:6px">
+      <h1 style="margin:0;font-family:'Clash Display',sans-serif;font-weight:500;font-size:40px;line-height:1">Work</h1>
+      <span style="font-size:14px;color:#8C8C93">{{ mProjectCount }} case studies</span>
+    </div>
+    <sc-for list="{{ mProjects }}" as="p" hint-placeholder-count="3">
+      <a href="{{ p.href }}" onClick="{{ p.onOpen }}" style="display:flex;flex-direction:column;border-radius:28px;overflow:hidden;background:#0E0E14;border:1px solid #1C1C21;color:#EFEFF2;transition:transform 0.2s ease" style-active="transform:scale(0.98)">
+        <div style="position:relative;height:280px;overflow:hidden;background:{{ p.gradient }}">
+          <span style="position:absolute;top:18px;left:18px;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;font-weight:700;color:#12110F;background:rgba(255,255,255,0.45);padding:6px 10px;border-radius:8px">{{ p.index }} · {{ p.year }}</span>
+          <img src="{{ p.cover }}" alt="{{ p.name }} app screen" style="position:absolute;left:50%;top:22%;width:52%;transform:translateX(-50%) rotate(-5deg);filter:drop-shadow(0 24px 40px rgba(0,0,0,0.35))">
+        </div>
+        <div style="padding:18px 18px 20px;display:flex;align-items:center;gap:14px">
+          <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:4px">
+            <span style="font-family:'Clash Display',sans-serif;font-size:24px;font-weight:600">{{ p.name }}</span>
+            <span style="font-size:13px;color:#8C8C93">{{ p.category }}</span>
+            <span style="font-size:14px;line-height:1.45;color:#B4B4BB;margin-top:4px">{{ p.teaser }}</span>
+          </div>
+          <span style="width:44px;height:44px;flex:none;border-radius:50%;background:#1A1A21;display:flex;align-items:center;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"></path></svg></span>
+        </div>
+      </a>
+    </sc-for>
+  </div>
+  </sc-if>
+
+  <!-- M PROJECT -->
+  <sc-if value="{{ mIsProject }}" hint-placeholder-val="{{ false }}">
+  <div data-screen-label="M Project" style="animation:rp-m-push 0.45s cubic-bezier(0.16,1,0.3,1) both">
+    <div style="position:relative;height:420px;background:{{ mp.gradient }};border-radius:0 0 36px 36px;overflow:hidden">
+      <img src="{{ mp.cover }}" alt="{{ mp.name }} app screen" style="position:absolute;left:50%;top:calc(env(safe-area-inset-top) + 78px);width:58%;transform:translateX(-50%);filter:drop-shadow(0 30px 50px rgba(0,0,0,0.35))">
+    </div>
+    <div style="padding:28px 20px 0;display:flex;flex-direction:column;gap:10px">
+      <span style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;font-weight:700;color:{{ mp.accent }}">{{ mp.category }}</span>
+      <h1 style="margin:0;font-family:'Clash Display',sans-serif;font-weight:600;font-size:46px;line-height:1">{{ mp.name }}</h1>
+      <p style="margin:0;font-size:17px;line-height:1.45;color:#B4B4BB;text-wrap:pretty">{{ mp.teaser }}</p>
+    </div>
+    <div style="margin:22px 20px 0;border-radius:20px;background:#0E0E14;border:1px solid #1C1C21;display:flex;flex-direction:column">
+      <div style="display:flex;justify-content:space-between;gap:16px;padding:14px 16px"><span style="font-size:13px;color:#8C8C93;flex:none">Role</span><span style="font-size:14px;text-align:right">{{ mp.role }}</span></div>
+      <div style="height:1px;background:#1C1C21;margin-left:16px"></div>
+      <div style="display:flex;justify-content:space-between;gap:16px;padding:14px 16px"><span style="font-size:13px;color:#8C8C93;flex:none">Platform</span><span style="font-size:14px;text-align:right">{{ mp.platform }}</span></div>
+      <div style="height:1px;background:#1C1C21;margin-left:16px"></div>
+      <div style="display:flex;justify-content:space-between;gap:16px;padding:14px 16px"><span style="font-size:13px;color:#8C8C93;flex:none">Timeline</span><span style="font-size:14px;text-align:right">{{ mp.year }}</span></div>
+    </div>
+
+    <div ref="{{ mSegRef }}" style="height:20px"></div>
+    <div style="position:sticky;top:calc(env(safe-area-inset-top) + 60px);z-index:40;padding:8px 20px 10px;background:rgba(5,5,10,0.88);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)">
+      <div style="display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);background:#121218;border:1px solid #1C1C21;border-radius:14px;padding:4px;gap:4px">
+        <sc-for list="{{ mSegs }}" as="sg" hint-placeholder-count="4">
+          <button onClick="{{ sg.onClick }}" style="height:38px;border:none;border-radius:10px;background:{{ sg.bg }};color:{{ sg.color }};font-family:'Satoshi',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:background 0.2s ease,color 0.2s ease;white-space:nowrap">{{ sg.label }}</button>
+        </sc-for>
+      </div>
+    </div>
+
+    <sc-if value="{{ mSegOverview }}" hint-placeholder-val="{{ true }}">
+    <div style="padding:20px 20px 0;display:flex;flex-direction:column;gap:36px;animation:rp-app-content 0.35s ease both">
+      <div data-m-scroller="true" style="display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -20px;padding:0 20px;scroll-padding:0 20px;scrollbar-width:none">
+        <sc-for list="{{ mp.gallery }}" as="g" hint-placeholder-count="2">
+          <div style="flex:0 0 64%;scroll-snap-align:start;display:flex;flex-direction:column;gap:10px">
+            <div style="aspect-ratio:9/16;border-radius:22px;background:#0E0E14;border:1px solid #1C1C21;display:flex;align-items:center;justify-content:center;padding:14px;overflow:hidden">
+              <img src="{{ g.src }}" alt="{{ g.alt }}" loading="lazy" style="max-width:100%;max-height:100%;object-fit:contain;border-radius:12px">
+            </div>
+            <span style="font-size:14px;font-weight:600">{{ g.label }}</span>
+            <span style="font-size:13px;line-height:1.45;color:#8C8C93;margin-top:-6px">{{ g.desc }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <h2 style="margin:0;font-family:'Clash Display',sans-serif;font-weight:500;font-size:22px">Overview</h2>
+        <p style="margin:0;font-size:16px;line-height:1.65;color:#D0D0D6;text-wrap:pretty">{{ mp.summary }}</p>
+        <span style="font-size:13px;line-height:1.5;color:#8C8C93">Focus · {{ mp.focus }}</span>
+      </div>
+      <sc-if value="{{ mp.hasProblem }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <h2 style="margin:0;font-family:'Clash Display',sans-serif;font-weight:500;font-size:22px">The problem</h2>
+          <sc-for list="{{ mp.problem }}" as="pr" hint-placeholder-count="5">
+            <div style="display:flex;gap:14px;padding:14px 16px;border-radius:16px;background:#0E0E14;border:1px solid #1C1C21">
+              <span style="font-family:'Clash Display',sans-serif;font-size:13px;color:{{ mp.accent }};padding-top:2px">{{ pr.n }}</span>
+              <span style="font-size:15px;line-height:1.5;color:#D0D0D6">{{ pr.t }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </sc-if>
+      <sc-if value="{{ mp.hasAudience }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <h2 style="margin:0;font-family:'Clash Display',sans-serif;font-weight:500;font-size:22px">Audience</h2>
+          <sc-for list="{{ mp.audience }}" as="au" hint-placeholder-count="5">
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <div style="display:flex;justify-content:space-between;font-size:14px"><span style="color:#D0D0D6">{{ au.label }}</span><span style="font-weight:600">{{ au.pct }}</span></div>
+              <div style="height:8px;border-radius:4px;background:#1C1C21;overflow:hidden"><div style="height:100%;width:{{ au.pct }};border-radius:4px;background:{{ mp.accent }}"></div></div>
+            </div>
+          </sc-for>
+        </div>
+      </sc-if>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <h2 style="margin:0;font-family:'Clash Display',sans-serif;font-weight:500;font-size:22px">Process</h2>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <sc-for list="{{ mp.process }}" as="ps" hint-placeholder-count="6">
+            <span style="display:flex;align-items:center;gap:8px;padding:9px 14px;border-radius:12px;background:#0E0E14;border:1px solid #1C1C21;font-size:14px"><span style="font-family:'Clash Display',sans-serif;font-size:12px;color:{{ mp.accent }}">{{ ps.n }}</span>{{ ps.label }}</span>
+          </sc-for>
+        </div>
+      </div>
+      <sc-if value="{{ mp.hasDsNote }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <h2 style="margin:0;font-family:'Clash Display',sans-serif;font-weight:500;font-size:22px">Design system</h2>
+          <p style="margin:0;font-size:15px;line-height:1.6;color:#D0D0D6">{{ mp.dsNote }}</p>
+          <sc-if value="{{ mp.hasColors }}" hint-placeholder-val="{{ false }}">
+            <div style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px">
+              <sc-for list="{{ mp.colors }}" as="co" hint-placeholder-count="5">
+                <div style="display:flex;flex-direction:column;gap:6px">
+                  <span style="aspect-ratio:1;border-radius:14px;background:{{ co.hex }};border:1px solid #26262D"></span>
+                  <span style="font-size:11px;color:#8C8C93">{{ co.name }}</span>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+          <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px">
+            <sc-for list="{{ mp.dsFacts }}" as="df" hint-placeholder-count="4">
+              <div style="padding:16px;border-radius:18px;background:#0E0E14;border:1px solid #1C1C21;display:flex;flex-direction:column;gap:4px">
+                <span style="font-family:'Clash Display',sans-serif;font-size:24px;font-weight:600">{{ df.value }}</span>
+                <span style="font-size:12px;color:#8C8C93">{{ df.label }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </sc-if>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ mSegFeatures }}" hint-placeholder-val="{{ false }}">
+    <div style="padding:20px 20px 0;display:flex;flex-direction:column;gap:36px;animation:rp-app-content 0.35s ease both">
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <h2 style="margin:0 0 4px;font-family:'Clash Display',sans-serif;font-weight:500;font-size:22px">Key features</h2>
+        <sc-for list="{{ mp.features }}" as="f" hint-placeholder-count="5">
+          <div style="border-radius:18px;background:#0E0E14;border:1px solid #1C1C21;overflow:hidden">
+            <button onClick="{{ f.onToggle }}" style="width:100%;min-height:58px;padding:14px 16px;display:flex;align-items:center;gap:12px;background:none;border:none;color:#EFEFF2;font-family:'Satoshi',sans-serif;text-align:left;cursor:pointer">
+              <span style="flex:1;font-size:15px;font-weight:600">{{ f.name }}</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8C8C93" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transform:{{ f.chev }};transition:transform 0.25s ease;flex:none"><path d="m6 9 6 6 6-6"></path></svg>
+            </button>
+            <div style="display:{{ f.bodyDisplay }};padding:0 16px 16px;font-size:14px;line-height:1.6;color:#B4B4BB">{{ f.detail }}</div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <h2 style="margin:0 0 4px;font-family:'Clash Display',sans-serif;font-weight:500;font-size:22px">Screens</h2>
+        <sc-for list="{{ mp.screens }}" as="sc" hint-placeholder-count="5">
+          <div style="display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px;padding:14px 0;border-top:1px solid #1C1C21">
+            <span style="font-family:'Clash Display',sans-serif;font-size:13px;color:{{ mp.accent }};padding-top:2px">{{ sc.n }}</span>
+            <div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:15px;font-weight:600">{{ sc.label }}</span><span style="font-size:14px;line-height:1.55;color:#B4B4BB">{{ sc.detail }}</span></div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ mSegResults }}" hint-placeholder-val="{{ false }}">
+    <div style="padding:20px 20px 0;display:flex;flex-direction:column;gap:36px;animation:rp-app-content 0.35s ease both">
+      <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px">
+        <sc-for list="{{ mp.metrics }}" as="mt" hint-placeholder-count="6">
+          <div style="padding:18px 16px;border-radius:20px;background:#0E0E14;border:1px solid #1C1C21;display:flex;flex-direction:column;gap:6px;min-height:104px;justify-content:flex-end">
+            <span style="font-family:'Clash Display',sans-serif;font-size:30px;font-weight:600;line-height:1;color:{{ mp.accent }}">{{ mt.value }}</span>
+            <span style="font-size:13px;color:#B4B4BB">{{ mt.label }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <sc-if value="{{ mp.hasRefl }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <h2 style="margin:0;font-family:'Clash Display',sans-serif;font-weight:500;font-size:22px">What I learned</h2>
+          <sc-for list="{{ mp.learned }}" as="l" hint-placeholder-count="3">
+            <p style="margin:0;padding:14px 16px;border-radius:16px;background:#0E0E14;border:1px solid #1C1C21;font-size:15px;line-height:1.55;color:#D0D0D6">{{ l }}</p>
+          </sc-for>
+          <h2 style="margin:16px 0 0;font-family:'Clash Display',sans-serif;font-weight:500;font-size:22px">What I'd do differently</h2>
+          <sc-for list="{{ mp.differently }}" as="l" hint-placeholder-count="3">
+            <p style="margin:0;padding:14px 16px;border-radius:16px;background:#0E0E14;border:1px solid #1C1C21;font-size:15px;line-height:1.55;color:#D0D0D6">{{ l }}</p>
+          </sc-for>
+        </div>
+      </sc-if>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ mSegStory }}" hint-placeholder-val="{{ false }}">
+    <div style="padding:20px 16px 0;display:flex;flex-direction:column;gap:64px;animation:rp-app-content 0.35s ease both">
+      <sc-if value="{{ mStoryTaggo }}" hint-placeholder-val="{{ false }}">
+        <dc-import name="Taggo Story" hint-size="100%,3000px"></dc-import>
+        <dc-import name="Taggo Process" hint-size="100%,3000px"></dc-import>
+        <dc-import name="Taggo Delivery" hint-size="100%,1800px"></dc-import>
+        <dc-import name="App Design System" product="taggo" hint-size="100%,2600px"></dc-import>
+      </sc-if>
+      <sc-if value="{{ mStoryEvents }}" hint-placeholder-val="{{ false }}">
+        <dc-import name="Events Studio" hint-size="100%,820px"></dc-import>
+        <dc-import name="Events About" hint-size="100%,620px"></dc-import>
+        <dc-import name="App Design System" product="theevents" hint-size="100%,2600px"></dc-import>
+      </sc-if>
+      <sc-if value="{{ mStoryNoma }}" hint-placeholder-val="{{ false }}">
+        <dc-import name="Noma Story" hint-size="100%,6000px"></dc-import>
+      </sc-if>
+    </div>
+    </sc-if>
+
+    <a href="{{ mNext.href }}" onClick="{{ mNext.onOpen }}" style="margin:48px 20px 0;display:flex;align-items:center;gap:16px;padding:14px;border-radius:24px;background:#0E0E14;border:1px solid #1C1C21;color:#EFEFF2" style-active="transform:scale(0.98)">
+      <span style="width:60px;height:60px;flex:none;border-radius:18px;background:{{ mNext.gradient }}"></span>
+      <span style="flex:1;min-width:0;display:flex;flex-direction:column;gap:3px"><span style="font-size:12px;color:#8C8C93">Next project</span><span style="font-family:'Clash Display',sans-serif;font-size:21px;font-weight:600">{{ mNext.name }}</span></span>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8C8C93" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"></path></svg>
+    </a>
+  </div>
+  </sc-if>
+
+  <!-- M LAB -->
+  <sc-if value="{{ mIsLab }}" hint-placeholder-val="{{ false }}">
+  <div data-screen-label="M Lab" style="padding:calc(env(safe-area-inset-top) + 76px) 20px 0;display:flex;flex-direction:column;gap:20px;animation:rp-app-content 0.45s cubic-bezier(0.16,1,0.3,1) both">
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <h1 style="margin:0;font-family:'Clash Display',sans-serif;font-weight:500;font-size:40px;line-height:1">Thinking Lab</h1>
+      <p style="margin:0;font-size:15px;line-height:1.6;color:#B4B4BB">Notes from process — how research, design systems and AI-assisted workflows shape the way I design.</p>
+    </div>
+    <sc-for list="{{ mLab }}" as="n" hint-placeholder-count="5">
+      <button onClick="{{ n.onClick }}" style="padding:20px;border-radius:22px;background:#0E0E14;border:1px solid #1C1C21;color:#EFEFF2;font-family:'Satoshi',sans-serif;text-align:left;display:flex;flex-direction:column;gap:12px;cursor:pointer;transition:transform 0.15s ease" style-active="transform:scale(0.98)">
+        <span style="display:flex;align-items:center;gap:8px;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;font-weight:700;color:{{ n.color }}"><span style="width:8px;height:8px;border-radius:50%;background:{{ n.color }}"></span>{{ n.tag }}</span>
+        <span style="font-family:'Clash Display',sans-serif;font-size:21px;font-weight:500;line-height:1.25">{{ n.title }}</span>
+        <span style="font-size:13px;color:#8C8C93">Read note</span>
+      </button>
+    </sc-for>
+  </div>
+  </sc-if>
+
+  <!-- M ABOUT -->
+  <sc-if value="{{ mIsAbout }}" hint-placeholder-val="{{ false }}">
+  <div data-screen-label="M About" style="padding:calc(env(safe-area-inset-top) + 76px) 20px 0;display:flex;flex-direction:column;gap:40px;animation:rp-app-content 0.45s cubic-bezier(0.16,1,0.3,1) both">
+    <div style="position:relative;aspect-ratio:1/1.1;border-radius:28px;overflow:hidden;background:#0E0E14">
+      <img src="uploads/mine.png" alt="Rajkumar Dhasan" style="width:100%;height:100%;object-fit:cover;object-position:50% 20%">
+      <div style="position:absolute;inset:auto 0 0 0;padding:60px 20px 20px;background:linear-gradient(180deg,rgba(5,5,10,0) 0%,rgba(5,5,10,0.92) 100%);display:flex;flex-direction:column;gap:4px">
+        <span style="font-family:'Clash Display',sans-serif;font-size:28px;font-weight:600">Rajkumar Dhasan</span>
+        <span style="font-size:14px;color:#D0D0D6">UI/UX &amp; Product Designer · Abu Dhabi, UAE</span>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <p style="margin:0;font-family:'Clash Display',sans-serif;font-weight:500;font-size:24px;line-height:1.3;color:#FF5A3C">Design is my primary skill. Code and AI are my accelerators.</p>
+      <p style="margin:0;font-size:16px;line-height:1.7;color:#D0D0D6">UI/UX Designer with 6+ years of experience designing end-to-end digital products across mobility, fintech and e-commerce in the UAE. At Kief Consultancies &amp; Technologies (Abu Dhabi), I've served as the sole designer across multiple live products — owning the full lifecycle: user research, information architecture, high-fidelity UI, design systems and developer-ready Figma handoffs.</p>
+      <p style="margin:0;font-size:16px;line-height:1.7;color:#D0D0D6">I bring a hybrid background in full-stack development (HTML, CSS, Java), which lets me collaborate precisely with engineers, and I apply UX psychology principles — Fitts' Law, Hick's Law, Gestalt, Jakob's Law — to deliver intuitive, research-informed experiences.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <h2 style="margin:0;font-family:'Clash Display',sans-serif;font-weight:500;font-size:22px">My Journey</h2>
+      <div style="display:flex;flex-direction:column">
+        <sc-for list="{{ mJourney }}" as="j" hint-placeholder-count="4">
+          <div style="display:grid;grid-template-columns:18px minmax(0,1fr);gap:14px">
+            <div style="display:flex;flex-direction:column;align-items:center;padding-top:24px">
+              <span style="width:10px;height:10px;flex:none;border-radius:50%;background:{{ j.dot }};box-shadow:0 0 0 5px {{ j.ring }}"></span>
+              <span style="flex:1;width:1px;background:#26262D;margin-top:8px;display:{{ j.lineDisplay }}"></span>
+            </div>
+            <div style="margin-bottom:12px;padding:16px 18px;border-radius:20px;background:#0E0E14;border:1px solid #1C1C21;display:flex;flex-direction:column;gap:6px">
+              <div style="display:flex;justify-content:space-between;align-items:center;gap:10px">
+                <span style="font-size:12px;color:#8C8C93">{{ j.dates }}</span>
+                <sc-if value="{{ j.hasBadge }}" hint-placeholder-val="{{ false }}"><span style="font-size:11px;font-weight:700;letter-spacing:0.04em;padding:4px 8px;border-radius:7px;color:{{ j.badgeColor }};background:{{ j.badgeBg }}">{{ j.badge }}</span></sc-if>
+              </div>
+              <span style="font-family:'Clash Display',sans-serif;font-size:19px;font-weight:500">{{ j.title }}</span>
+              <span style="font-size:13px;line-height:1.5;color:#8C8C93">{{ j.org }}</span>
+              <sc-if value="{{ j.hasNote }}" hint-placeholder-val="{{ false }}"><span style="font-size:14px;line-height:1.55;color:#D0D0D6;margin-top:4px">{{ j.note }}</span></sc-if>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:22px">
+      <h2 style="margin:0;font-family:'Clash Display',sans-serif;font-weight:500;font-size:22px">Skills</h2>
+      <sc-for list="{{ mSkills }}" as="g" hint-placeholder-count="3">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <span style="font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#8C8C93">{{ g.title }}</span>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <sc-for list="{{ g.items }}" as="sk" hint-placeholder-count="5">
+              <span style="padding:9px 13px;border-radius:12px;background:#0E0E14;border:1px solid #1C1C21;font-size:14px;color:#D0D0D6">{{ sk }}</span>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+    <a href="uploads/Draj_Product Designer.pdf" download="Draj-UIUX-Product-Designer-Resume.pdf" aria-label="Download Rajkumar's resume" style="height:54px;border-radius:16px;background:#EFEFF2;color:#0A0A0D;display:flex;align-items:center;justify-content:center;gap:10px;font-size:15px;font-weight:600" style-active="transform:scale(0.97)">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg>Download Resume
+    </a>
+  </div>
+  </sc-if>
+
+  <!-- M CONTACT -->
+  <sc-if value="{{ mIsContact }}" hint-placeholder-val="{{ false }}">
+  <div data-screen-label="M Contact" style="padding:calc(env(safe-area-inset-top) + 76px) 20px 0;display:flex;flex-direction:column;gap:28px;animation:rp-app-content 0.45s cubic-bezier(0.16,1,0.3,1) both">
+    <h1 style="margin:0;font-family:'Clash Display',sans-serif;font-weight:500;font-size:44px;line-height:1">Let's work<br>together</h1>
+    <div style="border-radius:22px;background:#0E0E14;border:1px solid #1C1C21;display:flex;flex-direction:column;overflow:hidden">
+      <a href="mailto:drajkumar13@gmail.com?subject=Portfolio%20Enquiry" aria-label="Send an email to Rajkumar" style="display:flex;align-items:center;gap:14px;padding:12px 16px;min-height:64px;color:#EFEFF2" style-active="background:#14141B">
+        <span style="width:38px;height:38px;flex:none;border-radius:12px;background:rgba(255,90,60,0.14);color:#FF5A3C;display:flex;align-items:center;justify-content:center"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"></rect><path d="m4 7 8 6 8-6"></path></svg></span>
+        <span style="flex:1;min-width:0;display:flex;flex-direction:column;gap:2px"><span style="font-size:12px;color:#8C8C93">Email</span><span style="font-size:15px;overflow:hidden;text-overflow:ellipsis">drajkumar13@gmail.com</span></span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5C5C63" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"></path></svg>
+      </a>
+      <div style="height:1px;background:#1C1C21;margin-left:68px"></div>
+      <a href="tel:+971542644838" style="display:flex;align-items:center;gap:14px;padding:12px 16px;min-height:64px;color:#EFEFF2" style-active="background:#14141B">
+        <span style="width:38px;height:38px;flex:none;border-radius:12px;background:rgba(255,90,60,0.14);color:#FF5A3C;display:flex;align-items:center;justify-content:center"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"></path></svg></span>
+        <span style="flex:1;min-width:0;display:flex;flex-direction:column;gap:2px"><span style="font-size:12px;color:#8C8C93">Phone</span><span style="font-size:15px">+971 54 264 4838</span></span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5C5C63" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"></path></svg>
+      </a>
+      <div style="height:1px;background:#1C1C21;margin-left:68px"></div>
+      <a href="https://www.linkedin.com/in/draj-kumar" target="_blank" rel="noreferrer" style="display:flex;align-items:center;gap:14px;padding:12px 16px;min-height:64px;color:#EFEFF2" style-active="background:#14141B">
+        <span style="width:38px;height:38px;flex:none;border-radius:12px;background:rgba(255,90,60,0.14);color:#FF5A3C;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px">in</span>
+        <span style="flex:1;min-width:0;display:flex;flex-direction:column;gap:2px"><span style="font-size:12px;color:#8C8C93">LinkedIn</span><span style="font-size:15px">in/draj-kumar</span></span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5C5C63" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"></path></svg>
+      </a>
+      <div style="height:1px;background:#1C1C21;margin-left:68px"></div>
+      <div style="display:flex;align-items:center;gap:14px;padding:12px 16px;min-height:64px">
+        <span style="width:38px;height:38px;flex:none;border-radius:12px;background:rgba(255,90,60,0.14);color:#FF5A3C;display:flex;align-items:center;justify-content:center"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg></span>
+        <span style="flex:1;min-width:0;display:flex;flex-direction:column;gap:2px"><span style="font-size:12px;color:#8C8C93">Location</span><span style="font-size:15px">Abu Dhabi, UAE</span></span>
+      </div>
+      <div style="height:1px;background:#1C1C21;margin-left:68px"></div>
+      <a href="uploads/Draj_Product Designer.pdf" download="Draj-UIUX-Product-Designer-Resume.pdf" aria-label="Download Rajkumar's resume" style="display:flex;align-items:center;gap:14px;padding:12px 16px;min-height:64px;color:#EFEFF2" style-active="background:#14141B">
+        <span style="width:38px;height:38px;flex:none;border-radius:12px;background:rgba(255,90,60,0.14);color:#FF5A3C;display:flex;align-items:center;justify-content:center"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg></span>
+        <span style="flex:1;min-width:0;display:flex;flex-direction:column;gap:2px"><span style="font-size:12px;color:#8C8C93">Resume</span><span style="font-size:15px">Download PDF</span></span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5C5C63" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"></path></svg>
+      </a>
+    </div>
+    <form onSubmit="{{ onSubmitForm }}" style="display:flex;flex-direction:column;gap:16px">
+      <h2 style="margin:8px 0 0;font-family:'Clash Display',sans-serif;font-weight:500;font-size:22px">Send a message</h2>
+      <label style="display:flex;flex-direction:column;gap:8px">
+        <span style="font-size:13px;color:#8C8C93">Name</span>
+        <input type="text" autocomplete="name" value="{{ formData.name }}" onChange="{{ mField.name }}" disabled="{{ formDisabled }}" style="height:52px;padding:0 16px;border-radius:14px;background:#0E0E14;border:1px solid #26262D;color:#EFEFF2;font-size:16px;font-family:'Satoshi',sans-serif;outline:none" style-focus="border-color:#FF5A3C">
+        <sc-if value="{{ formErrors.name }}" hint-placeholder-val="{{ false }}"><span style="font-size:13px;color:#FF5A3C">{{ formErrors.name }}</span></sc-if>
+      </label>
+      <label style="display:flex;flex-direction:column;gap:8px">
+        <span style="font-size:13px;color:#8C8C93">Email</span>
+        <input type="email" inputmode="email" autocomplete="email" value="{{ formData.email }}" onChange="{{ mField.email }}" disabled="{{ formDisabled }}" style="height:52px;padding:0 16px;border-radius:14px;background:#0E0E14;border:1px solid #26262D;color:#EFEFF2;font-size:16px;font-family:'Satoshi',sans-serif;outline:none" style-focus="border-color:#FF5A3C">
+        <sc-if value="{{ formErrors.email }}" hint-placeholder-val="{{ false }}"><span style="font-size:13px;color:#FF5A3C">{{ formErrors.email }}</span></sc-if>
+      </label>
+      <label style="display:flex;flex-direction:column;gap:8px">
+        <span style="font-size:13px;color:#8C8C93">Subject</span>
+        <input type="text" value="{{ formData.subject }}" onChange="{{ mField.subject }}" disabled="{{ formDisabled }}" style="height:52px;padding:0 16px;border-radius:14px;background:#0E0E14;border:1px solid #26262D;color:#EFEFF2;font-size:16px;font-family:'Satoshi',sans-serif;outline:none" style-focus="border-color:#FF5A3C">
+        <sc-if value="{{ formErrors.subject }}" hint-placeholder-val="{{ false }}"><span style="font-size:13px;color:#FF5A3C">{{ formErrors.subject }}</span></sc-if>
+      </label>
+      <label style="display:flex;flex-direction:column;gap:8px">
+        <span style="font-size:13px;color:#8C8C93">Message</span>
+        <textarea rows="5" value="{{ formData.message }}" onChange="{{ mField.message }}" disabled="{{ formDisabled }}" style="padding:14px 16px;border-radius:14px;background:#0E0E14;border:1px solid #26262D;color:#EFEFF2;font-size:16px;line-height:1.5;font-family:'Satoshi',sans-serif;outline:none;resize:none" style-focus="border-color:#FF5A3C"></textarea>
+        <sc-if value="{{ formErrors.message }}" hint-placeholder-val="{{ false }}"><span style="font-size:13px;color:#FF5A3C">{{ formErrors.message }}</span></sc-if>
+      </label>
+      <button type="submit" disabled="{{ formDisabled }}" style="height:56px;margin-top:4px;border:none;border-radius:16px;background:#FF5A3C;color:#0A0A0D;font-family:'Satoshi',sans-serif;font-size:16px;font-weight:700;cursor:pointer" style-active="transform:scale(0.97)">{{ submitLabel }}</button>
+      <sc-if value="{{ formStatus }}" hint-placeholder-val="{{ false }}"><span style="font-size:14px;text-align:center;color:{{ formStatusColor }}">{{ formStatusText }}</span></sc-if>
+    </form>
+  </div>
+  </sc-if>
+
+  <nav aria-label="Main" style="position:fixed;left:12px;right:12px;bottom:calc(10px + env(safe-area-inset-bottom));z-index:60;height:66px;padding:0 4px;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));background:rgba(16,16,22,0.84);backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);border:1px solid rgba(255,255,255,0.07);border-radius:24px;box-shadow:0 14px 40px rgba(0,0,0,0.55)">
+    <a href="#/" onClick="{{ mGoHome }}" aria-label="Home" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:{{ tabHome.color }}">
+      <span style="padding:4px 14px;border-radius:12px;background:{{ tabHome.pill }};display:flex;transition:background 0.25s ease"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></span>
+      <span style="font-size:10.5px;font-weight:600">Home</span>
+    </a>
+    <a href="#/work" onClick="{{ mGoWork }}" aria-label="Work" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:{{ tabWork.color }}">
+      <span style="padding:4px 14px;border-radius:12px;background:{{ tabWork.pill }};display:flex;transition:background 0.25s ease"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="7" height="7" rx="2"></rect><rect x="13.5" y="3.5" width="7" height="7" rx="2"></rect><rect x="3.5" y="13.5" width="7" height="7" rx="2"></rect><rect x="13.5" y="13.5" width="7" height="7" rx="2"></rect></svg></span>
+      <span style="font-size:10.5px;font-weight:600">Work</span>
+    </a>
+    <a href="#/lab" onClick="{{ mGoLab }}" aria-label="Thinking Lab" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:{{ tabLab.color }}">
+      <span style="padding:4px 14px;border-radius:12px;background:{{ tabLab.pill }};display:flex;transition:background 0.25s ease"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V17h5v-1.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"></path></svg></span>
+      <span style="font-size:10.5px;font-weight:600">Lab</span>
+    </a>
+    <a href="#/about" onClick="{{ mGoAbout }}" aria-label="About" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:{{ tabAbout.color }}">
+      <span style="padding:4px 14px;border-radius:12px;background:{{ tabAbout.pill }};display:flex;transition:background 0.25s ease"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"></path></svg></span>
+      <span style="font-size:10.5px;font-weight:600">About</span>
+    </a>
+    <a href="#/contact" onClick="{{ mGoContact }}" aria-label="Contact" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:{{ tabContact.color }}">
+      <span style="padding:4px 14px;border-radius:12px;background:{{ tabContact.pill }};display:flex;transition:background 0.25s ease"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"></path></svg></span>
+      <span style="font-size:10.5px;font-weight:600">Contact</span>
+    </a>
+  </nav>
+
+  <sc-if value="{{ mSheetOpen }}" hint-placeholder-val="{{ false }}">
+  <div style="position:fixed;inset:0;z-index:90">
+    <div onClick="{{ mCloseSheet }}" style="position:absolute;inset:0;background:rgba(0,0,0,0.6);animation:rp-app-fade 0.3s ease both"></div>
+    <div role="dialog" aria-modal="true" style="position:absolute;left:0;right:0;bottom:0;max-height:82vh;overflow-y:auto;background:#101016;border-radius:28px 28px 0 0;border-top:1px solid #26262D;padding:10px 22px calc(24px + env(safe-area-inset-bottom));display:flex;flex-direction:column;gap:14px;animation:rp-app-sheet 0.4s cubic-bezier(0.16,1,0.3,1) both">
+      <span style="width:40px;height:5px;border-radius:3px;background:#33333A;align-self:center;margin-bottom:10px"></span>
+      <span style="font-size:12px;letter-spacing:0.08em;text-transform:uppercase;font-weight:700;color:{{ mSheet.color }}">{{ mSheet.kicker }}</span>
+      <span style="font-family:'Clash Display',sans-serif;font-size:26px;font-weight:500;line-height:1.2">{{ mSheet.title }}</span>
+      <p style="margin:0;font-size:16px;line-height:1.65;color:#D0D0D6">{{ mSheet.body }}</p>
+      <button onClick="{{ mCloseSheet }}" style="height:52px;margin-top:10px;border:1px solid #33333A;border-radius:16px;background:#16161D;color:#EFEFF2;font-family:'Satoshi',sans-serif;font-size:15px;font-weight:600;cursor:pointer">Close</button>
+    </div>
+  </div>
+  </sc-if>
+</div>
+</sc-if>
+
+<sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
 {{ aiFx }}
 {{ cosmicLesson }}
 <sc-if value="{{ showLoader }}" hint-placeholder-val="{{ true }}">
@@ -230,13 +738,13 @@ a:hover { color:#FF5A3C; }
       </div>
       <p style="margin:20px 0 48px;max-width:560px;font-family:'Clash Display',sans-serif;font-weight:500;font-size:clamp(17px,1.8vw,21px);line-height:1.4;color:#B4B4BB">The experience and learning behind the work.</p>
 
-      <div style="position:relative;padding-left:32px;border-left:1px solid #1C1C21">
-        <sc-for list="{{ journey }}" as="j" hint-placeholder-count="5">
+      <div style="position:relative;padding-left:clamp(20px,3vw,32px);border-left:1px solid #1C1C21">
+        <sc-for list="{{ journey }}" as="j" hint-placeholder-count="4">
           <div data-reveal="true" style="position:relative;padding-bottom:44px;opacity:0;transform:translateY(16px);transition:opacity 0.7s cubic-bezier(0.16,1,0.3,1),transform 0.7s cubic-bezier(0.16,1,0.3,1)">
-            <span style="position:absolute;left:-37px;top:6px;width:9px;height:9px;border-radius:50%;background:{{ j.dotColor }};box-shadow:{{ j.dotShadow }}"></span>
-            <div style="display:grid;grid-template-columns:minmax(120px,160px) 1fr;gap:20px;align-items:baseline">
-              <span style="font-family:'Clash Display',sans-serif;font-size:clamp(18px,2vw,24px);color:{{ j.dateColor }}">{{ j.dates }}</span>
-              <div>
+            <span style="position:absolute;left:calc(-1 * clamp(20px,3vw,32px) - 5px);top:6px;width:9px;height:9px;border-radius:50%;background:{{ j.dotColor }};box-shadow:{{ j.dotShadow }}"></span>
+            <div style="display:flex;flex-wrap:wrap;column-gap:32px;row-gap:10px;align-items:baseline">
+              <span style="flex:0 0 200px;font-family:'Clash Display',sans-serif;font-size:clamp(14px,1.7vw,20px);letter-spacing:0.02em;color:{{ j.dateColor }}">{{ j.dates }}</span>
+              <div style="flex:1 1 320px;min-width:0">
                 <div style="font-family:'Clash Display',sans-serif;font-weight:500;font-size:clamp(20px,2.4vw,28px);color:#EFEFF2">{{ j.title }}</div>
                 <div style="font-size:14px;color:#8C8C93;margin-top:4px">{{ j.org }}</div>
                 <sc-if value="{{ j.note }}" hint-placeholder-val="{{ false }}">
@@ -342,7 +850,7 @@ a:hover { color:#FF5A3C; }
         <div style="height:100%;background:#FF5A3C;width:{{ stageProgress }};transition:width 0.5s cubic-bezier(0.16,1,0.3,1)"></div>
       </div>
 
-      <div style="display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;margin-top:48px;max-width:760px">
+      <div style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:clamp(16px,4vw,40px);align-items:center;margin-top:48px;max-width:760px">
         <p style="margin:0;font-size:16px;line-height:1.7;color:#D0D0D6;transition:opacity 0.3s ease">{{ activeStageDesc }}</p>
         <div style="width:110px;height:80px;flex-shrink:0;position:relative">
           <div style="position:absolute;inset:0;border:1px {{ stageBorderStyle }} #33333A;border-radius:2px"></div>
@@ -982,8 +1490,8 @@ a:hover { color:#FF5A3C; }
   <span style="font-family:'Clash Display',sans-serif;font-size:13px;color:#5C5C63">03</span>
   <div>
     <h1 style="margin:0 0 40px;font-family:'Clash Display',sans-serif;font-weight:500;font-size:clamp(44px,8vw,110px);line-height:1">About</h1>
-    <div style="display:grid;grid-template-columns:minmax(200px,320px) 1fr;gap:48px;align-items:start">
-      <div style="position:relative;width:100%;aspect-ratio:4/5;border-radius:2px;overflow:hidden;background:#0A0A0D">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:clamp(28px,4vw,48px);align-items:start">
+      <div style="position:relative;width:100%;max-width:340px;aspect-ratio:4/5;border-radius:2px;overflow:hidden;background:#0A0A0D">
         <image-slot id="rp-about-photo" shape="rect" src="uploads/mine.png" placeholder="Profile photo" style="width:100%;height:100%;clip-path:{{ photoClip }};transform:{{ photoScale }};transition:clip-path 1.1s cubic-bezier(0.16,1,0.3,1),transform 1.1s cubic-bezier(0.16,1,0.3,1)"></image-slot>
         <sc-if value="{{ photoButtonVisible }}" hint-placeholder-val="{{ true }}">
           <button onClick="{{ onRevealPhoto }}" data-cursor-hover="true" style="position:absolute;inset:0;background:rgba(10,10,13,0.4);border:none;cursor:{{ cursorCss }};display:flex;align-items:center;justify-content:center">
@@ -1151,6 +1659,7 @@ a:hover { color:#FF5A3C; }
     <a href="https://www.linkedin.com/in/draj-kumar" target="_blank" rel="noreferrer" data-cursor-hover="true" style="font-size:12px;color:#5C5C63">LinkedIn</a>
   </div>
 </footer>
+</sc-if>
 
 </div>
 
@@ -2488,7 +2997,91 @@ class Component extends DCLogic {
     wireframeOpen: false, wireframeVisible: false, wireframeLoading: false, wireframeError: null,
     wireframePageNum: 1, wireframeNumPages: 0, wireframeScale: 1, wireframeFitWidth: true,
     headerScrolled: false, productActive: false,
+    mobile: typeof window !== 'undefined' && window.innerWidth < 768,
+    mSeg: 'overview', mOpenFeat: -1, mSheet: null, mFeat: 0,
   };
+  mSegRef = React.createRef();
+
+  mNav(route, projectId) {
+    const h = projectId ? `/work/${projectId}` : (route === 'home' ? '/' : `/${route}`);
+    if (window.location.hash !== '#' + h) window.location.hash = h;
+    this.setState({ route, projectId: projectId || null, mSeg: 'overview', mOpenFeat: -1, mSheet: null });
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }
+
+  mSetSeg(k) {
+    this.setState({ mSeg: k, mOpenFeat: -1 });
+    const el = this.mSegRef.current;
+    if (el) { const y = el.getBoundingClientRect().top + window.scrollY - 52; if (window.scrollY > y) window.scrollTo({ top: y, behavior: 'instant' }); }
+  }
+
+  mobileVals() {
+    const s = this.state;
+    if (!s.mobile) return { isMobile: false, isDesktop: true };
+    const go = (route, id) => (e) => { if (e && e.preventDefault) e.preventDefault(); this.mNav(route, id); };
+    const pad = (n) => String(n).padStart(2, '0');
+    const titles = { home: 'Rajkumar', work: 'Work', lab: 'Thinking Lab', about: 'About', contact: 'Contact', project: '' };
+    const r = titles[s.route] !== undefined ? s.route : 'home';
+    const tab = r === 'project' ? 'work' : r;
+    const tv = (t) => ({ color: tab === t ? '#FF5A3C' : '#8C8C93', pill: tab === t ? 'rgba(255,90,60,0.14)' : 'transparent' });
+    const covers = { taggo: 'uploads/App Landing-ride-0909.png', theevents: 'uploads/App Landing-TheEvents Mobile app.png', noma: 'uploads/App Landing-Noma.png' };
+    const proj = PROJECTS_DATA.map(p => ({ id: p.id, index: p.index, name: p.name, category: p.category, year: p.year, teaser: p.teaser, gradient: p.gradient, cover: covers[p.id], href: '#/work/' + p.id, onOpen: go('project', p.id) }));
+    const p = PROJECTS_DATA.find(x => x.id === s.projectId) || PROJECTS_DATA[0];
+    const np = proj[(PROJECTS_DATA.indexOf(p) + 1) % proj.length];
+    const sheet = (o) => () => this.setState({ mSheet: o });
+    const seg = s.mSeg || 'overview';
+    const scrolled = !!s.headerScrolled;
+    const refl = p.reflections;
+    const fi = s.mFeat || 0;
+    return {
+      isMobile: true, isDesktop: false,
+      mIsHome: r === 'home', mIsWork: r === 'work', mIsProject: r === 'project', mNotProject: r !== 'project',
+      mIsLab: r === 'lab', mIsAbout: r === 'about', mIsContact: r === 'contact',
+      mBarBg: scrolled ? 'rgba(5,5,10,0.82)' : 'rgba(5,5,10,0)',
+      mBarBlur: scrolled ? 'blur(20px) saturate(160%)' : 'none',
+      mBarBorder: scrolled ? '#1C1C21' : 'transparent',
+      mBarTitle: r === 'project' ? p.name : titles[r], mBarTitleOpacity: scrolled ? 1 : 0,
+      mGoHome: go('home'), mGoWork: go('work'), mGoLab: go('lab'), mGoAbout: go('about'), mGoContact: go('contact'),
+      tabHome: tv('home'), tabWork: tv('work'), tabLab: tv('lab'), tabAbout: tv('about'), tabContact: tv('contact'),
+      mProjects: proj, mProjectCount: proj.length,
+      mFeatDots: proj.map((_, i) => ({ w: i === fi ? '20px' : '6px', bg: i === fi ? '#EFEFF2' : '#33333A' })),
+      mOnFeatScroll: (e) => { const el = e.currentTarget; const max = el.scrollWidth - el.clientWidth; const i = max > 0 ? Math.round(el.scrollLeft / max * (proj.length - 1)) : 0; if (i !== (this.state.mFeat || 0)) this.setState({ mFeat: i }); },
+      mCaps: CAPABILITY_ITEMS.map((c, i) => ({ name: c.name, tool: c.tool, n: pad(i + 1), onClick: sheet({ kicker: c.tool, title: c.name, body: c.blurb, color: '#FF5A3C' }) })),
+      mStages: STAGES,
+      mLabCount: LAB_NOTES.length,
+      mLab: LAB_NOTES.map(n => ({ ...n, onClick: sheet({ kicker: n.tag, title: n.title, body: n.body, color: n.color }) })),
+      mJourney: JOURNEY.map((j, i) => {
+        const badge = j.current ? 'Now' : (j.type === 'education' ? 'Education' : '');
+        return { ...j, badge, hasBadge: !!badge, hasNote: !!j.note,
+          badgeColor: j.current ? '#5ED9B0' : '#B4B4BB', badgeBg: j.current ? 'rgba(94,217,176,0.12)' : '#1C1C21',
+          dot: j.current ? '#FF5A3C' : '#44444C', ring: j.current ? 'rgba(255,90,60,0.18)' : 'transparent',
+          lineDisplay: i === JOURNEY.length - 1 ? 'none' : 'block' };
+      }),
+      mSkills: SKILL_GROUPS,
+      mp: {
+        name: p.name, category: p.category, year: p.year, teaser: p.teaser, role: p.role, platform: p.platform, focus: p.focus,
+        summary: p.summary, gradient: p.gradient, accent: p.accent, cover: covers[p.id],
+        gallery: (p.mockups || []).map(m => ({ src: m.src, alt: m.alt, label: m.label, desc: m.desc })),
+        problem: (p.problem || []).map((t, i) => ({ t, n: pad(i + 1) })), hasProblem: !!(p.problem && p.problem.length),
+        audience: p.audience || [], hasAudience: !!(p.audience && p.audience.length),
+        process: p.process || [],
+        dsNote: p.designSystemNote || '', hasDsNote: !!p.designSystemNote,
+        colors: p.colors || [], hasColors: !!(p.colors && p.colors.length), dsFacts: p.dsFacts || [],
+        features: (p.features || []).map((f, i) => { const open = s.mOpenFeat === i; return { ...f, bodyDisplay: open ? 'block' : 'none', chev: open ? 'rotate(180deg)' : 'none', onToggle: () => this.setState({ mOpenFeat: this.state.mOpenFeat === i ? -1 : i }) }; }),
+        screens: (p.screens || []).map((x, i) => ({ ...x, n: pad(i + 1) })),
+        metrics: p.metrics || [],
+        hasRefl: !!refl, learned: refl ? refl.learned : [], differently: refl ? refl.differently : [],
+      },
+      mSegRef: this.mSegRef,
+      mSegs: [['overview', 'Overview'], ['features', 'Features'], ['results', 'Results'], ['story', 'Deep dive']].map(([k, l]) => ({ label: l, onClick: () => this.mSetSeg(k), bg: seg === k ? '#EFEFF2' : 'transparent', color: seg === k ? '#0A0A0D' : '#8C8C93' })),
+      mSegOverview: seg === 'overview', mSegFeatures: seg === 'features', mSegResults: seg === 'results', mSegStory: seg === 'story',
+      mStoryTaggo: p.id === 'taggo', mStoryEvents: p.id === 'theevents', mStoryNoma: p.id === 'noma',
+      mNext: np,
+      mSheetOpen: !!s.mSheet, mSheet: s.mSheet || { kicker: '', title: '', body: '', color: '#FF5A3C' },
+      mCloseSheet: () => this.setState({ mSheet: null }),
+      mField: { name: this.onFieldChange('name'), email: this.onFieldChange('email'), subject: this.onFieldChange('subject'), message: this.onFieldChange('message') },
+    };
+  }
 
   heroSectionRef = React.createRef();
   heroGlowRef = React.createRef();
@@ -2591,6 +3184,8 @@ class Component extends DCLogic {
   componentDidMount() {
     window.addEventListener('scroll', this.updateTaggoScroll, { passive: true });
     window.addEventListener('resize', this.onTaggoResize);
+    this._mResize = () => { const m = window.innerWidth < 768; if (m !== this.state.mobile) this.setState({ mobile: m }); };
+    window.addEventListener('resize', this._mResize);
     this._taggoTimer = setInterval(() => {
       if (this.state.taggoSvcPaused || this.state.projectId !== 'taggo' || this.state.route !== 'project') return;
       this.setState({ taggoSvc: ((this.state.taggoSvc || 0) + 1) % TAGGO_SERVICES.length });
@@ -3050,6 +3645,7 @@ class Component extends DCLogic {
     const formStatusText = s.formStatus === 'success' ? 'Message sent — I\'ll reply soon.' : (s.formStatus === 'error' ? 'Something went wrong. Please email me directly.' : (s.formStatus === 'loading' ? 'Sending…' : ''));
 
     return {
+      ...this.mobileVals(),
       journeyRef: this.journeyRef, journeyTrackRef: this.journeyTrackRef, journeyBarRef: this.journeyBarRef, journeyCountRef: this.journeyCountRef, fanRef: this.fanRef,
       cosmicLesson: s.route === 'project' ? React.createElement(CosmicLesson, { key: s.projectId, projectId: s.projectId, reduced: !!this.reducedMotion }) : null,
       isHome: s.route === 'home', isWork: s.route === 'work', isProject: s.route === 'project',
