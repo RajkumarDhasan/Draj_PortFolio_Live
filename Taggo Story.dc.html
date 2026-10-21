@@ -18,7 +18,7 @@
 </helmet>
 <div style="width:100%;display:flex;flex-direction:column;gap:150px;font-family:'Satoshi','Helvetica Neue',Arial,sans-serif;color:#EFEFF2">
 
-  <div ref="{{ refs.what }}" style="display:grid;grid-template-columns:80px minmax(0,1fr);gap:24px">
+  <div ref="{{ refs.what }}" style="display:grid;grid-template-columns:clamp(22px,6vw,80px) minmax(0,1fr);gap:clamp(12px,3vw,24px)">
     <span style="font-family:'Clash Display',sans-serif;font-size:13px;color:#5C5C63">02</span>
     <div>
       <div style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#F0DD50">What is Taggo</div>
@@ -33,7 +33,7 @@
             </sc-for>
           </div>
         </div>
-        <div style="flex:1.2 1 420px;min-width:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px">
+        <div style="flex:1.2 1 300px;min-width:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px">
           <sc-for list="{{ apps }}" as="a" hint-placeholder-count="4">
             <div style="position:relative;border-radius:18px;border:1px solid {{ a.border }};background:{{ a.bg }};padding:20px;opacity:{{ a.op }};transform:{{ a.tf }};transition:all 0.55s cubic-bezier(0.16,1,0.3,1)">
               <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;letter-spacing:0.1em;color:{{ a.tagC }}">{{ a.n }} · APP</span><span style="width:8px;height:8px;border-radius:50%;background:{{ a.dot }};animation:tsPulse 2s ease-in-out infinite"></span></div>
@@ -46,7 +46,7 @@
     </div>
   </div>
 
-  <div ref="{{ refs.one }}" style="display:grid;grid-template-columns:80px minmax(0,1fr);gap:24px">
+  <div ref="{{ refs.one }}" style="display:grid;grid-template-columns:clamp(22px,6vw,80px) minmax(0,1fr);gap:clamp(12px,3vw,24px)">
     <span style="font-family:'Clash Display',sans-serif;font-size:13px;color:#5C5C63">03</span>
     <div>
       <div style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#F0DD50">Everything in one app</div>
@@ -65,7 +65,7 @@
           <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;color:#5C5C63"><span>also from home →</span><span style="color:#B4B4BB">Airport &amp; VIP</span><span>·</span><span style="color:#B4B4BB">Car Recovery</span></div>
         </div>
         <div style="flex:0 0 auto;margin:0 auto;position:relative">
-          <div style="position:absolute;left:50%;top:50%;width:520px;height:520px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(closest-side,rgba(240,221,80,0.22),rgba(240,221,80,0));pointer-events:none"></div>
+          <div style="position:absolute;left:50%;top:50%;width:min(520px,100vw);height:min(520px,100vw);transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(closest-side,rgba(240,221,80,0.22),rgba(240,221,80,0));pointer-events:none"></div>
           <div style="position:relative;width:292px;height:632px;border-radius:50px;background:#0B0B0D;padding:10px;box-sizing:border-box;box-shadow:0 0 0 1.5px #9A9BA0,0 0 0 3.5px #2B2C2F,0 50px 100px rgba(0,0,0,0.6)">
             <div style="position:relative;width:100%;height:100%;border-radius:41px;overflow:hidden;background:#fff">
               <sc-for list="{{ screens }}" as="sc" hint-placeholder-count="1">
@@ -83,7 +83,7 @@
     </div>
   </div>
 
-  <div ref="{{ refs.market }}" style="display:grid;grid-template-columns:80px minmax(0,1fr);gap:24px">
+  <div ref="{{ refs.market }}" style="display:grid;grid-template-columns:clamp(22px,6vw,80px) minmax(0,1fr);gap:clamp(12px,3vw,24px)">
     <span style="font-family:'Clash Display',sans-serif;font-size:13px;color:#5C5C63">04</span>
     <div>
       <div style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#F0DD50">The UAE market</div>
@@ -102,7 +102,7 @@
     </div>
   </div>
 
-  <div ref="{{ refs.comp }}" style="display:grid;grid-template-columns:80px minmax(0,1fr);gap:24px">
+  <div ref="{{ refs.comp }}" style="display:grid;grid-template-columns:clamp(22px,6vw,80px) minmax(0,1fr);gap:clamp(12px,3vw,24px)">
     <span style="font-family:'Clash Display',sans-serif;font-size:13px;color:#5C5C63">05</span>
     <div>
       <div style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#F0DD50">How Taggo competes</div>
@@ -118,16 +118,16 @@
             </div>
           </sc-for>
         </div>
-        <div style="flex:1.3 1 420px;min-width:0;border-radius:18px;border:1px solid #1F1F24;background:rgba(8,8,14,0.62);overflow:hidden">
+        <div style="flex:1.3 1 300px;min-width:0;border-radius:18px;border:1px solid #1F1F24;background:rgba(8,8,14,0.62);overflow:hidden">
           <div style="display:flex;justify-content:space-between;padding:11px 16px;border-bottom:1px solid #1A1A1F;background:rgba(14,14,22,0.58);font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;color:#8C8C93"><span>$ taggo compare --uae</span><span>feature comparison</span></div>
           <div data-ts-noscroll="true" style="overflow-x:auto;scrollbar-width:none">
-            <div style="min-width:440px;padding:8px 0">
-              <div style="display:grid;grid-template-columns:1.6fr repeat(3,1fr);padding:10px 18px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:0.06em;color:#5C5C63"><span>FEATURE</span><span style="text-align:center;color:#F0DD50">TAGGO</span><span style="text-align:center;color:#EFEFF2">UBER</span><span style="text-align:center;color:#3DD6C3">CAREEM</span></div>
+            <div style="padding:8px 0">
+              <div style="display:grid;grid-template-columns:minmax(0,1.5fr) repeat(3,minmax(0,1fr));gap:4px;padding:10px clamp(10px,3vw,18px);font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:clamp(9px,2.4vw,11px);letter-spacing:0.04em;color:#5C5C63"><span>FEATURE</span><span style="text-align:center;color:#F0DD50">TAGGO</span><span style="text-align:center;color:#EFEFF2">UBER</span><span style="text-align:center;color:#3DD6C3">CAREEM</span></div>
               <sc-for list="{{ matrix }}" as="row" hint-placeholder-count="5">
-                <div style="display:grid;grid-template-columns:1.6fr repeat(3,1fr);align-items:center;padding:12px 18px;border-top:1px solid #15151A;font-size:14px">
+                <div style="display:grid;grid-template-columns:minmax(0,1.5fr) repeat(3,minmax(0,1fr));gap:4px;align-items:center;padding:12px clamp(10px,3vw,18px);border-top:1px solid #15151A;font-size:clamp(12px,3.4vw,14px)">
                   <span style="color:#D0D0D6">{{ row.f }}</span>
                   <sc-for list="{{ row.cells }}" as="c" hint-placeholder-count="3">
-                    <span style="display:flex;justify-content:center"><span style="min-width:34px;height:28px;padding:0 8px;border-radius:100px;display:flex;align-items:center;justify-content:center;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;background:{{ c.bg }};color:{{ c.c }};opacity:{{ c.op }};transform:{{ c.tf }};transition:all 0.4s ease">{{ c.t }}</span></span>
+                    <span style="display:flex;justify-content:center"><span style="min-width:30px;height:26px;padding:0 6px;border-radius:100px;display:flex;align-items:center;justify-content:center;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;background:{{ c.bg }};color:{{ c.c }};opacity:{{ c.op }};transform:{{ c.tf }};transition:all 0.4s ease">{{ c.t }}</span></span>
                   </sc-for>
                 </div>
               </sc-for>
@@ -139,7 +139,7 @@
     </div>
   </div>
 
-  <div ref="{{ refs.ai }}" style="display:grid;grid-template-columns:80px minmax(0,1fr);gap:24px">
+  <div ref="{{ refs.ai }}" style="display:grid;grid-template-columns:clamp(22px,6vw,80px) minmax(0,1fr);gap:clamp(12px,3vw,24px)">
     <span style="font-family:'Clash Display',sans-serif;font-size:13px;color:#5C5C63">06</span>
     <div>
       <div style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#F0DD50">Easier than any ride app</div>
@@ -147,7 +147,7 @@
       <p style="margin:18px 0 0;max-width:620px;font-size:16px;line-height:1.7;color:#B4B4BB;text-wrap:pretty">More than a ride-hailing app: Taggo AI guides, plans and translates in real time, from the moment you open the app until you reach your destination.</p>
       <div style="display:flex;flex-wrap:wrap;gap:clamp(24px,4vw,56px);margin-top:44px;align-items:center">
         <div style="flex:0 0 auto;margin:0 auto;position:relative">
-          <div style="position:absolute;left:50%;top:50%;width:480px;height:480px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(closest-side,rgba(240,221,80,0.18),rgba(240,221,80,0));pointer-events:none"></div>
+          <div style="position:absolute;left:50%;top:50%;width:min(480px,100vw);height:min(480px,100vw);transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(closest-side,rgba(240,221,80,0.18),rgba(240,221,80,0));pointer-events:none"></div>
           <div style="position:relative;width:272px;height:590px;border-radius:46px;background:#0B0B0D;padding:9px;box-sizing:border-box;box-shadow:0 0 0 1.5px #9A9BA0,0 0 0 3.5px #2B2C2F,0 50px 100px rgba(0,0,0,0.6)">
             <div style="position:relative;width:100%;height:100%;border-radius:38px;overflow:hidden;background:#fff">
               <img src="assets/taggo/web/x-aichat.jpg" alt="Taggo AI voice booking conversation" draggable="false" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">

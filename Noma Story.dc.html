@@ -23,7 +23,7 @@
 </helmet>
 <div style="width:100%;display:flex;flex-direction:column;gap:150px;font-family:'Satoshi','Helvetica Neue',Arial,sans-serif;color:#EFEFF2">
 
-  <section ref="{{ refs.ticket }}" data-screen-label="Noma Role" style="display:grid;grid-template-columns:80px minmax(0,1fr);gap:24px">
+  <section ref="{{ refs.ticket }}" data-screen-label="Noma Role" style="display:grid;grid-template-columns:clamp(22px,6vw,80px) minmax(0,1fr);gap:clamp(12px,3vw,24px)">
     <span style="font-family:'Clash Display',sans-serif;font-size:13px;color:#5C5C63">02</span>
     <div>
       <div style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#D2A57A">Order ticket · my role</div>
@@ -62,7 +62,7 @@
     </div>
   </section>
 
-  <section data-screen-label="What Noma Is" style="display:grid;grid-template-columns:80px minmax(0,1fr);gap:24px">
+  <section data-screen-label="What Noma Is" style="display:grid;grid-template-columns:clamp(22px,6vw,80px) minmax(0,1fr);gap:clamp(12px,3vw,24px)">
     <span style="font-family:'Clash Display',sans-serif;font-size:13px;color:#5C5C63">03</span>
     <div>
       <div style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#D2A57A">The product</div>
@@ -89,7 +89,7 @@
     </div>
   </section>
 
-  <section data-screen-label="Noma Research" style="display:grid;grid-template-columns:80px minmax(0,1fr);gap:24px">
+  <section data-screen-label="Noma Research" style="display:grid;grid-template-columns:clamp(22px,6vw,80px) minmax(0,1fr);gap:clamp(12px,3vw,24px)">
     <span style="font-family:'Clash Display',sans-serif;font-size:13px;color:#5C5C63">04</span>
     <div>
       <div style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#D2A57A">Research</div>
@@ -113,7 +113,7 @@
     </div>
   </section>
 
-  <section data-screen-label="Noma Personas" style="display:grid;grid-template-columns:80px minmax(0,1fr);gap:24px">
+  <section data-screen-label="Noma Personas" style="display:grid;grid-template-columns:clamp(22px,6vw,80px) minmax(0,1fr);gap:clamp(12px,3vw,24px)">
     <span style="font-family:'Clash Display',sans-serif;font-size:13px;color:#5C5C63">05</span>
     <div>
       <div style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#D2A57A">User personas</div>
@@ -146,7 +146,7 @@
     </div>
   </section>
 
-  <section data-screen-label="Noma Wireframes" style="display:grid;grid-template-columns:80px minmax(0,1fr);gap:24px">
+  <section data-screen-label="Noma Wireframes" style="display:grid;grid-template-columns:clamp(22px,6vw,80px) minmax(0,1fr);gap:clamp(12px,3vw,24px)">
     <span style="font-family:'Clash Display',sans-serif;font-size:13px;color:#5C5C63">06</span>
     <div style="min-width:0">
       <div style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#D2A57A">Wireframes · low-fi</div>
@@ -165,7 +165,7 @@
     </div>
   </section>
 
-  <section data-screen-label="Drink Builder" style="display:grid;grid-template-columns:80px minmax(0,1fr);gap:24px">
+  <section data-screen-label="Drink Builder" style="display:grid;grid-template-columns:clamp(22px,6vw,80px) minmax(0,1fr);gap:clamp(12px,3vw,24px)">
     <span style="font-family:'Clash Display',sans-serif;font-size:13px;color:#5C5C63">07</span>
     <div style="min-width:0">
       <div style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#D2A57A">Signature feature · drink builder</div>
@@ -235,7 +235,7 @@
           <div style="height:50px;border-radius:12px;background:#5B3A29;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:600">Add to order · AED {{ price }}</div>
         </div>
 
-        <div style="flex:1.4 1 420px;min-width:0;display:flex;flex-direction:column;gap:14px">
+        <div style="flex:1.4 1 300px;min-width:0;display:flex;flex-direction:column;gap:14px">
           <div ref="{{ refs.builder }}" style="width:100%;height:{{ builderH }}px;border-radius:22px;overflow:hidden;position:relative;border:1px solid #1F1F24;background:#444444">
             <div style="position:absolute;left:0;top:0;width:1780px;height:932px;transform:scale({{ builderS }});transform-origin:top left">
               <sc-if value="{{ near.builder }}" hint-placeholder-val="{{ false }}"><x-import component-from-global-scope="DrinkBuilderEN" from="./components/noma/Components.bundle.js" hint-size="1780px,932px"></x-import></sc-if>
@@ -254,7 +254,7 @@
     </div>
   </section>
 
-  <section data-screen-label="Ordering Flow" style="display:grid;grid-template-columns:80px minmax(0,1fr);gap:24px">
+  <section data-screen-label="Ordering Flow" style="display:grid;grid-template-columns:clamp(22px,6vw,80px) minmax(0,1fr);gap:clamp(12px,3vw,24px)">
     <span style="font-family:'Clash Display',sans-serif;font-size:13px;color:#5C5C63">08</span>
     <div style="min-width:0">
       <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px">
@@ -286,7 +286,7 @@
     </div>
   </section>
 
-  <section data-screen-label="Noma Edge Cases" style="display:grid;grid-template-columns:80px minmax(0,1fr);gap:24px">
+  <section data-screen-label="Noma Edge Cases" style="display:grid;grid-template-columns:clamp(22px,6vw,80px) minmax(0,1fr);gap:clamp(12px,3vw,24px)">
     <span style="font-family:'Clash Display',sans-serif;font-size:13px;color:#5C5C63">09</span>
     <div style="min-width:0">
       <div style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#D2A57A">States &amp; edge cases · 9 screens</div>
@@ -312,7 +312,7 @@
     </div>
   </section>
 
-  <section data-screen-label="Noma Design System" style="display:grid;grid-template-columns:80px minmax(0,1fr);gap:24px">
+  <section data-screen-label="Noma Design System" style="display:grid;grid-template-columns:clamp(22px,6vw,80px) minmax(0,1fr);gap:clamp(12px,3vw,24px)">
     <span style="font-family:'Clash Display',sans-serif;font-size:13px;color:#5C5C63">10</span>
     <div style="min-width:0">
       <div style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#D2A57A">Design system</div>
@@ -396,7 +396,7 @@
     </div>
   </section>
 
-  <section data-screen-label="Bilingual" style="display:grid;grid-template-columns:80px minmax(0,1fr);gap:24px">
+  <section data-screen-label="Bilingual" style="display:grid;grid-template-columns:clamp(22px,6vw,80px) minmax(0,1fr);gap:clamp(12px,3vw,24px)">
     <span style="font-family:'Clash Display',sans-serif;font-size:13px;color:#5C5C63">11</span>
     <div style="min-width:0">
       <div style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#D2A57A">English ⇄ Arabic</div>
@@ -432,7 +432,7 @@
     </div>
   </section>
 
-  <section data-screen-label="Noma Contribution" style="display:grid;grid-template-columns:80px minmax(0,1fr);gap:24px">
+  <section data-screen-label="Noma Contribution" style="display:grid;grid-template-columns:clamp(22px,6vw,80px) minmax(0,1fr);gap:clamp(12px,3vw,24px)">
     <span style="font-family:'Clash Display',sans-serif;font-size:13px;color:#5C5C63">12</span>
     <div style="min-width:0">
       <div style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#D2A57A">What I owned</div>
