@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#05050A">
+<title>Rajkumar Dhasan — Senior UI/UX &amp; Product Designer, Abu Dhabi</title>
+<meta name="description" content="Rajkumar Dhasan is a Senior UI/UX and Product Designer in Abu Dhabi, UAE with 6+ years of experience. Sole designer on live mobile products: Taggo (mobility super app), TheEvents (e-commerce marketplace) and Noma (coffee ordering, English + Arabic RTL).">
+<meta property="og:title" content="Rajkumar Dhasan — Senior UI/UX &amp; Product Designer">
+<meta property="og:description" content="Every screen of three shipped products on one map. Ask a question and it takes you to the evidence.">
+<link rel="alternate" type="text/markdown" href="rajkumar-profile.md" title="Profile for AI reviewers">
+<link rel="alternate" type="application/json" href="rajkumar-profile.json" title="Structured profile">
+<link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600&amp;f[]=satoshi@400,500,700&amp;display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Rajkumar Dhasan","jobTitle":"Senior UI/UX & Product Designer","email":"mailto:drajkumar13@gmail.com","telephone":"+971542644838","address":{"@type":"PostalAddress","addressLocality":"Abu Dhabi","addressCountry":"AE"},"sameAs":["https://linkedin.com/in/draj-kumar"],"worksFor":{"@type":"Organization","name":"Kief Consultancies & Technologies"},"alumniOf":{"@type":"CollegeOrUniversity","name":"Bharathiyar University"},"knowsAbout":["Product design","UI/UX design","User research","Usability testing","Information architecture","Design systems","Prototyping","Figma","Arabic RTL interface design","Mobile app design","Developer handoff"],"subjectOf":[{"@type":"CreativeWork","name":"Taggo","description":"UAE mobility super app. Solo designer and researcher. Ride booking under 30 seconds across all 7 emirates, 0% hidden fees."},{"@type":"CreativeWork","name":"TheEvents","description":"Middle East e-commerce marketplace. Lead product designer. 50+ screens from 20+ reusable components and 50+ variants."},{"@type":"CreativeWork","name":"Noma","description":"Dubai coffee pickup ordering app with a drink builder. Solo lead designer. 12-screen flow in English and Arabic (RTL)."}]}</script>
+<style>
+html, body { margin:0; height:100%; overflow:hidden; background:#05050A; }
+body { color:#EFEFF2; font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; -webkit-font-smoothing:antialiased; overscroll-behavior:none; }
+a { color:#EFEFF2; text-decoration:none; }
+a:hover { color:#FF5A3C; }
+::selection { background:#FF5A3C; color:#05050A; }
+textarea, input, button { font-family:inherit; }
+@keyframes v4-pop { from { opacity:0; transform:translateY(60px) scale(0.92); } to { opacity:1; transform:none; } }
+@keyframes v4-dash { to { stroke-dashoffset:-28; } }
+@keyframes v4-ripple { 0% { transform:translate(-50%,-50%) scale(0.3); opacity:0; } 20% { opacity:1; } 100% { transform:translate(-50%,-50%) scale(2.2); opacity:0; } }
+@keyframes v4-blink { 0%,100% { opacity:.25; } 50% { opacity:1; } }
+@keyframes v4-in { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:none; } }
+</style>
+</helmet>
+
+<div ref="{{ vpRef }}" onPointerDown="{{ onDown }}" onPointerMove="{{ onMove }}" onPointerUp="{{ onUp }}" onPointerCancel="{{ onUp }}" data-screen-label="Map" style="position:fixed; inset:0; overflow:hidden; touch-action:none; cursor:grab; background-color:#05050A; background-image:radial-gradient(circle, #1E1E25 1.2px, transparent 1.3px); background-size:40px 40px;">
+  <div ref="{{ worldRef }}" style="position:absolute; left:0; top:0; width:4300px; height:2800px; transform-origin:0 0; will-change:transform;">
+    <svg width="4300" height="2800" style="position:absolute; left:0; top:0; overflow:visible; pointer-events:none;">
+      <sc-for list="{{ links }}" as="l" hint-placeholder-count="0">
+        <g opacity="{{ l.opacity }}" style="transition:opacity .6s ease;">
+          <path d="{{ l.d }}" fill="none" stroke="{{ l.color }}" stroke-width="2.5" stroke-dasharray="10 18" stroke-linecap="round" style="animation:v4-dash 1.4s linear infinite;"></path>
+          <circle cx="{{ l.sx }}" cy="{{ l.sy }}" r="9" fill="none" stroke="{{ l.color }}" stroke-width="2.5"></circle>
+          <circle cx="{{ l.ex }}" cy="{{ l.ey }}" r="5" fill="{{ l.color }}"></circle>
+        </g>
+      </sc-for>
+    </svg>
+
+    <sc-for list="{{ rows }}" as="r" hint-placeholder-count="0">
+      <article style="position:absolute; left:0; top:{{ r.y }}px; width:560px; opacity:{{ r.opacity }}; transition:opacity .6s ease; animation:v4-pop 1.2s cubic-bezier(.16,1,.3,1) both; animation-delay:{{ r.delay }};">
+        <div style="display:flex; align-items:center; gap:14px; font-size:22px; color:#8C8C93;"><span style="width:14px; height:14px; border-radius:50%; background:{{ r.accent }};"></span>{{ r.index }} · {{ r.category }}</div>
+        <h2 style="margin:18px 0 0; font-family:'Clash Display',sans-serif; font-weight:500; font-size:120px; line-height:0.9; letter-spacing:-0.04em;">{{ r.name }}</h2>
+        <p style="margin:26px 0 0; font-size:30px; line-height:1.35; color:#EFEFF2; text-wrap:pretty;">{{ r.outcome }}</p>
+        <p style="margin:16px 0 0; font-size:20px; line-height:1.45; color:#8C8C93;">{{ r.role }}</p>
+        <div style="margin-top:30px; padding-top:24px; border-top:2px solid #1C1C21; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px;">
+          <sc-for list="{{ r.impact }}" as="m" hint-placeholder-count="3">
+            <div><div style="font-family:'Clash Display',sans-serif; font-size:48px; font-weight:500; color:{{ r.accent }};">{{ m.value }}</div><div style="margin-top:4px; font-size:18px; color:#8C8C93;">{{ m.label }}</div></div>
+          </sc-for>
+        </div>
+        <div style="margin-top:34px; display:flex; gap:14px;">
+          <button onClick="{{ r.onPlay }}" style="height:68px; padding:0 30px; border-radius:999px; border:0; background:{{ r.accent }}; color:#05050A; font-size:22px; font-weight:700; cursor:pointer;">▶ Play the journey</button>
+          <a href="{{ r.href }}" style="display:flex; align-items:center; height:68px; padding:0 28px; border-radius:999px; border:2px solid #33333A; font-size:22px;">Case study →</a>
+        </div>
+      </article>
+    </sc-for>
+
+    <sc-for list="{{ screens }}" as="s" hint-placeholder-count="0">
+      <figure onClick="{{ s.onClick }}" style="position:absolute; margin:0; left:{{ s.x }}px; top:{{ s.y }}px; width:240px; cursor:zoom-in; opacity:{{ s.opacity }}; transition:opacity .6s ease; animation:v4-pop 1s cubic-bezier(.16,1,.3,1) both; animation-delay:{{ s.delay }};">
+        <div style="width:240px; height:520px; border-radius:30px; overflow:hidden; background:#0E0E13; border:2px solid {{ s.border }}; box-shadow:0 40px 80px rgba(0,0,0,0.55); transition:border-color .4s;">
+          <img src="{{ s.src }}" alt="{{ s.alt }}" draggable="false" style="display:block; width:100%; height:100%; object-fit:cover; object-position:top;">
+        </div>
+        <figcaption style="margin-top:18px;">
+          <div style="font-size:15px; color:{{ s.accent }}; font-weight:700;">{{ s.n }}</div>
+          <div style="margin-top:4px; font-size:20px; font-weight:700;">{{ s.label }}</div>
+          <div style="margin-top:6px; font-size:16px; line-height:1.4; color:#8C8C93;">{{ s.cap }}</div>
+        </figcaption>
+      </figure>
+    </sc-for>
+
+    <div ref="{{ rippleRef }}" style="position:absolute; left:-200px; top:-200px; width:64px; height:64px; border-radius:50%; border:3px solid #FFFFFF; background:rgba(255,255,255,0.25); pointer-events:none; opacity:0;"></div>
+  </div>
+</div>
+
+<header style="position:fixed; top:0; left:0; right:0; z-index:10; display:flex; align-items:flex-start; justify-content:space-between; gap:12px; padding:16px clamp(14px,2.4vw,28px); pointer-events:none;">
+  <div style="pointer-events:auto; display:flex; flex-direction:column; gap:4px; padding:10px 16px; border-radius:18px; background:rgba(11,11,16,0.78); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); border:1px solid #1C1C21;">
+    <h1 style="margin:0; font-family:'Clash Display',sans-serif; font-weight:500; font-size:18px; letter-spacing:-0.01em;">Rajkumar Dhasan<span style="color:#FF5A3C;">.</span></h1>
+    <div style="display:flex; align-items:center; gap:8px; font-size:12px; color:#8C8C93;"><span style="width:7px; height:7px; border-radius:50%; background:#5ED9B0;"></span>Senior UI/UX &amp; Product Designer · Abu Dhabi</div>
+  </div>
+  <nav style="pointer-events:auto; display:flex; flex-wrap:wrap; justify-content:flex-end; gap:6px; padding:6px; border-radius:999px; background:rgba(11,11,16,0.78); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); border:1px solid #1C1C21;">
+    <sc-for list="{{ jumps }}" as="j" hint-placeholder-count="4">
+      <button onClick="{{ j.onClick }}" style="display:flex; align-items:center; gap:7px; height:36px; padding:0 14px; border-radius:999px; border:0; background:{{ j.bg }}; color:{{ j.color }}; font-size:13px; font-weight:700; cursor:pointer;"><span style="width:7px; height:7px; border-radius:50%; background:{{ j.dot }};"></span>{{ j.label }}</button>
+    </sc-for>
+    <button onClick="{{ openIndex }}" style="height:36px; padding:0 14px; border-radius:999px; border:1px solid #33333A; background:transparent; color:#EFEFF2; font-size:13px; font-weight:700; cursor:pointer;" style-hover="border-color:#EFEFF2;">Profile &amp; contact</button>
+  </nav>
+</header>
+
+<div style="position:fixed; left:clamp(14px,2.4vw,28px); bottom:clamp(120px,14vh,140px); z-index:9; display:flex; flex-direction:column; gap:6px; pointer-events:auto;">
+  <button onClick="{{ zoomIn }}" aria-label="Zoom in" style="width:40px; height:40px; border-radius:12px; border:1px solid #24242B; background:rgba(11,11,16,0.85); color:#EFEFF2; font-size:18px; cursor:pointer;">+</button>
+  <div ref="{{ zoomRef }}" style="width:40px; box-sizing:border-box; padding:4px 0; border-radius:8px; border:1px solid #24242B; background:rgba(11,11,16,0.85); text-align:center; font-size:11px; color:#B4B4BB;">100%</div>
+  <button onClick="{{ zoomOut }}" aria-label="Zoom out" style="width:40px; height:40px; border-radius:12px; border:1px solid #24242B; background:rgba(11,11,16,0.85); color:#EFEFF2; font-size:18px; cursor:pointer;">−</button>
+</div>
+
+<sc-if value="{{ panelOpen }}" hint-placeholder-val="{{ false }}">
+  <aside style="position:fixed; z-index:11; right:clamp(14px,2.4vw,28px); bottom:clamp(104px,13vh,124px); width:min(420px, calc(100vw - 28px)); max-height:min(64vh, 620px); overflow-y:auto; overflow-x:hidden; box-sizing:border-box; scrollbar-width:thin; scrollbar-color:#33333A transparent; border-radius:24px; background:rgba(11,11,16,0.92); backdrop-filter:blur(20px) saturate(150%); -webkit-backdrop-filter:blur(20px) saturate(150%); border:1px solid #24242B; box-shadow:0 30px 80px rgba(0,0,0,0.6); animation:v4-in .45s cubic-bezier(.16,1,.3,1) both;">
+    <div style="position:sticky; top:0; display:flex; justify-content:space-between; align-items:center; gap:12px; padding:16px 18px 10px; background:rgba(11,11,16,0.96);">
+      <div style="font-size:12px; color:#FF5A3C; letter-spacing:0.06em; text-transform:uppercase; font-weight:700;">{{ panelTitle }}</div>
+      <button onClick="{{ closePanel }}" aria-label="Close panel" style="width:32px; height:32px; border-radius:50%; border:0; background:#16161B; color:#EFEFF2; font-size:16px; cursor:pointer;">×</button>
+    </div>
+    <div style="padding:4px 18px 20px; display:flex; flex-direction:column; gap:14px;">
+
+      <sc-if value="{{ isAnswer }}" hint-placeholder-val="{{ false }}">
+        <div style="font-size:13px; color:#8C8C93;">{{ answer.q }}</div>
+        <sc-if value="{{ answer.loading }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex; gap:6px;"><span style="width:7px; height:7px; border-radius:50%; background:#FF5A3C; animation:v4-blink 1s infinite;"></span><span style="width:7px; height:7px; border-radius:50%; background:#FF5A3C; animation:v4-blink 1s .2s infinite;"></span><span style="width:7px; height:7px; border-radius:50%; background:#FF5A3C; animation:v4-blink 1s .4s infinite;"></span></div>
+        </sc-if>
+        <p style="margin:0; font-size:16px; line-height:1.55; text-wrap:pretty;">{{ answer.text }}</p>
+        <div style="display:flex; flex-wrap:wrap; gap:8px;">
+          <sc-for list="{{ answer.sources }}" as="src" hint-placeholder-count="0">
+            <button onClick="{{ src.onClick }}" style="display:flex; align-items:center; gap:8px; height:36px; padding:0 14px; border-radius:999px; border:0; background:#16161B; color:#EFEFF2; font-size:13px; cursor:pointer;" style-hover="background:#1F1F26;"><span style="width:8px; height:8px; border-radius:50%; background:{{ src.accent }};"></span>Show me {{ src.name }}</button>
+          </sc-for>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isFit }}" hint-placeholder-val="{{ false }}">
+        <p style="margin:0; font-size:14px; line-height:1.5; color:#B4B4BB;">Paste a job description. Each requirement is matched to shipped work, and the map takes you to it.</p>
+        <textarea value="{{ jdText }}" onChange="{{ onJdChange }}" onPointerDown="{{ stop }}" placeholder="Paste the role description here…" aria-label="Job description" style="box-sizing:border-box; width:100%; min-height:130px; resize:vertical; padding:14px; border-radius:14px; background:#05050A; border:1px solid #24242B; color:#EFEFF2; font-size:14px; line-height:1.5; outline:none;"></textarea>
+        <div style="display:flex; flex-wrap:wrap; gap:8px;">
+          <button onClick="{{ runFit }}" style="height:42px; padding:0 20px; border-radius:999px; border:0; background:#FF5A3C; color:#05050A; font-weight:700; font-size:14px; cursor:pointer;">{{ fitLabel }}</button>
+          <button onClick="{{ sampleJd }}" style="height:42px; padding:0 16px; border-radius:999px; border:1px solid #33333A; background:transparent; color:#B4B4BB; font-size:13px; cursor:pointer;">Try a sample role</button>
+        </div>
+        <sc-if value="{{ fitReady }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex; align-items:end; gap:14px; padding-top:6px;">
+            <div style="font-family:'Clash Display',sans-serif; font-size:60px; line-height:0.9; font-weight:500; color:#FF5A3C;">{{ fit.score }}%</div>
+            <div style="font-size:14px; color:#B4B4BB; line-height:1.4; padding-bottom:4px;">{{ fit.headline }}</div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:1px; background:#1C1C21; border-radius:14px; overflow:hidden; border:1px solid #1C1C21;">
+            <sc-for list="{{ fit.matches }}" as="m" hint-placeholder-count="3">
+              <button onClick="{{ m.onClick }}" style="text-align:left; display:flex; flex-direction:column; gap:4px; padding:12px 14px; border:0; background:{{ m.bg }}; color:#EFEFF2; cursor:pointer;" style-hover="background:#121218;">
+                <div style="display:flex; justify-content:space-between; gap:10px; font-size:14px; font-weight:700;"><span>{{ m.need }}</span><span style="color:{{ m.accent }}; white-space:nowrap;">{{ m.project }} →</span></div>
+                <div style="font-size:13px; line-height:1.45; color:#B4B4BB;">{{ m.proof }}</div>
+              </button>
+            </sc-for>
+          </div>
+          <button onClick="{{ tourFit }}" style="height:42px; border-radius:999px; border:1px solid #FF5A3C; background:transparent; color:#FF5A3C; font-weight:700; font-size:14px; cursor:pointer;">{{ tourLabel }}</button>
+          <div style="font-size:12px; color:#8C8C93; text-transform:uppercase; letter-spacing:0.06em;">Worth asking me</div>
+          <ul style="margin:0; padding-left:18px; display:flex; flex-direction:column; gap:6px; color:#B4B4BB; font-size:14px; line-height:1.45;">
+            <sc-for list="{{ fit.ask }}" as="q" hint-placeholder-count="2"><li>{{ q }}</li></sc-for>
+          </ul>
+        </sc-if>
+      </sc-if>
+
+      <sc-if value="{{ isPlay }}" hint-placeholder-val="{{ false }}">
+        <div style="height:3px; border-radius:3px; background:#1C1C21; overflow:hidden;"><div style="height:100%; width:{{ play.pct }}; background:{{ play.accent }}; transition:width .6s ease;"></div></div>
+        <div style="font-size:13px; color:{{ play.accent }}; font-weight:700;">{{ play.step }}</div>
+        <div style="font-family:'Clash Display',sans-serif; font-size:28px; font-weight:500; line-height:1.05;">{{ play.label }}</div>
+        <p style="margin:0; font-size:15px; line-height:1.5; color:#B4B4BB;">{{ play.cap }}</p>
+        <div style="display:flex; gap:8px;">
+          <button onClick="{{ playPrev }}" style="flex:1; height:42px; border-radius:999px; border:1px solid #33333A; background:transparent; color:#EFEFF2; font-size:14px; cursor:pointer;">Back</button>
+          <button onClick="{{ playToggle }}" style="flex:1; height:42px; border-radius:999px; border:0; background:#EFEFF2; color:#05050A; font-weight:700; font-size:14px; cursor:pointer;">{{ play.toggleLabel }}</button>
+          <button onClick="{{ playNext }}" style="flex:1; height:42px; border-radius:999px; border:1px solid #33333A; background:transparent; color:#EFEFF2; font-size:14px; cursor:pointer;">Next</button>
+        </div>
+        <a href="{{ play.href }}" style="font-size:14px; color:#B4B4BB;">Read the full {{ play.name }} case study →</a>
+      </sc-if>
+    </div>
+  </aside>
+</sc-if>
+
+<div style="position:fixed; left:0; right:0; bottom:0; z-index:12; display:flex; flex-direction:column; align-items:center; gap:10px; padding:0 14px calc(16px + env(safe-area-inset-bottom)); pointer-events:none;">
+  <sc-if value="{{ showChips }}" hint-placeholder-val="{{ true }}">
+    <div style="pointer-events:auto; max-width:min(760px,100%); display:flex; gap:8px; overflow-x:auto; scrollbar-width:none;">
+      <sc-for list="{{ suggestions }}" as="s" hint-placeholder-count="4">
+        <button onClick="{{ s.onClick }}" style="flex:none; height:34px; padding:0 14px; border-radius:999px; border:1px solid #24242B; background:rgba(11,11,16,0.85); color:#B4B4BB; font-size:13px; cursor:pointer;" style-hover="color:#EFEFF2; border-color:#EFEFF2;">{{ s.q }}</button>
+      </sc-for>
+    </div>
+  </sc-if>
+  <form onSubmit="{{ onAskSubmit }}" style="pointer-events:auto; width:min(760px,100%); box-sizing:border-box; display:flex; align-items:center; gap:8px; padding:7px 7px 7px 20px; border-radius:999px; background:rgba(14,14,19,0.94); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); border:1px solid #2A2A32; box-shadow:0 20px 60px rgba(0,0,0,0.6);">
+    <input value="{{ askText }}" onChange="{{ onAskChange }}" placeholder="Ask my work anything…" aria-label="Ask a question about Rajkumar's work" style="flex:1; min-width:0; background:transparent; border:0; outline:none; color:#EFEFF2; font-size:16px; padding:10px 0;">
+    <button type="submit" style="flex:none; height:44px; padding:0 18px; border-radius:999px; border:0; background:#FF5A3C; color:#05050A; font-weight:700; font-size:14px; cursor:pointer;">Ask</button>
+    <button type="button" onClick="{{ openFit }}" style="flex:none; height:44px; padding:0 16px; border-radius:999px; border:1px solid #33333A; background:transparent; color:#EFEFF2; font-weight:700; font-size:14px; cursor:pointer;" style-hover="border-color:#EFEFF2;">Check fit</button>
+  </form>
+</div>
+
+<sc-if value="{{ indexOpen }}" hint-placeholder-val="{{ false }}">
+  <div role="dialog" aria-label="Profile and contact" onClick="{{ closeIndex }}" style="position:fixed; inset:0; z-index:30; background:rgba(0,0,0,0.7); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); display:flex; justify-content:flex-end;">
+    <main onClick="{{ stop }}" data-screen-label="Profile" style="width:min(620px,100%); height:100%; overflow:auto; background:#0B0B10; border-left:1px solid #1C1C21; padding:clamp(22px,4vw,44px); box-sizing:border-box; animation:v4-in .4s cubic-bezier(.16,1,.3,1) both;">
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:12px;">
+        <div style="font-size:12px; color:#FF5A3C; letter-spacing:0.06em; text-transform:uppercase; font-weight:700;">For recruiters and AI screeners</div>
+        <button onClick="{{ closeIndex }}" aria-label="Close" style="width:40px; height:40px; border-radius:50%; border:0; background:#16161B; color:#EFEFF2; font-size:18px; cursor:pointer;">×</button>
+      </div>
+      <h2 style="margin:18px 0 0; font-family:'Clash Display',sans-serif; font-weight:500; font-size:clamp(34px,5vw,52px); line-height:1; letter-spacing:-0.03em;">Rajkumar Dhasan</h2>
+      <p style="margin:14px 0 0; font-size:16px; line-height:1.55; color:#B4B4BB;">Product designer who owns mobile products end to end: research, information architecture, wireframes, high-fidelity UI, prototyping, usability testing, design systems and developer handoff. Sole or lead designer on three shipped products in the UAE.</p>
+      <div style="margin-top:22px; display:flex; flex-wrap:wrap; gap:8px;">
+        <a href="mailto:drajkumar13@gmail.com?subject=Portfolio%20Enquiry" style="display:flex; align-items:center; height:44px; padding:0 18px; border-radius:999px; background:#FF5A3C; color:#05050A; font-weight:700; font-size:14px;">drajkumar13@gmail.com</a>
+        <a href="tel:+971542644838" style="display:flex; align-items:center; height:44px; padding:0 16px; border-radius:999px; border:1px solid #33333A; font-size:14px;">+971 54 264 4838</a>
+        <a href="https://linkedin.com/in/draj-kumar" target="_blank" rel="noopener" style="display:flex; align-items:center; height:44px; padding:0 16px; border-radius:999px; border:1px solid #33333A; font-size:14px;">LinkedIn</a>
+      </div>
+      <dl style="margin:28px 0 0; display:flex; flex-direction:column; border-top:1px solid #1C1C21;">
+        <div style="display:grid; grid-template-columns:minmax(0,0.7fr) minmax(0,1.6fr); gap:14px; padding:12px 0; border-bottom:1px solid #1C1C21;"><dt style="font-size:13px; color:#8C8C93;">Role</dt><dd style="margin:0; font-size:15px;">Senior UI/UX &amp; Product Designer</dd></div>
+        <div style="display:grid; grid-template-columns:minmax(0,0.7fr) minmax(0,1.6fr); gap:14px; padding:12px 0; border-bottom:1px solid #1C1C21;"><dt style="font-size:13px; color:#8C8C93;">Location</dt><dd style="margin:0; font-size:15px;">Abu Dhabi, UAE</dd></div>
+        <div style="display:grid; grid-template-columns:minmax(0,0.7fr) minmax(0,1.6fr); gap:14px; padding:12px 0; border-bottom:1px solid #1C1C21;"><dt style="font-size:13px; color:#8C8C93;">Experience</dt><dd style="margin:0; font-size:15px;">6+ years</dd></div>
+        <div style="display:grid; grid-template-columns:minmax(0,0.7fr) minmax(0,1.6fr); gap:14px; padding:12px 0; border-bottom:1px solid #1C1C21;"><dt style="font-size:13px; color:#8C8C93;">Looking for</dt><dd style="margin:0; font-size:15px;">Senior Product Designer or Senior UI/UX Designer roles</dd></div>
+        <div style="display:grid; grid-template-columns:minmax(0,0.7fr) minmax(0,1.6fr); gap:14px; padding:12px 0; border-bottom:1px solid #1C1C21;"><dt style="font-size:13px; color:#8C8C93;">Core skills</dt><dd style="margin:0; font-size:15px; line-height:1.5;">User research, usability testing, information architecture, wireframing, high-fidelity UI, prototyping, design systems, Arabic / RTL, developer handoff</dd></div>
+        <div style="display:grid; grid-template-columns:minmax(0,0.7fr) minmax(0,1.6fr); gap:14px; padding:12px 0; border-bottom:1px solid #1C1C21;"><dt style="font-size:13px; color:#8C8C93;">Tools</dt><dd style="margin:0; font-size:15px;">Figma · HTML, CSS, Java · AI-assisted prototyping</dd></div>
+        <div style="display:grid; grid-template-columns:minmax(0,0.7fr) minmax(0,1.6fr); gap:14px; padding:12px 0; border-bottom:1px solid #1C1C21;"><dt style="font-size:13px; color:#8C8C93;">Education</dt><dd style="margin:0; font-size:15px;">MBA, Bharathiyar University (2017)</dd></div>
+      </dl>
+      <h3 style="margin:32px 0 0; font-size:13px; color:#8C8C93; text-transform:uppercase; letter-spacing:0.06em;">Experience</h3>
+      <div style="margin-top:8px; display:flex; flex-direction:column;">
+        <div style="padding:14px 0; border-bottom:1px solid #1C1C21;"><div style="font-size:16px; font-weight:700;">Senior UI/UX Designer · Kief Consultancies &amp; Technologies</div><div style="margin-top:4px; font-size:13px; color:#8C8C93;">Abu Dhabi · May 2024 — Present</div><div style="margin-top:6px; font-size:14px; line-height:1.5; color:#B4B4BB;">Sole designer across multiple live products, including Taggo and TheEvents, owning research, UX, UI and developer handoff.</div></div>
+        <div style="padding:14px 0; border-bottom:1px solid #1C1C21;"><div style="font-size:16px; font-weight:700;">UI/UX Designer · Hubble Web Technologies</div><div style="margin-top:4px; font-size:13px; color:#8C8C93;">Dubai · Dec 2022 — Dec 2023</div></div>
+        <div style="padding:14px 0; border-bottom:1px solid #1C1C21;"><div style="font-size:16px; font-weight:700;">UI/UX Designer · BitsnPixs</div><div style="margin-top:4px; font-size:13px; color:#8C8C93;">India · Feb 2019 — Jun 2022</div></div>
+      </div>
+      <h3 style="margin:32px 0 0; font-size:13px; color:#8C8C93; text-transform:uppercase; letter-spacing:0.06em;">Selected work</h3>
+      <div style="margin-top:8px; display:flex; flex-direction:column;">
+        <div style="padding:14px 0; border-bottom:1px solid #1C1C21;"><div style="font-size:16px; font-weight:700;">Taggo — mobility super app</div><div style="margin-top:6px; font-size:14px; line-height:1.5; color:#B4B4BB;">Solo designer and researcher. Ride booking under 30 seconds across all 7 emirates, with 0% hidden fees.</div></div>
+        <div style="padding:14px 0; border-bottom:1px solid #1C1C21;"><div style="font-size:16px; font-weight:700;">TheEvents — e-commerce marketplace</div><div style="margin-top:6px; font-size:14px; line-height:1.5; color:#B4B4BB;">Lead product designer. 50+ screens delivered from a single system of 20+ reusable components.</div></div>
+        <div style="padding:14px 0; border-bottom:1px solid #1C1C21;"><div style="font-size:16px; font-weight:700;">Noma — coffee pickup ordering</div><div style="margin-top:6px; font-size:14px; line-height:1.5; color:#B4B4BB;">Solo lead designer. A 12-screen ordering flow with a drink builder, fully mirrored for Arabic (RTL).</div></div>
+      </div>
+      <div style="margin-top:28px; display:flex; flex-wrap:wrap; gap:8px;">
+        <button onClick="{{ copyProfile }}" style="height:44px; padding:0 18px; border-radius:999px; border:0; background:#EFEFF2; color:#05050A; font-weight:700; font-size:14px; cursor:pointer;">{{ copyLabel }}</button>
+        <a href="rajkumar-profile.json" download="rajkumar-dhasan-profile.json" style="display:flex; align-items:center; height:44px; padding:0 16px; border-radius:999px; border:1px solid #33333A; font-size:14px;">Download JSON</a>
+        <a href="rajkumar-profile.md" target="_blank" rel="noopener" style="display:flex; align-items:center; height:44px; padding:0 16px; border-radius:999px; border:1px solid #33333A; font-size:14px;">Plain-text profile</a>
+      </div>
+    </main>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const V2 = 'Rajkumar Portfolio v2.dc.html';
+const SW = 240, SH = 520, GX = 150, X0 = 720, ROWH = 1000;
+const P = [
+  { id:'taggo', index:'01', name:'Taggo', category:'Mobility · Super App', accent:'#F0DD50',
+    role:'Solo designer & researcher · iOS & Android · rider + driver apps',
+    outcome:'Booking a ride takes under 30 seconds, across all 7 emirates, with no hidden fees.',
+    impact:[{value:'< 30s',label:'Booking time'},{value:'7',label:'Emirates covered'},{value:'0%',label:'Hidden fees'}],
+    screens:[
+      ['assets/taggo/web/rf-1-where.jpg',[50,94],'Where to?','Pickup is detected. Type a destination.'],
+      ['assets/taggo/web/rf-2-vehicle.jpg',[50,94],'Choose & pay','Comfort, Economy or Premium — fixed fare, card on file.'],
+      ['assets/taggo/web/rf-3-searching.jpg',null,'Finding a driver','The nearest driver is matched.'],
+      ['assets/taggo/web/rf-4-assigned.jpg',null,'Driver on the way','Ahmed K. · arriving in 3 mins.'],
+      ['assets/taggo/web/rf-5-arrived.jpg',null,'Driver arrived','Meet Ahmed at your pickup location.'],
+      ['assets/taggo/web/rf-6-completed.jpg',[26,78],'Ride completed','AED 45 · 8.2 km · 22 min. Rate and tip.'],
+      ['assets/taggo/web/rf-7-tips.jpg',[50,82],'Thank you','Tip added to the driver\u2019s earnings.'],
+      ['assets/taggo/web/rf-8-details.jpg',[50,92],'Trip details','Route, payment and driver on one receipt.'],
+    ] },
+  { id:'theevents', index:'02', name:'TheEvents', category:'E-Commerce · Buyer + Vendor', accent:'#F3A195',
+    role:'Lead product designer & UX researcher · iOS, Android + vendor web portal',
+    outcome:'50+ screens delivered from a single system of 20+ reusable components.',
+    impact:[{value:'50+',label:'Screens delivered'},{value:'20+',label:'Reusable components'},{value:'50+',label:'Variants'}],
+    screens:[
+      ['uploads/Home - Landing Page TheEvents.png',[33,93],'Home','Occasions, curated picks and AI search on one feed.'],
+      ['uploads/Product Categories Theevnts.png',[88,58],'Categories','Trending collections and every category one tap away.'],
+      ['uploads/Makeup Artist Profile- theevents.png',[77,24],'Artist profile','Beauty creators sell their own picks and take bookings.'],
+      ['uploads/Seller Profile- theevents.png',[50,33],'Seller store','Each brand gets a storefront with ratings and followers.'],
+      ['uploads/New Arrivals thevents.png',[25,37],'New arrivals','Fresh drops across watches, perfume, flowers and more.'],
+      ['uploads/Product Drilt Down theevents.png',[77,93],'Product','Gallery, colours and an AI size match before buying.'],
+      ['uploads/Order Summary Screen thevents.png',[50,92],'Order summary','Edit quantities, apply a coupon, see the total.'],
+      ['uploads/Checkout theevents.png',[50,90],'Checkout','Saved address, card, Tabby or cash on delivery.'],
+      ['uploads/Order Confirmed theevents.png',null,'Order confirmed','Instant confirmation with order number and delivery date.'],
+    ] },
+  { id:'noma', index:'03', name:'Noma', category:'Food & Beverage · EN + AR', accent:'#D2A57A',
+    role:'Solo lead designer · iOS & Android · English + Arabic (RTL)',
+    outcome:'A 12-screen ordering flow with a step-by-step drink builder, fully mirrored for Arabic.',
+    impact:[{value:'12',label:'Flow screens'},{value:'2',label:'Languages'},{value:'4',label:'Builder ingredients'}],
+    screens:[
+      ['assets/noma-menu.png',null,'Menu','Browse the full menu by category, with search, filters and sort.'],
+      ['assets/noma-builder.png',null,'Drink builder','Build a drink step by step — milk, then sugar, then coffee powder.'],
+      ['assets/noma-builder-iced.png',null,'Iced builder','The same builder adapts to iced drinks, adding ice as an ingredient.'],
+    ] },
+];
+const href = (id) => V2 + '#/work/' + id;
+const byId = (id) => { const k = String(id || '').toLowerCase().replace(/[^a-z]/g, ''); return P.find(p => p.id === k); };
+const nid = (id) => (byId(id) || {}).id;
+const rowY = (i) => i * ROWH;
+const scr = (pi, si) => ({ x:X0 + si * (SW + GX), y:rowY(pi) });
+const rowRect = (pi) => { const n = P[pi].screens.length; return [-60, rowY(pi) - 60, X0 + n * (SW + GX) - GX + 60, rowY(pi) + SH + 170]; };
+const ALL = [-80, -80, X0 + 9 * (SW + GX), 2 * ROWH + SH + 180];
+
+const KB = `Rajkumar Dhasan — Senior UI/UX & Product Designer, Abu Dhabi, UAE. 6+ years. Design is the primary skill; code (HTML, CSS, Java) and AI are accelerators. MBA, Bharathiyar University (2017).
+Experience: Senior UI/UX Designer, Kief Consultancies & Technologies, Abu Dhabi (May 2024–present) — sole designer across multiple live products incl. Taggo and TheEvents, owning research, UX, UI and dev handoff. UI/UX Designer, Hubble Web Technologies, Dubai (Dec 2022–Dec 2023). UI/UX Designer, BitsnPixs, India (Feb 2019–Jun 2022).
+Taggo (id taggo): UAE mobility super app — ride-hailing, car rental, cargo, VIP/airport, car recovery, AI voice assistant; rider + driver apps, iOS & Android. Solo designer & researcher: research, IA, wireframes, visual design, prototyping, usability testing, design system, handoff. Booking under 30s, all 7 emirates, 0% hidden fees, 70+ screens, Arabic-first. Learned: early IA testing saved rework; UAE commuters needed cash-first payment; RTL, prayer times and Dirham formatting each needed design passes. Would do differently: tokens from day one, more driver-side testing earlier.
+TheEvents (id theevents): Middle East e-commerce app — buyer app, vendor marketplace with responsive web portal and 7-step onboarding, AI shopping (voice search, visual search, gift finder, chatbot), beauty creator platform. Lead product designer & UX researcher. 50+ screens, 20+ reusable components, 50+ variants, wireframes through clickable prototype.
+Noma (id noma): Dubai specialty coffee pickup ordering app, English + Arabic RTL. Solo lead designer: research, personas, IA, wireframes, UI, design system, variable-driven prototype. Step-by-step drink builder (milk, sugar, coffee powder, ice) with live cup and running price. 12 ordering-flow screens, 5 menu categories.
+Process: Discover, Define, Design, Validate, Deliver & Evolve. Tools: Figma. Contact: drajkumar13@gmail.com, +971 54 264 4838, linkedin.com/in/draj-kumar.`;
+
+const TOPICS = [
+  { k:['taggo','ride','mobility','taxi','transport','driver','cargo','rental'], ids:['taggo'], a:'Taggo is a UAE mobility super app covering rides, rental, cargo, VIP transfers and car recovery, with separate rider and driver apps. I was the solo designer and researcher, from IA through handoff. Booking takes under 30 seconds across all 7 emirates with no hidden fees.' },
+  { k:['event','commerce','shop','vendor','seller','marketplace','checkout','retail'], ids:['theevents'], a:'TheEvents is a Middle East e-commerce app with a buyer app, a vendor marketplace with a web portal, AI shopping tools and a beauty creator platform. As lead designer I delivered 50+ screens from one library of 20+ components and 50+ variants.' },
+  { k:['noma','coffee','drink','food','order','builder','cafe'], ids:['noma'], a:'Noma is a pickup ordering app for a Dubai specialty coffee shop. Customers build a drink ingredient by ingredient with a live cup and running price. I led it end to end as the only designer, in English and Arabic.' },
+  { k:['arabic','rtl','locali','bilingual','middle east','uae','gcc'], ids:['noma','taggo'], a:'Yes. On Noma every screen was designed in English and Arabic side by side. On Taggo, RTL layouts, prayer-time considerations and Dirham formatting each got a dedicated design pass.' },
+  { k:['system','component','token','library','variant'], ids:['theevents'], a:'TheEvents runs on a component library of 20+ reusable components and 50+ variants. On Taggo, my main lesson was to start with tokens from day one rather than retrofit them.' },
+  { k:['research','test','usability','interview','persona','user'], ids:['taggo'], a:'I run interviews, journey mapping, IA testing and usability tests. On Taggo, testing with real UAE commuters showed that a cash-first payment flow was essential, and early IA testing saved major rework.' },
+  { k:['experience','year','career','kief','hubble','background','who'], ids:[], a:'6+ years. Senior UI/UX Designer at Kief Consultancies & Technologies in Abu Dhabi since May 2024, where I am the sole designer across live products. Before that, Hubble Web Technologies in Dubai and BitsnPixs in India.' },
+  { k:['ai','code','tool','figma','html','develop'], ids:['taggo','theevents'], a:'Figma is my main tool. A background in HTML, CSS and Java helps me hand off precisely, and I use AI to prototype faster. I have also designed AI features: Taggo\'s voice booking assistant and TheEvents\' AI search and gift finder.' },
+  { k:['contact','hire','email','available','reach','phone'], ids:[], a:'Email drajkumar13@gmail.com or call +971 54 264 4838. I am based in Abu Dhabi. The full profile is under Profile & contact.' },
+];
+const FIT = [
+  { k:['mobile','ios','android','app'], need:'Mobile app design', id:'taggo', proof:'Rider and driver apps on iOS and Android, research to handoff.' },
+  { k:['design system','component','token','library'], need:'Design systems', id:'theevents', proof:'20+ components and 50+ variants carrying the whole product.' },
+  { k:['research','interview','persona','journey','usability','testing','user test'], need:'User research & testing', id:'taggo', proof:'Usability testing with UAE commuters changed the payment flow.' },
+  { k:['arabic','rtl','bilingual','locali','middle east','gcc','uae'], need:'Arabic / RTL', id:'noma', proof:'Every screen designed in English and Arabic side by side.' },
+  { k:['commerce','marketplace','checkout','retail','vendor','shopping'], need:'E-commerce & marketplaces', id:'theevents', proof:'Buyer app, vendor portal and 7-step seller onboarding.' },
+  { k:['prototyp','interaction','figma','micro'], need:'Prototyping in Figma', id:'theevents', proof:'Clickable prototypes covering the full purchase loop, AI search and error states.' },
+  { k:['handoff','developer','engineer','agile','scrum','qa'], need:'Developer handoff', id:'taggo', proof:'Owned handoff and design QA as the sole designer on live products.' },
+  { k:['web','responsive','dashboard','portal','saas'], need:'Responsive web & dashboards', id:'theevents', proof:'A responsive vendor web portal with dashboard, pricing and finance tools.' },
+  { k:['ai','assistant','chatbot','llm','voice'], need:'AI-powered features', id:'taggo', proof:'Voice booking assistant that compares fares and books rides.' },
+  { k:['information architecture','navigation','flows','user flow'], need:'Information architecture', id:'taggo', proof:'One IA for rides, rental, cargo, VIP and recovery in a single app.' },
+  { k:['senior','lead','end-to-end','end to end','ownership','stakeholder'], need:'Senior ownership', id:'theevents', proof:'Sole or lead designer on all three products, end to end.' },
+  { k:['mobility','logistic','transport','delivery','ride'], need:'Mobility & logistics', id:'taggo', proof:'Rides, cargo tracking and a driver companion app.' },
+];
+const SAMPLE_JD = `Senior Product Designer — Dubai
+We're looking for a senior designer to own our consumer mobile app end to end. You'll run user research and usability testing, design in Figma, maintain our design system, and work closely with engineers through handoff. Experience designing Arabic/RTL interfaces for the GCC market is a strong plus. Bonus: e-commerce or marketplace experience.`;
+
+class Component extends DCLogic {
+  state = { focus:null, panel:null, askText:'', answer:null, jdText:'', fit:null, fitLoading:false, fitTour:-1, play:null, indexOpen:false, copied:false };
+  vpRef = React.createRef(); worldRef = React.createRef(); rippleRef = React.createRef(); zoomRef = React.createRef();
+  cam = { x:2000, y:1300, z:0.05 }; tw = null; ptrs = new Map();
+
+  componentDidMount() {
+    this._raf = requestAnimationFrame(this.loop);
+    this._wheel = (e) => {
+      e.preventDefault(); this.interrupt();
+      const r = this.vpRef.current.getBoundingClientRect();
+      if (e.ctrlKey || e.metaKey) this.zoomAt(e.clientX - r.left, e.clientY - r.top, this.cam.z * Math.exp(-e.deltaY * 0.01));
+      else { this.cam.x += e.deltaX / this.cam.z; this.cam.y += e.deltaY / this.cam.z; this.apply(); }
+    };
+    this.vpRef.current.addEventListener('wheel', this._wheel, { passive:false });
+    this._key = (e) => {
+      if (e.target && /INPUT|TEXTAREA/.test(e.target.tagName)) return;
+      if (e.key === 'Escape') { if (this.state.indexOpen) this.setState({ indexOpen:false }); else this.closePanel(); }
+      if (this.state.play && e.key === 'ArrowRight') this.playStep(1);
+      if (this.state.play && e.key === 'ArrowLeft') this.playStep(-1);
+    };
+    window.addEventListener('keydown', this._key);
+    this._rs = () => { if (this._view) this._view(true); };
+    window.addEventListener('resize', this._rs);
+    const [x0, y0, x1, y1] = ALL; const t = this.fitCam(x0, y0, x1, y1);
+    this.cam = { x:t.x, y:t.y + 400, z:t.z * 0.35 }; this.apply();
+    setTimeout(() => this.overview(), 250);
+  }
+  componentWillUnmount() {
+    cancelAnimationFrame(this._raf); clearTimeout(this._pt); clearTimeout(this._rt); clearTimeout(this._ft);
+    window.removeEventListener('keydown', this._key); window.removeEventListener('resize', this._rs);
+    if (this.vpRef.current) this.vpRef.current.removeEventListener('wheel', this._wheel);
+  }
+
+  size() { const el = this.vpRef.current; return el ? { W:el.clientWidth, H:el.clientHeight } : { W:1200, H:800 }; }
+  safe() {
+    const { W, H } = this.size(); const wide = W > 900;
+    const right = this.state.panel && wide ? 470 : 0;
+    const bottom = this.state.panel && !wide ? Math.min(H * 0.64, 620) + 130 : 130;
+    const top = W < 640 ? 120 : 80;
+    return { x:0, y:top, w:W - right, h:Math.max(160, H - top - bottom), W, H };
+  }
+  fitCam(x0, y0, x1, y1, pad) {
+    const s = this.safe();
+    const z = Math.max(0.04, Math.min(1.6, Math.min(s.w / (x1 - x0), s.h / (y1 - y0)) * (pad || 0.92)));
+    const cx = (x0 + x1) / 2, cy = (y0 + y1) / 2;
+    return { x:cx - (s.x + s.w / 2 - s.W / 2) / z, y:cy - (s.y + s.h / 2 - s.H / 2) / z, z };
+  }
+  flyTo(t, dur) { this.tw = { from:{ ...this.cam }, to:t, t0:performance.now(), dur:dur || 1200 }; }
+  loop = (now) => {
+    if (this.tw) {
+      const { from, to, t0, dur } = this.tw;
+      const t = Math.min(1, (now - t0) / dur), e = t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+      const { W } = this.size();
+      const dist = Math.hypot(to.x - from.x, to.y - from.y) * Math.min(from.z, to.z);
+      const dip = Math.min(0.55, dist / (W * 2.2));
+      this.cam = { x:from.x + (to.x - from.x) * e, y:from.y + (to.y - from.y) * e, z:(from.z + (to.z - from.z) * e) * (1 - dip * Math.sin(Math.PI * t)) };
+      this.apply();
+      if (t >= 1) this.tw = null;
+    }
+    this._raf = requestAnimationFrame(this.loop);
+  };
+  apply() {
+    const w = this.worldRef.current, v = this.vpRef.current; if (!w || !v) return;
+    const { W, H } = this.size(), c = this.cam;
+    const tx = W / 2 - c.x * c.z, ty = H / 2 - c.y * c.z;
+    w.style.transform = 'translate3d(' + tx + 'px,' + ty + 'px,0) scale(' + c.z + ')';
+    const g = 40 * c.z * (c.z < 0.3 ? 4 : 1);
+    v.style.backgroundSize = g + 'px ' + g + 'px'; v.style.backgroundPosition = tx + 'px ' + ty + 'px';
+    if (this.zoomRef.current) this.zoomRef.current.textContent = Math.round(c.z * 100) + '%';
+  }
+  zoomAt(px, py, nz) {
+    const { W, H } = this.size(), c = this.cam; nz = Math.max(0.04, Math.min(2.5, nz));
+    const wx = c.x + (px - W / 2) / c.z, wy = c.y + (py - H / 2) / c.z;
+    this.cam = { x:wx - (px - W / 2) / nz, y:wy - (py - H / 2) / nz, z:nz }; this.apply();
+  }
+  interrupt() { this.tw = null; if (this.state.play && !this.state.play.paused) this.pausePlay(true); if (this.state.fitTour >= 0) { clearTimeout(this._ft); this.setState({ fitTour:-1 }); } }
+
+  overview = (instant) => { this._view = (i) => this.overview(i); const [a, b, c, d] = ALL; const t = this.fitCam(a, b, c, d); instant === true ? (this.cam = t, this.apply()) : this.flyTo(t, 1800); this.setState({ focus:null }); };
+  showRow(id, instant) {
+    const pi = P.findIndex(p => p.id === id); if (pi < 0) return;
+    this._view = (i) => this.showRow(id, i);
+    const [a, b, c, d] = rowRect(pi); const t = this.fitCam(a, b, c, d);
+    instant === true ? (this.cam = t, this.apply()) : this.flyTo(t, 1400);
+    this.setState({ focus:id });
+  }
+  showScreen(pi, si, dur) {
+    this._view = (i) => this.showScreen(pi, si, i === true ? 1 : dur);
+    const { x, y } = scr(pi, si); const t = this.fitCam(x - 40, y - 30, x + SW + 40, y + SH + 150, 0.95);
+    this.flyTo(t, dur || 1000); this.setState({ focus:P[pi].id });
+  }
+  ripple(pi, si) {
+    const tap = P[pi].screens[si][1], el = this.rippleRef.current; if (!tap || !el) return;
+    const { x, y } = scr(pi, si);
+    el.style.left = (x + SW * tap[0] / 100) + 'px'; el.style.top = (y + SH * tap[1] / 100) + 'px';
+    el.style.animation = 'none'; void el.offsetWidth; el.style.animation = 'v4-ripple .9s ease-out both';
+  }
+
+  startPlay(id) {
+    const pi = P.findIndex(p => p.id === id);
+    clearTimeout(this._pt); clearTimeout(this._rt);
+    this.setState({ panel:'play', play:{ pi, i:0, paused:false } }, () => this.playGo());
+  }
+  playGo() {
+    const p = this.state.play; if (!p) return;
+    clearTimeout(this._pt); clearTimeout(this._rt);
+    this.showScreen(p.pi, p.i, p.i === 0 ? 1300 : 900);
+    this._rt = setTimeout(() => this.ripple(p.pi, p.i), p.i === 0 ? 1700 : 1300);
+    if (!p.paused) this._pt = setTimeout(() => {
+      const q = this.state.play; if (!q || q.paused) return;
+      if (q.i < P[q.pi].screens.length - 1) this.setState({ play:{ ...q, i:q.i + 1 } }, () => this.playGo());
+      else { this.setState({ play:{ ...q, paused:true, done:true } }); this.showRow(P[q.pi].id); }
+    }, p.i === 0 ? 3200 : 2800);
+  }
+  playStep(d) { const p = this.state.play; if (!p) return; const n = P[p.pi].screens.length; const i = Math.max(0, Math.min(n - 1, p.i + d)); this.setState({ play:{ ...p, i, paused:true, done:false } }, () => this.playGo()); }
+  pausePlay(v) { clearTimeout(this._pt); const p = this.state.play; if (p) this.setState({ play:{ ...p, paused:v } }); }
+
+  closePanel = () => { clearTimeout(this._pt); clearTimeout(this._rt); clearTimeout(this._ft); this.setState({ panel:null, play:null, fitTour:-1 }); };
+
+  hasAI() { return typeof window !== 'undefined' && window.claude && typeof window.claude.complete === 'function'; }
+  json(t) { const m = String(t).match(/\{[\s\S]*\}/); return m ? JSON.parse(m[0]) : null; }
+  localAnswer(q) {
+    const s = q.toLowerCase(); let best = null, bs = 0;
+    TOPICS.forEach(t => { const n = t.k.filter(k => s.includes(k)).length; if (n > bs) { bs = n; best = t; } });
+    return best ? { text:best.a, ids:best.ids } : { text:'Everything on this map is shipped work: Taggo (mobility), TheEvents (e-commerce) and Noma (coffee ordering, English and Arabic). Ask about a project, or about research, design systems or RTL.', ids:['taggo','theevents','noma'] };
+  }
+  async ask(q) {
+    q = (q || '').trim(); if (!q) return;
+    clearTimeout(this._pt); const id = Date.now(); this._askId = id;
+    this.setState({ askText:'', panel:'answer', play:null, answer:{ q, loading:true, text:'', ids:[] } });
+    let res = null;
+    if (this.hasAI()) {
+      try {
+        const out = await window.claude.complete({ system:'You answer questions about designer Rajkumar Dhasan in first person, as him, using ONLY these facts. Specific, warm, brief (max 60 words). If the facts do not cover it, say so and suggest emailing. Never attribute a skill or feature to a project unless the facts state it for that project; Arabic/RTL work is stated only for Taggo and Noma. The projects array must list only projects the facts support for this answer. Reply with JSON only: {"answer":"...","projects":["taggo"|"theevents"|"noma"]}.\n\n' + KB, messages:[{ role:'user', content:q }], max_tokens:300 });
+        const j = this.json(out); if (j && j.answer) res = { text:j.answer, ids:[...new Set((j.projects || []).map(nid).filter(Boolean))] };
+      } catch (e) {}
+    }
+    if (!res) { await new Promise(r => setTimeout(r, 450)); res = this.localAnswer(q); }
+    if (this._askId !== id) return;
+    this.setState({ answer:{ q, loading:false, ...res } }, () => {
+      if (res.ids.length === 1) this.showRow(res.ids[0]);
+      else if (res.ids.length > 1) { const rs = res.ids.map(i => rowRect(P.findIndex(p => p.id === i))); const t = this.fitCam(Math.min(...rs.map(r => r[0])), Math.min(...rs.map(r => r[1])), Math.max(...rs.map(r => r[2])), Math.max(...rs.map(r => r[3]))); this.flyTo(t, 1400); this.setState({ focus:null }); }
+    });
+  }
+
+  localFit(jd) {
+    const s = ' ' + jd.toLowerCase() + ' ';
+    const hits = FIT.filter(f => f.k.some(k => s.includes(k)));
+    const score = hits.length ? Math.min(96, Math.round(62 + 34 * hits.length / (Math.max(hits.length, 3) + 1))) : 40;
+    const count = {}; hits.forEach(h => { count[h.id] = (count[h.id] || 0) + 1; });
+    const startId = Object.keys(count).sort((a, b) => count[b] - count[a])[0] || 'taggo';
+    return { score, headline:hits.length ? hits.length + ' requirements matched to shipped work.' : 'Few direct matches. Paste more of the role for a better read.',
+      matches:(hits.length ? hits : FIT.slice(0, 3)).slice(0, 5).map(h => ({ need:h.need, proof:h.proof, id:h.id })), startId,
+      ask:['How did you decide what to test first on ' + byId(startId).name + '?', 'What would you change if you started the project again?'] };
+  }
+  async runFit() {
+    const jd = this.state.jdText.trim(); if (!jd || this.state.fitLoading) return;
+    this.setState({ fitLoading:true }); let res = null;
+    if (this.hasAI()) {
+      try {
+        const out = await window.claude.complete({ system:'You compare a job description against designer Rajkumar Dhasan\'s real work, using ONLY these facts. Be honest; do not invent experience. Only cite a project as proof if the facts state that skill for that project (Arabic/RTL: Taggo and Noma only). Reply with JSON only: {"score":0-100,"headline":"one sentence","matches":[{"need":"short requirement from the JD","proof":"one concrete sentence of evidence","id":"taggo|theevents|noma"}] (3-5 items),"startId":"taggo|theevents|noma","ask":["2 interview questions worth asking him"]}.\n\n' + KB, messages:[{ role:'user', content:jd.slice(0, 4000) }], max_tokens:700 });
+        const j = this.json(out);
+        if (j && j.matches) {
+          let m = j.matches.filter(x => byId(x.id)).map(x => ({ need:x.need, proof:x.proof, id:nid(x.id) }));
+          if (m.length < 3) m = m.concat(this.localFit(jd).matches.filter(l => !m.some(x => x.need === l.need)));
+          res = { score:Math.max(0, Math.min(100, +j.score || 0)), headline:j.headline, startId:nid(j.startId) || m[0].id, ask:(j.ask || []).slice(0, 3), matches:m.slice(0, 5) };
+        }
+      } catch (e) {}
+    }
+    if (!res) { await new Promise(r => setTimeout(r, 600)); res = this.localFit(jd); }
+    this.setState({ fit:res, fitLoading:false }, () => this.showRow(res.startId));
+  }
+  tourFit() {
+    const f = this.state.fit; if (!f) return;
+    if (this.state.fitTour >= 0) { clearTimeout(this._ft); this.setState({ fitTour:-1 }); return; }
+    const step = (i) => {
+      if (i >= f.matches.length) { this.setState({ fitTour:-1 }); return; }
+      this.setState({ fitTour:i }); this.showRow(f.matches[i].id);
+      this._ft = setTimeout(() => step(i + 1), 3400);
+    };
+    step(0);
+  }
+
+  renderVals() {
+    const s = this.state, focus = s.focus, play = s.play;
+    const dim = (id) => !focus || focus === id ? 1 : 0.14;
+    const links = [], screens = [];
+    P.forEach((p, pi) => p.screens.forEach((sc, si) => {
+      const { x, y } = scr(pi, si);
+      const playing = play && play.pi === pi;
+      const cur = playing && play.i === si;
+      screens.push({ src:sc[0], alt:p.name + ' — ' + sc[2], label:sc[2], cap:sc[3], n:String(si + 1).padStart(2, '0'), x, y, accent:p.accent,
+        opacity:playing ? (cur ? 1 : 0.3) : dim(p.id), border:cur ? p.accent : '#24242B', delay:(0.5 + pi * 0.2 + si * 0.07).toFixed(2) + 's',
+        onClick:() => { if (this._dragged) return; this.setState({ panel:'play', play:{ pi, i:si, paused:true } }, () => this.playGo()); } });
+      if (si < p.screens.length - 1) {
+        const tap = sc[1];
+        const sx = tap ? x + SW * tap[0] / 100 : x + SW, sy = tap ? y + SH * tap[1] / 100 : y + SH / 2;
+        const ex = x + SW + GX, ey = y + SH / 2;
+        const d = 'M' + sx + ' ' + sy + ' C ' + (sx + 120) + ' ' + sy + ', ' + (ex - 90) + ' ' + ey + ', ' + ex + ' ' + ey;
+        links.push({ d, sx, sy, ex, ey, color:p.accent, opacity:playing ? (si === play.i ? 1 : 0.25) : dim(p.id) * 0.75 });
+      }
+    }));
+    const fit = s.fit;
+    const ans = s.answer;
+    const pp = play ? P[play.pi] : null;
+    return {
+      vpRef:this.vpRef, worldRef:this.worldRef, rippleRef:this.rippleRef, zoomRef:this.zoomRef,
+      links, screens,
+      rows:P.map((p, pi) => ({ ...p, y:rowY(pi) + 10, href:href(p.id), opacity:dim(p.id), delay:(0.3 + pi * 0.2) + 's', onPlay:() => this.startPlay(p.id) })),
+      jumps:[{ id:null, label:'All work', accent:'#EFEFF2' }, ...P.map(p => ({ id:p.id, label:p.name, accent:p.accent }))].map(j => {
+        const on = focus === j.id;
+        return { label:j.label, dot:j.accent, bg:on ? '#EFEFF2' : 'transparent', color:on ? '#05050A' : '#B4B4BB', onClick:() => { this.interrupt(); j.id ? this.showRow(j.id) : this.overview(); } };
+      }),
+      onDown:(e) => {
+        if (e.target.closest && e.target.closest('button,a,input,textarea')) return;
+        this.ptrs.set(e.pointerId, { x:e.clientX, y:e.clientY }); this._dragged = false; this._sx = e.clientX; this._sy = e.clientY;
+        if (this.ptrs.size === 2) { const [a, b] = [...this.ptrs.values()]; this._pd = Math.hypot(a.x - b.x, a.y - b.y); this._pz = this.cam.z; }
+      },
+      onMove:(e) => {
+        const prev = this.ptrs.get(e.pointerId); if (!prev) return;
+        const cur = { x:e.clientX, y:e.clientY }; this.ptrs.set(e.pointerId, cur);
+        if (!this._dragged && Math.hypot(e.clientX - this._sx, e.clientY - this._sy) > 6) { this._dragged = true; this.interrupt(); try { e.currentTarget.setPointerCapture(e.pointerId); } catch (er) {} e.currentTarget.style.cursor = 'grabbing'; }
+        if (!this._dragged) return;
+        if (this.ptrs.size === 2) {
+          const [a, b] = [...this.ptrs.values()]; const r = this.vpRef.current.getBoundingClientRect();
+          this.zoomAt((a.x + b.x) / 2 - r.left, (a.y + b.y) / 2 - r.top, this._pz * Math.hypot(a.x - b.x, a.y - b.y) / this._pd);
+        } else { this.cam.x -= (cur.x - prev.x) / this.cam.z; this.cam.y -= (cur.y - prev.y) / this.cam.z; this.apply(); }
+      },
+      onUp:(e) => { this.ptrs.delete(e.pointerId); e.currentTarget.style.cursor = 'grab'; setTimeout(() => { if (!this.ptrs.size) this._dragged = false; }, 0); },
+      zoomIn:() => { this.interrupt(); const { W, H } = this.size(); this.flyTo({ ...this.cam, z:Math.min(2.5, this.cam.z * 1.4) }, 400); },
+      zoomOut:() => { this.interrupt(); this.flyTo({ ...this.cam, z:Math.max(0.04, this.cam.z / 1.4) }, 400); },
+      panelOpen:!!s.panel,
+      panelTitle:s.panel === 'fit' ? 'Fit check' : s.panel === 'play' ? (pp ? pp.name + ' journey' : 'Journey') : 'Answer',
+      closePanel:this.closePanel,
+      isAnswer:s.panel === 'answer', isFit:s.panel === 'fit', isPlay:s.panel === 'play' && !!play,
+      answer:ans ? { q:ans.q, loading:ans.loading, text:ans.text, sources:(ans.ids || []).map(id => ({ name:byId(id).name, accent:byId(id).accent, onClick:() => this.showRow(id) })) } : { sources:[] },
+      jdText:s.jdText, onJdChange:(e) => this.setState({ jdText:e.target.value }),
+      runFit:() => this.runFit(), sampleJd:() => this.setState({ jdText:SAMPLE_JD }, () => this.runFit()),
+      fitLabel:s.fitLoading ? 'Matching…' : 'Check fit', fitReady:!!fit,
+      fit:fit ? { ...fit, matches:fit.matches.map((m, i) => ({ ...m, project:byId(m.id).name, accent:byId(m.id).accent, bg:s.fitTour === i ? '#16161B' : '#05050A', onClick:() => { this.interrupt(); this.showRow(m.id); } })) } : { matches:[], ask:[] },
+      tourFit:() => this.tourFit(), tourLabel:s.fitTour >= 0 ? 'Stop the tour' : 'Tour the evidence',
+      openFit:() => { clearTimeout(this._pt); this.setState({ panel:'fit', play:null }); },
+      play:pp ? { name:pp.name, accent:pp.accent, href:href(pp.id), step:String(play.i + 1).padStart(2, '0') + ' / ' + String(pp.screens.length).padStart(2, '0'), label:pp.screens[play.i][2], cap:pp.screens[play.i][3], pct:((play.i + 1) / pp.screens.length * 100) + '%', toggleLabel:play.done ? 'Replay' : play.paused ? 'Play' : 'Pause' } : {},
+      playPrev:() => this.playStep(-1), playNext:() => this.playStep(1),
+      playToggle:() => { const p = this.state.play; if (!p) return; if (p.done) { this.setState({ play:{ ...p, i:0, paused:false, done:false } }, () => this.playGo()); } else if (p.paused) this.setState({ play:{ ...p, paused:false } }, () => this.playGo()); else this.pausePlay(true); },
+      askText:s.askText, onAskChange:(e) => this.setState({ askText:e.target.value }),
+      onAskSubmit:(e) => { e.preventDefault(); this.ask(s.askText); },
+      showChips:!s.panel,
+      suggestions:['What did you design on Taggo?', 'Do you design for Arabic / RTL?', 'Show me design systems work', 'How many years of experience?'].map(q => ({ q, onClick:() => this.ask(q) })),
+      indexOpen:s.indexOpen, openIndex:() => this.setState({ indexOpen:true }), closeIndex:() => this.setState({ indexOpen:false }),
+      stop:(e) => e.stopPropagation(),
+      copyLabel:s.copied ? 'Copied' : 'Copy profile as text',
+      copyProfile:async () => {
+        let t = KB; try { const r = await fetch('rajkumar-profile.md'); if (r.ok) t = await r.text(); } catch (e) {}
+        try { await navigator.clipboard.writeText(t); } catch (e) {}
+        this.setState({ copied:true }); setTimeout(() => this.setState({ copied:false }), 2000);
+      },
+    };
+  }
+}
+</script>
+</body>
+</html>
