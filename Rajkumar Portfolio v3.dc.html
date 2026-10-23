@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#05050A">
+<title>Rajkumar Dhasan — Senior UI/UX &amp; Product Designer, Abu Dhabi</title>
+<meta name="description" content="Rajkumar Dhasan is a Senior UI/UX and Product Designer in Abu Dhabi, UAE with 6+ years of experience. Sole designer on live mobile products: Taggo (mobility super app), TheEvents (e-commerce marketplace) and Noma (coffee ordering, English + Arabic RTL). Research, design systems, prototyping, developer handoff.">
+<meta name="keywords" content="Senior Product Designer, UI/UX Designer, Abu Dhabi, Dubai, UAE, mobile app design, design systems, Arabic RTL, user research, usability testing, Figma, prototyping, e-commerce, mobility">
+<meta property="og:title" content="Rajkumar Dhasan — Senior UI/UX &amp; Product Designer">
+<meta property="og:description" content="Sole designer on three shipped mobile products in the UAE. Ask the portfolio anything, or paste a job description to see the matching work.">
+<meta property="og:type" content="profile">
+<link rel="alternate" type="text/markdown" href="rajkumar-profile.md" title="Profile for AI reviewers">
+<link rel="alternate" type="application/json" href="rajkumar-profile.json" title="Structured profile">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Rajkumar Dhasan","jobTitle":"Senior UI/UX & Product Designer","email":"mailto:drajkumar13@gmail.com","telephone":"+971542644838","address":{"@type":"PostalAddress","addressLocality":"Abu Dhabi","addressCountry":"AE"},"sameAs":["https://linkedin.com/in/draj-kumar"],"worksFor":{"@type":"Organization","name":"Kief Consultancies & Technologies"},"alumniOf":{"@type":"CollegeOrUniversity","name":"Bharathiyar University"},"knowsLanguage":["English"],"knowsAbout":["Product design","UI/UX design","User research","Usability testing","Information architecture","Design systems","Prototyping","Figma","Arabic RTL interface design","Mobile app design","Developer handoff"],"hasOccupation":{"@type":"Occupation","name":"Senior Product Designer","occupationLocation":{"@type":"City","name":"Abu Dhabi"},"experienceRequirements":"6+ years"},"subjectOf":[{"@type":"CreativeWork","name":"Taggo","description":"UAE mobility super app: rides, rental, cargo, VIP and car recovery, rider and driver apps. Solo designer and researcher. Ride booking under 30 seconds across all 7 emirates, 0% hidden fees."},{"@type":"CreativeWork","name":"TheEvents","description":"Middle East e-commerce app with buyer app, vendor marketplace and web portal, AI shopping features and a beauty creator platform. Lead product designer. 50+ screens from 20+ reusable components and 50+ variants."},{"@type":"CreativeWork","name":"Noma","description":"Pickup ordering app for a Dubai specialty coffee shop with a step-by-step drink builder. Solo lead designer. 12-screen ordering flow designed in English and Arabic (RTL)."}]}</script>
+<link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600&amp;f[]=satoshi@400,500,700&amp;display=swap" rel="stylesheet">
+<style>
+html { scroll-behavior:smooth; overflow-x:hidden; overflow-x:clip; }
+body { overflow-x:hidden; overflow-x:clip; }
+body { margin:0; background:#05050A; color:#EFEFF2; font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; -webkit-font-smoothing:antialiased; }
+a { color:#EFEFF2; text-decoration:none; }
+a:hover { color:#FF5A3C; }
+::selection { background:#FF5A3C; color:#05050A; }
+textarea, input, button { font-family:inherit; }
+@keyframes v3-blink { 0%,100% { opacity:.25; } 50% { opacity:1; } }
+@keyframes v3-up { from { transform:translate3d(0,0,0); } to { transform:translate3d(0,-50%,0); } }
+@keyframes v3-down { from { transform:translate3d(0,-50%,0); } to { transform:translate3d(0,0,0); } }
+@keyframes v3-rise { from { opacity:0; transform:translate3d(0,24%,0); } to { opacity:1; transform:none; } }
+@media (prefers-reduced-motion: reduce) { * { animation-duration:0.01s !important; animation-iteration-count:1 !important; } }
+@keyframes v3-in { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:none; } }
+</style>
+</helmet>
+
+<div style="min-height:100vh; background:radial-gradient(90% 60% at 80% -10%, rgba(255,90,60,0.10), transparent 60%), #05050A;">
+
+  <header style="position:sticky; top:0; z-index:20; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px clamp(18px,4vw,48px); background:rgba(5,5,10,0.78); backdrop-filter:blur(18px) saturate(160%); -webkit-backdrop-filter:blur(18px) saturate(160%); border-bottom:1px solid #16161B;">
+    <a href="#top" style="font-family:'Clash Display',sans-serif; font-weight:500; font-size:18px; letter-spacing:-0.01em;">Rajkumar<span style="color:#FF5A3C;">.</span></a>
+    <nav style="display:flex; align-items:center; gap:clamp(12px,2.4vw,28px); font-size:14px; color:#B4B4BB;">
+      <sc-if value="{{ showLinks }}" hint-placeholder-val="{{ true }}">
+        <a href="#work" style="color:#B4B4BB;">Work</a>
+        <a href="#fit" style="color:#B4B4BB;">Fit check</a>
+        <a href="#experience" style="color:#B4B4BB;">Experience</a>
+        <a href="#profile" style="color:#B4B4BB;">Profile</a>
+        <a href="#contact" style="color:#B4B4BB;">Contact</a>
+      </sc-if>
+      <button onClick="{{ openBrief }}" style="display:flex; align-items:center; gap:8px; padding:9px 14px; border-radius:999px; border:1px solid #FF5A3C; background:transparent; color:#FF5A3C; font-size:13px; font-weight:700; cursor:pointer;" style-hover="background:#FF5A3C; color:#05050A;">
+        <span style="width:7px; height:7px; border-radius:50%; background:currentColor;"></span>60s brief
+      </button>
+    </nav>
+  </header>
+
+  <section id="top" data-screen-label="Hero" onMouseMove="{{ onHeroMove }}" onMouseLeave="{{ onHeroLeave }}" style="max-width:1320px; margin:0 auto; padding:clamp(40px,7vw,88px) clamp(18px,4vw,48px) 72px;">
+   <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,480px),1fr)); gap:clamp(32px,4vw,56px); align-items:start;">
+   <div style="min-width:0; padding-top:clamp(0px,3vw,40px);">
+    <div style="display:flex; flex-wrap:wrap; align-items:center; gap:10px; font-size:13px; color:#8C8C93; letter-spacing:0.04em; text-transform:uppercase;">
+      <span style="width:8px; height:8px; border-radius:50%; background:#5ED9B0; box-shadow:0 0 0 4px rgba(94,217,176,0.15);"></span>
+      <span>Rajkumar Dhasan · Senior UI/UX Designer · Abu Dhabi</span>
+    </div>
+    <h1 style="margin:22px 0 0; font-family:'Clash Display',sans-serif; font-weight:500; font-size:clamp(44px,6.4vw,96px); line-height:0.95; letter-spacing:-0.035em; text-wrap:balance; max-width:13ch;">Three live products. One designer. <span style="color:#FF5A3C;">Ask me how.</span></h1>
+    <p style="margin:26px 0 0; max-width:56ch; font-size:clamp(17px,1.6vw,20px); line-height:1.5; color:#B4B4BB; text-wrap:pretty;">This portfolio answers back. Ask it about any project, skill or decision, or paste a job description and see how my work lines up.</p>
+
+    <form onSubmit="{{ onAskSubmit }}" style="margin-top:40px; max-width:780px; display:flex; align-items:center; gap:10px; padding:8px 8px 8px 22px; border-radius:999px; background:#0E0E13; border:1px solid #24242B; box-shadow:0 20px 60px rgba(0,0,0,0.45);">
+      <input value="{{ askText }}" onChange="{{ onAskChange }}" placeholder="Ask my work anything…" aria-label="Ask a question about Rajkumar's work" style="flex:1; min-width:0; background:transparent; border:0; outline:none; color:#EFEFF2; font-size:17px; padding:12px 0;">
+      <button type="submit" style="flex:none; height:48px; padding:0 22px; border-radius:999px; border:0; background:#FF5A3C; color:#05050A; font-weight:700; font-size:15px; cursor:pointer;" style-hover="background:#FF7A60;">Ask</button>
+    </form>
+    <div style="margin-top:14px; display:flex; flex-wrap:wrap; gap:8px; max-width:780px;">
+      <sc-for list="{{ suggestions }}" as="s" hint-placeholder-count="4">
+        <button onClick="{{ s.onClick }}" style="padding:9px 14px; border-radius:999px; border:1px solid #24242B; background:transparent; color:#B4B4BB; font-size:14px; cursor:pointer;" style-hover="border-color:#EFEFF2; color:#EFEFF2;">{{ s.q }}</button>
+      </sc-for>
+    </div>
+
+    <div style="margin-top:28px; max-width:780px; display:flex; flex-direction:column; gap:14px;">
+      <sc-for list="{{ answers }}" as="a" hint-placeholder-count="0">
+        <article style="padding:22px 24px; border-radius:20px; background:#0B0B10; border:1px solid #1C1C21; animation:v3-in .5s cubic-bezier(.16,1,.3,1) both;">
+          <div style="font-size:13px; color:#8C8C93;">{{ a.q }}</div>
+          <sc-if value="{{ a.loading }}" hint-placeholder-val="{{ false }}">
+            <div style="margin-top:12px; display:flex; gap:6px;">
+              <span style="width:7px; height:7px; border-radius:50%; background:#FF5A3C; animation:v3-blink 1s infinite;"></span>
+              <span style="width:7px; height:7px; border-radius:50%; background:#FF5A3C; animation:v3-blink 1s .2s infinite;"></span>
+              <span style="width:7px; height:7px; border-radius:50%; background:#FF5A3C; animation:v3-blink 1s .4s infinite;"></span>
+            </div>
+          </sc-if>
+          <p style="margin:10px 0 0; font-size:17px; line-height:1.55; color:#EFEFF2; text-wrap:pretty;">{{ a.text }}</p>
+          <div style="margin-top:14px; display:flex; flex-wrap:wrap; gap:8px;">
+            <sc-for list="{{ a.sources }}" as="src" hint-placeholder-count="0">
+              <a href="{{ src.href }}" style="display:flex; align-items:center; gap:8px; padding:7px 12px; border-radius:999px; background:#16161B; font-size:13px; color:#EFEFF2;" style-hover="background:#1F1F26;">
+                <span style="width:8px; height:8px; border-radius:50%; background:{{ src.accent }};"></span>{{ src.name }} case study →
+              </a>
+            </sc-for>
+          </div>
+        </article>
+      </sc-for>
+    </div>
+
+   </div>
+
+   <div style="position:relative; min-width:0; height:clamp(480px,58vw,760px); perspective:1600px; overflow:clip;">
+    <div ref="{{ fieldRef }}" style="position:absolute; inset:-4% 0; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(10px,1.4vw,18px); transform:rotateX(16deg) rotateY(-12deg) rotateZ(-7deg); transform-style:preserve-3d; transition:transform .9s cubic-bezier(.16,1,.3,1); -webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 16%,#000 84%,transparent 100%); mask-image:linear-gradient(180deg,transparent 0%,#000 16%,#000 84%,transparent 100%);">
+      <sc-for list="{{ columns }}" as="c" hint-placeholder-count="3">
+        <a href="{{ c.href }}" onMouseEnter="{{ c.onEnter }}" onMouseLeave="{{ c.onLeave }}" aria-label="{{ c.name }} case study" style="position:relative; display:block; height:100%; overflow:hidden; animation:v3-rise 1.4s cubic-bezier(.16,1,.3,1) both; animation-delay:{{ c.delay }};">
+          <div style="height:100%; opacity:{{ c.opacity }}; filter:{{ c.filter }}; transform:{{ c.lift }}; transition:opacity .6s ease, filter .6s ease, transform .8s cubic-bezier(.16,1,.3,1);">
+            <div style="display:flex; flex-direction:column; animation:{{ c.anim }};">
+              <sc-for list="{{ c.screens }}" as="sc" hint-placeholder-count="4">
+                <div style="padding-bottom:clamp(10px,1.4vw,18px);">
+                  <img src="{{ sc }}" alt="" draggable="false" style="display:block; width:100%; aspect-ratio:9/19.5; object-fit:cover; object-position:top; border-radius:clamp(12px,1.6vw,22px); border:1px solid #24242B; background:#0E0E13; box-shadow:0 30px 60px rgba(0,0,0,0.5);">
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </a>
+      </sc-for>
+    </div>
+    <div style="position:absolute; left:0; right:0; bottom:8px; display:flex; justify-content:center; pointer-events:none;">
+      <div style="max-width:min(420px,92%); display:flex; align-items:flex-start; gap:12px; padding:14px 18px; border-radius:18px; background:rgba(11,11,16,0.86); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); border:1px solid #24242B; box-shadow:0 20px 50px rgba(0,0,0,0.5);">
+        <span style="flex:none; margin-top:6px; width:9px; height:9px; border-radius:50%; background:{{ focus.accent }}; box-shadow:0 0 0 5px {{ focus.glow }}; transition:background .4s;"></span>
+        <div style="min-width:0;">
+          <div style="font-size:14px; font-weight:700;">{{ focus.title }}</div>
+          <div style="margin-top:3px; font-size:13px; line-height:1.45; color:#B4B4BB;">{{ focus.body }}</div>
+        </div>
+      </div>
+    </div>
+   </div>
+   </div>
+
+    <div style="margin-top:64px; display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1px; background:#1C1C21; border:1px solid #1C1C21; border-radius:20px; overflow:hidden;">
+      <div style="padding:22px; background:#05050A;"><div style="font-family:'Clash Display',sans-serif; font-size:40px; font-weight:500;">6+</div><div style="margin-top:4px; font-size:14px; color:#8C8C93;">Years designing products</div></div>
+      <div style="padding:22px; background:#05050A;"><div style="font-family:'Clash Display',sans-serif; font-size:40px; font-weight:500;">50+</div><div style="margin-top:4px; font-size:14px; color:#8C8C93;">Screens delivered on TheEvents</div></div>
+      <div style="padding:22px; background:#05050A;"><div style="font-family:'Clash Display',sans-serif; font-size:40px; font-weight:500;">&lt; 30s</div><div style="margin-top:4px; font-size:14px; color:#8C8C93;">To book a ride on Taggo</div></div>
+      <div style="padding:22px; background:#05050A;"><div style="font-family:'Clash Display',sans-serif; font-size:40px; font-weight:500;">EN + AR</div><div style="margin-top:4px; font-size:14px; color:#8C8C93;">Designed side by side</div></div>
+    </div>
+  </section>
+
+  <section id="work" data-screen-label="Work" style="max-width:1180px; margin:0 auto; padding:72px clamp(18px,4vw,48px);">
+    <div style="display:flex; flex-wrap:wrap; align-items:end; justify-content:space-between; gap:16px;">
+      <h2 style="margin:0; font-family:'Clash Display',sans-serif; font-weight:500; font-size:clamp(34px,5vw,60px); letter-spacing:-0.03em;">Selected work</h2>
+      <p style="margin:0; max-width:40ch; color:#8C8C93; font-size:15px; line-height:1.5;">Outcome first, then the numbers. Open any project for the full case study.</p>
+    </div>
+    <div style="margin-top:36px; display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr)); gap:18px;">
+        <a href="Rajkumar Portfolio v2.dc.html#/work/taggo" onMouseMove="{{ spot }}" style="--mx:50%; --my:30%; position:relative; display:flex; flex-direction:column; border-radius:24px; overflow:hidden; background:#0B0B10; border:1px solid #1C1C21; color:#EFEFF2; transition:transform .5s cubic-bezier(.16,1,.3,1), border-color .3s;" style-hover="transform:translateY(-6px); border-color:#33333A; color:#EFEFF2;">
+          <article style="display:flex; flex-direction:column; flex:1;">
+            <div style="aspect-ratio:4/3; background:linear-gradient(135deg,#F0DD50,#DCC93F); overflow:hidden;"><img src="uploads/App Landing-ride-0909.png" alt="Taggo app screens" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+            <div style="position:absolute; inset:0; pointer-events:none; background:radial-gradient(420px circle at var(--mx) var(--my), rgba(255,255,255,0.08), transparent 60%);"></div>
+            <div style="padding:24px; display:flex; flex-direction:column; gap:14px; flex:1;">
+              <div style="display:flex; justify-content:space-between; gap:12px; font-size:13px; color:#8C8C93;"><span>01 · Mobility · Super App</span><span>2023 — Present</span></div>
+              <h3 style="margin:0; font-family:'Clash Display',sans-serif; font-weight:500; font-size:36px; letter-spacing:-0.02em;">Taggo</h3>
+              <p style="margin:0; font-size:16px; line-height:1.5; color:#EFEFF2; text-wrap:pretty;">Booking a ride takes under 30 seconds, across all 7 emirates, with no hidden fees.</p>
+              <p style="margin:0; font-size:13px; line-height:1.45; color:#8C8C93;">Solo designer & researcher · iOS & Android · rider + driver apps</p>
+              <dl style="margin:auto 0 0; padding-top:16px; border-top:1px solid #1C1C21; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px;">
+                <div><dt style="font-family:'Clash Display',sans-serif; font-size:24px; font-weight:500; color:#F0DD50;">< 30s</dt><dd style="margin:2px 0 0; font-size:12px; color:#8C8C93; line-height:1.3;">Booking time</dd></div>
+                <div><dt style="font-family:'Clash Display',sans-serif; font-size:24px; font-weight:500; color:#F0DD50;">7</dt><dd style="margin:2px 0 0; font-size:12px; color:#8C8C93; line-height:1.3;">Emirates covered</dd></div>
+                <div><dt style="font-family:'Clash Display',sans-serif; font-size:24px; font-weight:500; color:#F0DD50;">0%</dt><dd style="margin:2px 0 0; font-size:12px; color:#8C8C93; line-height:1.3;">Hidden fees</dd></div>
+              </dl>
+            </div>
+          </article>
+        </a>
+        <a href="Rajkumar Portfolio v2.dc.html#/work/theevents" onMouseMove="{{ spot }}" style="--mx:50%; --my:30%; position:relative; display:flex; flex-direction:column; border-radius:24px; overflow:hidden; background:#0B0B10; border:1px solid #1C1C21; color:#EFEFF2; transition:transform .5s cubic-bezier(.16,1,.3,1), border-color .3s;" style-hover="transform:translateY(-6px); border-color:#33333A; color:#EFEFF2;">
+          <article style="display:flex; flex-direction:column; flex:1;">
+            <div style="aspect-ratio:4/3; background:linear-gradient(135deg,#F3A195,#E07E6E); overflow:hidden;"><img src="uploads/App Landing-TheEvents Mobile app.png" alt="TheEvents app screens" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+            <div style="position:absolute; inset:0; pointer-events:none; background:radial-gradient(420px circle at var(--mx) var(--my), rgba(255,255,255,0.08), transparent 60%);"></div>
+            <div style="padding:24px; display:flex; flex-direction:column; gap:14px; flex:1;">
+              <div style="display:flex; justify-content:space-between; gap:12px; font-size:13px; color:#8C8C93;"><span>02 · E-Commerce · Buyer + Vendor</span><span>2023 — Present</span></div>
+              <h3 style="margin:0; font-family:'Clash Display',sans-serif; font-weight:500; font-size:36px; letter-spacing:-0.02em;">TheEvents</h3>
+              <p style="margin:0; font-size:16px; line-height:1.5; color:#EFEFF2; text-wrap:pretty;">50+ screens delivered from a single system of 20+ reusable components.</p>
+              <p style="margin:0; font-size:13px; line-height:1.45; color:#8C8C93;">Lead product designer & UX researcher · iOS, Android + vendor web portal</p>
+              <dl style="margin:auto 0 0; padding-top:16px; border-top:1px solid #1C1C21; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px;">
+                <div><dt style="font-family:'Clash Display',sans-serif; font-size:24px; font-weight:500; color:#F3A195;">50+</dt><dd style="margin:2px 0 0; font-size:12px; color:#8C8C93; line-height:1.3;">Screens delivered</dd></div>
+                <div><dt style="font-family:'Clash Display',sans-serif; font-size:24px; font-weight:500; color:#F3A195;">20+</dt><dd style="margin:2px 0 0; font-size:12px; color:#8C8C93; line-height:1.3;">Reusable components</dd></div>
+                <div><dt style="font-family:'Clash Display',sans-serif; font-size:24px; font-weight:500; color:#F3A195;">50+</dt><dd style="margin:2px 0 0; font-size:12px; color:#8C8C93; line-height:1.3;">Component variants</dd></div>
+              </dl>
+            </div>
+          </article>
+        </a>
+        <a href="Rajkumar Portfolio v2.dc.html#/work/noma" onMouseMove="{{ spot }}" style="--mx:50%; --my:30%; position:relative; display:flex; flex-direction:column; border-radius:24px; overflow:hidden; background:#0B0B10; border:1px solid #1C1C21; color:#EFEFF2; transition:transform .5s cubic-bezier(.16,1,.3,1), border-color .3s;" style-hover="transform:translateY(-6px); border-color:#33333A; color:#EFEFF2;">
+          <article style="display:flex; flex-direction:column; flex:1;">
+            <div style="aspect-ratio:4/3; background:linear-gradient(135deg,#DDB892,#B98A60); overflow:hidden;"><img src="uploads/App Landing-Noma.png" alt="Noma app screens" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+            <div style="position:absolute; inset:0; pointer-events:none; background:radial-gradient(420px circle at var(--mx) var(--my), rgba(255,255,255,0.08), transparent 60%);"></div>
+            <div style="padding:24px; display:flex; flex-direction:column; gap:14px; flex:1;">
+              <div style="display:flex; justify-content:space-between; gap:12px; font-size:13px; color:#8C8C93;"><span>03 · Food & Beverage · Ordering</span><span>EN + AR</span></div>
+              <h3 style="margin:0; font-family:'Clash Display',sans-serif; font-weight:500; font-size:36px; letter-spacing:-0.02em;">Noma</h3>
+              <p style="margin:0; font-size:16px; line-height:1.5; color:#EFEFF2; text-wrap:pretty;">A 12-screen ordering flow with a step-by-step drink builder, fully mirrored for Arabic (RTL).</p>
+              <p style="margin:0; font-size:13px; line-height:1.45; color:#8C8C93;">Solo lead designer · iOS & Android · English + Arabic (RTL)</p>
+              <dl style="margin:auto 0 0; padding-top:16px; border-top:1px solid #1C1C21; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px;">
+                <div><dt style="font-family:'Clash Display',sans-serif; font-size:24px; font-weight:500; color:#D2A57A;">12</dt><dd style="margin:2px 0 0; font-size:12px; color:#8C8C93; line-height:1.3;">Flow screens</dd></div>
+                <div><dt style="font-family:'Clash Display',sans-serif; font-size:24px; font-weight:500; color:#D2A57A;">2</dt><dd style="margin:2px 0 0; font-size:12px; color:#8C8C93; line-height:1.3;">Languages</dd></div>
+                <div><dt style="font-family:'Clash Display',sans-serif; font-size:24px; font-weight:500; color:#D2A57A;">4</dt><dd style="margin:2px 0 0; font-size:12px; color:#8C8C93; line-height:1.3;">Builder ingredients</dd></div>
+              </dl>
+            </div>
+          </article>
+        </a>
+    </div>
+  </section>
+
+  <section id="fit" data-screen-label="Fit check" style="max-width:1180px; margin:0 auto; padding:72px clamp(18px,4vw,48px);">
+    <div style="border-radius:28px; border:1px solid #1C1C21; background:#0B0B10; padding:clamp(24px,4vw,48px); display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr)); gap:clamp(24px,4vw,48px);">
+      <div style="display:flex; flex-direction:column; gap:18px;">
+        <div style="font-size:13px; color:#FF5A3C; letter-spacing:0.06em; text-transform:uppercase; font-weight:700;">For hiring managers</div>
+        <h2 style="margin:0; font-family:'Clash Display',sans-serif; font-weight:500; font-size:clamp(32px,4.4vw,52px); line-height:1; letter-spacing:-0.03em; text-wrap:balance;">Paste your job description. See the proof.</h2>
+        <p style="margin:0; color:#B4B4BB; font-size:16px; line-height:1.5; max-width:46ch;">Each requirement is matched to a specific project, so you know which case study to open first and what to ask me in the interview.</p>
+        <textarea value="{{ jdText }}" onChange="{{ onJdChange }}" placeholder="Paste the role description here…" aria-label="Job description" style="min-height:180px; resize:vertical; padding:18px; border-radius:18px; background:#05050A; border:1px solid #24242B; color:#EFEFF2; font-size:15px; line-height:1.5; outline:none;"></textarea>
+        <div style="display:flex; flex-wrap:wrap; gap:10px;">
+          <button onClick="{{ runFit }}" style="height:48px; padding:0 24px; border-radius:999px; border:0; background:#FF5A3C; color:#05050A; font-weight:700; font-size:15px; cursor:pointer;" style-hover="background:#FF7A60;">{{ fitLabel }}</button>
+          <button onClick="{{ sampleJd }}" style="height:48px; padding:0 20px; border-radius:999px; border:1px solid #24242B; background:transparent; color:#B4B4BB; font-size:14px; cursor:pointer;" style-hover="color:#EFEFF2; border-color:#EFEFF2;">Try a sample role</button>
+        </div>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:16px; min-width:0;">
+        <sc-if value="{{ fitEmpty }}" hint-placeholder-val="{{ true }}">
+          <div style="flex:1; min-height:260px; border-radius:20px; border:1px dashed #24242B; display:flex; align-items:center; justify-content:center; padding:24px; text-align:center; color:#5C5C63; font-size:15px;">Your match report appears here.</div>
+        </sc-if>
+        <sc-if value="{{ fitReady }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex; flex-direction:column; gap:16px; animation:v3-in .5s cubic-bezier(.16,1,.3,1) both;">
+            <div style="display:flex; align-items:end; gap:16px;">
+              <div style="font-family:'Clash Display',sans-serif; font-size:72px; line-height:0.9; font-weight:500; color:#FF5A3C;">{{ fit.score }}%</div>
+              <div style="font-size:15px; color:#B4B4BB; line-height:1.4; padding-bottom:6px;">{{ fit.headline }}</div>
+            </div>
+            <div style="height:6px; border-radius:6px; background:#1C1C21; overflow:hidden;"><div style="height:100%; width:{{ fit.bar }}; background:#FF5A3C; border-radius:6px; transition:width 1s cubic-bezier(.16,1,.3,1);"></div></div>
+            <div style="display:flex; flex-direction:column; gap:1px; background:#1C1C21; border-radius:16px; overflow:hidden; border:1px solid #1C1C21;">
+              <sc-for list="{{ fit.matches }}" as="m" hint-placeholder-count="3">
+                <div style="display:grid; grid-template-columns:minmax(0,0.9fr) minmax(0,1.4fr); gap:14px; padding:14px 16px; background:#05050A;">
+                  <div style="font-size:14px; font-weight:700; color:#EFEFF2;">{{ m.need }}</div>
+                  <div style="font-size:14px; line-height:1.45; color:#B4B4BB;">{{ m.proof }} <a href="{{ m.href }}" style="color:#FF5A3C; white-space:nowrap;">{{ m.project }} →</a></div>
+                </div>
+              </sc-for>
+            </div>
+            <div style="padding:16px; border-radius:16px; background:#16161B;">
+              <div style="font-size:12px; color:#8C8C93; text-transform:uppercase; letter-spacing:0.06em;">Open first</div>
+              <div style="margin-top:6px; font-size:15px; line-height:1.45;"><a href="{{ fit.startHref }}" style="font-weight:700; color:#EFEFF2;">{{ fit.startName }}</a> <span style="color:#B4B4BB;">— {{ fit.startWhy }}</span></div>
+            </div>
+            <div>
+              <div style="font-size:12px; color:#8C8C93; text-transform:uppercase; letter-spacing:0.06em;">Worth asking me</div>
+              <ul style="margin:8px 0 0; padding-left:18px; display:flex; flex-direction:column; gap:6px; color:#B4B4BB; font-size:14px; line-height:1.45;">
+                <sc-for list="{{ fit.ask }}" as="q" hint-placeholder-count="2"><li>{{ q }}</li></sc-for>
+              </ul>
+            </div>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Process" style="max-width:1180px; margin:0 auto; padding:72px clamp(18px,4vw,48px);">
+    <h2 style="margin:0; font-family:'Clash Display',sans-serif; font-weight:500; font-size:clamp(34px,5vw,60px); letter-spacing:-0.03em;">How I work</h2>
+    <div style="margin-top:32px; display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:18px;">
+      <sc-for list="{{ stages }}" as="st" hint-placeholder-count="5">
+        <div style="padding:22px 0; border-top:1px solid #33333A; display:flex; flex-direction:column; gap:10px;">
+          <div style="font-size:13px; color:#FF5A3C; font-weight:700;">{{ st.n }}</div>
+          <div style="font-family:'Clash Display',sans-serif; font-size:24px; font-weight:500;">{{ st.title }}</div>
+          <div style="font-size:15px; line-height:1.5; color:#8C8C93;">{{ st.desc }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section id="experience" data-screen-label="Experience" style="max-width:1180px; margin:0 auto; padding:72px clamp(18px,4vw,48px);">
+    <h2 style="margin:0; font-family:'Clash Display',sans-serif; font-weight:500; font-size:clamp(34px,5vw,60px); letter-spacing:-0.03em;">Experience</h2>
+    <div style="margin-top:28px; display:flex; flex-direction:column;">
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr)); gap:8px 24px; padding:22px 0; border-bottom:1px solid #1C1C21;">
+        <div style="font-size:14px; color:#8C8C93;">May 2024 — Present</div>
+        <div><h3 style="margin:0; font-size:18px; font-weight:700;">Senior UI/UX Designer</h3><div style="margin-top:4px; font-size:14px; color:#8C8C93;">Kief Consultancies & Technologies · Abu Dhabi, UAE</div></div>
+        <div style="font-size:14px; line-height:1.5; color:#B4B4BB;">Sole designer across multiple live products, including Taggo and TheEvents, owning research, UX, UI and developer handoff.</div>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr)); gap:8px 24px; padding:22px 0; border-bottom:1px solid #1C1C21;">
+        <div style="font-size:14px; color:#8C8C93;">Dec 2022 — Dec 2023</div>
+        <div><h3 style="margin:0; font-size:18px; font-weight:700;">UI/UX Designer</h3><div style="margin-top:4px; font-size:14px; color:#8C8C93;">Hubble Web Technologies · Dubai, UAE</div></div>
+        <div style="font-size:14px; line-height:1.5; color:#B4B4BB;"></div>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr)); gap:8px 24px; padding:22px 0; border-bottom:1px solid #1C1C21;">
+        <div style="font-size:14px; color:#8C8C93;">Feb 2019 — Jun 2022</div>
+        <div><h3 style="margin:0; font-size:18px; font-weight:700;">UI/UX Designer</h3><div style="margin-top:4px; font-size:14px; color:#8C8C93;">BitsnPixs · India</div></div>
+        <div style="font-size:14px; line-height:1.5; color:#B4B4BB;"></div>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr)); gap:8px 24px; padding:22px 0; border-bottom:1px solid #1C1C21;">
+        <div style="font-size:14px; color:#8C8C93;">2017</div>
+        <div><h3 style="margin:0; font-size:18px; font-weight:700;">MBA</h3><div style="margin-top:4px; font-size:14px; color:#8C8C93;">Bharathiyar University</div></div>
+        <div style="font-size:14px; line-height:1.5; color:#B4B4BB;"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="profile" data-screen-label="Profile" aria-label="Structured profile for recruiters and AI screeners" style="max-width:1180px; margin:0 auto; padding:72px clamp(18px,4vw,48px);">
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr)); gap:clamp(24px,4vw,56px);">
+      <div style="display:flex; flex-direction:column; gap:16px;">
+        <div style="font-size:13px; color:#FF5A3C; letter-spacing:0.06em; text-transform:uppercase; font-weight:700;">For recruiters and AI screeners</div>
+        <h2 style="margin:0; font-family:'Clash Display',sans-serif; font-weight:500; font-size:clamp(32px,4.4vw,52px); line-height:1; letter-spacing:-0.03em; text-wrap:balance;">The facts, in one place.</h2>
+        <p style="margin:0; color:#B4B4BB; font-size:16px; line-height:1.5; max-width:44ch;">Everything on this page is also available as plain text and structured data, so it can go straight into your notes, ATS or screening tool.</p>
+        <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:6px;">
+          <button onClick="{{ copyProfile }}" style="height:48px; padding:0 22px; border-radius:999px; border:0; background:#FF5A3C; color:#05050A; font-weight:700; font-size:15px; cursor:pointer;" style-hover="background:#FF7A60;">{{ copyLabel }}</button>
+          <a href="rajkumar-profile.json" download="rajkumar-dhasan-profile.json" style="display:flex; align-items:center; height:48px; padding:0 20px; border-radius:999px; border:1px solid #33333A; font-size:14px;" style-hover="border-color:#EFEFF2;">Download JSON</a>
+          <a href="rajkumar-profile.md" target="_blank" rel="noopener" style="display:flex; align-items:center; height:48px; padding:0 20px; border-radius:999px; border:1px solid #33333A; font-size:14px;" style-hover="border-color:#EFEFF2;">Plain-text profile</a>
+        </div>
+      </div>
+      <dl style="margin:0; display:flex; flex-direction:column; border-top:1px solid #1C1C21;">
+        <div style="display:grid; grid-template-columns:minmax(0,0.7fr) minmax(0,1.6fr); gap:16px; padding:14px 0; border-bottom:1px solid #1C1C21;"><dt style="font-size:14px; color:#8C8C93;">Role</dt><dd style="margin:0; font-size:15px;">Senior UI/UX &amp; Product Designer</dd></div>
+        <div style="display:grid; grid-template-columns:minmax(0,0.7fr) minmax(0,1.6fr); gap:16px; padding:14px 0; border-bottom:1px solid #1C1C21;"><dt style="font-size:14px; color:#8C8C93;">Location</dt><dd style="margin:0; font-size:15px;">Abu Dhabi, UAE</dd></div>
+        <div style="display:grid; grid-template-columns:minmax(0,0.7fr) minmax(0,1.6fr); gap:16px; padding:14px 0; border-bottom:1px solid #1C1C21;"><dt style="font-size:14px; color:#8C8C93;">Experience</dt><dd style="margin:0; font-size:15px;">6+ years · currently Senior UI/UX Designer at Kief Consultancies &amp; Technologies</dd></div>
+        <div style="display:grid; grid-template-columns:minmax(0,0.7fr) minmax(0,1.6fr); gap:16px; padding:14px 0; border-bottom:1px solid #1C1C21;"><dt style="font-size:14px; color:#8C8C93;">Looking for</dt><dd style="margin:0; font-size:15px;">Senior Product Designer or Senior UI/UX Designer roles</dd></div>
+        <div style="display:grid; grid-template-columns:minmax(0,0.7fr) minmax(0,1.6fr); gap:16px; padding:14px 0; border-bottom:1px solid #1C1C21;"><dt style="font-size:14px; color:#8C8C93;">Shipped work</dt><dd style="margin:0; font-size:15px; line-height:1.5;">Taggo (mobility super app), TheEvents (e-commerce marketplace), Noma (coffee ordering, EN + AR)</dd></div>
+        <div style="display:grid; grid-template-columns:minmax(0,0.7fr) minmax(0,1.6fr); gap:16px; padding:14px 0; border-bottom:1px solid #1C1C21;"><dt style="font-size:14px; color:#8C8C93;">Core skills</dt><dd style="margin:0; font-size:15px; line-height:1.5;">User research, usability testing, information architecture, wireframing, high-fidelity UI, prototyping, design systems, Arabic / RTL, developer handoff</dd></div>
+        <div style="display:grid; grid-template-columns:minmax(0,0.7fr) minmax(0,1.6fr); gap:16px; padding:14px 0; border-bottom:1px solid #1C1C21;"><dt style="font-size:14px; color:#8C8C93;">Tools</dt><dd style="margin:0; font-size:15px;">Figma · HTML, CSS, Java · AI-assisted prototyping</dd></div>
+        <div style="display:grid; grid-template-columns:minmax(0,0.7fr) minmax(0,1.6fr); gap:16px; padding:14px 0; border-bottom:1px solid #1C1C21;"><dt style="font-size:14px; color:#8C8C93;">Education</dt><dd style="margin:0; font-size:15px;">MBA, Bharathiyar University (2017)</dd></div>
+        <div style="display:grid; grid-template-columns:minmax(0,0.7fr) minmax(0,1.6fr); gap:16px; padding:14px 0; border-bottom:1px solid #1C1C21;"><dt style="font-size:14px; color:#8C8C93;">Contact</dt><dd style="margin:0; font-size:15px;">drajkumar13@gmail.com · +971 54 264 4838</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section id="contact" data-screen-label="Contact" style="max-width:1180px; margin:0 auto; padding:96px clamp(18px,4vw,48px) 120px;">
+    <h2 style="margin:0; font-family:'Clash Display',sans-serif; font-weight:500; font-size:clamp(44px,8vw,104px); line-height:0.95; letter-spacing:-0.035em; max-width:12ch;">Let's build the next one.</h2>
+    <div style="margin-top:40px; display:flex; flex-wrap:wrap; gap:12px;">
+      <a href="mailto:drajkumar13@gmail.com?subject=Portfolio%20Enquiry" style="display:flex; align-items:center; height:56px; padding:0 26px; border-radius:999px; background:#FF5A3C; color:#05050A; font-weight:700; font-size:16px;" style-hover="background:#FF7A60; color:#05050A;">drajkumar13@gmail.com</a>
+      <a href="tel:+971542644838" style="display:flex; align-items:center; height:56px; padding:0 24px; border-radius:999px; border:1px solid #33333A; font-size:16px;" style-hover="border-color:#EFEFF2;">+971 54 264 4838</a>
+      <a href="https://linkedin.com/in/draj-kumar" target="_blank" rel="noopener" style="display:flex; align-items:center; height:56px; padding:0 24px; border-radius:999px; border:1px solid #33333A; font-size:16px;" style-hover="border-color:#EFEFF2;">LinkedIn</a>
+    </div>
+    <div style="margin-top:80px; padding-top:22px; border-top:1px solid #1C1C21; display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px; font-size:13px; color:#5C5C63;">
+      <span>Rajkumar Dhasan · Abu Dhabi, UAE</span>
+      <a href="Rajkumar Portfolio v2.dc.html" style="color:#8C8C93;">Full case-study site →</a>
+    </div>
+  </section>
+</div>
+
+<sc-if value="{{ briefOpen }}" hint-placeholder-val="{{ false }}">
+  <div role="dialog" aria-label="60-second brief" style="position:fixed; inset:0; z-index:100; background:rgba(0,0,0,0.86); backdrop-filter:blur(10px); display:flex; align-items:center; justify-content:center; padding:16px;">
+    <div onPointerDown="{{ briefDown }}" onPointerUp="{{ briefUp }}" onPointerLeave="{{ briefLeave }}" style="position:relative; width:min(440px,100%); height:min(820px,calc(100vh - 32px)); border-radius:28px; overflow:hidden; background:{{ slide.bg }}; display:flex; flex-direction:column; user-select:none; touch-action:none; cursor:pointer;">
+      <div style="position:absolute; top:14px; left:14px; right:14px; z-index:3; display:flex; gap:4px;">
+        <sc-for list="{{ briefBars }}" as="b" hint-placeholder-count="6">
+          <div style="flex:1; height:3px; border-radius:3px; background:rgba(255,255,255,0.25); overflow:hidden;"><div style="height:100%; width:{{ b.w }}; background:#FFFFFF;"></div></div>
+        </sc-for>
+      </div>
+      <div style="position:absolute; top:28px; left:18px; right:18px; z-index:3; display:flex; justify-content:space-between; align-items:center; font-size:13px; color:#FFFFFF;">
+        <span style="font-weight:700;">{{ slide.kicker }}</span>
+        <button onPointerDown="{{ stop }}" onClick="{{ closeBrief }}" aria-label="Close brief" style="width:40px; height:40px; border-radius:50%; border:0; background:rgba(0,0,0,0.35); color:#FFFFFF; font-size:20px; cursor:pointer;">×</button>
+      </div>
+      <sc-if value="{{ slide.hasImg }}" hint-placeholder-val="{{ false }}">
+        <div style="flex:1; min-height:0; overflow:hidden;"><img src="{{ slide.img }}" alt="{{ slide.title }}" draggable="false" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+      </sc-if>
+      <div style="padding:28px 24px 30px; display:flex; flex-direction:column; gap:14px; background:#05050A; flex:{{ slide.textFlex }}; justify-content:flex-end;">
+        <div style="font-family:'Clash Display',sans-serif; font-weight:500; font-size:34px; line-height:1; letter-spacing:-0.02em; text-wrap:balance;">{{ slide.title }}</div>
+        <p style="margin:0; font-size:16px; line-height:1.5; color:#B4B4BB; text-wrap:pretty;">{{ slide.body }}</p>
+        <sc-if value="{{ slide.hasMetrics }}" hint-placeholder-val="{{ false }}">
+          <div style="display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; padding-top:14px; border-top:1px solid #1C1C21;">
+            <sc-for list="{{ slide.metrics }}" as="m" hint-placeholder-count="3">
+              <div><div style="font-family:'Clash Display',sans-serif; font-size:22px; color:{{ slide.accent }};">{{ m.value }}</div><div style="font-size:12px; color:#8C8C93;">{{ m.label }}</div></div>
+            </sc-for>
+          </div>
+        </sc-if>
+        <sc-if value="{{ slide.hasCta }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex; flex-wrap:wrap; gap:10px;">
+            <a href="mailto:drajkumar13@gmail.com?subject=Portfolio%20Enquiry" onPointerDown="{{ stop }}" style="display:flex; align-items:center; height:48px; padding:0 20px; border-radius:999px; background:#FF5A3C; color:#05050A; font-weight:700;">Email me</a>
+            <button onPointerDown="{{ stop }}" onClick="{{ briefToFit }}" style="height:48px; padding:0 20px; border-radius:999px; border:1px solid #33333A; background:transparent; color:#EFEFF2; font-size:15px; cursor:pointer;">Check fit for a role</button>
+          </div>
+        </sc-if>
+        <div style="font-size:12px; color:#5C5C63;">{{ briefHint }}</div>
+      </div>
+    </div>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;slideSeconds&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:6,&quot;min&quot;:3,&quot;max&quot;:12,&quot;step&quot;:1,&quot;unit&quot;:&quot;s&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;60s brief&quot;}}">
+const V2 = 'Rajkumar Portfolio v2.dc.html';
+const P = [
+  { id:'taggo', index:'01', name:'Taggo', category:'Mobility · Super App', year:'2023 — Present', accent:'#F0DD50', gradient:'linear-gradient(135deg,#F0DD50,#DCC93F)', cover:'uploads/App Landing-ride-0909.png',
+    outcome:'Booking a ride takes under 30 seconds, across all 7 emirates, with no hidden fees.',
+    challenge:'Riders needed separate apps for rides, rental and cargo, distrusted surge pricing, and had no Arabic-first option.',
+    impact:[{value:'< 30s',label:'Booking time'},{value:'7',label:'Emirates covered'},{value:'0%',label:'Hidden fees'}] },
+  { id:'theevents', index:'02', name:'TheEvents', category:'E-Commerce · Buyer + Vendor', year:'2023 — Present', accent:'#F3A195', gradient:'linear-gradient(135deg,#F3A195,#E07E6E)', cover:'uploads/App Landing-TheEvents Mobile app.png',
+    outcome:'50+ screens delivered from a single system of 20+ reusable components.',
+    challenge:'Planning a celebration meant moving between separate sellers, creators and vendors, with no single place to shop, book and sell.',
+    impact:[{value:'50+',label:'Screens delivered'},{value:'20+',label:'Reusable components'},{value:'147',label:'Prototype screens'}] },
+  { id:'noma', index:'03', name:'Noma', category:'Food & Beverage · Ordering', year:'EN + AR', accent:'#D2A57A', gradient:'linear-gradient(135deg,#DDB892,#B98A60)', cover:'uploads/App Landing-Noma.png',
+    outcome:'A 12-screen ordering flow with a step-by-step drink builder, fully mirrored for Arabic (RTL).',
+    challenge:'Customers of a Dubai specialty coffee shop wanted drinks made their way, ordered ahead for pickup, in English or Arabic.',
+    impact:[{value:'12',label:'Flow screens'},{value:'2',label:'Languages'},{value:'4',label:'Builder ingredients'}] },
+];
+const SCREENS = {
+  taggo:['rf-1-where','rf-2-vehicle','rf-3-searching','rf-4-assigned','rf-5-arrived','rf-6-completed','rf-7-tips','rf-8-details'].map(f => 'assets/taggo/web/' + f + '.jpg'),
+  theevents:['Home - Landing Page TheEvents','Product Categories Theevnts','Makeup Artist Profile- theevents','Seller Profile- theevents','New Arrivals thevents','Product Drilt Down theevents','Order Summary Screen thevents','Checkout theevents','Order Confirmed theevents'].map(f => 'uploads/' + f + '.png'),
+  noma:['assets/noma-menu.png','assets/noma-builder.png','assets/noma-builder-iced.png','assets/noma-menu.png','assets/noma-builder.png','assets/noma-builder-iced.png'],
+};
+const href = (id) => V2 + '#/work/' + id;
+const byId = (id) => { const k = String(id || '').toLowerCase().replace(/[^a-z]/g, ''); return P.find(p => p.id === k); };
+const nid = (id) => (byId(id) || {}).id;
+
+const KB = `Rajkumar Dhasan — Senior UI/UX & Product Designer, Abu Dhabi, UAE. 6+ years. Design is the primary skill; code (HTML, CSS, Java) and AI are accelerators. MBA, Bharathiyar University (2017).
+Experience: Senior UI/UX Designer, Kief Consultancies & Technologies, Abu Dhabi (May 2024–present) — sole designer across multiple live products incl. Taggo and TheEvents, owning research, UX, UI and dev handoff. UI/UX Designer, Hubble Web Technologies, Dubai (Dec 2022–Dec 2023). UI/UX Designer, BitsnPixs, India (Feb 2019–Jun 2022).
+Taggo (id taggo): UAE mobility super app — ride-hailing, car rental, cargo, VIP/airport, car recovery, AI voice assistant; rider + driver apps, iOS & Android. Solo designer & researcher: research, IA, wireframes, visual design, prototyping, usability testing, design system, handoff. Booking under 30s, all 7 emirates, 0% hidden fees, 70+ screens, Arabic-first. Learned: early IA testing saved rework; UAE commuters needed cash-first payment; RTL, prayer times and Dirham formatting each needed design passes. Would do differently: tokens from day one, more driver-side testing earlier.
+TheEvents (id theevents): Middle East e-commerce app — buyer app, vendor/seller marketplace with responsive web portal and 7-step onboarding, AI shopping (voice search, visual search, gift finder, chatbot), beauty creator platform. Lead product designer & UX researcher. 50+ screens, 20+ reusable components, 50+ variants, wireframes through clickable prototype, organised in a Figma Design Hub for engineering.
+Noma (id noma): Dubai specialty coffee pickup ordering app, English + Arabic RTL. Solo lead designer: research, personas, IA, wireframes, UI, design system, variable-driven prototype. Step-by-step drink builder (milk, sugar, coffee powder, ice) with live cup and running price. 12 ordering-flow screens, 5 menu categories.
+Process: Discover, Define, Design, Validate, Deliver & Evolve. Tools: Figma. Contact: drajkumar13@gmail.com, +971 54 264 4838, linkedin.com/in/draj-kumar.`;
+
+const TOPICS = [
+  { k:['taggo','ride','mobility','taxi','transport','driver','cargo','rental'], ids:['taggo'], a:'Taggo is a UAE mobility super app covering rides, rental, cargo, VIP transfers and car recovery, with separate rider and driver apps. I was the solo designer and researcher, from IA through handoff. Booking now takes under 30 seconds across all 7 emirates with no hidden fees.' },
+  { k:['event','commerce','shop','vendor','seller','marketplace','checkout','retail'], ids:['theevents'], a:'TheEvents is a Middle East e-commerce app with a buyer app, a vendor marketplace with a web portal, AI shopping tools and a beauty creator platform. As lead designer I delivered 50+ screens from one library of 20+ components and 50+ variants.' },
+  { k:['noma','coffee','drink','food','order','builder','cafe'], ids:['noma'], a:'Noma is a pickup ordering app for a Dubai specialty coffee shop. Customers build a drink ingredient by ingredient with a live cup and running price. I led it end to end as the only designer, in English and Arabic.' },
+  { k:['arabic','rtl','locali','bilingual','middle east','uae','gcc'], ids:['noma','taggo'], a:'Yes. On Noma every screen was designed in English and Arabic side by side. On Taggo, RTL layouts, prayer-time considerations and Dirham formatting each got a dedicated design pass.' },
+  { k:['system','component','token','library','variant'], ids:['theevents'], a:'TheEvents runs on a component library of 20+ reusable components and 50+ variants that carried 50+ screens. On Taggo, my main lesson was to start with tokens from day one rather than retrofit them.' },
+  { k:['research','test','usability','interview','persona','user'], ids:['taggo'], a:'I run interviews, journey mapping, IA testing and usability tests. On Taggo, testing with real UAE commuters showed that a cash-first payment flow was essential, and early IA testing saved major rework.' },
+  { k:['experience','year','career','kief','hubble','background','who'], ids:[], a:'6+ years. Senior UI/UX Designer at Kief Consultancies & Technologies in Abu Dhabi since May 2024, where I am the sole designer across live products. Before that, Hubble Web Technologies in Dubai and BitsnPixs in India.' },
+  { k:['ai','code','tool','figma','html','develop'], ids:['taggo','theevents'], a:'Figma is my main tool. A background in HTML, CSS and Java helps me hand off precisely, and I use AI to prototype faster. I have also designed AI features: Taggo\'s voice booking assistant and TheEvents\' AI search and gift finder.' },
+  { k:['contact','hire','email','available','reach','phone','salary'], ids:[], a:'Email drajkumar13@gmail.com or call +971 54 264 4838. I am based in Abu Dhabi.' },
+];
+
+const FIT = [
+  { k:['mobile','ios','android','app'], need:'Mobile app design', id:'taggo', proof:'Rider and driver apps on iOS and Android, research to handoff.' },
+  { k:['design system','component','token','library'], need:'Design systems', id:'theevents', proof:'20+ components and 50+ variants carrying 50+ screens.' },
+  { k:['research','interview','persona','journey','usability','testing','user test'], need:'User research & testing', id:'taggo', proof:'Usability testing with UAE commuters changed the payment flow.' },
+  { k:['arabic','rtl','bilingual','locali','middle east','gcc','uae'], need:'Arabic / RTL', id:'noma', proof:'Every screen designed in English and Arabic side by side.' },
+  { k:['commerce','marketplace','checkout','retail','vendor','shopping'], need:'E-commerce & marketplaces', id:'theevents', proof:'Buyer app, vendor portal and 7-step seller onboarding.' },
+  { k:['prototyp','interaction','figma','micro'], need:'Prototyping in Figma', id:'theevents', proof:'Clickable Figma prototypes covering the full purchase loop, AI search and error states.' },
+  { k:['handoff','developer','engineer','agile','scrum','qa'], need:'Developer handoff', id:'taggo', proof:'Owned handoff and design QA as the sole designer on live products.' },
+  { k:['web','responsive','dashboard','portal','saas'], need:'Responsive web & dashboards', id:'theevents', proof:'A responsive vendor web portal with dashboard, pricing and finance tools.' },
+  { k:['ai','assistant','chatbot','llm','voice'], need:'AI-powered features', id:'taggo', proof:'Voice booking assistant that compares fares and books rides.' },
+  { k:['information architecture','ia ','navigation','flows','user flow'], need:'Information architecture', id:'taggo', proof:'One IA for rides, rental, cargo, VIP and recovery in a single app.' },
+  { k:['senior','lead','end-to-end','end to end','ownership','stakeholder','autonom'], need:'Senior ownership', id:'theevents', proof:'Sole or lead designer on all three products, end to end.' },
+  { k:['mobility','logistic','transport','delivery','ride'], need:'Mobility & logistics', id:'taggo', proof:'Rides, cargo tracking and a driver companion app.' },
+];
+
+const SAMPLE_JD = `Senior Product Designer — Dubai
+We're looking for a senior designer to own our consumer mobile app end to end. You'll run user research and usability testing, design in Figma, maintain our design system, and work closely with engineers through handoff. Experience designing Arabic/RTL interfaces for the GCC market is a strong plus. Bonus: e-commerce or marketplace experience.`;
+
+const STAGES = [
+  { n:'01', title:'Discover', desc:'Understand the product, the business, the users and what is broken today.' },
+  { n:'02', title:'Define', desc:'Organise findings into one clear problem and product direction.' },
+  { n:'03', title:'Design', desc:'Flows, wireframes, visual systems and high-fidelity interfaces.' },
+  { n:'04', title:'Validate', desc:'Interactive prototypes, usability testing, and changes based on what users do.' },
+  { n:'05', title:'Deliver & Evolve', desc:'Organised files, documented components, and support through development.' },
+];
+const JOURNEY = [
+  { dates:'May 2024 — Present', title:'Senior UI/UX Designer', org:'Kief Consultancies & Technologies · Abu Dhabi', note:'Sole designer across multiple live products, including Taggo and TheEvents, owning research, UX, UI and developer handoff.' },
+  { dates:'Dec 2022 — Dec 2023', title:'UI/UX Designer', org:'Hubble Web Technologies · Dubai', note:'' },
+  { dates:'Feb 2019 — Jun 2022', title:'UI/UX Designer', org:'BitsnPixs · India', note:'' },
+  { dates:'2017', title:'MBA', org:'Bharathiyar University', note:'' },
+];
+
+const SLIDES = [
+  { kicker:'1 / 6 · Who', title:'Rajkumar Dhasan', body:'Senior UI/UX Designer in Abu Dhabi with 6+ years. Sole designer across live mobility, e-commerce and food products. Design first; code and AI speed it up.', img:'uploads/mine.png', bg:'#0B0B10' },
+  ...P.map((p, i) => ({ kicker:(i + 2) + ' / 6 · ' + p.name, title:p.outcome, body:p.challenge, img:p.cover, bg:p.gradient, metrics:p.impact, accent:p.accent })),
+  { kicker:'5 / 6 · How', title:'Discover, define, design, validate, deliver.', body:'Every project goes through research and testing before handoff, and I stay with engineering through implementation.', bg:'#05050A' },
+  { kicker:'6 / 6 · Next', title:'Let\'s build the next one.', body:'drajkumar13@gmail.com · +971 54 264 4838', bg:'#05050A', cta:true },
+];
+
+class Component extends DCLogic {
+  state = { askText:'', answers:[], jdText:'', fit:null, fitLoading:false, briefOpen:false, bIdx:0, bT:0 };
+
+  componentDidMount() {
+    this._rs = () => { const n = window.innerWidth < 640; if (n !== this.state.narrow) this.setState({ narrow:n }); };
+    this._rs(); window.addEventListener('resize', this._rs);
+    this._key = (e) => {
+      if (!this.state.briefOpen) return;
+      if (e.key === 'Escape') this.closeBrief();
+      if (e.key === 'ArrowRight') this.go(1);
+      if (e.key === 'ArrowLeft') this.go(-1);
+    };
+    window.addEventListener('keydown', this._key);
+    if (/brief/.test(location.hash)) this.openBrief();
+  }
+  componentWillUnmount() { window.removeEventListener('keydown', this._key); cancelAnimationFrame(this._raf); }
+
+  fieldRef = React.createRef();
+  focusId() {
+    if (this.state.hoverId) return this.state.hoverId;
+    const a = this.state.answers[0];
+    return a && !a.loading && a.ids && a.ids.length === 1 ? a.ids[0] : null;
+  }
+  hasAI() { return typeof window !== 'undefined' && window.claude && typeof window.claude.complete === 'function'; }
+  json(t) { const m = String(t).match(/\{[\s\S]*\}/); return m ? JSON.parse(m[0]) : null; }
+
+  localAnswer(q) {
+    const s = q.toLowerCase();
+    let best = null, bs = 0;
+    TOPICS.forEach(t => { const n = t.k.filter(k => s.includes(k)).length; if (n > bs) { bs = n; best = t; } });
+    if (!best) return { text:'I design end-to-end mobile products: Taggo (mobility), TheEvents (e-commerce) and Noma (coffee ordering, English and Arabic). Ask about any of them, or about research, design systems or RTL.', ids:['taggo','theevents','noma'] };
+    return { text:best.a, ids:best.ids };
+  }
+
+  async ask(q) {
+    q = (q || '').trim(); if (!q) return;
+    const id = Date.now();
+    this.setState(s => ({ askText:'', answers:[{ id, q, loading:true, text:'', ids:[] }, ...s.answers].slice(0, 3) }));
+    let res = null;
+    if (this.hasAI()) {
+      try {
+        const out = await window.claude.complete({
+          system:'You answer questions about designer Rajkumar Dhasan in first person, as him, using ONLY these facts. Be specific, warm and brief (max 60 words). If the facts do not cover it, say so and suggest emailing. Reply with JSON only: {"answer":"...","projects":["taggo"|"theevents"|"noma"]}.\n\n' + KB,
+          messages:[{ role:'user', content:q }], max_tokens:300,
+        });
+        const j = this.json(out); if (j && j.answer) res = { text:j.answer, ids:[...new Set((j.projects || []).map(nid).filter(Boolean))] };
+      } catch (e) {}
+    }
+    if (!res) { await new Promise(r => setTimeout(r, 450)); res = this.localAnswer(q); }
+    this.setState(s => ({ answers:s.answers.map(a => a.id === id ? { ...a, loading:false, ...res } : a) }));
+  }
+
+  localFit(jd) {
+    const s = ' ' + jd.toLowerCase() + ' ';
+    const hits = FIT.filter(f => f.k.some(k => s.includes(k)));
+    const mentioned = Math.max(hits.length, 3);
+    const score = hits.length ? Math.min(96, Math.round(62 + 34 * hits.length / (mentioned + 1))) : 40;
+    const count = {}; hits.forEach(h => { count[h.id] = (count[h.id] || 0) + 1; });
+    const startId = Object.keys(count).sort((a, b) => count[b] - count[a])[0] || 'taggo';
+    const matches = (hits.length ? hits : FIT.slice(0, 3)).slice(0, 5).map(h => ({ need:h.need, proof:h.proof, project:byId(h.id).name, id:h.id }));
+    return {
+      score,
+      headline: hits.length ? hits.length + ' requirements matched to shipped work.' : 'Few direct matches found. Paste more of the role for a better read.',
+      matches, startId,
+      startWhy: 'it covers the most of what this role asks for.',
+      ask: ['How did you decide what to test first on ' + byId(startId).name + '?', 'What would you change if you started the project again?'],
+    };
+  }
+
+  async runFit() {
+    const jd = this.state.jdText.trim(); if (!jd || this.state.fitLoading) return;
+    this.setState({ fitLoading:true });
+    let res = null;
+    if (this.hasAI()) {
+      try {
+        const out = await window.claude.complete({
+          system:'You compare a job description against designer Rajkumar Dhasan\'s real work, using ONLY these facts. Be honest; do not invent experience. Reply with JSON only: {"score":0-100,"headline":"one sentence","matches":[{"need":"short requirement from the JD","proof":"one concrete sentence of evidence","id":"taggo|theevents|noma"}] (3-5 items),"startId":"taggo|theevents|noma","startWhy":"short reason","ask":["2 interview questions worth asking him"]}.\n\n' + KB,
+          messages:[{ role:'user', content:jd.slice(0, 4000) }], max_tokens:700,
+        });
+        const j = this.json(out);
+        if (j && j.matches) {
+          let matches = j.matches.filter(m => byId(m.id)).map(m => ({ need:m.need, proof:m.proof, id:nid(m.id), project:byId(m.id).name }));
+          if (matches.length < 3) { const loc = this.localFit(jd).matches.filter(l => !matches.some(m => m.need === l.need)); matches = matches.concat(loc); }
+          res = { score:Math.max(0, Math.min(100, +j.score || 0)), headline:j.headline, startId:nid(j.startId) || 'taggo', startWhy:j.startWhy, ask:(j.ask || []).slice(0, 3), matches:matches.slice(0, 5) };
+        }
+      } catch (e) {}
+    }
+    if (!res) { await new Promise(r => setTimeout(r, 600)); res = this.localFit(jd); }
+    this.setState({ fit:{ ...res, bar:'0%' }, fitLoading:false }, () => requestAnimationFrame(() => requestAnimationFrame(() => this.setState(s => ({ fit:{ ...s.fit, bar:s.fit.score + '%' } })))));
+  }
+
+  dur() { return (this.props.slideSeconds ?? 6) * 1000; }
+  tick = (now) => {
+    if (!this.state.briefOpen) return;
+    if (!this._paused) {
+      const dt = now - (this._last || now);
+      const t = this.state.bT + dt / this.dur();
+      if (t >= 1) { if (this.state.bIdx < SLIDES.length - 1) this.setState({ bIdx:this.state.bIdx + 1, bT:0 }); else this.setState({ bT:1 }); }
+      else this.setState({ bT:t });
+    }
+    this._last = now;
+    this._raf = requestAnimationFrame(this.tick);
+  };
+  openBrief = () => { this._paused = false; this._last = 0; this.setState({ briefOpen:true, bIdx:0, bT:0 }, () => { this._raf = requestAnimationFrame(this.tick); }); };
+  closeBrief = () => { cancelAnimationFrame(this._raf); this.setState({ briefOpen:false }); };
+  go(d) { const i = Math.max(0, Math.min(SLIDES.length - 1, this.state.bIdx + d)); this.setState({ bIdx:i, bT:0 }); }
+
+  renderVals() {
+    const s = this.state;
+    const slide = SLIDES[s.bIdx];
+    const fit = s.fit;
+    return {
+      showLinks:!s.narrow,
+      spot:(e) => { const r = e.currentTarget.getBoundingClientRect(); e.currentTarget.style.setProperty('--mx', (e.clientX - r.left) + 'px'); e.currentTarget.style.setProperty('--my', (e.clientY - r.top) + 'px'); },
+      copyLabel:s.copied ? 'Copied' : 'Copy profile as text',
+      copyProfile:async () => {
+        let t = KB;
+        try { const r = await fetch('rajkumar-profile.md'); if (r.ok) t = await r.text(); } catch (e) {}
+        try { await navigator.clipboard.writeText(t); } catch (e) { const ta = document.createElement('textarea'); ta.value = t; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove(); }
+        this.setState({ copied:true }); clearTimeout(this._cp); this._cp = setTimeout(() => this.setState({ copied:false }), 2000);
+      },
+      fieldRef:this.fieldRef,
+      onHeroMove:(e) => {
+        const el = this.fieldRef.current; if (!el) return;
+        const x = e.clientX / window.innerWidth - 0.5, y = e.clientY / window.innerHeight - 0.5;
+        el.style.transform = 'rotateX(' + (16 - y * 10) + 'deg) rotateY(' + (-12 + x * 14) + 'deg) rotateZ(-7deg)';
+      },
+      onHeroLeave:() => { const el = this.fieldRef.current; if (el) el.style.transform = ''; },
+      columns:(() => {
+        const f = this.focusId();
+        return P.map((p, i) => ({
+          name:p.name, href:href(p.id), delay:(0.15 + i * 0.18) + 's',
+          screens:[...SCREENS[p.id], ...SCREENS[p.id]],
+          anim:(i === 1 ? 'v3-down ' : 'v3-up ') + [46, 54, 40][i] + 's linear infinite',
+          opacity:!f || f === p.id ? 1 : 0.22,
+          filter:!f || f === p.id ? 'none' : 'blur(3px) grayscale(0.7)',
+          lift:f === p.id ? 'translateZ(70px) scale(1.04)' : 'none',
+          onEnter:() => this.setState({ hoverId:p.id }),
+          onLeave:() => this.setState({ hoverId:null }),
+        }));
+      })(),
+      focus:(() => {
+        const p = byId(this.focusId());
+        if (!p) return { title:'Real screens from three shipped products', body:'Taggo, TheEvents and Noma. Hover a column, or ask about a project, and it comes forward.', accent:'#FF5A3C', glow:'rgba(255,90,60,0.18)' };
+        const h = p.accent.slice(1), rgb = [0, 2, 4].map(k => parseInt(h.slice(k, k + 2), 16)).join(',');
+        return { title:p.name + ' · ' + p.category, body:p.outcome, accent:p.accent, glow:'rgba(' + rgb + ',0.2)' };
+      })(),
+      askText:s.askText,
+      onAskChange:(e) => this.setState({ askText:e.target.value }),
+      onAskSubmit:(e) => { e.preventDefault(); this.ask(s.askText); },
+      suggestions:['What did you design on Taggo?', 'Do you design for Arabic / RTL?', 'Show me design systems work', 'How many years of experience?'].map(q => ({ q, onClick:() => this.ask(q) })),
+      answers:s.answers.map(a => ({ q:a.q, loading:a.loading, text:a.text, sources:(a.ids || []).map(id => ({ name:byId(id).name, accent:byId(id).accent, href:href(id) })) })),
+      projects:P.map(p => ({ ...p, href:href(p.id), onMove:(e) => { const r = e.currentTarget.getBoundingClientRect(); e.currentTarget.style.setProperty('--mx', (e.clientX - r.left) + 'px'); e.currentTarget.style.setProperty('--my', (e.clientY - r.top) + 'px'); } })),
+      jdText:s.jdText,
+      onJdChange:(e) => this.setState({ jdText:e.target.value }),
+      sampleJd:() => this.setState({ jdText:SAMPLE_JD }, () => this.runFit()),
+      runFit:() => this.runFit(),
+      fitLabel:s.fitLoading ? 'Matching…' : 'Check fit',
+      fitEmpty:!fit, fitReady:!!fit,
+      fit:fit ? { ...fit, matches:fit.matches.map(m => ({ ...m, href:href(m.id) })), startName:byId(fit.startId).name, startHref:href(fit.startId) } : { matches:[], ask:[] },
+      stages:STAGES, journey:JOURNEY,
+      briefOpen:s.briefOpen, openBrief:this.openBrief, closeBrief:this.closeBrief,
+      briefBars:SLIDES.map((_, i) => ({ w:i < s.bIdx ? '100%' : i === s.bIdx ? (s.bT * 100).toFixed(1) + '%' : '0%' })),
+      slide:{ ...slide, hasImg:!!slide.img, textFlex:slide.img ? '0 0 auto' : '1', hasMetrics:!!slide.metrics, metrics:slide.metrics || [], accent:slide.accent || '#FF5A3C', hasCta:!!slide.cta },
+      briefHint:'Tap left or right to move · hold to pause',
+      stop:(e) => e.stopPropagation(),
+      briefDown:(e) => { this._downAt = Date.now(); this._downX = e.clientX; this._paused = true; },
+      briefUp:(e) => {
+        this._paused = false;
+        if (Date.now() - (this._downAt || 0) < 250) { const r = e.currentTarget.getBoundingClientRect(); this.go(e.clientX - r.left < r.width / 3 ? -1 : 1); }
+      },
+      briefLeave:() => { this._paused = false; },
+      briefToFit:() => { this.closeBrief(); setTimeout(() => { const el = document.getElementById('fit'); if (el) window.scrollTo({ top:el.getBoundingClientRect().top + window.scrollY - 70, behavior:'smooth' }); }, 50); },
+    };
+  }
+}
+</script>
+</body>
+</html>

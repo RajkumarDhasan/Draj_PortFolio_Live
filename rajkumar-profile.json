@@ -1,0 +1,21 @@
+{
+  "name": "Rajkumar Dhasan",
+  "title": "Senior UI/UX & Product Designer",
+  "location": "Abu Dhabi, UAE",
+  "yearsExperience": "6+",
+  "lookingFor": ["Senior Product Designer", "Senior UI/UX Designer"],
+  "contact": { "email": "drajkumar13@gmail.com", "phone": "+971542644838", "linkedin": "https://linkedin.com/in/draj-kumar" },
+  "experience": [
+    { "title": "Senior UI/UX Designer", "company": "Kief Consultancies & Technologies", "location": "Abu Dhabi, UAE", "start": "2024-05", "end": null, "summary": "Sole designer across multiple live products, including Taggo and TheEvents, owning research, UX, UI and developer handoff." },
+    { "title": "UI/UX Designer", "company": "Hubble Web Technologies", "location": "Dubai, UAE", "start": "2022-12", "end": "2023-12" },
+    { "title": "UI/UX Designer", "company": "BitsnPixs", "location": "India", "start": "2019-02", "end": "2022-06" }
+  ],
+  "education": [{ "degree": "MBA", "school": "Bharathiyar University", "year": 2017 }],
+  "projects": [
+    { "name": "Taggo", "type": "Mobility super app", "role": "Solo designer and researcher", "platforms": ["iOS", "Android"], "outcome": "Ride booking under 30 seconds across all 7 emirates with 0% hidden fees", "metrics": { "bookingTime": "< 30s", "emiratesCovered": 7, "hiddenFees": "0%", "screensDesigned": "70+" }, "skills": ["Information architecture", "Usability testing", "Arabic RTL", "Design system", "Driver app"] },
+    { "name": "TheEvents", "type": "E-commerce marketplace", "role": "Lead product designer and UX researcher", "platforms": ["iOS", "Android", "Responsive web"], "outcome": "50+ screens delivered from one system of 20+ reusable components", "metrics": { "screensDelivered": "50+", "reusableComponents": "20+", "componentVariants": "50+" }, "skills": ["Design systems", "E-commerce", "Vendor dashboards", "AI features", "Prototyping"] },
+    { "name": "Noma", "type": "Coffee pickup ordering app", "role": "Solo lead designer and UX researcher", "platforms": ["iOS", "Android"], "languages": ["English", "Arabic (RTL)"], "outcome": "12-screen ordering flow with a drink builder, fully mirrored for Arabic", "metrics": { "flowScreens": 12, "languages": 2, "builderIngredients": 4 }, "skills": ["Bilingual design", "Personas", "Prototyping", "Edge states"] }
+  ],
+  "skills": ["User research", "Usability testing", "Information architecture", "Wireframing", "High-fidelity UI", "Prototyping", "Design systems", "Arabic / RTL", "Mobile-first design", "Accessibility basics (WCAG)", "Figma", "Developer handoff", "Design QA", "Agile / Scrum"],
+  "tools": ["Figma", "HTML", "CSS", "Java", "AI-assisted prototyping"]
+}
