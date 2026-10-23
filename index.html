@@ -147,6 +147,27 @@ a:hover { color:#FF5A3C; }
       </div>
     </div>
 
+    <div data-reveal="true" style="opacity:0;transform:translateY(24px);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1);padding:22px;border-radius:24px;background:#0E0E14;border:1px solid #1C1C21;display:flex;flex-direction:column;gap:14px">
+      <div style="display:flex;flex-direction:column;gap:4px">
+        <span style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#FF5A3C">Portfolio Q&amp;A</span>
+        <h2 style="margin:0;font-family:'Clash Display',sans-serif;font-weight:500;font-size:22px">Ask about my work</h2>
+      </div>
+      <form onSubmit="{{ onWorkQuestionSubmit }}" style="display:flex;gap:8px;padding:6px 6px 6px 14px;border-radius:999px;background:#08080C;border:1px solid #24242B">
+        <input value="{{ workQuestion }}" onChange="{{ onWorkQuestionChange }}" placeholder="Ask about a project, process or skill…" aria-label="Ask a question about the portfolio" style="flex:1;min-width:0;background:transparent;border:0;outline:none;color:#EFEFF2;font-size:14px;padding:8px 0">
+        <button type="submit" style="height:40px;padding:0 18px;border-radius:999px;border:0;background:#FF5A3C;color:#05050A;font-weight:700;cursor:pointer">Ask</button>
+      </form>
+      <button onClick="{{ onGoToRoleMatch }}" style="align-self:flex-start;padding:8px 0;border:0;background:none;color:#B4B4BB;text-align:left;font-size:13px;cursor:pointer">Check fit for a role ↓</button>
+      <sc-if value="{{ hasWorkAnswer }}" hint-placeholder-val="{{ false }}">
+        <div aria-live="polite" style="padding:15px;border-radius:18px;background:#08080C;border:1px solid #24242B">
+          <div style="font-size:12px;color:#8C8C93">{{ workAnswer.question }}</div>
+          <sc-if value="{{ workAnswer.loading }}" hint-placeholder-val="{{ false }}"><p style="margin:8px 0 0;color:#B4B4BB">Finding the closest portfolio details…</p></sc-if>
+          <sc-if value="{{ workAnswer.loading }}" hint-placeholder-val="{{ true }}"><p style="margin:8px 0 0;font-size:14px;line-height:1.55;color:#D0D0D6">{{ workAnswer.text }}</p></sc-if>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px"><sc-for list="{{ workAnswer.sources }}" as="source" hint-placeholder-count="0"><button onClick="{{ source.onClick }}" style="padding:7px 11px;border:1px solid #33333A;border-radius:999px;background:transparent;color:{{ source.accent }};font-size:12px;cursor:pointer">View {{ source.name }} ↓</button></sc-for></div>
+        </div>
+      </sc-if>
+      <p style="margin:0;font-size:11px;line-height:1.4;color:#6F6F78">Answers use the project and experience details published on this site.</p>
+    </div>
+
     <div data-reveal="true" style="opacity:0;transform:translateY(24px);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1);display:flex;flex-direction:column;gap:16px">
       <div style="display:flex;justify-content:space-between;align-items:baseline">
         <h2 style="margin:0;font-family:'Clash Display',sans-serif;font-weight:500;font-size:22px">Selected Work</h2>
@@ -170,6 +191,26 @@ a:hover { color:#FF5A3C; }
           <span style="height:6px;border-radius:3px;width:{{ d.w }};background:{{ d.bg }};transition:width 0.3s ease,background 0.3s ease"></span>
         </sc-for>
       </div>
+    </div>
+
+    <div id="portfolio-fit-check" data-reveal="true" style="scroll-margin-top:88px;opacity:0;transform:translateY(24px);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1);padding:22px;border-radius:24px;background:#0E0E14;border:1px solid #1C1C21;display:flex;flex-direction:column;gap:14px">
+      <div style="display:flex;flex-direction:column;gap:4px">
+        <span style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#FF5A3C">Role fit</span>
+        <h2 style="margin:0;font-family:'Clash Display',sans-serif;font-weight:500;font-size:22px">Check fit for a role</h2>
+      </div>
+      <p style="margin:0;font-size:13px;line-height:1.5;color:#B4B4BB">Paste a job description to find related skills and project evidence. This is a quick portfolio comparison, not a hiring prediction.</p>
+      <textarea value="{{ roleText }}" onChange="{{ onRoleTextChange }}" placeholder="Paste the role description here…" aria-label="Job description" style="width:100%;min-height:150px;resize:vertical;padding:14px;border-radius:16px;background:#08080C;border:1px solid #24242B;color:#EFEFF2;font:14px/1.5 'Satoshi','Helvetica Neue',Arial,sans-serif;outline:none"></textarea>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <button onClick="{{ onRunRoleMatch }}" style="height:42px;padding:0 17px;border:0;border-radius:999px;background:#FF5A3C;color:#05050A;font-weight:700;cursor:pointer">{{ roleMatchButtonLabel }}</button>
+        <button onClick="{{ onSampleRole }}" style="height:42px;padding:0 15px;border:1px solid #33333A;border-radius:999px;background:transparent;color:#B4B4BB;font-size:13px;cursor:pointer">Try a sample role</button>
+      </div>
+      <sc-if value="{{ hasRoleMatch }}" hint-placeholder-val="{{ false }}">
+        <div aria-live="polite" style="display:flex;flex-direction:column;gap:12px;padding-top:4px">
+          <div style="display:flex;align-items:baseline;gap:10px"><strong style="font-family:'Clash Display',sans-serif;font-size:48px;color:#FF5A3C">{{ roleMatch.score }}%</strong><span style="font-size:13px;line-height:1.4;color:#B4B4BB">{{ roleMatch.headline }}</span></div>
+          <div style="display:flex;flex-direction:column;gap:6px"><sc-for list="{{ roleMatches }}" as="match" hint-placeholder-count="3"><button onClick="{{ match.onClick }}" style="width:100%;padding:12px;border:1px solid #24242B;border-radius:14px;background:#08080C;color:#EFEFF2;text-align:left;cursor:pointer"><span style="display:flex;justify-content:space-between;gap:8px;font-size:13px;font-weight:700"><span>{{ match.need }}</span><span style="color:{{ match.accent }}">{{ match.project }} ↗</span></span><span style="display:block;margin-top:5px;font-size:12px;line-height:1.45;color:#B4B4BB">{{ match.proof }}</span></button></sc-for></div>
+          <div style="padding:13px;border-radius:14px;background:#121217"><div style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:#8C8C93">Good interview questions</div><ul style="margin:8px 0 0;padding-left:18px;color:#B4B4BB;font-size:12px;line-height:1.5"><sc-for list="{{ roleMatchQuestions }}" as="question" hint-placeholder-count="2"><li>{{ question }}</li></sc-for></ul></div>
+        </div>
+      </sc-if>
     </div>
 
     <div data-reveal="true" style="opacity:0;transform:translateY(24px);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1);display:flex;flex-direction:column;gap:16px">
@@ -694,9 +735,51 @@ a:hover { color:#FF5A3C; }
 
   <p style="position:relative;z-index:2;max-width:520px;margin:40px 0 0;font-size:clamp(16px,1.8vw,19px);line-height:1.5;color:#B4B4BB;opacity:0;animation:rp-fade 1s ease 1.9s both;animation-play-state:{{ heroPlayState }}">I turn complex ideas into clear, intuitive digital experiences.</p>
 
+  <div style="position:relative;z-index:3;width:min(100%,700px);margin-top:28px;animation:rp-fade 0.8s ease 2s both">
+    <div style="margin-bottom:10px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#8C8C93">Portfolio Q&amp;A · answers from my project work</div>
+    <form onSubmit="{{ onWorkQuestionSubmit }}" style="display:flex;align-items:center;gap:8px;padding:7px 7px 7px 18px;border-radius:999px;background:rgba(14,14,19,0.9);border:1px solid #24242B;box-shadow:0 18px 50px rgba(0,0,0,0.28)">
+      <input value="{{ workQuestion }}" onChange="{{ onWorkQuestionChange }}" placeholder="Ask about a project, process or skill…" aria-label="Ask a question about the portfolio" style="flex:1;min-width:0;background:transparent;border:0;outline:none;color:#EFEFF2;font-size:15px;padding:10px 0">
+      <button type="submit" style="flex:none;height:42px;padding:0 20px;border-radius:999px;border:0;background:#FF5A3C;color:#05050A;font-weight:700;font-size:14px;cursor:pointer" style-hover="background:#FF7A60">Ask</button>
+    </form>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:10px"><sc-for list="{{ askSuggestions }}" as="suggestion" hint-placeholder-count="3"><button onClick="{{ suggestion.onClick }}" style="padding:7px 12px;border-radius:999px;border:1px solid #24242B;background:rgba(14,14,19,0.7);color:#B4B4BB;font-size:12px;cursor:pointer" style-hover="border-color:#EFEFF2;color:#EFEFF2">{{ suggestion.q }}</button></sc-for><button onClick="{{ onGoToRoleMatch }}" style="padding:7px 12px;border-radius:999px;border:1px solid rgba(255,90,60,0.45);background:rgba(255,90,60,0.08);color:#FF7A60;font-size:12px;cursor:pointer">Check fit for a role ↓</button></div>
+    <sc-if value="{{ hasWorkAnswer }}" hint-placeholder-val="{{ false }}">
+      <div aria-live="polite" style="margin-top:12px;padding:16px 18px;border-radius:18px;background:rgba(14,14,19,0.94);border:1px solid #24242B;backdrop-filter:blur(14px)">
+        <div style="font-size:12px;color:#8C8C93">{{ workAnswer.question }}</div>
+        <sc-if value="{{ workAnswer.loading }}" hint-placeholder-val="{{ false }}"><p style="margin:8px 0 0;color:#B4B4BB">Finding the closest portfolio details…</p></sc-if>
+        <sc-if value="{{ workAnswer.loading }}" hint-placeholder-val="{{ true }}"><p style="margin:8px 0 0;font-size:14px;line-height:1.55;color:#D0D0D6">{{ workAnswer.text }}</p></sc-if>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px"><sc-for list="{{ workAnswer.sources }}" as="source" hint-placeholder-count="0"><button onClick="{{ source.onClick }}" style="padding:7px 11px;border:1px solid #33333A;border-radius:999px;background:transparent;color:{{ source.accent }};font-size:12px;cursor:pointer">View {{ source.name }} ↓</button></sc-for></div>
+      </div>
+    </sc-if>
+  </div>
+
   <div style="position:absolute;bottom:32px;left:clamp(20px,6vw,56px);display:flex;align-items:center;gap:12px;color:#5C5C63;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;z-index:2;opacity:0;animation:rp-fade 1s ease 2.2s both;animation-play-state:{{ heroPlayState }}">
     <span style="display:inline-block;width:1px;height:36px;background:#33333A;position:relative;overflow:hidden"><span style="position:absolute;top:0;left:0;width:100%;height:40%;background:#FF5A3C;animation:rp-scrollcue 1.8s ease-in-out infinite"></span></span>
     <span>Scroll to explore</span>
+  </div>
+</section>
+
+<section id="portfolio-fit-check" data-reveal="true" style="scroll-margin-top:88px;padding:96px clamp(20px,6vw,56px) 120px;border-top:1px solid #1C1C21;opacity:0;transform:translateY(24px);transition:opacity 0.9s cubic-bezier(0.16,1,0.3,1),transform 0.9s cubic-bezier(0.16,1,0.3,1)">
+  <div style="max-width:1120px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:start">
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <span style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:#FF5A3C">For hiring teams</span>
+      <h2 style="margin:0;font-family:'Clash Display',sans-serif;font-weight:500;font-size:clamp(36px,5vw,64px);line-height:1">Check fit for a role.</h2>
+      <p style="margin:0;max-width:44ch;font-size:15px;line-height:1.6;color:#B4B4BB">Paste a job description to see matching skills and the project evidence behind them. This is a quick portfolio comparison, not a hiring prediction.</p>
+      <textarea value="{{ roleText }}" onChange="{{ onRoleTextChange }}" placeholder="Paste the role description here…" aria-label="Job description" style="width:100%;min-height:190px;resize:vertical;padding:18px;border-radius:18px;background:#0B0B10;border:1px solid #24242B;color:#EFEFF2;font:15px/1.55 'Satoshi','Helvetica Neue',Arial,sans-serif;outline:none"></textarea>
+      <div style="display:flex;flex-wrap:wrap;gap:10px">
+        <button onClick="{{ onRunRoleMatch }}" style="height:48px;padding:0 22px;border-radius:999px;border:0;background:#FF5A3C;color:#05050A;font-weight:700;cursor:pointer" style-hover="background:#FF7A60">{{ roleMatchButtonLabel }}</button>
+        <button onClick="{{ onSampleRole }}" style="height:48px;padding:0 18px;border-radius:999px;border:1px solid #33333A;background:transparent;color:#B4B4BB;cursor:pointer" style-hover="color:#EFEFF2;border-color:#EFEFF2">Try a sample role</button>
+      </div>
+    </div>
+    <div style="min-height:270px;display:flex;flex-direction:column;gap:14px;justify-content:center">
+      <sc-if value="{{ hasRoleMatch }}" hint-placeholder-val="{{ false }}">
+        <div aria-live="polite" style="display:flex;flex-direction:column;gap:14px;animation:rp-fade 0.4s ease both">
+          <div style="display:flex;align-items:flex-end;gap:16px"><strong style="font-family:'Clash Display',sans-serif;font-size:clamp(60px,7vw,88px);line-height:0.85;font-weight:500;color:#FF5A3C">{{ roleMatch.score }}%</strong><span style="padding-bottom:4px;font-size:15px;line-height:1.45;color:#B4B4BB">{{ roleMatch.headline }}</span></div>
+          <div style="display:flex;flex-direction:column;gap:1px;border:1px solid #1C1C21;border-radius:18px;overflow:hidden;background:#1C1C21"><sc-for list="{{ roleMatches }}" as="match" hint-placeholder-count="3"><button onClick="{{ match.onClick }}" style="padding:14px 16px;border:0;background:#0B0B10;color:#EFEFF2;text-align:left;cursor:pointer" style-hover="background:#121218"><span style="display:flex;justify-content:space-between;gap:12px;font-size:14px;font-weight:700"><span>{{ match.need }}</span><span style="color:{{ match.accent }};white-space:nowrap">{{ match.project }} ↗</span></span><span style="display:block;margin-top:5px;font-size:13px;line-height:1.5;color:#B4B4BB">{{ match.proof }}</span></button></sc-for></div>
+          <div style="padding:15px 17px;border-radius:16px;background:#121217"><span style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:#8C8C93">Good interview questions</span><ul style="margin:9px 0 0;padding-left:18px;color:#B4B4BB;font-size:13px;line-height:1.5"><sc-for list="{{ roleMatchQuestions }}" as="question" hint-placeholder-count="2"><li>{{ question }}</li></sc-for></ul></div>
+        </div>
+      </sc-if>
+      <sc-if value="{{ hasRoleMatch }}" hint-placeholder-val="{{ true }}"><div style="min-height:250px;padding:24px;border:1px dashed #24242B;border-radius:20px;display:flex;align-items:center;justify-content:center;text-align:center;color:#6F6F78;font-size:14px;line-height:1.5">Your match report will show here.</div></sc-if>
+    </div>
   </div>
 </section>
 
@@ -2985,6 +3068,33 @@ function CosmicLesson({ projectId, reduced }) {
       h('button', { onClick: () => { if (cur >= 0) show(cur); }, 'aria-label': 'Open note', 'data-cursor-hover': 'true', style: { pointerEvents: starOn ? 'auto' : 'none', position: 'relative', width: 44, height: 44, padding: 0, border: 'none', background: 'none', cursor: 'pointer', opacity: starOn ? 1 : 0, transform: starOn ? (phase === 'star' ? 'scale(1.15)' : 'scale(1)') : 'scale(0.2) rotate(-40deg)', transition: T || ('opacity 0.6s ease, transform 0.8s ' + ease) } }, body)));
 }
 
+const WORK_QA_TOPICS = [
+  { keys:['taggo','ride','mobility','taxi','transport','driver','cargo','rental'], ids:['taggo'], answer:'Taggo is a UAE mobility super app covering rides, car rental, cargo, VIP transfers and car recovery, with rider and driver apps. I led the research and design from information architecture through developer handoff.' },
+  { keys:['event','commerce','shop','vendor','seller','marketplace','checkout','retail'], ids:['theevents'], answer:'TheEvents is a Middle East shopping and events platform with a buyer app, vendor marketplace, web portal and AI shopping features. I led the product design and research, delivering 50+ screens with 20+ reusable components and 50+ variants.' },
+  { keys:['noma','coffee','drink','food','order','builder','cafe'], ids:['noma'], answer:'Noma is a Dubai coffee ordering app for pickup. I designed its drink builder, where customers choose ingredients and see the drink and price update, in English and Arabic.' },
+  { keys:['arabic','rtl','locali','bilingual','middle east','uae','gcc'], ids:['noma','taggo'], answer:'Yes. Noma is designed in English and Arabic. Taggo includes Arabic-first layouts, RTL support, prayer-time considerations and Dirham formatting.' },
+  { keys:['system','component','token','library','variant'], ids:['theevents','taggo'], answer:'TheEvents uses 20+ reusable components and 50+ variants. On Taggo, I learned to establish design tokens from the start instead of retrofitting them later.' },
+  { keys:['research','test','usability','interview','persona','user'], ids:['taggo'], answer:'My process includes user interviews, journey mapping, information architecture testing and usability testing. Research with UAE commuters showed that cash-first payment mattered, and early IA testing prevented rework.' },
+  { keys:['experience','year','career','kief','hubble','background','who'], ids:[], answer:'I have 6+ years of product design experience. I am a Senior UI/UX Designer at Kief Consultancies & Technologies in Abu Dhabi, and previously worked at Hubble Web Technologies in Dubai and BitsnPixs in India.' },
+  { keys:['ai','code','tool','figma','html','develop'], ids:['taggo','theevents'], answer:'Figma is my main design tool. My HTML, CSS and Java background helps me prepare clear developer handoffs. I have designed AI features including Taggo’s voice booking assistant and TheEvents’ AI shopping tools.' },
+  { keys:['contact','hire','email','available','reach','phone'], ids:[], answer:'I am based in Abu Dhabi and available for select projects. You can reach me at drajkumar13@gmail.com or through the Contact section.' },
+];
+const ROLE_FIT_SIGNALS = [
+  { keys:['mobile','ios','android','app'], need:'Mobile app design', id:'taggo', proof:'Designed rider and driver apps for iOS and Android, from research through handoff.' },
+  { keys:['design system','component','token','library'], need:'Design systems', id:'theevents', proof:'Built a system with 20+ reusable components and 50+ variants.' },
+  { keys:['research','interview','persona','journey','usability','testing','user test'], need:'User research & testing', id:'taggo', proof:'Research with UAE commuters informed the payment flow; IA testing helped prevent rework.' },
+  { keys:['arabic','rtl','bilingual','locali','middle east','gcc','uae'], need:'Arabic / RTL', id:'noma', proof:'Designed Noma in English and Arabic and planned RTL layouts for Taggo.' },
+  { keys:['commerce','marketplace','checkout','retail','vendor','shopping'], need:'E-commerce & marketplaces', id:'theevents', proof:'Designed the buyer app, vendor portal and seller onboarding.' },
+  { keys:['prototype','interaction','figma','micro'], need:'Prototyping in Figma', id:'theevents', proof:'Created clickable prototypes across the purchase journey, AI search and error states.' },
+  { keys:['handoff','developer','engineer','agile','scrum','qa'], need:'Developer handoff', id:'taggo', proof:'Owned handoff and design QA as the sole designer on live products.' },
+  { keys:['web','responsive','dashboard','portal','saas'], need:'Responsive web & dashboards', id:'theevents', proof:'Designed a responsive vendor portal with dashboard, pricing and finance tools.' },
+  { keys:['ai','assistant','chatbot','llm','voice'], need:'AI-powered features', id:'taggo', proof:'Designed a voice booking assistant that compares fares and books rides.' },
+  { keys:['information architecture','navigation','flows','user flow'], need:'Information architecture', id:'taggo', proof:'Created one information architecture for rides, rental, cargo, VIP and recovery.' },
+  { keys:['senior','lead','end-to-end','end to end','ownership','stakeholder'], need:'Senior ownership', id:'theevents', proof:'Worked as solo or lead designer across three products, end to end.' },
+  { keys:['mobility','logistic','transport','delivery','ride'], need:'Mobility & logistics', id:'taggo', proof:'Designed rides, cargo tracking and driver companion experiences.' },
+];
+const SAMPLE_ROLE_DESCRIPTION = 'Senior Product Designer — Dubai. Own a consumer mobile app end to end. Run user research and usability testing, design in Figma, maintain a design system, and work with engineers through handoff. Arabic / RTL and e-commerce experience are a plus.';
+
 class Component extends DCLogic {
   state = {
     route: 'home', projectId: null,
@@ -2992,6 +3102,7 @@ class Component extends DCLogic {
     preloaderDone: false, loaderExiting: false, loaderPanelGone: false,
     formData: { name:'', email:'', subject:'', message:'' },
     formErrors: {}, formStatus: null,
+    workQuestion: '', workAnswer: null, roleText: '', roleMatch: null, roleMatching: false,
     hasFinePointer: true, reducedMotion: false,
     cursorHover: false, activeCapability: 0, activeStage: 0, photoRevealed: false, photoRevealing: false,
     activeWireframeScreen: 0,
@@ -3548,6 +3659,50 @@ class Component extends DCLogic {
     return (e) => { if (e && e.preventDefault) e.preventDefault(); this.navigate(route, projectId); };
   }
 
+  answerWorkQuestion(question) {
+    const query = String(question || '').toLowerCase();
+    let best = null, bestScore = 0;
+    WORK_QA_TOPICS.forEach(topic => {
+      const score = topic.keys.filter(key => query.includes(key)).length;
+      if (score > bestScore) { best = topic; bestScore = score; }
+    });
+    return best ? { text:best.answer, ids:best.ids } : { text:'I design end-to-end products across mobility (Taggo), e-commerce (TheEvents) and coffee ordering (Noma). Ask me about a project, research, design systems, Arabic / RTL, my experience or contact details.', ids:['taggo','theevents','noma'] };
+  }
+
+  askAboutWork(question) {
+    const q = String(question || '').trim();
+    if (!q) return;
+    const requestId = Date.now(); this._workAnswerRequest = requestId;
+    this.setState({ workQuestion:'', workAnswer:{ question:q, loading:true, text:'', ids:[] } });
+    setTimeout(() => {
+      if (this._workAnswerRequest !== requestId) return;
+      this.setState({ workAnswer:{ question:q, loading:false, ...this.answerWorkQuestion(q) } });
+    }, 300);
+  }
+
+  matchRole(description) {
+    const text = String(description || '').toLowerCase();
+    const matches = ROLE_FIT_SIGNALS.filter(item => item.keys.some(key => text.includes(key)));
+    const counts = {}; matches.forEach(item => { counts[item.id] = (counts[item.id] || 0) + 1; });
+    const bestId = Object.keys(counts).sort((a,b) => counts[b] - counts[a])[0] || 'taggo';
+    const bestProject = PROJECTS_DATA.find(project => project.id === bestId) || PROJECTS_DATA[0];
+    const score = matches.length ? Math.min(96, Math.round(62 + 34 * matches.length / (Math.max(matches.length, 3) + 1))) : 40;
+    const selected = (matches.length ? matches : ROLE_FIT_SIGNALS.slice(0, 3)).slice(0, 5);
+    return {
+      score,
+      headline:matches.length ? matches.length + ' role requirements matched to portfolio evidence. Start with ' + bestProject.name + '.' : 'Few direct matches found. Add more of the role description for a clearer comparison.',
+      matches:selected.map(item => ({ ...item })),
+      questions:['How did you decide what to test first on ' + bestProject.name + '?','What would you change if you started that project again?'],
+    };
+  }
+
+  runRoleMatch(description) {
+    const text = String(description === undefined ? this.state.roleText : description).trim();
+    if (!text || this.state.roleMatching) return;
+    this.setState({ roleMatching:true, roleMatch:null });
+    setTimeout(() => this.setState({ roleMatch:this.matchRole(text), roleMatching:false }), 350);
+  }
+
   onFieldChange(field) {
     return (e) => {
       const val = e.target.value;
@@ -3652,9 +3807,23 @@ class Component extends DCLogic {
 
     const submitLabel = s.formStatus === 'loading' ? 'Sending…' : (s.formStatus === 'success' ? 'Sent' : 'Send Message');
     const formStatusText = s.formStatus === 'success' ? 'Message sent — I\'ll reply soon.' : (s.formStatus === 'error' ? 'Something went wrong. Please email me directly.' : (s.formStatus === 'loading' ? 'Sending…' : ''));
+    const workAnswer = s.workAnswer ? { ...s.workAnswer, sources:(s.workAnswer.ids || []).map(id => { const p = PROJECTS_DATA.find(project => project.id === id); return p ? { name:p.name, accent:p.accent, onClick:this.makeNav('project',p.id) } : null; }).filter(Boolean) } : null;
+    const roleMatch = s.roleMatch ? { ...s.roleMatch, matches:s.roleMatch.matches.map(item => { const p = PROJECTS_DATA.find(project => project.id === item.id) || PROJECTS_DATA[0]; return { ...item, project:p.name, accent:p.accent, onClick:this.makeNav('project',p.id) }; }) } : null;
 
     return {
       ...this.mobileVals(),
+      workQuestion:s.workQuestion, workAnswer, hasWorkAnswer:!!workAnswer,
+      askSuggestions:['What did you design on Taggo?','Do you design for Arabic / RTL?','Show me design systems work'].map(q => ({ q, onClick:() => this.askAboutWork(q) })),
+      onWorkQuestionChange:(e) => this.setState({ workQuestion:e.target.value }),
+      onWorkQuestionSubmit:(e) => { e.preventDefault(); this.askAboutWork(s.workQuestion); },
+      roleText:s.roleText, roleMatch, hasRoleMatch:!!roleMatch, isRoleMatching:s.roleMatching,
+      roleMatchButtonLabel:s.roleMatching ? 'Matching…' : 'Check fit',
+      roleMatches:roleMatch ? roleMatch.matches : [],
+      roleMatchQuestions:roleMatch ? roleMatch.questions : [],
+      onRoleTextChange:(e) => this.setState({ roleText:e.target.value }),
+      onRunRoleMatch:() => this.runRoleMatch(),
+      onSampleRole:() => this.setState({ roleText:SAMPLE_ROLE_DESCRIPTION }, () => this.runRoleMatch(SAMPLE_ROLE_DESCRIPTION)),
+      onGoToRoleMatch:() => { const el = document.getElementById('portfolio-fit-check'); if (el) el.scrollIntoView({ behavior:'smooth', block:'start' }); },
       journeyRef: this.journeyRef, journeyTrackRef: this.journeyTrackRef, journeyBarRef: this.journeyBarRef, journeyCountRef: this.journeyCountRef, fanRef: this.fanRef,
       cosmicLesson: s.route === 'project' ? React.createElement(CosmicLesson, { key: s.projectId, projectId: s.projectId, reduced: !!this.reducedMotion }) : null,
       isHome: s.route === 'home', isWork: s.route === 'work', isProject: s.route === 'project',
