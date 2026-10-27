@@ -21,10 +21,10 @@ Product designer who owns mobile products end to end: research, information arch
 ## Selected work
 
 ### Taggo — mobility super app (UAE)
-- Role: Solo designer and researcher. iOS and Android, rider app and driver app.
-- Scope: Ride-hailing, car rental, cargo delivery, VIP and airport transfer, car recovery, AI voice booking assistant.
-- Outcome: Ride booking in under 30 seconds, across all 7 emirates, with 0% hidden fees. 70+ screens designed.
-- Evidence of: Information architecture for a multi-service app, usability testing with UAE commuters (led to a cash-first payment flow), Arabic-first localization (RTL, prayer times, Dirham formatting).
+- Role: UI/UX & Product Designer. Contributed to user research, competitor analysis, user flows, interface design and the design system. iOS and Android, rider app and driver app.
+- Methods: User interviews, competitor review, prototype usability testing, support and analytics data.
+- Decisions explored: Fare shown upfront before confirmation; destination entry, suggestions, saved places and key booking actions within thumb reach.
+- Participant details, metrics and outcomes are being verified and are not stated here.
 
 ### TheEvents — e-commerce marketplace (Middle East)
 - Role: Lead product designer and UX researcher. iOS and Android, plus a responsive vendor web portal.

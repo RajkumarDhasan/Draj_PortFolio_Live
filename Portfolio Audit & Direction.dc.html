@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Portfolio audit and redesign direction</title>
+<link href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600&amp;f[]=satoshi@400,500,700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#05050A;color:#EFEFF2;font-family:'Satoshi','Helvetica Neue',Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#EFEFF2}a:hover{color:#FF5A3C}
+</style>
+</helmet>
+<main style="max-width:1080px;margin:0 auto;padding:clamp(40px,7vw,88px) clamp(20px,5vw,48px) 120px;display:flex;flex-direction:column;gap:88px">
+
+<header style="display:flex;flex-direction:column;gap:18px">
+<span style="font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:#8C8C93">Stage 1 of 4 · For review before any code changes</span>
+<h1 style="margin:0;font-family:'Clash Display',sans-serif;font-weight:500;font-size:clamp(34px,5.4vw,60px);line-height:1.04;letter-spacing:-0.01em;text-wrap:balance">Portfolio audit and redesign direction</h1>
+<p style="margin:0;max-width:62ch;font-size:18px;line-height:1.6;color:#B4B4BB;text-wrap:pretty">Audit of <strong style="color:#EFEFF2">Rajkumar Portfolio v2</strong>, the version with the full space journey. The goal is two messages within 30 seconds: research-led product designer first, creative explorer second.</p>
+</header>
+
+<section data-screen-label="Audit" style="display:flex;flex-direction:column;gap:28px">
+<h2 style="margin:0;font-family:'Clash Display',sans-serif;font-weight:500;font-size:clamp(26px,3.4vw,36px)">1 · What the code shows</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px">
+<div style="padding:24px;border:1px solid #1C1C21;border-radius:16px;background:#0B0B10;display:flex;flex-direction:column;gap:14px">
+<span style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:#7FD1A8">Works well · keep</span>
+<ul style="margin:0;padding-left:18px;display:flex;flex-direction:column;gap:10px;font-size:15px;line-height:1.55;color:#D0D0D6">
+<li>Type pairing (Clash Display + Satoshi), near-black ground, single orange accent #FF5A3C. Restrained and distinctive.</li>
+<li>Hash routes (#/work, #/project/…, #/about) give every case study a direct link.</li>
+<li>Separate mobile app shell with tabs, swipe and safe-area handling.</li>
+<li>Real Taggo, TheEvents and Noma screens, wireframe PDF viewer, image slots.</li>
+<li>Fit check and Ask my work: useful recruiter tools, already wired to project data.</li>
+<li>A global reduced-motion rule exists, and the intro has a Skip button.</li>
+</ul>
+</div>
+<div style="padding:24px;border:1px solid #1C1C21;border-radius:16px;background:#0B0B10;display:flex;flex-direction:column;gap:14px">
+<span style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:#FF8A70">Gets in the way · change</span>
+<ul style="margin:0;padding-left:18px;display:flex;flex-direction:column;gap:10px;font-size:15px;line-height:1.55;color:#D0D0D6">
+<li><strong style="color:#EFEFF2">The intro gates the site for about 21 seconds</strong> (5 planet stages × 1.75s, then the black hole and exit). It plays on every visit. Nothing is remembered between sessions.</li>
+<li>Skip appears after a 0.8s fade and is small and uppercase. Recruiters may not see it.</li>
+<li>The intro is a full-screen canvas with 260 stars and textured planets on phones as well as desktop.</li>
+<li>The hero says "Design is my primary skill. Code and AI are my accelerators." It describes tools, not research.</li>
+<li>Case studies open with a "Cinematic Intro" block, and a CosmicLesson space-fact popup appears on project pages while visitors read.</li>
+<li>The custom cursor replaces the native one and can hide focus and link affordance.</li>
+<li>Five portfolio versions (v1–v5) exist. It is unclear which one is canonical.</li>
+</ul>
+</div>
+</div>
+<div style="padding:24px;border:1px solid #3A2420;border-radius:16px;background:#120B0A;display:flex;flex-direction:column;gap:12px">
+<span style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:#FF8A70">Research integrity · claims that need your confirmation</span>
+<p style="margin:0;font-size:15px;line-height:1.6;color:#D0D0D6">These appear in v2 as facts. The workbook says not to publish them without evidence. I will hide each one until you confirm how it was measured.</p>
+<div style="display:flex;flex-wrap:wrap;gap:8px">
+<span style="padding:6px 12px;border:1px solid #3A2420;border-radius:999px;font-size:14px">&lt; 30s booking time</span>
+<span style="padding:6px 12px;border:1px solid #3A2420;border-radius:999px;font-size:14px">4.8★ driver average rating</span>
+<span style="padding:6px 12px;border:1px solid #3A2420;border-radius:999px;font-size:14px">3.5× revenue potential</span>
+<span style="padding:6px 12px;border:1px solid #3A2420;border-radius:999px;font-size:14px">0% hidden fees</span>
+<span style="padding:6px 12px;border:1px solid #3A2420;border-radius:999px;font-size:14px">Wait times under 3 minutes</span>
+<span style="padding:6px 12px;border:1px solid #3A2420;border-radius:999px;font-size:14px">"Usability testing with UAE commuters revealed cash-first"</span>
+<span style="padding:6px 12px;border:1px solid #3A2420;border-radius:999px;font-size:14px">10 drivers + 15 commuters interviewed</span>
+</div>
+</div>
+</section>
+
+<section data-screen-label="Space decision" style="display:flex;flex-direction:column;gap:24px">
+<h2 style="margin:0;font-family:'Clash Display',sans-serif;font-weight:500;font-size:clamp(26px,3.4vw,36px)">2 · The space theme: keep it, but stop it from blocking the work</h2>
+<p style="margin:0;max-width:66ch;font-size:16px;line-height:1.65;color:#B4B4BB;text-wrap:pretty">The theme supports your second message, so removing it would cost you something. The problem is where it sits. Right now it comes before the work. In the redesign it moves to the edges: background, transitions, the About page and the ending. Every element must pass one test: it never delays, covers or competes with reading.</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:1px;background:#1C1C21;border:1px solid #1C1C21;border-radius:16px;overflow:hidden">
+<div style="padding:20px;background:#0B0B10;display:flex;flex-direction:column;gap:8px"><span style="font-size:13px;color:#8C8C93">21s planet intro</span><span style="font-size:15px;line-height:1.5">Removed from page load. Kept as an optional 20s "Take the long way" film, started from the footer.</span></div>
+<div style="padding:20px;background:#0B0B10;display:flex;flex-direction:column;gap:8px"><span style="font-size:13px;color:#8C8C93">Hero background</span><span style="font-size:15px;line-height:1.5">Static, sparse starfield with one dim planet horizon at the bottom edge. No glow drift. Slight parallax on desktop only.</span></div>
+<div style="padding:20px;background:#0B0B10;display:flex;flex-direction:column;gap:8px"><span style="font-size:13px;color:#8C8C93">Black hole</span><span style="font-size:15px;line-height:1.5">Becomes the contact section's ending visual, a still image or a slow 1-loop motion. It's the end of the map, not a gate.</span></div>
+<div style="padding:20px;background:#0B0B10;display:flex;flex-direction:column;gap:8px"><span style="font-size:13px;color:#8C8C93">CosmicLesson popups</span><span style="font-size:15px;line-height:1.5">Removed from case studies. The facts move into About under "Why space".</span></div>
+<div style="padding:20px;background:#0B0B10;display:flex;flex-direction:column;gap:8px"><span style="font-size:13px;color:#8C8C93">Custom cursor</span><span style="font-size:15px;line-height:1.5">Native cursor everywhere. Visible focus rings.</span></div>
+<div style="padding:20px;background:#0B0B10;display:flex;flex-direction:column;gap:8px"><span style="font-size:13px;color:#8C8C93">Reduced motion and mobile</span><span style="font-size:15px;line-height:1.5">Fully static under reduced motion. No canvas on phones, only a CSS background.</span></div>
+</div>
+</section>
+
+<section data-screen-label="Homepage structure" style="display:flex;flex-direction:column;gap:24px">
+<h2 style="margin:0;font-family:'Clash Display',sans-serif;font-weight:500;font-size:clamp(26px,3.4vw,36px)">3 · Proposed homepage</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:32px;align-items:start">
+
+<div style="border:1px solid #26262D;border-radius:18px;overflow:hidden;background:#07070B">
+<div style="display:flex;justify-content:space-between;align-items:center;padding:14px 18px;border-bottom:1px solid #1C1C21;font-size:12px;color:#8C8C93"><span style="color:#EFEFF2">Rajkumar Dhasan</span><span style="display:flex;gap:14px"><span>Work</span><span>About</span><span>Contact</span><span style="color:#FF5A3C">CV</span></span></div>
+<div style="padding:36px 18px 28px;display:flex;flex-direction:column;gap:12px;position:relative;background:radial-gradient(ellipse 120% 40% at 50% 120%,#1A1A26 0%,#1A1A26 40%,transparent 41%)">
+<span style="font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#8C8C93">Product Designer · Abu Dhabi · 6+ yrs</span>
+<span style="font-family:'Clash Display',sans-serif;font-size:28px;line-height:1.05;font-weight:500">Research-led Product Designer</span>
+<span style="font-size:13px;line-height:1.5;color:#B4B4BB">I turn user research and product insight into clear, intuitive digital experiences.</span>
+<div style="display:flex;gap:8px;margin-top:4px"><span style="padding:8px 12px;border-radius:999px;background:#FF5A3C;color:#0A0A0D;font-size:12px;font-weight:700">Explore my work</span><span style="padding:8px 12px;border-radius:999px;border:1px solid #3A3A42;font-size:12px">About me</span></div>
+</div>
+<div style="margin:0 12px 12px;padding:14px;border:1px solid #26262D;border-radius:12px;display:flex;flex-direction:column;gap:8px;background:#0E0E14">
+<span style="font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#FF5A3C">Featured case study · visible above the fold</span>
+<span style="font-family:'Clash Display',sans-serif;font-size:18px">Taggo, ride booking in the UAE</span>
+<div style="display:flex;flex-wrap:wrap;gap:4px;font-size:10px;color:#B4B4BB"><span style="padding:3px 7px;border:1px solid #26262D;border-radius:6px">Evidence</span><span>→</span><span style="padding:3px 7px;border:1px solid #26262D;border-radius:6px">Insight</span><span>→</span><span style="padding:3px 7px;border:1px solid #26262D;border-radius:6px">Decision</span><span>→</span><span style="padding:3px 7px;border:1px solid #26262D;border-radius:6px">Validation</span><span>→</span><span style="padding:3px 7px;border:1px dashed #3A3A42;border-radius:6px;color:#8C8C93">Outcome</span></div>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0 12px 12px"><div style="height:64px;border:1px solid #1C1C21;border-radius:10px;padding:10px;font-size:12px">TheEvents</div><div style="height:64px;border:1px solid #1C1C21;border-radius:10px;padding:10px;font-size:12px">Noma</div></div>
+<div style="margin:0 12px 12px;padding:10px;border:1px solid #1C1C21;border-radius:10px;font-size:12px;color:#8C8C93">How I research · 5 steps, each linked to a real example</div>
+<div style="margin:0 12px 12px;padding:10px;border:1px solid #1C1C21;border-radius:10px;font-size:12px;color:#8C8C93">Ask my work · Fit check</div>
+<div style="margin:0 12px 12px;padding:10px;border:1px solid #1C1C21;border-radius:10px;font-size:12px;color:#8C8C93">About · "Why space"</div>
+<div style="margin:0 12px 12px;padding:14px 10px;border-radius:10px;font-size:12px;color:#8C8C93;background:radial-gradient(circle at 50% 50%,#000 0 14px,#2A1A14 15px,#0B0B10 40px)">Contact · black-hole ending · "Take the long way" film link</div>
+</div>
+
+<ol style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:16px;font-size:15px;line-height:1.6;color:#D0D0D6">
+<li><strong style="color:#EFEFF2">Hero, first viewport.</strong> Your headline, statement and two actions, as written in the brief. Content is visible on first paint, with no loader.</li>
+<li><strong style="color:#EFEFF2">Taggo, starting in the first viewport.</strong> It shows the evidence chain, and each step is labelled as confirmed or still to validate.</li>
+<li><strong style="color:#EFEFF2">TheEvents and Noma.</strong> Same card pattern. Each card has a one-line problem and your role.</li>
+<li><strong style="color:#EFEFF2">How I research.</strong> Replaces the generic Discover → Deliver list. Each step points to where you did it.</li>
+<li><strong style="color:#EFEFF2">Ask my work and Fit check.</strong> Moved out of the hero so the hero has one job.</li>
+<li><strong style="color:#EFEFF2">About, including "Why space".</strong> A short paragraph on curiosity and exploration. This is where the creative message lives.</li>
+<li><strong style="color:#EFEFF2">Contact, with the black-hole ending.</strong> Email, LinkedIn, CV, and the optional film.</li>
+</ol>
+</div>
+</section>
+
+<section data-screen-label="Stages" style="display:flex;flex-direction:column;gap:20px">
+<h2 style="margin:0;font-family:'Clash Display',sans-serif;font-weight:500;font-size:clamp(26px,3.4vw,36px)">4 · Implementation stages</h2>
+<ol style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:12px;font-size:15px;line-height:1.6;color:#D0D0D6">
+<li><strong style="color:#EFEFF2">Motion and access.</strong> Make the intro opt-in, use the native cursor, remove popups from case studies, and make the mobile background static. Copy to <em>Rajkumar Portfolio v6.dc.html</em>; v2 stays untouched.</li>
+<li><strong style="color:#EFEFF2">Homepage.</strong> New hero, featured Taggo, research section, reordered sections. Routes unchanged.</li>
+<li><strong style="color:#EFEFF2">Taggo case study.</strong> Rebuilt in the 10-part sequence using only confirmed facts. Open items are marked "To validate".</li>
+<li><strong style="color:#EFEFF2">QA.</strong> Mobile, reduced motion, links, console, contrast.</li>
+</ol>
+</section>
+
+</main>
+</x-dc>
+</body>
+</html>

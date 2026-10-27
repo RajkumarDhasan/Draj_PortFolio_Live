@@ -304,11 +304,11 @@ a:hover { color:#FF5A3C; }
           </div>
           <span style="width:44px;height:44px;flex:none;border-radius:50%;background:#1A1A21;display:flex;align-items:center;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"></path></svg></span>
         </div>
-      <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid #1C1C21">
+      <sc-if value="{{ p.hasImpact }}" hint-placeholder-val="{{ true }}"><div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid #1C1C21">
           <sc-for list="{{ p.impact }}" as="m" hint-placeholder-count="3">
             <span style="padding:14px 12px 16px 18px;display:flex;flex-direction:column;gap:4px;border-right:1px solid #1C1C21"><span style="font-family:'Clash Display',sans-serif;font-size:20px;font-weight:600;line-height:1;color:{{ p.accent }}">{{ m.value }}</span><span style="font-size:11px;line-height:1.3;color:#8C8C93">{{ m.label }}</span></span>
           </sc-for>
-        </div>
+        </div></sc-if>
       </a>
     </sc-for>
   </div>
@@ -328,11 +328,11 @@ a:hover { color:#FF5A3C; }
     <div style="margin:22px 20px 0;padding:20px;border-radius:24px;background:#0E0E14;border:1px solid #1C1C21;display:flex;flex-direction:column;gap:18px">
       <span style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;font-weight:700;color:{{ mp.accent }}">The outcome</span>
       <span style="margin-top:-8px;font-family:'Clash Display',sans-serif;font-size:23px;font-weight:500;line-height:1.25;text-wrap:pretty">{{ mp.outcome }}</span>
-      <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px">
+      <sc-if value="{{ mp.hasImpact }}" hint-placeholder-val="{{ true }}"><div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px">
         <sc-for list="{{ mp.impact }}" as="m" hint-placeholder-count="3">
           <span style="padding:12px;border-radius:14px;background:#14141B;display:flex;flex-direction:column;gap:4px"><span style="font-family:'Clash Display',sans-serif;font-size:21px;font-weight:600;line-height:1;color:{{ mp.accent }}">{{ m.value }}</span><span style="font-size:11px;line-height:1.3;color:#8C8C93">{{ m.label }}</span></span>
         </sc-for>
-      </div>
+      </div></sc-if>
       <div style="height:1px;background:#1C1C21"></div>
       <div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;color:#8C8C93">The challenge</span><span style="font-size:15px;line-height:1.55;color:#D0D0D6">{{ mp.challenge }}</span></div>
       <div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;color:#8C8C93">What I designed</span><span style="font-size:15px;line-height:1.55;color:#D0D0D6">{{ mp.approach }}</span></div>
@@ -949,11 +949,11 @@ a:hover { color:#FF5A3C; }
           <h2 style="margin:0;font-family:'Clash Display',sans-serif;font-weight:500;font-size:clamp(44px,8vw,120px);line-height:0.95;color:#12110F;letter-spacing:-0.02em">{{ p.name }}</h2>
         </div>
         <p data-reveal="true" style="margin:24px 0 0;max-width:420px;font-family:'Clash Display',sans-serif;font-weight:500;font-size:clamp(19px,2vw,25px);line-height:1.35;color:rgba(18,17,15,0.75);opacity:0;transform:translateY(20px);transition:opacity 0.9s cubic-bezier(0.16,1,0.3,1) 0.18s,transform 0.9s cubic-bezier(0.16,1,0.3,1) 0.18s">{{ p.teaser }}</p>
-        <div data-reveal="true" style="margin-top:32px;display:flex;flex-wrap:wrap;gap:clamp(20px,3vw,36px);padding-top:20px;border-top:1px solid rgba(18,17,15,0.18);max-width:460px;opacity:0;transform:translateY(16px);transition:opacity 0.9s cubic-bezier(0.16,1,0.3,1) 0.24s,transform 0.9s cubic-bezier(0.16,1,0.3,1) 0.24s">
+        <sc-if value="{{ p.hasImpact }}" hint-placeholder-val="{{ true }}"><div data-reveal="true" style="margin-top:32px;display:flex;flex-wrap:wrap;gap:clamp(20px,3vw,36px);padding-top:20px;border-top:1px solid rgba(18,17,15,0.18);max-width:460px;opacity:0;transform:translateY(16px);transition:opacity 0.9s cubic-bezier(0.16,1,0.3,1) 0.24s,transform 0.9s cubic-bezier(0.16,1,0.3,1) 0.24s">
           <sc-for list="{{ p.impact }}" as="m" hint-placeholder-count="3">
             <span style="display:flex;flex-direction:column;gap:4px"><span style="font-family:'Clash Display',sans-serif;font-size:clamp(26px,2.8vw,38px);font-weight:500;line-height:1;color:#12110F">{{ m.value }}</span><span style="font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:rgba(18,17,15,0.7)">{{ m.label }}</span></span>
           </sc-for>
-        </div>
+        </div></sc-if>
         <div data-reveal="true" style="margin-top:44px;display:flex;align-items:center;gap:12px;opacity:0;transform:translateY(16px);transition:opacity 0.9s cubic-bezier(0.16,1,0.3,1) 0.3s,transform 0.9s cubic-bezier(0.16,1,0.3,1) 0.3s">
           <span style="font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:#12110F;border-bottom:1px solid rgba(18,17,15,0.45);padding-bottom:4px">Explore Case Study</span>
           <span style="font-size:16px;color:#12110F;transition:transform 0.35s cubic-bezier(0.16,1,0.3,1)" style-hover="transform:translateX(6px)">→</span>
@@ -1168,14 +1168,14 @@ a:hover { color:#FF5A3C; }
     <span style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:{{ activeProject.accent }}">The outcome</span>
     <p style="margin:0;max-width:1040px;font-family:'Clash Display',sans-serif;font-weight:500;font-size:clamp(30px,4.4vw,60px);line-height:1.1;letter-spacing:-0.01em;text-wrap:balance">{{ activeProject.story.outcome }}</p>
   </div>
-  <div data-reveal="true" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:1px;background:#1C1C21;border:1px solid #1C1C21;opacity:0;transform:translateY(24px);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1)">
+  <sc-if value="{{ activeProject.hasImpact }}" hint-placeholder-val="{{ true }}"><div data-reveal="true" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:1px;background:#1C1C21;border:1px solid #1C1C21;opacity:0;transform:translateY(24px);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1)">
     <sc-for list="{{ activeProject.impact }}" as="m" hint-placeholder-count="3">
       <div style="background:#07070C;padding:30px 26px;display:flex;flex-direction:column;gap:10px">
         <span style="font-family:'Clash Display',sans-serif;font-size:clamp(40px,5vw,72px);font-weight:500;line-height:1;color:{{ activeProject.accent }}">{{ m.value }}</span>
         <span style="font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#8C8C93">{{ m.label }}</span>
       </div>
     </sc-for>
-  </div>
+  </div></sc-if>
   <div data-reveal="true" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(28px,5vw,72px);opacity:0;transform:translateY(24px);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1)">
     <div style="display:flex;flex-direction:column;gap:12px">
       <span style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:#5C5C63">01 · The challenge</span>
@@ -1934,7 +1934,7 @@ const PROCESS_LABELS = ['Research','Info Arch','Wireframes','Visual Design','Pro
 
 const PROJECTS_DATA = [
   {
-    id:'taggo', index:'01', name:'Taggo', category:'Mobility · Super App', year:'2023 — Present',
+    id:'taggo', index:'01', name:'Taggo', category:'Mobility · Super App', year:'Launching 2027',
     teaser:'What if every way to move lived in one place?',
     role:'Solo Designer & Researcher', platform:'iOS & Android · User + Driver Apps', initial:'T',
     accent:'#F0DD50', gradient:'linear-gradient(135deg,#F0DD50 0%,#DCC93F 100%)',
@@ -2090,11 +2090,11 @@ const PROJECTS_DATA = [
 ];
 
 const STORY = {
-  taggo: { challenge:"Riders in the UAE needed separate apps for rides, rental and cargo, distrusted surge pricing, and had no Arabic-first option.", approach:"One super app for every way to move: upfront fares, cash and wallet payments, Arabic-first layouts, and a one-handed driver companion app.", outcome:"Booking a ride takes under 30 seconds, across all 7 emirates, with no hidden fees.", impact:[{value:'< 30s',label:'Booking time'},{value:'7',label:'Emirates covered'},{value:'0%',label:'Hidden fees'}] },
+  taggo: { challenge:"Riders in the UAE needed separate apps for rides, rental and cargo, distrusted surge pricing, and had no Arabic-first option.", approach:"One super app for every way to move: upfront fares, cash and wallet payments, Arabic-first layouts, and a one-handed driver companion app.", outcome:"Making the fare clear before a rider books, and key booking actions reachable with one thumb.", impact:[] },
   theevents: { challenge:"Planning a celebration meant moving between separate sellers, creators and vendors, with no single place to shop, book and sell.", approach:"A buyer app, a creator beauty marketplace and a vendor portal, all built on one shared component library.", outcome:"50+ screens delivered from a single system of 20+ reusable components.", impact:[{value:'50+',label:'Screens delivered'},{value:'20+',label:'Reusable components'},{value:'147',label:'Prototype screens'}] },
   noma: { challenge:"Customers of a Dubai specialty coffee shop wanted drinks made their way, ordered ahead for pickup, in English or Arabic.", approach:"A step-by-step drink builder with a live cup illustration and running price, designed in English and Arabic side by side.", outcome:"A 12-screen ordering flow, fully mirrored for Arabic (RTL).", impact:[{value:'12',label:'Ordering flow screens'},{value:'2',label:'Languages'},{value:'4',label:'Builder ingredients'}] },
 };
-PROJECTS_DATA.forEach(p => { p.story = STORY[p.id]; p.lead = STORY[p.id].impact[0]; p.impact = STORY[p.id].impact; });
+PROJECTS_DATA.forEach(p => { p.story = STORY[p.id]; p.lead = STORY[p.id].impact[0] || { value:'', label:'' }; p.impact = STORY[p.id].impact; p.hasImpact = p.impact.length > 0; });
 const HELP = [
   { title:'End-to-end mobile apps', desc:'Research through developer handoff on iOS and Android.', proof:'Taggo · TheEvents · Noma' },
   { title:'Design systems', desc:'Token-based components built for consistency across large products.', proof:'TheEvents · 20+ components, 50+ variants' },
@@ -2722,7 +2722,7 @@ function SpaceBackdrop() {
         planets: [{ k: 1, side: 0.9, y: 0.35, r: 0.11 }, { k: 3, side: 0.08, y: 1.25, r: 0.075 }, { k: 2, side: 0.86, y: 2.2, r: 0.1 }, { k: 0, side: 0.12, y: 3.15, r: 0.09 }, { k: 4, side: 0.9, y: 4.1, r: 0.13 }] },
       taggo: { bg: '#03040A', stars: ['#FFFFFF', '#FFF2B0', '#BFD4FF'], neb: [[60, 110, 255, 0.10, 0.15, 0.35, 0.55], [240, 221, 80, 0.06, 0.82, 0.2, 0.5], [40, 70, 160, 0.10, 0.6, 0.85, 0.5]], planets: [], extra: 'orbit' },
       theevents: { bg: '#07050B', stars: ['#FFFFFF', '#FFC9C0', '#E6C9FF'], neb: [[243, 161, 149, 0.16, 0.8, 0.2, 0.5], [176, 92, 255, 0.15, 0.18, 0.45, 0.55], [255, 120, 170, 0.10, 0.62, 0.8, 0.5], [80, 200, 220, 0.06, 0.12, 0.92, 0.4]], planets: [{ k: 2, side: 0.88, y: 0.7, r: 0.09 }], extra: 'party' },
-      noma: { bg: '#07060A', stars: ['#FFF6E8', '#FFD9A8', '#FFFFFF'], neb: [[210, 165, 122, 0.10, 0.82, 0.25, 0.5], [150, 90, 50, 0.10, 0.2, 0.72, 0.55]], planets: [{ k: 4, side: 0.9, y: 0.55, r: 0.12 }, { k: 3, side: 0.08, y: 2.4, r: 0.065 }], extra: 'milky' },
+      noma: { bg: '#03050C', stars: ['#FFFFFF', '#BFD4FF', '#DCE8FF'], neb: [[40, 110, 255, 0.07, 0.82, 0.3, 0.5], [20, 50, 140, 0.08, 0.2, 0.8, 0.5]], planets: [] },
     };
     const themeOf = () => { const m = (location.hash || '').match(/work\/([a-z0-9-]+)/i); return m && THEMES[m[1]] ? m[1] : 'home'; };
     let theme = themeOf(), themeT = -10;
@@ -2907,6 +2907,51 @@ function SpaceBackdrop() {
   return e('canvas', { ref: cvRef, 'aria-hidden': true, style: { position: 'fixed', inset: 0, zIndex: -1, pointerEvents: 'none', display: 'block' } });
 }
 
+function BluePlanet() {
+  const e = React.createElement;
+  const isNoma = () => /work\/noma/i.test(location.hash || '');
+  const [on, setOn] = React.useState(isNoma());
+  const wrapRef = React.useRef(null), bandRef = React.useRef(null);
+  React.useEffect(() => {
+    const onHash = () => setOn(isNoma());
+    window.addEventListener('hashchange', onHash);
+    return () => window.removeEventListener('hashchange', onHash);
+  }, []);
+  React.useEffect(() => {
+    if (!on) return;
+    const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let raf = 0, cur = -1;
+    const target = () => { const d = document.documentElement; return Math.min(1, Math.max(0, window.scrollY / Math.max(1, d.scrollHeight - window.innerHeight))); };
+    const apply = (p) => {
+      const w = wrapRef.current, b = bandRef.current; if (!w) return;
+      const H = window.innerHeight, W = window.innerWidth;
+      const x = W * 0.04 * Math.sin(p * Math.PI * 1.5);
+      const y = window.innerWidth < 768 ? H * (0.1 - 0.35 * p) : H * (-0.08 + 0.5 * p);
+      w.style.transform = 'translate3d(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px,0) rotate(' + (-8 + 14 * p).toFixed(2) + 'deg)';
+      if (b) b.style.transform = 'translate3d(' + (-50 * p).toFixed(2) + '%,0,0)';
+    };
+    if (reduced) { apply(0.15); return; }
+    const tick = () => { const t = target(); cur = cur < 0 ? t : cur + (t - cur) * 0.08; apply(cur); raf = Math.abs(t - cur) > 0.0005 ? requestAnimationFrame(tick) : 0; };
+    const onScroll = () => { if (!raf) raf = requestAnimationFrame(tick); };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    tick();
+    return () => { cancelAnimationFrame(raf); window.removeEventListener('scroll', onScroll); window.removeEventListener('resize', onScroll); };
+  }, [on]);
+  if (!on) return null;
+  const mob = window.innerWidth < 768;
+  const S = mob ? '62vw' : 'min(60vw, 620px)';
+  return e('div', { 'aria-hidden': true, style: { position: 'fixed', inset: 0, zIndex: -1, pointerEvents: 'none', overflow: 'hidden' } },
+    e('div', { ref: wrapRef, style: { position: 'absolute', right: mob ? '-26vw' : 'calc(-1 * min(30vw, 300px))', top: mob ? '52vh' : '6vh', width: S, height: S, willChange: 'transform', opacity: 0.34 } },
+      e('div', { style: { position: 'absolute', inset: '-14%', borderRadius: '50%', background: 'radial-gradient(circle, rgba(70,140,255,0.22) 0%, rgba(70,140,255,0.08) 45%, rgba(70,140,255,0) 68%)' } }),
+      e('div', { style: { position: 'absolute', inset: 0, borderRadius: '50%', overflow: 'hidden', background: 'radial-gradient(circle at 76% 30%, #5E8FD6 0%, #2A55A8 22%, #163A86 46%, #0A1A4C 72%, #040A1E 100%)', boxShadow: 'inset 40px -50px 90px rgba(2,4,12,0.8), inset -10px 12px 30px rgba(150,200,255,0.22)' } },
+        e('div', { ref: bandRef, style: { position: 'absolute', top: 0, left: 0, width: '200%', height: '100%', opacity: 0.55, background: 'repeating-linear-gradient(172deg, rgba(255,255,255,0.07) 0 3%, rgba(255,255,255,0) 3% 9%, rgba(130,200,255,0.10) 9% 11.5%, rgba(255,255,255,0) 11.5% 17%, rgba(10,30,90,0.25) 17% 20%, rgba(255,255,255,0) 20% 26%)', willChange: 'transform' } }),
+        e('div', { style: { position: 'absolute', inset: 0, borderRadius: '50%', background: 'radial-gradient(circle at 22% 72%, rgba(3,5,12,0.92) 0%, rgba(3,5,12,0.6) 36%, rgba(3,5,12,0) 64%)' } })
+      )
+    )
+  );
+}
+
 function AIFx(props) {
   const e = React.createElement;
   const spotRef = React.useRef(null), barRef = React.useRef(null), secRef = React.useRef(null), pctRef = React.useRef(null);
@@ -2994,6 +3039,7 @@ function AIFx(props) {
   const blob = (c, l, t, s, anim) => e('div', { style: { position: 'absolute', left: l, top: t, width: s, height: s, borderRadius: '50%', background: 'radial-gradient(circle, ' + c + ' 0%, rgba(0,0,0,0) 65%)', animation: reduced ? 'none' : anim } });
   return e(React.Fragment, null,
     e(SpaceBackdrop, null),
+    e(BluePlanet, null),
     e('div', { 'aria-hidden': true, style: { position: 'fixed', inset: 0, zIndex: -1, pointerEvents: 'none', overflow: 'hidden' } },
       e('div', { ref: spotRef, style: { position: 'absolute', left: 0, top: 0, width: 720, height: 720, borderRadius: '50%', background: 'radial-gradient(circle, rgba(139,233,255,0.07) 0%, rgba(123,97,255,0.04) 35%, rgba(0,0,0,0) 65%)', willChange: 'transform' } })),
     e('div', { 'aria-hidden': true, style: { position: 'fixed', inset: 0, zIndex: 9990, pointerEvents: 'none', opacity: 0.05, mixBlendMode: 'overlay', backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")" } }),
@@ -3438,9 +3484,9 @@ class Component extends DCLogic {
     const tab = r === 'project' ? 'work' : r;
     const tv = (t) => ({ color: tab === t ? '#FF5A3C' : '#8C8C93', pill: tab === t ? 'rgba(255,90,60,0.14)' : 'transparent' });
     const covers = { taggo: 'uploads/App Landing-ride-0909.png', theevents: 'uploads/App Landing-TheEvents Mobile app.png', noma: 'uploads/App Landing-Noma.png' };
-    const quick = (p) => ({ kicker: p.category, title: p.name, body: p.story.outcome, color: p.accent, metrics: p.impact, hasMetrics: true, hasAction: true, actionLabel: 'Open case study', href: '#/work/' + p.id, onAction: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ mSheet: null }); this.mNav('project', p.id); } });
+    const quick = (p) => ({ kicker: p.category, title: p.name, body: p.story.outcome, color: p.accent, metrics: p.impact, hasMetrics: p.hasImpact, hasAction: true, actionLabel: 'Open case study', href: '#/work/' + p.id, onAction: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ mSheet: null }); this.mNav('project', p.id); } });
     const proj = PROJECTS_DATA.map(p => ({ id: p.id, index: p.index, name: p.name, category: p.category, year: p.year, teaser: p.teaser, gradient: p.gradient, accent: p.accent, cover: covers[p.id], href: '#/work/' + p.id,
-      outcome: p.story.outcome, lead: p.lead, impact: p.impact,
+      outcome: p.story.outcome, lead: p.lead, impact: p.impact, hasImpact: p.hasImpact,
       onOpen: (e) => { if (this._lpFired) { if (e && e.preventDefault) e.preventDefault(); this._lpFired = false; return; } go('project', p.id)(e); },
       onPressStart: () => { clearTimeout(this._lp); this._lpFired = false; this._lp = setTimeout(() => { this._lpFired = true; try { navigator.vibrate && navigator.vibrate(12); } catch (er) {} this.setState({ mSheet: quick(p) }); }, 480); },
       onPressEnd: () => { clearTimeout(this._lp); },
@@ -3491,7 +3537,7 @@ class Component extends DCLogic {
         screens: (p.screens || []).map((x, i) => ({ ...x, n: pad(i + 1) })),
         metrics: p.metrics || [],
         hasRefl: !!refl, learned: refl ? refl.learned : [], differently: refl ? refl.differently : [],
-        outcome: p.story.outcome, challenge: p.story.challenge, approach: p.story.approach, impact: p.impact,
+        outcome: p.story.outcome, challenge: p.story.challenge, approach: p.story.approach, impact: p.impact, hasImpact: p.hasImpact,
       },
       mScreenRef: this.mScreenRef, mPtrRef: this.mPtrRef, mPtrIconRef: this.mPtrIconRef, mSheetRef: this.mSheetRef,
       mToastOn: !!s.mToast, mToastText: s.mToast || '',
@@ -3667,7 +3713,10 @@ class Component extends DCLogic {
       }, 80);
     }
 
-    if (this.reducedMotion) {
+    if (/^#\/(work|project)/.test(location.hash)) {
+      this.finishLoader();
+      document.querySelectorAll('[data-reveal]').forEach(el => { el.style.opacity = '1'; el.style.transform = 'none'; });
+    } else if (this.reducedMotion) {
       this._preloadTimer = setTimeout(() => this.finishLoader(), 1600);
       document.querySelectorAll('[data-reveal]').forEach(el => { el.style.opacity = '1'; el.style.transform = 'none'; });
     } else {
@@ -3711,7 +3760,19 @@ class Component extends DCLogic {
     }
   }
 
+  v6Return() {
+    if (this._v6Gone) return;
+    if (/[?&]film=1/.test(location.search)) { try { sessionStorage.removeItem('rp-from-v6'); } catch (er) {} return; }
+    const qm = location.search.match(/[?&]from=(v6|v7)/);
+    let from = qm ? qm[1] : null;
+    try { if (from) sessionStorage.setItem('rp-from-v6', from); else { const st = sessionStorage.getItem('rp-from-v6'); from = st === '1' ? 'v6' : st; } } catch (er) {}
+    if (!from || this.state.route === 'project') return;
+    const map = { about: '#about', contact: '#contact', work: '#taggo', lab: '#approach' };
+    this._v6Gone = true;
+    location.href = 'Rajkumar Portfolio ' + from + '.dc.html' + (map[this.state.route] || '');
+  }
   componentDidUpdate() {
+    this.v6Return();
     if (this.state.mobile && this.state.preloaderDone && !this._hinted) {
       this._hinted = true;
       try { if (!localStorage.getItem('rp-swipe-hint')) { localStorage.setItem('rp-swipe-hint', '1'); setTimeout(() => this.mToastShow('Swipe sideways to switch tabs'), 1400); } } catch (er) {}
