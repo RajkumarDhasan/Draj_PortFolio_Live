@@ -1,0 +1,206 @@
+---
+// Quiet space behind the hero that carries on into the start of Selected work.
+// One separate layer: remove it by setting SHOW_ATMOSPHERE to false in Hero.astro.
+//
+// Two star layers and a soft glow drift at different speeds as the visitor
+// scrolls (scroll position only, no pointer tracking, no scroll snapping),
+// then the whole layer fades before the first project so the product imagery
+// takes over. It sits behind the hero content and never takes
+// pointer events. With reduced motion the stars stay still and dimmer.
+const field = (seed: number, count: number, rMin: number, rMax: number, oMin: number, oMax: number) => {
+  let s = seed;
+  const rand = () => {
+    s = (s * 16807) % 2147483647;
+    return (s - 1) / 2147483646;
+  };
+  return Array.from({ length: count }, () => ({
+    x: (rand() * 100).toFixed(2),
+    y: (rand() * 100).toFixed(2),
+    r: (rMin + rand() * (rMax - rMin)).toFixed(2),
+    o: (oMin + rand() * (oMax - oMin)).toFixed(2),
+  }));
+};
+const far = field(11, 75, 0.5, 1.1, 0.2, 0.48);
+const near = field(29, 24, 0.9, 1.7, 0.34, 0.68);
+---
+
+<div class="atmos" aria-hidden="true" data-atmosphere>
+  <div class="atmos__glow"></div>
+  <svg class="atmos__layer atmos__layer--far" focusable="false">
+    {far.map((d) => <circle cx={`${d.x}%`} cy={`${d.y}%`} r={d.r} fill-opacity={d.o} />)}
+  </svg>
+  <svg class="atmos__layer atmos__layer--near" focusable="false">
+    {near.map((d) => <circle cx={`${d.x}%`} cy={`${d.y}%`} r={d.r} fill-opacity={d.o} />)}
+  </svg>
+</div>
+<div class="atmos__planet" aria-hidden="true" data-planet>
+  <div class="atmos__planet-core">
+    <div class="atmos__planet-bands"></div>
+    <div class="atmos__planet-shade"></div>
+  </div>
+</div>
+
+<script>
+  const atmos = document.querySelector<HTMLElement>('[data-atmosphere]');
+  const planet = document.querySelector<HTMLElement>('[data-planet]');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (atmos) {
+    let queued = false;
+    const update = () => {
+      queued = false;
+      if (reduce.matches) {
+        atmos.style.removeProperty('--p');
+        atmos.style.removeProperty('--fade');
+        planet?.style.removeProperty('--planet-x');
+        planet?.style.removeProperty('--planet-y');
+        planet?.style.removeProperty('--planet-scale');
+        planet?.style.removeProperty('--planet-presence');
+        return;
+      }
+      const span = Math.max(atmos.parentElement?.offsetHeight || 0, window.innerHeight);
+      const p = Math.min(Math.max(window.scrollY / span, 0), 1);
+      atmos.style.setProperty('--p', p.toFixed(4));
+      // fully visible for the first half, then hands over to the project imagery
+      atmos.style.setProperty('--fade', Math.min(Math.max((p - 0.55) / 0.45, 0), 1).toFixed(4));
+      // The planet completes a separate, full-page journey: large near the
+      // headline, then progressively smaller and lower through all sections.
+      const journey = Math.min(Math.max(window.scrollY / Math.max(1, document.documentElement.scrollHeight - window.innerHeight), 0), 1);
+      const scale = 1 - 0.88 * Math.pow(journey, 0.72);
+      // Cross from the upper-right corner to the lower-left corner.
+      const x = -journey * window.innerWidth * (window.innerWidth < 700 ? 1.11 : 1.01);
+      const y = journey * window.innerHeight * 0.68;
+      planet?.style.setProperty('--planet-x', `${x.toFixed(1)}px`);
+      planet?.style.setProperty('--planet-y', `${y.toFixed(1)}px`);
+      planet?.style.setProperty('--planet-scale', scale.toFixed(4));
+      planet?.style.setProperty('--planet-presence', (1 - 0.45 * Math.sin(Math.PI * journey)).toFixed(4));
+    };
+    const queue = () => {
+      if (!queued) {
+        queued = true;
+        requestAnimationFrame(update);
+      }
+    };
+    window.addEventListener('scroll', queue, { passive: true });
+    window.addEventListener('resize', queue, { passive: true });
+    reduce.addEventListener('change', queue);
+    update();
+  }
+</script>
+
+<style>
+  .atmos {
+    --p: 0;
+    --fade: 0;
+    position: absolute;
+    z-index: 0;
+    inset: 0 0 auto 0;
+    /* the hero plus the opening of Selected work */
+    height: calc(100% + 40svh);
+    overflow: hidden;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 1.6s var(--ease-out) 0.2s;
+    -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 50%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 0%, #000 50%, transparent 100%);
+  }
+  :global(.hero.is-revealed) .atmos,
+  :global(html:not(.js)) .atmos,
+  :global(html.no-motion-fallback) .atmos {
+    opacity: calc(1 - var(--fade));
+    transition: none;
+  }
+  :global(.hero.is-revealed) .atmos {
+    animation: atmos-in 1.6s var(--ease-out) 0.2s backwards;
+  }
+  @keyframes atmos-in {
+    from { opacity: 0; }
+  }
+  .atmos__glow {
+    position: absolute;
+    top: -40%;
+    right: -25%;
+    width: min(72rem, 130vw);
+    aspect-ratio: 1;
+    background: radial-gradient(
+      closest-side,
+      var(--space-glow),
+      var(--space-warm) 55%,
+      transparent 100%
+    );
+    opacity: calc(1 - var(--p) * 0.6);
+    transform: translate3d(0, calc(var(--p) * -6svh), 0);
+  }
+  .atmos__layer {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    fill: var(--star);
+    will-change: transform;
+  }
+  .atmos__layer--far { transform: translate3d(0, calc(var(--p) * -10svh), 0); }
+  .atmos__layer--near { transform: translate3d(0, calc(var(--p) * -24svh), 0); }
+  .atmos__planet {
+    --planet-x: 0px;
+    --planet-y: 0px;
+    --planet-scale: 1;
+    --planet-presence: 1;
+    --planet-base-opacity: 0.3;
+    position: fixed;
+    z-index: 0;
+    top: 7svh;
+    right: -13%;
+    width: min(58vw, 48rem);
+    aspect-ratio: 1;
+    opacity: calc(var(--planet-base-opacity) * var(--planet-presence));
+    filter: saturate(0.85);
+    border-radius: 50%;
+    pointer-events: none;
+    transform-origin: top right;
+    background: radial-gradient(circle, rgba(66, 139, 255, 0.2), transparent 68%);
+    box-shadow: 0 0 6rem 2rem rgba(45, 96, 191, 0.08);
+    transform: translate3d(var(--planet-x), var(--planet-y), 0) scale(var(--planet-scale));
+  }
+  .atmos__planet-core {
+    position: absolute;
+    inset: 8%;
+    overflow: hidden;
+    border-radius: 50%;
+    background: radial-gradient(circle at 76% 30%, #75a6e9 0%, #3d70bd 24%, #1c448f 48%, #102658 72%, #070e29 100%);
+    box-shadow: inset 2.5rem -3rem 5rem rgba(2, 4, 12, 0.65), inset -0.6rem 0.8rem 2rem rgba(180, 211, 255, 0.2);
+  }
+  .atmos__planet-bands {
+    position: absolute;
+    inset: 0 -20%;
+    background: repeating-linear-gradient(172deg, rgba(235, 246, 255, 0.08) 0 3%, transparent 3% 9%, rgba(130, 200, 255, 0.12) 9% 11.5%, transparent 11.5% 17%, rgba(10, 30, 90, 0.25) 17% 20%, transparent 20% 26%);
+    transform: translate3d(calc(var(--p) * -12%), 0, 0);
+  }
+  .atmos__planet-shade {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle at 18% 72%, rgba(3, 5, 15, 0.88), rgba(3, 5, 15, 0.55) 38%, transparent 66%);
+  }
+  @media (max-width: 700px) {
+    .atmos__planet { top: 5svh; right: -29%; width: min(86vw, 25rem); --planet-base-opacity: 0.24; }
+  }
+  :global(html[data-theme='light']) .atmos__planet {
+    --planet-base-opacity: 0.3;
+    filter: saturate(1.1);
+  }
+  @media (max-width: 700px) {
+    :global(html[data-theme='light']) .atmos__planet { --planet-base-opacity: 0.24; }
+  }
+
+  :global(html:not(.js)) .atmos__planet,
+  :global(html.no-motion-fallback) .atmos__planet { position: absolute; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .atmos { opacity: 0.6 !important; animation: none !important; }
+    .atmos__planet { position: absolute; top: 7%; }
+    .atmos__glow,
+    .atmos__layer,
+    .atmos__planet,
+    .atmos__planet-bands { transform: none !important; will-change: auto; }
+  }
+</style>

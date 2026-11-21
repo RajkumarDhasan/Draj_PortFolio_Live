@@ -1,0 +1,76 @@
+---
+// Cinematic, space-inspired introduction (Agreed design direction, section 4).
+// Under 1.2 s, canvas only, skippable (button, Esc, click). The hero is already
+// rendered underneath; a horizon line opens to reveal it.
+---
+
+<div class="intro" data-intro>
+  <canvas class="intro__canvas" aria-hidden="true"></canvas>
+  <button type="button" class="intro__skip" data-intro-skip>Skip intro</button>
+</div>
+
+<style>
+  @property --gap {
+    syntax: '<length>';
+    inherits: false;
+    initial-value: 0px;
+  }
+
+  .intro { display: none; }
+
+  :global(html.has-intro) .intro {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 90;
+    background: #0f0c0a;
+    cursor: pointer;
+    --gap: 0px;
+    /* a gap opens from the horizon (the vertical centre) outwards */
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      #000 calc(50% - var(--gap)),
+      transparent calc(50% - var(--gap)),
+      transparent calc(50% + var(--gap)),
+      #000 calc(50% + var(--gap))
+    );
+    mask-image: linear-gradient(
+      to bottom,
+      #000 calc(50% - var(--gap)),
+      transparent calc(50% - var(--gap)),
+      transparent calc(50% + var(--gap)),
+      #000 calc(50% + var(--gap))
+    );
+  }
+
+  :global(html.has-intro) .intro.is-opening {
+    --gap: 52vh;
+    opacity: 0;
+    pointer-events: none;
+    transition:
+      --gap 0.28s var(--ease-out),
+      opacity 0.16s linear 0.12s;
+  }
+
+  .intro__canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .intro__skip {
+    position: absolute;
+    right: var(--gutter);
+    bottom: max(1.25rem, env(safe-area-inset-bottom));
+    min-height: 44px;
+    padding: 0.5rem 1.125rem;
+    border: 1px solid rgba(242, 236, 226, 0.32);
+    border-radius: 999px;
+    background: rgba(15, 12, 10, 0.6);
+    color: var(--ink);
+    font-size: var(--fs-label);
+    font-weight: 500;
+    cursor: pointer;
+  }
+  .intro__skip:hover { border-color: rgba(242, 236, 226, 0.6); }
+</style>

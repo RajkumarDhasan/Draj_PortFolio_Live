@@ -1,0 +1,44 @@
+---
+// Decision write-up: problem, what I designed, why, what is still open.
+interface Props {
+  items: { term: string; text: string }[];
+}
+const { items } = Astro.props;
+---
+
+<dl class="notes">
+  {
+    items.map((i) => (
+      <div class="notes__row">
+        <dt>{i.term}</dt>
+        <dd>{i.text}</dd>
+      </div>
+    ))
+  }
+</dl>
+
+<style>
+  .notes {
+    max-width: 48rem;
+    margin: 0;
+    display: grid;
+    gap: 1.25rem;
+  }
+  .notes__row {
+    display: grid;
+    gap: 0.25rem;
+  }
+  @media (min-width: 700px) {
+    .notes__row { grid-template-columns: 10rem minmax(0, 1fr); gap: 1.5rem; }
+  }
+  dt {
+    font-size: var(--fs-label);
+    font-weight: 600;
+    line-height: 1.6;
+    color: var(--paper-muted);
+  }
+  dd {
+    margin: 0;
+    color: var(--paper-soft);
+  }
+</style>

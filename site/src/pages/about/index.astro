@@ -1,0 +1,481 @@
+---
+// About: how Rajkumar works, kept apart from what each project actually did.
+// Project methods: Taggo = stakeholder discussions + competitor review (documented).
+// TheEvents and Noma research methods are not documented, so they are described
+// only through visible design work, with assumptions labelled. No personas,
+// interviews, tests or outcomes are claimed.
+import { Image } from 'astro:assets';
+import Base from '../../layouts/Base.astro';
+import { experience, education, skills, contact } from '../../data/projects';
+import portrait from '../../assets/about/portrait.jpeg';
+
+const base = import.meta.env.BASE_URL;
+const cv = `${base}${contact.resume}`;
+
+const sections = [
+  { id: 'approach', title: 'How I think before I design' },
+  { id: 'evidence', title: 'How I use evidence' },
+  { id: 'flows', title: 'Task flows and personas' },
+  { id: 'systems', title: 'Design systems' },
+  { id: 'experience', title: 'Experience and education' },
+];
+
+const projectMethods = [
+  {
+    name: 'Taggo',
+    href: `${base}taggo/`,
+    done: 'Stakeholder discussions and a review of competitor apps set the direction.',
+    open: 'No usability tests yet. Each decision in the case study ends with what I would test.',
+  },
+  {
+    name: 'TheEvents',
+    href: `${base}theevents/`,
+    done: 'Design exploration you can see: wireframes, buyer and promoter screens, the checkout flow and the vendor registration steps.',
+    open: 'The case study does not present research. Where a decision rests on an assumption, it says so.',
+  },
+  {
+    name: 'Noma',
+    href: `${base}noma/`,
+    done: 'Annotated wireframes, English and Arabic screens, and the states around the main flow.',
+    open: 'Not yet released, so there is no usage evidence. Assumptions are labelled, and each decision lists what is still to test.',
+  },
+];
+---
+
+<Base
+  title="About Rajkumar Dhasan, UX/UI - Product Designer"
+  description="How Rajkumar Dhasan works: decisions before screens, evidence kept apart from assumptions, task flows, personas as hypotheses, and design systems."
+  current="about"
+>
+  <article class="about-page">
+    <header class="ab-hero">
+      <div class="wrap ab-hero__grid">
+        <div class="ab-hero__text">
+          <p class="ab-hero__label">About</p>
+          <h1 class="ab-hero__title">Rajkumar Dhasan</h1>
+          <p class="ab-hero__role">UX/UI - Product Designer · Abu Dhabi</p>
+          <p class="ab-hero__lead">I make complex products clear at every decision.</p>
+          <p class="ab-hero__body">
+            I’m a Senior UI/UX Designer at Kief Consultancies &amp; Technologies. I design mobile products end to end:
+            from the first flow to the edge case and the system behind it.
+          </p>
+          <div class="ab-hero__actions">
+            <a class="btn ab-hero__primary" href={cv}>Download CV<span class="visually-hidden"> (PDF)</span></a>
+            <a class="ab-hero__link" href={`mailto:${contact.email}`}>Email me</a>
+          </div>
+        </div>
+        <Image
+          class="ab-hero__photo"
+          src={portrait}
+          alt="Portrait of Rajkumar Dhasan"
+          widths={[320, 480, 720]}
+          sizes="(min-width: 900px) 22rem, (min-width: 600px) 18rem, 70vw"
+          quality={82}
+          loading="eager"
+          decoding="async"
+        />
+      </div>
+    </header>
+
+    <div class="paper">
+      <div class="wrap ab-body">
+        <nav class="ab-nav" aria-label="On this page">
+          <p class="ab-nav__title">On this page</p>
+          <ol>
+            {sections.map((s) => <li><a href={`#${s.id}`}>{s.title}</a></li>)}
+          </ol>
+        </nav>
+
+        <div class="ab-content">
+          <section id="approach" aria-labelledby="approach-title">
+            <h2 id="approach-title">How I think before I design</h2>
+            <p>
+              I start with the decision, not the screen. The products I work on ask people to commit to something: a
+              fare, a cancellation fee, a changed price, a payment. Before I lay anything out, I write down for each
+              step:
+            </p>
+            <ul>
+              <li>who is deciding, and what they already know at that moment;</li>
+              <li>what they need to see to decide with confidence;</li>
+              <li>what a wrong choice costs them, and how they undo it;</li>
+              <li>what the business needs from the step, and where that pulls against what the person needs.</li>
+            </ul>
+            <p>
+              That list shapes the layout. The information a decision depends on comes before the button that commits
+              to it, and the cases nobody asks for, such as no driver, a price change, a failed payment or an empty
+              list, are designed as screens rather than left to an error message.
+            </p>
+          </section>
+
+          <section id="evidence" aria-labelledby="evidence-title">
+            <h2 id="evidence-title">How I use evidence</h2>
+            <p>
+              I keep three things apart: what I know, what I assume and what still has to be tested. A design decision
+              should say which of the three it rests on.
+            </p>
+            <dl class="ab-kinds">
+              <div>
+                <dt>Known</dt>
+                <dd>What stakeholders, business rules and comparable products tell me, and product data or support issues when a team has them.</dd>
+              </div>
+              <div>
+                <dt>Assumed</dt>
+                <dd>How I expect people to behave. I write these down as assumptions so they can be checked, not repeated as facts.</dd>
+              </div>
+              <div>
+                <dt>To test</dt>
+                <dd>The questions a usability session, or a release with the right measures, would answer.</dd>
+              </div>
+            </dl>
+            <h3>What each case study actually rests on</h3>
+            <p>My general approach is above. These are the methods each project used, as far as I can document them.</p>
+            <div class="ab-table-wrap">
+              <table class="ab-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Project</th>
+                    <th scope="col">What was done</th>
+                    <th scope="col">What is still open</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {
+                    projectMethods.map((p) => (
+                      <tr>
+                        <th scope="row">
+                          <a href={p.href}>{p.name}</a>
+                        </th>
+                        <td>{p.done}</td>
+                        <td>{p.open}</td>
+                      </tr>
+                    ))
+                  }
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section id="flows" aria-labelledby="flows-title">
+            <h2 id="flows-title">Task flows and personas</h2>
+            <p>
+              I map a task as a flow before I design its screens: the main path first, then every branch where
+              something changes. The person cancels, the price moves, nobody accepts the job, the connection drops.
+              Each branch gets its own decision point and a way out. In Taggo’s recovery flow, for example, the job
+              pauses when the price changes and waits for the customer’s answer instead of carrying on at the old
+              price.
+            </p>
+            <p>
+              I treat a persona as a hypothesis until research supports it. A useful one is short: the role, the goal,
+              the situation and the decision the person finds hard. None of the case studies on this site presents a
+              persona, because none of these cases documents participant research to stand behind one.
+            </p>
+            <h3>How I would validate a persona</h3>
+            <ol class="ab-steps">
+              <li>Draft it from what stakeholders and the business already know, and mark every line as an assumption.</li>
+              <li>Talk to a small group of people in that role about the last time they did the task.</li>
+              <li>Watch them do the task in the current product or a competitor’s, and note where they hesitate.</li>
+              <li>Check what they say and do against analytics and support tickets, where those exist.</li>
+              <li>Keep the lines that held, rewrite the ones that didn’t, and drop the persona if it doesn’t change a design decision.</li>
+            </ol>
+          </section>
+
+          <section id="systems" aria-labelledby="systems-title">
+            <h2 id="systems-title">Design systems</h2>
+            <p>
+              I build the system alongside the screens, not after them. Colour, type, spacing and radius go into Figma
+              variables first, components carry their own states, and prototype variables let a flow be clicked
+              through with real states. Each case study shows the system from its own file:
+            </p>
+            <ul class="ab-links">
+              <li>
+                <a href={`${base}taggo/#system`}>Taggo</a>: light and dark colour modes, named spacing, button and banner
+                components, and variable-driven prototype states.
+              </li>
+              <li>
+                <a href={`${base}theevents/#system`}>TheEvents</a>: a core component library with button, payment-row and
+                product-card states.
+              </li>
+              <li>
+                <a href={`${base}noma/#system`}>Noma</a>: selectors with left-to-right and right-to-left variants, and
+                Arabic set in Noto Sans Arabic beside Inter.
+              </li>
+            </ul>
+            <p>
+              A background in HTML, CSS and Java helps me structure components in a way developers recognise, and I use
+              AI tools to explore and prototype faster. Design stays the core of the work.
+            </p>
+          </section>
+
+          <section id="experience" aria-labelledby="experience-title">
+            <h2 id="experience-title">Experience and education</h2>
+            <ol class="ab-timeline">
+              {
+                experience.map((j) => (
+                  <li>
+                    <p class="ab-timeline__role">{j.role}</p>
+                    <p class="ab-timeline__org">
+                      {j.org} · {j.place}
+                    </p>
+                    <p class="ab-timeline__when">{j.when}</p>
+                  </li>
+                ))
+              }
+            </ol>
+            <div class="ab-two">
+              <div>
+                <h3>Education</h3>
+                <ul class="ab-plain">
+                  {
+                    education.map((e) => (
+                      <li>
+                        <strong>{e.title}</strong>
+                        {e.org && (
+                          <span>
+                            {' '}
+                            · {e.org}
+                            {e.when && `, ${e.when}`}
+                          </span>
+                        )}
+                      </li>
+                    ))
+                  }
+                </ul>
+              </div>
+              <div>
+                <h3>Skills</h3>
+                <ul class="ab-skills">
+                  {skills.map((s) => <li>{s}</li>)}
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section class="ab-contact" aria-labelledby="ab-contact-title">
+            <h2 id="ab-contact-title">Get in touch</h2>
+            <p>Open to UX/UI and product design roles.</p>
+            <ul class="ab-contact__list">
+              <li><a class="btn ab-contact__primary" href={`mailto:${contact.email}`}>{contact.email}</a></li>
+              <li><a href={contact.phoneHref}>{contact.phone}</a></li>
+              <li><a href={contact.linkedin} rel="noopener">LinkedIn</a></li>
+              <li><a href={cv}>Download CV<span class="visually-hidden"> (PDF)</span></a></li>
+            </ul>
+          </section>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <footer class="ab-footer">
+    <div class="wrap"><p>© 2026 Rajkumar Dhasan</p></div>
+  </footer>
+</Base>
+
+<style>
+  /* ---------- Opening (dark stage) ---------- */
+  .ab-hero {
+    padding-top: calc(var(--header-h) + clamp(2rem, 1rem + 5vh, 5rem));
+    padding-bottom: clamp(5rem, 2.5rem + 8vh, 8rem);
+  }
+  .ab-hero__grid {
+    display: grid;
+    gap: 2.5rem;
+    align-items: center;
+  }
+  @media (min-width: 760px) {
+    .ab-hero__grid { grid-template-columns: minmax(0, 1fr) clamp(16rem, 28vw, 22rem); gap: clamp(3rem, 7vw, 7rem); }
+  }
+  .ab-hero__text { max-width: 40rem; }
+  .ab-hero__label {
+    margin-bottom: 1rem;
+    font-size: var(--fs-label);
+    font-weight: 600;
+    color: var(--ink-muted);
+  }
+  .ab-hero__title {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: var(--fs-project);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .ab-hero__role {
+    margin-top: 0.875rem;
+    font-weight: 500;
+    color: var(--ink-soft);
+  }
+  .ab-hero__lead {
+    margin-top: 1.5rem;
+    font-size: var(--fs-position);
+    line-height: 1.35;
+    color: var(--ink);
+    text-wrap: balance;
+  }
+  .ab-hero__body {
+    margin-top: 1rem;
+    color: var(--ink-soft);
+  }
+  .ab-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1.75rem;
+    margin-top: 2rem;
+  }
+  .ab-hero__primary { background: var(--ink); color: var(--stage); }
+  .ab-hero__primary:hover { background: var(--ink-soft); }
+  .ab-hero__link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-weight: 600;
+    text-underline-offset: 0.3em;
+  }
+  .ab-hero__grid :global(.ab-hero__photo) {
+    width: min(70vw, 20rem);
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 2rem 4rem -2rem rgba(0, 0, 0, 0.7);
+  }
+  @media (min-width: 760px) {
+    .ab-hero__grid :global(.ab-hero__photo) { width: 100%; justify-self: end; }
+  }
+
+  /* ---------- Reading body (paper) ---------- */
+  .paper {
+    background: var(--paper);
+    color: var(--paper-ink);
+  }
+  .paper :focus-visible { outline-color: var(--paper-ink); }
+  .ab-body {
+    display: grid;
+    gap: 2.5rem;
+    padding-block: clamp(5rem, 2.5rem + 8vh, 8rem);
+  }
+  @media (min-width: 1100px) {
+    .ab-body { grid-template-columns: 14rem minmax(0, 44rem); gap: clamp(3rem, 6vw, 6rem); }
+    .ab-nav { position: sticky; top: calc(var(--header-h) + 2rem); align-self: start; }
+  }
+  .ab-nav__title {
+    margin-bottom: 0.5rem;
+    font-size: var(--fs-label);
+    font-weight: 600;
+    color: var(--paper-muted);
+  }
+  .ab-nav ol { list-style: none; padding: 0; display: grid; }
+  .ab-nav a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    color: var(--paper-soft);
+    text-decoration: none;
+  }
+  .ab-nav a:hover { color: var(--paper-ink); text-decoration: underline; text-underline-offset: 0.3em; }
+  @media (max-width: 1099px) {
+    .ab-nav ol { display: flex; flex-wrap: wrap; gap: 0 1.25rem; }
+  }
+
+  .ab-content { max-width: 44rem; }
+  .ab-content section + section { margin-top: clamp(5rem, 3rem + 5vw, 8rem); }
+  .ab-content h2 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: var(--fs-section);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+  .ab-content h3 {
+    margin-top: 2.25rem;
+    font-size: var(--fs-decision);
+    font-weight: 600;
+    line-height: 1.3;
+  }
+  .ab-content p,
+  .ab-content ul,
+  .ab-content ol,
+  .ab-content dl { margin-top: 1rem; color: var(--paper-soft); }
+  .ab-content ul,
+  .ab-content ol { padding-left: 1.25rem; }
+  .ab-content li + li { margin-top: 0.375rem; }
+  .ab-content a { color: var(--paper-ink); font-weight: 600; text-underline-offset: 0.25em; }
+
+  .ab-kinds { display: grid; gap: 0.75rem; }
+  .ab-kinds div {
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--paper-line);
+    border-radius: 12px;
+    background: var(--paper-raised);
+  }
+  .ab-kinds dt { font-weight: 600; color: var(--paper-ink); }
+  .ab-kinds dd { margin: 0.25rem 0 0; }
+
+  .ab-table-wrap { margin-top: 1.25rem; overflow-x: auto; }
+  .ab-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--fs-caption);
+    line-height: 1.5;
+  }
+  .ab-table th,
+  .ab-table td {
+    padding: 0.875rem 1rem 0.875rem 0;
+    border-bottom: 1px solid var(--paper-line);
+    text-align: left;
+    vertical-align: top;
+    color: var(--paper-soft);
+  }
+  .ab-table thead th { font-weight: 600; color: var(--paper-muted); }
+  .ab-table tbody th { white-space: nowrap; }
+  @media (max-width: 599px) {
+    .ab-table thead { display: none; }
+    .ab-table tr { display: grid; gap: 0.375rem; padding-block: 1rem; border-bottom: 1px solid var(--paper-line); }
+    .ab-table th,
+    .ab-table td { padding: 0; border: 0; }
+    .ab-table td::before { display: block; font-weight: 600; color: var(--paper-muted); }
+    .ab-table td:nth-of-type(1)::before { content: 'What was done'; }
+    .ab-table td:nth-of-type(2)::before { content: 'What is still open'; }
+  }
+
+  .ab-steps li::marker { font-weight: 600; color: var(--paper-ink); }
+  .ab-links { list-style: none; padding-left: 0 !important; }
+  .ab-links li { padding-left: 1rem; border-left: 2px solid var(--paper-line); }
+
+  .ab-timeline { list-style: none; padding-left: 0 !important; display: grid; gap: 1.25rem; }
+  .ab-timeline li { padding-left: 1rem; border-left: 2px solid var(--paper-line); margin: 0 !important; }
+  .ab-timeline__role { margin: 0 !important; font-weight: 600; color: var(--paper-ink) !important; }
+  .ab-timeline__org { margin: 0 !important; }
+  .ab-timeline__when { margin: 0 !important; font-size: var(--fs-caption); color: var(--paper-muted) !important; font-variant-numeric: tabular-nums; }
+  .ab-two { display: grid; gap: 0 3rem; }
+  @media (min-width: 700px) {
+    .ab-two { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  }
+  .ab-plain { list-style: none; padding-left: 0 !important; }
+  .ab-plain strong { color: var(--paper-ink); }
+  .ab-skills { list-style: none; padding-left: 0 !important; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .ab-skills li {
+    margin: 0 !important;
+    padding: 0.375rem 0.875rem;
+    border: 1px solid var(--paper-line);
+    border-radius: 999px;
+    font-size: var(--fs-caption);
+  }
+
+  .ab-contact__list {
+    list-style: none;
+    padding-left: 0 !important;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1.75rem;
+    margin-top: 1.5rem !important;
+  }
+  .ab-contact__list li { margin: 0 !important; }
+  .ab-contact__list a:not(.btn) { display: inline-flex; align-items: center; min-height: 44px; }
+  .ab-contact__primary { background: var(--paper-ink); color: var(--paper) !important; text-decoration: none; }
+  .ab-contact__primary:hover { background: #000000; }
+
+  .ab-footer {
+    padding-block: 2rem;
+    color: var(--ink-muted);
+    font-size: var(--fs-caption);
+  }
+</style>

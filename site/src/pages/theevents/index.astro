@@ -1,0 +1,192 @@
+---
+// TheEvents case study. Sources: the New Events App Figma file (screens
+// confirmed as Rajkumar's work, July–October 2026), its wireframe export and
+// his confirmed facts. Not used: the old booking scheduler (makeup artists are
+// promoters, not bookable services), the recreated "live code" screens,
+// unverified screen and component counts, "feature buyers asked for" and
+// "reduces abandonment" claims.
+import CaseStudy from '../../layouts/CaseStudy.astro';
+import Chapter from '../../components/case/Chapter.astro';
+import Notes from '../../components/case/Notes.astro';
+import Screens from '../../components/case/Screens.astro';
+import Board from '../../components/case/Board.astro';
+import Callout from '../../components/case/Callout.astro';
+import TheEventsSystem from '../../components/case/TheEventsSystem.astro';
+import { projects } from '../../data/projects';
+
+import home from '../../assets/theevents/buyer/01-home.png';
+import categories from '../../assets/theevents/buyer/02-categories.png';
+import product from '../../assets/theevents/buyer/03-product-details.png';
+import seller from '../../assets/theevents/buyer/04-seller-profile.png';
+import orderSummary from '../../assets/theevents/buyer/05-order-summary.png';
+import checkout from '../../assets/theevents/buyer/06-checkout.png';
+import confirmed from '../../assets/theevents/buyer/07-order-confirmed.png';
+import newArrivals from '../../assets/theevents/buyer/new-arrivals.png';
+import artistProducts from '../../assets/theevents/buyer/artist-profile-products.png';
+import p1 from '../../assets/theevents/promoter/01-discovery.png';
+import p2 from '../../assets/theevents/promoter/02-artist-profile.png';
+import p3 from '../../assets/theevents/promoter/03-look-detail.png';
+import p4 from '../../assets/theevents/promoter/04-shop-look-products.png';
+import p5 from '../../assets/theevents/promoter/05-product-details.png';
+import wfCheckout from '../../assets/theevents/wireframes/checkout-flow.png';
+import wfRegistration from '../../assets/theevents/wireframes/vendor-registration.png';
+import wfDashboard from '../../assets/theevents/wireframes/vendor-dashboard.png';
+
+const project = projects[1];
+const base = import.meta.env.BASE_URL;
+
+const decisions = [
+  { id: 'discovery', title: 'Lead with search and curated collections' },
+  { id: 'promoters', title: 'Let artists’ looks lead to the products used' },
+  { id: 'checkout', title: 'A checkout you can review step by step' },
+  { id: 'vendors', title: 'Register vendors in seven steps' },
+];
+const chapters = [
+  { id: 'product', title: 'The product and my role' },
+  ...decisions,
+  { id: 'system', title: 'Design system' },
+  { id: 'deliverables', title: 'Deliverables' },
+];
+---
+
+<CaseStudy
+  project={project}
+  lead="An e-commerce app for the UAE where shoppers buy fashion, beauty, home and gifts from many sellers, vendors run their own stores, and makeup artists promote the products they use."
+  meta={[
+    { label: 'Product status', value: 'Published on iOS and Android' },
+    { label: 'My role', value: 'Product designer' },
+    { label: 'Scope', value: 'Buyer app, promoter pages and vendor tools' },
+    { label: 'Screens shown', value: 'Designed July–October 2026' },
+  ]}
+  note="The screens on this page come from my New Events App Figma file. They show the designs, not necessarily every screen exactly as released."
+  designed={[
+    'The buyer journey from the home screen to a confirmed order',
+    'The promoter journey: an artist’s look leads to the products used, with one “Add all to cart”',
+    'Low-fidelity wireframes for the buyer app, checkout, vendor registration and vendor dashboard',
+    'Vendor registration in seven steps and the vendor dashboard',
+    'An 18-slide vendor pitch deck in Figma',
+  ]}
+  decisions={decisions}
+  chapters={chapters}
+  headerScreens={project.screens}
+  next={{ href: `${base}noma/`, name: 'Noma', promise: projects[2].promise }}
+>
+  <Chapter id="product" title="The product and my role">
+    <p>
+      TheEvents serves three groups in one product. Shoppers find, compare and buy for any occasion. Vendors open a
+      store, list products and get paid, from a dashboard on mobile and on the web. Makeup artists, brands and other
+      creators have pages people can follow; artists act as promoters who lead shoppers to products, not as services
+      to book. The app also includes AI suggestions and voice ordering.
+    </p>
+    <p>
+      I designed the New Events App screens shown here, from low-fidelity wireframes to the final interface. The aim was
+      one shopping experience in which the three groups meet without the app feeling like three apps.
+    </p>
+  </Chapter>
+
+  <Chapter id="discovery" label="Decision 1" title="Lead with search and curated collections">
+    <Notes
+      items={[
+        { term: 'The problem', text: 'The home screen is the busiest screen in the app. A generic product grid gives first-time visitors nowhere obvious to start.' },
+        { term: 'What I designed', text: 'Search comes first, with an example query, followed by occasions (wedding, Eid, graduation) and curated collections. Categories keep the same card grid as home, and the same product card carries through to sellers and new arrivals.' },
+        { term: 'Why', text: 'Shoppers start from intent (a search or an occasion), and because every list uses the same card, they never have to relearn how to scan products.' },
+      ]}
+    />
+    <Screens
+      size="sm"
+      items={[
+        { image: home, alt: 'Home: greeting, search with the example “Try Eid gift box”, a featured perfume, Celebrate Occasions and Curated For You.', title: 'Home', caption: 'Search first, then occasions and curated collections rather than a generic grid.' },
+        { image: categories, alt: 'Categories: search, trending categories such as Abayas & Kaftans and Designer Footwear, and Explore More tiles.', title: 'Categories', caption: 'Trending collections first, then every category one tap away.' },
+        { image: newArrivals, alt: 'New Arrivals: category chips and a grid of product cards with prices and Add to Cart.', title: 'New arrivals', caption: 'The same product card as home, so scanning works the same everywhere.' },
+        { image: product, alt: 'Product details: watch gallery, colour options, rating, price with savings and VAT note, size options with an AI size suggestion, Add to Cart and Buy Now.', title: 'Product details', caption: 'Colour, size, price with VAT and an AI size suggestion sit together above the two actions.' },
+        { image: seller, alt: 'Seller profile for Gissah Official: rating, followers and products, a Follow button, tabs and product grid.', title: 'Seller profile', caption: 'Each seller gets a storefront with rating, followers and Follow, using the same product grid.' },
+      ]}
+    />
+  </Chapter>
+
+  <Chapter id="promoters" label="Decision 2" title="Let artists’ looks lead to the products used">
+    <Notes
+      items={[
+        { term: 'The problem', text: 'Makeup artists are promoters in TheEvents, not services to book. Their pages had to sell products without turning into booking pages.' },
+        { term: 'What I designed', text: 'An artist’s profile shows Looks and Products. Each look lists the products used, and “Shop This Look” opens them all with prices and a single “Add all to cart”. The product page keeps the artist’s note beside the product.' },
+        { term: 'Why', text: 'The path from inspiration to purchase is short and stays on products throughout. There is no booking step anywhere in the flow.' },
+      ]}
+    />
+    <Screens
+      size="sm"
+      items={[
+        { image: p1, alt: 'Makeup Artists: a “Get the Look” banner, style filters, featured artists with Follow buttons and trending looks.', title: '1 · Discover', caption: '“Get the Look” frames artists as a way to find products, with featured artists and trending looks.' },
+        { image: p2, alt: 'Artist profile for Aisha Khan: followers, products and looks counts, Follow, style tags and a Looks grid with Shop This Look links.', title: '2 · Artist profile', caption: 'Looks and Products, never services: every look links to “Shop This Look”.' },
+        { image: p3, alt: 'Soft Glam Look: a portrait, the artist’s description and the six products used, with a Shop This Look button.', title: '3 · The look', caption: 'The look names the exact products used, so the next step is obvious.' },
+        { image: p4, alt: 'Shop This Look: each product used with its brand, price, rating and Add button, and an Add All to Cart button with the total.', title: '4 · Shop the look', caption: 'Every product with its price and Add, plus one “Add all to cart” with the total.' },
+        { image: p5, alt: 'Product details for a foundation: price and saving, the artist’s note about the product, available shades, delivery date, Add to Cart and Buy Now.', title: '5 · Product with the artist’s note', caption: 'The artist’s note sits on the product page, next to shades and delivery, before Add to cart.' },
+        { image: artistProducts, alt: 'An artist profile on the Products tab: follow, ratings, and a grid of products with prices and Add to Cart.', title: 'Artist profile, Products tab', caption: 'The same profile can list products directly, using the shared product card.' },
+      ]}
+    />
+    <Callout>The artist’s note on the product page is product content in the design, not a customer testimonial.</Callout>
+  </Chapter>
+
+  <Chapter id="checkout" label="Decision 3" title="A checkout you can review step by step">
+    <Notes
+      items={[
+        { term: 'The problem', text: 'Checkout is where mistakes cost most: a wrong address or an unexpected total.' },
+        { term: 'What I designed', text: 'The wireframes split checkout into order summary, address, delivery time, payment and a final review. In the final design, the totals and coupon are visible without scrolling, saved cards, Tabby and cash on delivery sit side by side, and the confirmation repeats the order number and delivery date.' },
+        { term: 'Why', text: 'Address is separate from payment, so errors are caught before card details are entered, and nothing is confirmed blind.' },
+      ]}
+    />
+    <Board
+      image={wfCheckout}
+      alt="Low-fidelity wireframes of the checkout flow: order summary, shipping address, add new address, choose delivery time, payment, wallet, gift cards and review order."
+      title="Wireframes: the checkout flow"
+      caption="Structure first, in greyscale: each step asks for one thing, and the review screen consolidates items, address, time and payment."
+    />
+    <Screens
+      size="sm"
+      items={[
+        { image: orderSummary, alt: 'Order summary: three items with quantities, a free-delivery message, a coupon field and totals, with Buy Now.', title: 'Order summary', caption: 'Quantities, coupon and the total are visible without scrolling.' },
+        { image: checkout, alt: 'Checkout: delivery address, payment options (Visa ending 4242, Tabby, cash on delivery), coupon applied and order summary with Place Order.', title: 'Checkout', caption: 'Address, then payment: saved card, Tabby and cash on delivery side by side, with the total on the button.' },
+        { image: confirmed, alt: 'Order Confirmed: order number, arrival date and the choice to track the order or continue shopping.', title: 'Order confirmed', caption: 'The order number and delivery date are repeated, with tracking as the next step.' },
+      ]}
+    />
+  </Chapter>
+
+  <Chapter id="vendors" label="Decision 4" title="Register vendors in seven steps">
+    <Notes
+      items={[
+        { term: 'The problem', text: 'Vendor registration collects a lot: business details, documents, bank details and a contract. As one form it would be easy to abandon or get wrong.' },
+        { term: 'What I designed', text: 'A seven-step stepper: 1 login details, 2 business and signatory information, 3 company information and business category, 4 documents and bank details, 5 review and payment, 6 contract agreement, 7 confirmation. Steps that need more than one screen keep the same step number. The vendor dashboard then covers products, packages, orders, returns, coupons, withdrawals, reviews and settings.' },
+        { term: 'Why', text: 'Each step asks for one kind of information, and the stepper shows how much is left.' },
+      ]}
+    />
+    <Board
+      image={wfRegistration}
+      alt="Low-fidelity wireframes of vendor registration: login, business information, company information, business category, documents upload, bank details, review and payment, contract agreement and a congratulations screen."
+      title="Wireframes: vendor registration"
+      caption="The seven-step stepper sits at the top of every screen; steps 2, 3 and 4 each span two screens, and step 7 confirms the registration is under review."
+    />
+    <Board
+      image={wfDashboard}
+      alt="Low-fidelity wireframes of the vendor dashboard: overview, products, packages, orders, order returns, coupons, create coupon, withdrawal, reviews, order details, settings and add product."
+      title="Wireframes: the vendor dashboard"
+      caption="The vendor side in one board, from the overview to adding a product."
+    />
+  </Chapter>
+
+  <Chapter id="system" title="Design system">
+    <p>
+      The file keeps a core component library on its own page (“Design System — Core Components”) and names colour,
+      type and radius as variables. The buyer and promoter screens share the same product presentation, price style
+      and buttons, so the two roles feel like one product. The vendor screens in the file are wireframes and a
+      dashboard concept, so they are shown above as structure, not as part of the visual system.
+    </p>
+    <TheEventsSystem />
+  </Chapter>
+
+  <Chapter id="deliverables" title="Deliverables">
+    <ul>
+      <li>Final screens in the New Events App Figma file: buyer journey, promoter journey, cart and address states</li>
+      <li>Low-fidelity wireframes for the buyer app, checkout, vendor registration and vendor dashboard</li>
+      <li>An 18-slide vendor pitch deck in Figma</li>
+    </ul>
+  </Chapter>
+</CaseStudy>

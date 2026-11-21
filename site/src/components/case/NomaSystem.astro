@@ -1,0 +1,228 @@
+---
+// Noma design-system evidence. Values read from the Noma Figma file:
+// - colour, text-style, spacing and radius variables on Builder — Customised (42:3963)
+// - Components page: Size Selector (32:990), Milk Selector (32:1045) and
+//   Payment Choice (32:1100) component sets, each with Direction=LTR/RTL variants
+// - Arabic typeface pairing (Noto Sans Arabic with Inter) from the Noma file
+import System from './System.astro';
+
+const colors = [
+  { token: 'brand/primary', hex: '#5B3A29', role: 'Selected option fill; navigation items' },
+  { token: 'brand/primary-tint', hex: '#F3E9E1', role: 'Light brand surfaces' },
+  { token: 'text/primary', hex: '#2A1D16', role: 'Labels on unselected options, titles' },
+  { token: 'text/secondary', hex: '#70645C', role: 'Supporting text' },
+  { token: 'background/primary', hex: '#FFFFFF', role: 'Unselected option fill, cards' },
+  { token: 'background/secondary', hex: '#F8F3EE', role: 'Secondary background' },
+  { token: 'border/default', hex: '#E8DED6', role: 'Unselected option border' },
+];
+
+const type = [
+  { style: 'H1', spec: 'Bold 28 / 36', size: 28, weight: 700, sample: 'Build your drink' },
+  { style: 'H2', spec: 'Semi Bold 24 / 32', size: 24, weight: 600, sample: 'Your order' },
+  { style: 'H3', spec: 'Semi Bold 20 / 28', size: 20, weight: 600, sample: 'Pickup' },
+  { style: 'Body', spec: 'Regular 16 / 24', size: 16, weight: 400, sample: 'Choose how strong it is.' },
+  { style: 'Button', spec: 'Semi Bold 16 / 20', size: 16, weight: 600, sample: 'Add to order' },
+  { style: 'Small', spec: 'Regular 14 / 20', size: 14, weight: 400, sample: 'Small −2 · Regular · Large +3' },
+  { style: 'Caption', spec: 'Regular 12 / 16', size: 12, weight: 400, sample: 'Pay at pickup' },
+  { style: 'Arabic', spec: 'Noto Sans Arabic, paired with Inter', size: 16, weight: 400, sample: 'صغير · عادي · كبير', lang: 'ar' },
+];
+
+const sizes = {
+  ltr: [
+    { v: 'small', label: 'Small', delta: '−2' },
+    { v: 'regular', label: 'Regular', delta: '' },
+    { v: 'large', label: 'Large', delta: '+3' },
+  ],
+  rtl: [
+    { v: 'small', label: 'صغير', delta: '−2' },
+    { v: 'regular', label: 'عادي', delta: '' },
+    { v: 'large', label: 'كبير', delta: '+3' },
+  ],
+};
+const pay = {
+  ltr: [
+    { v: 'pickup', label: 'Pay at pickup' },
+    { v: 'card', label: 'Card •••• 4242' },
+  ],
+  rtl: [
+    { v: 'pickup', label: 'الدفع عند الاستلام' },
+    { v: 'card', label: 'بطاقة •••• 4242' },
+  ],
+};
+---
+
+<System
+  id="noma-sys"
+  colors={colors}
+  colorNote="A warm, small palette: one deep brown for the choice the customer has made, a cream tint, and two text colours. Every selector uses the same pair, brown fill with white text for the selected option and a white fill with a light border for the rest, so the current choice reads the same way on every step of the builder."
+  type={type}
+  typeFamily="Inter with Noto Sans Arabic"
+  typeStack="Inter, 'Inter Variable', 'Noto Sans Arabic', system-ui, sans-serif"
+  typeNote="Each style fixes both size and line height (for example Body 16 / 24), which keeps rows the same height when the interface switches between English and Arabic. Arabic is set in Noto Sans Arabic beside Inter. The samples use these fonts if your device has them, otherwise your system font."
+  spacing={[2, 4, 8, 12, 16, 20, 24]}
+  spacingName="Spacing variables (px)"
+  radius={[
+    { name: 'md', value: 12 },
+    { name: 'lg', value: 16 },
+    { name: 'xl', value: 24 },
+    { name: 'full', value: 999 },
+  ]}
+  scaleNote="Options are 44 px tall with a 12 px radius (md) and 8 px between them, so every choice in the builder is a comfortable touch target and the selectors line up with each other."
+>
+  <div class="nm">
+    <figure class="nm__panel">
+      <div class="nm__pair">
+        <fieldset class="nm__group" dir="ltr">
+          <legend>Size · Direction=LTR</legend>
+          <div class="nm__options">
+            {
+              sizes.ltr.map((o, i) => (
+                <label class="nm__opt">
+                  <input type="radio" name="nm-size-ltr" value={o.v} checked={i === 0} />
+                  <span>{o.label}{o.delta && <>{' '}<bdi dir="ltr">{o.delta}</bdi></>}</span>
+                </label>
+              ))
+            }
+          </div>
+        </fieldset>
+        <fieldset class="nm__group" dir="rtl" lang="ar">
+          <legend><span lang="en" dir="ltr">Size · Direction=RTL</span></legend>
+          <div class="nm__options">
+            {
+              sizes.rtl.map((o, i) => (
+                <label class="nm__opt">
+                  <input type="radio" name="nm-size-rtl" value={o.v} checked={i === 0} />
+                  <span>{o.label}{o.delta && <>{' '}<bdi dir="ltr">{o.delta}</bdi></>}</span>
+                </label>
+              ))
+            }
+          </div>
+        </fieldset>
+      </div>
+      <figcaption>
+        <strong>Size Selector, LTR and RTL.</strong> The same component in both directions, recreated from its variants
+        (try it). In Arabic the order mirrors, so “Small” sits at the right, where an Arabic reader starts. Milk
+        Selector (Dairy, Oat +3, Almond +3) follows the same pattern.
+      </figcaption>
+    </figure>
+
+    <figure class="nm__panel">
+      <div class="nm__pair">
+        <fieldset class="nm__group" dir="ltr">
+          <legend>Payment · Direction=LTR</legend>
+          <div class="nm__options nm__options--stack">
+            {
+              pay.ltr.map((o) => (
+                <label class="nm__opt">
+                  <input type="radio" name="nm-pay-ltr" value={o.v} />
+                  <span>{o.label}</span>
+                </label>
+              ))
+            }
+          </div>
+        </fieldset>
+        <fieldset class="nm__group" dir="rtl" lang="ar">
+          <legend><span lang="en" dir="ltr">Payment · Direction=RTL</span></legend>
+          <div class="nm__options nm__options--stack">
+            {
+              pay.rtl.map((o) => (
+                <label class="nm__opt">
+                  <input type="radio" name="nm-pay-rtl" value={o.v} />
+                  <span>{o.label}</span>
+                </label>
+              ))
+            }
+          </div>
+        </fieldset>
+      </div>
+      <figcaption>
+        <strong>Payment Choice.</strong> Variants for nothing selected, Pay at pickup and Card. Starting with no
+        selection means the customer chooses how to pay instead of accepting a default by accident.
+      </figcaption>
+    </figure>
+  </div>
+</System>
+
+<style>
+  .nm {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 1.25rem;
+  }
+  .nm__panel {
+    margin: 0;
+    padding: clamp(1rem, 0.75rem + 1vw, 1.5rem);
+    border: 1px solid var(--paper-line);
+    border-radius: 16px;
+    background: #f8f3ee;
+    font-family: Inter, 'Inter Variable', 'Noto Sans Arabic', system-ui, sans-serif;
+  }
+  .nm__panel figcaption {
+    margin-top: 1.25rem;
+    font-family: var(--font-text);
+    font-size: var(--fs-caption);
+    line-height: 1.55;
+    color: var(--paper-soft);
+  }
+  .nm__panel figcaption strong { color: var(--paper-ink); }
+  .nm__pair {
+    display: grid;
+    gap: 1.25rem;
+  }
+  @media (min-width: 760px) {
+    .nm__pair { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2rem; }
+  }
+  .nm__group {
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+  .nm__group legend {
+    margin-bottom: 0.625rem;
+    padding: 0;
+    font-family: var(--font-text);
+    font-size: var(--fs-label);
+    font-weight: 600;
+    color: var(--paper-muted);
+  }
+  .nm__options {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    max-width: 343px;
+  }
+  .nm__options--stack { grid-template-columns: minmax(0, 1fr); }
+  .nm__opt {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0 0.5rem;
+    border: 1px solid #e8ded6;
+    border-radius: 12px;
+    background: #ffffff;
+    color: #2a1d16;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    cursor: pointer;
+  }
+  .nm__options--stack .nm__opt { justify-content: flex-start; padding: 0 1rem; text-align: start; }
+  .nm__opt input {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+  .nm__opt:has(input:checked) {
+    border-color: #5b3a29;
+    background: #5b3a29;
+    color: #ffffff;
+  }
+  .nm__opt:has(input:focus-visible) { outline: 2px solid var(--paper-ink); outline-offset: 2px; }
+</style>

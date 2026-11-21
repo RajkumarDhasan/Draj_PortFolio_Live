@@ -1,0 +1,221 @@
+/* Stage 4 tokens and base styles.
+   Sizes follow the reassessment, Agreed design direction, section 2.
+   Fluid values scale linearly between 320 px and 1440 px viewports. */
+
+:root {
+  /* Surfaces and text (contrast measured on --stage) */
+  --stage: #17130f;          /* deep warm black */
+  --stage-raised: #221d18;
+  --ink: #f2ece2;            /* 15.7:1 on stage */
+  --ink-soft: #d9d1c5;
+  --ink-muted: #a39a8c;      /* 6.6:1 on stage */
+  --line: rgba(242, 236, 226, 0.14);
+  --header-surface: rgba(23, 19, 15, 0.92);
+  --title-accent: #c9b7dc;
+  --hero-color-1: #8be9ff;
+  --hero-color-2: #b8a2ff;
+  --star: #e9e5f7;
+  --space-glow: rgba(104, 100, 174, 0.22);
+  --space-warm: rgba(150, 104, 52, 0.16);
+
+  /* Project colours */
+  --taggo: #f0dd50;          /* 13.3:1 on stage */
+  --on-taggo: #17130f;
+  --theevents: #f3a195;      /* TheEvents primary */
+  --theevents-dark: #e27e72;
+  --noma: #5b3a29;
+  --noma-cream: #f3e9e1;
+
+  /* Paper surface for long reading in case studies */
+  --paper: #f4efe7;
+  --paper-raised: #fbf8f3;
+  --paper-ink: #1e1914;      /* 15.2:1 on paper */
+  --paper-soft: #3d352d;     /* 10.5:1 on paper */
+  --paper-muted: #5e554b;    /* 6.4:1 on paper */
+  --paper-line: rgba(30, 25, 20, 0.14);
+
+  /* Type */
+  --font-display: 'Bricolage Grotesque Variable', 'Bricolage Grotesque', ui-sans-serif, system-ui, sans-serif;
+  --font-text: 'Instrument Sans Variable', 'Instrument Sans', ui-sans-serif, system-ui, sans-serif;
+
+  --fs-hero: clamp(2.5rem, 1.643rem + 4.286vw, 5.5rem);      /* 40 -> 88 px */
+  --fs-project: clamp(2rem, 1.429rem + 2.857vw, 4rem);       /* 32 -> 64 px, always below the hero title */
+  --fs-section: clamp(1.75rem, 1.536rem + 1.071vw, 2.5rem);  /* 28 -> 40 px */
+  --fs-position: clamp(1.25rem, 1.107rem + 0.714vw, 1.75rem);/* 20 -> 28 px */
+  --fs-body: clamp(1.0625rem, 1.045rem + 0.089vw, 1.125rem); /* 17 -> 18 px */
+  --fs-label: clamp(0.8125rem, 0.795rem + 0.089vw, 0.875rem);/* 13 -> 14 px */
+  --fs-decision: clamp(1.25rem, 1.214rem + 0.179vw, 1.375rem);/* 20 -> 22 px */
+  --fs-lead: clamp(1.25rem, 1.179rem + 0.357vw, 1.5rem);     /* 20 -> 24 px */
+  --fs-caption: clamp(0.875rem, 0.857rem + 0.089vw, 0.9375rem);/* 14 -> 15 px */
+
+  /* Motion: one easing family (expo-out in, shorter ease-in out) */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
+
+  /* Layout */
+  --gutter: clamp(1.25rem, 0.536rem + 3.571vw, 3.75rem);
+  --maxw: 82rem;
+  --header-h: 52px;
+}
+
+html[data-theme='light'] {
+  color-scheme: light;
+  --stage: #f7f4ef;
+  --stage-raised: #eee9e2;
+  --ink: #211c19;
+  --ink-soft: #453c35;
+  --ink-muted: #665d53;
+  --line: rgba(30, 25, 20, 0.17);
+  --header-surface: rgba(247, 244, 239, 0.94);
+  --title-accent: #5a486f;
+  --hero-color-1: #125c91;
+  --hero-color-2: #67449c;
+  --star: #5d587e;
+  --space-glow: rgba(115, 102, 166, 0.14);
+  --space-warm: rgba(172, 126, 82, 0.1);
+  --paper: #fffdf9;
+  --paper-raised: #f7f3ec;
+}
+html[data-theme='dark'] { color-scheme: dark; }
+
+@media (min-width: 768px) {
+  :root { --header-h: 64px; }
+}
+@media (min-width: 1200px) {
+  :root { --header-h: 72px; }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  background: var(--stage);
+  color: var(--ink);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+html.has-intro { overflow: hidden; }
+
+/* Keep focused or linked content clear of the fixed header (WCAG 2.4.11) */
+html { scroll-padding-top: calc(var(--header-h) + 1rem); }
+
+body {
+  margin: 0;
+  font-family: var(--font-text);
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  font-kerning: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (max-width: 599px) {
+  body { padding-bottom: calc(74px + env(safe-area-inset-bottom)); }
+  html { scroll-padding-bottom: calc(82px + env(safe-area-inset-bottom)); }
+}
+
+h1, h2, h3, p, figure, ol, ul { margin: 0; }
+ol, ul { padding: 0; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+button { font: inherit; color: inherit; }
+
+:focus-visible {
+  outline: 2px solid var(--taggo);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+main:focus { outline: none; }
+
+.wrap {
+  width: 100%;
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0; border: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 100;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  background: var(--ink);
+  color: var(--stage);
+  font-weight: 600;
+  text-decoration: none;
+  transform: translateY(-200%);
+}
+.skip-link:focus { transform: none; }
+
+/* Masked line reveal, shared by the hero title and project names */
+.mask {
+  display: inline-block;
+  overflow: clip;
+  vertical-align: top;
+  padding-bottom: 0.14em;
+  margin-bottom: -0.14em;
+}
+.mask__inner { display: inline-block; }
+
+/* Pill button (feedback: press to 0.97) */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  background: var(--accent, var(--taggo));
+  color: var(--on-taggo);
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.25;
+  text-decoration: none;
+  transition: transform 0.16s var(--ease-out), background-color 0.2s linear;
+}
+.btn:hover { background: #f6e98a; }
+.btn:active { transform: scale(0.97); }
+
+/* Cross-document transition: the Taggo device grows into the case-study header.
+   Browsers without view transitions navigate normally. */
+@view-transition { navigation: auto; }
+/* Each device carries its own view-transition-name inline (taggo-device,
+   theevents-device, noma-device). */
+::view-transition-group(taggo-device),
+::view-transition-group(theevents-device),
+::view-transition-group(noma-device) {
+  animation-duration: 0.6s;
+  animation-timing-function: var(--ease-out);
+}
+::view-transition-old(root),
+::view-transition-new(root) { animation-duration: 0.3s; }
+
+/* If the motion script never runs, show everything in place */
+html.no-motion-fallback .mask__inner,
+html.no-motion-fallback .rise,
+html.no-motion-fallback .device-enter {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
+    scroll-behavior: auto !important;
+  }
+  /* No shared-element movement: the page simply fades */
+  .vt-device { view-transition-name: none !important; }
+}

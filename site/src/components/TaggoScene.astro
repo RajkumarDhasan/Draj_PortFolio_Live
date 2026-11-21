@@ -1,0 +1,8 @@
+---
+// Kept for compatibility: the homepage now renders every project with
+// ProjectScene. This renders the Taggo scene on its own.
+import ProjectScene from './ProjectScene.astro';
+import { projects } from '../data/projects';
+---
+
+<ProjectScene project={projects[0]} index={0} />

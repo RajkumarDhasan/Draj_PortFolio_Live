@@ -1,0 +1,28 @@
+---
+// Decides before first paint whether the intro plays.
+// It plays on every direct load or reload of the homepage, and is skipped:
+// - with reduced motion,
+// - when the URL opens a #section,
+// - when the visitor arrives from another page of this site (e.g. "All work")
+//   or returns with Back/Forward.
+// The intro never blocks content: Skip, Escape or a tap end it at once.
+---
+
+<script is:inline>
+  (function () {
+    var d = document.documentElement;
+    try {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      if (location.hash) return;
+      var nav = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+      var type = nav ? nav.type : 'navigate';
+      if (type === 'back_forward') return;
+      if (type === 'navigate' && document.referrer) {
+        if (new URL(document.referrer).origin === location.origin) return;
+      }
+      d.classList.add('has-intro');
+    } catch (e) {
+      /* anything unexpected: no intro */
+    }
+  })();
+</script>

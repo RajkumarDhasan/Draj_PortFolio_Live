@@ -1,0 +1,218 @@
+---
+// Taggo design-system evidence. Values read from the Taggo Figma file:
+// - "Color Variables" collection (Light Mode / Dark Mode)
+// - typography, button, spacing and radius variables on node 10608:28624 and 8290:26447
+// - DR/Button (10415:27272) and DR/Banner (10415:27305) component sets
+// - prototype-state variables and collections
+import System from './System.astro';
+
+const colors = [
+  { token: 'Brand / Primary 500', hex: '#F0DD50', dark: '#F0DD50', role: 'Main action: the DR/Button Primary fill' },
+  { token: 'Brand / Primary 400', hex: '#FBBF24', dark: '#FBBF24', role: 'Same value as the chosen-vehicle border in the prototype' },
+  { token: 'Text / Primary', hex: '#171717', dark: '#FAFAFA', role: 'Titles, prices and body text' },
+  { token: 'Text / Secondary', hex: '#404040', dark: '#E5E5E5', role: 'Supporting lines under a title' },
+  { token: 'Text / Tertiary', hex: '#737373', dark: '#A3A3A3', role: 'Hints and metadata' },
+  { token: 'Backgrounds / Primary', hex: '#F9FAFB', dark: '#171717', role: 'Screen background' },
+  { token: 'Backgrounds / Secondary', hex: '#FAFAFA', dark: '#262626', role: 'Grouped sections' },
+  { token: 'Backgrounds / Brand Bg', hex: '#FEFCE8', dark: '#78350F', role: 'Tinted brand surfaces' },
+  { token: 'Border / Default', hex: '#E2E8F0', dark: '#334155', role: 'Dividers and card edges' },
+  { token: 'Border / Interactive', hex: '#0EA5E9', dark: '#38BDF8', role: 'Interactive outlines' },
+];
+
+const type = [
+  { style: 'Heading 3', spec: '20 px', size: 20, weight: 600, sample: 'Where to?' },
+  { style: 'DR/Button label', spec: 'Bold 16', size: 16, weight: 700, sample: 'Confirm pickup' },
+  { style: 'Body / md', spec: '16 / 24', size: 16, weight: 400, sample: 'Your driver is on the way.' },
+  { style: 'Body / sm', spec: '14 px', size: 14, weight: 400, sample: 'Choose a payment method' },
+  { style: 'Helper / xs', spec: '12 / 16', size: 12, weight: 400, sample: 'Add a note for the driver' },
+];
+
+const buttons = [
+  { name: 'Primary', bg: '#F0DD50', fg: '#171717', border: 'transparent' },
+  { name: 'Secondary', bg: '#FFFFFF', fg: '#4B5563', border: '#D1D5DB' },
+  { name: 'Danger', bg: '#FFFFFF', fg: '#DC2626', border: '#DC2626' },
+  { name: 'Dark', bg: '#374151', fg: '#9CA3AF', border: 'transparent' },
+  { name: 'Disabled', bg: '#E5E7EB', fg: '#9CA3AF', border: 'transparent' },
+];
+const banners = [
+  { name: 'Info', bg: '#DBEAFE' },
+  { name: 'Warning', bg: '#FFEDD5' },
+  { name: 'Error', bg: '#FEE2E2' },
+  { name: 'Success', bg: '#DCFCE7' },
+];
+---
+
+<System
+  id="taggo-sys"
+  colors={colors}
+  modes={['Light Mode', 'Dark Mode']}
+  colorNote="Colour lives in Figma variables with a Light Mode and a Dark Mode value, so a screen changes theme by switching mode, not by repainting it. Brand yellow keeps the same value in both modes; text, backgrounds and borders invert around it. The yellow marks the main action and the selected choice, so the next step is the first thing a rider sees."
+  type={type}
+  typeFamily="SF Pro"
+  typeStack="-apple-system, 'SF Pro Text', system-ui, sans-serif"
+  typeNote="Text styles are set in SF Pro with tighter letter spacing on headings (−0.5) and sub-headings (−0.3) and none on body text, so titles stay compact while small text stays easy to read. The samples use your device's system font, which is SF Pro on Apple devices."
+  spacing={[2, 4, 8, 12, 16, 20, 24]}
+  spacingName="Spacing variables (px)"
+  radius={[
+    { name: 'sm', value: 6 },
+    { name: 'md', value: 8 },
+    { name: 'lg', value: 12 },
+    { name: 'DR/Button', value: 14 },
+    { name: 'xl', value: 16 },
+    { name: 'full', value: 999 },
+  ]}
+  scaleNote="Spacing is named for what it does (icon gap 8, group gap 12, layout gap 16, card gap 12 or 20, form-group margin 24), so forms, cards and button groups keep the same rhythm from one flow to the next."
+>
+  <div class="tg">
+    <figure class="tg__panel">
+      <ul class="tg__buttons" aria-label="DR/Button variants">
+        {
+          buttons.map((b) => (
+            <li>
+              <span class="tg__btn" style={`background:${b.bg};color:${b.fg};border-color:${b.border}`}>
+                {b.name}
+              </span>
+            </li>
+          ))
+        }
+      </ul>
+      <figcaption>
+        <strong>DR/Button.</strong> One 56 px button with a 14 px radius and a bold 16 px label, in five types. A
+        separate Danger type means a destructive action never borrows the yellow of a normal next step.
+      </figcaption>
+    </figure>
+
+    <figure class="tg__panel">
+      <ul class="tg__banners" aria-label="DR/Banner tones">
+        {
+          banners.map((b) => (
+            <li class="tg__banner" style={`background:${b.bg}`}>
+              {b.name}
+            </li>
+          ))
+        }
+      </ul>
+      <figcaption>
+        <strong>DR/Banner.</strong> One banner with four tones: info, warning, error and success. Only the tint
+        changes, so the driver app can raise any rule change or problem in the same place and shape.
+      </figcaption>
+    </figure>
+
+    <figure class="tg__panel tg__panel--wide">
+      <table class="tg__vars">
+        <caption class="visually-hidden">Prototype variables and the state they set</caption>
+        <thead>
+          <tr><th scope="col">Prototype variable</th><th scope="col">Value</th><th scope="col">What it changes</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Vehicle / Comfort border</th>
+            <td><span class="tg__dot" style="background:#FBBF24" aria-hidden="true"></span>#FBBF24 when chosen, transparent otherwise</td>
+            <td>Outlines the vehicle the rider picked</td>
+          </tr>
+          <tr>
+            <th scope="row">Vehicle / Comfort label</th>
+            <td>“✓ Comfort”</td>
+            <td>Adds a check to the chosen vehicle’s name</td>
+          </tr>
+          <tr>
+            <th scope="row">Selected reason</th>
+            <td>“Plans changed”</td>
+            <td>Carries the rider’s cancellation reason to the next screen</td>
+          </tr>
+        </tbody>
+      </table>
+      <figcaption>
+        <strong>Prototype state.</strong> Flows have their own variable collections, for example “Ride cancellation /
+        Prototype state”, “Scheduled ride / Prototype”, “Recovery / Prototype”, and a driver earnings prototype with
+        today, week, month, all, custom and settled modes. A tap sets a value and every screen that reads it updates, so
+        the prototype behaves like the product instead of jumping between fixed copies.
+      </figcaption>
+    </figure>
+  </div>
+</System>
+
+<style>
+  .tg {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 1.25rem;
+  }
+  @media (min-width: 800px) {
+    .tg { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+    .tg__panel--wide { grid-column: 1 / -1; }
+  }
+  .tg__panel {
+    margin: 0;
+    padding: clamp(1rem, 0.75rem + 1vw, 1.5rem);
+    border: 1px solid var(--paper-line);
+    border-radius: 16px;
+    background: #ffffff;
+  }
+  .tg__panel figcaption {
+    margin-top: 1.25rem;
+    font-size: var(--fs-caption);
+    line-height: 1.55;
+    color: var(--paper-soft);
+  }
+  .tg__panel figcaption strong { color: var(--paper-ink); }
+  .tg__buttons,
+  .tg__banners {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: 0.625rem;
+  }
+  .tg__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 56px;
+    border: 1.5px solid transparent;
+    border-radius: 14px;
+    font-family: -apple-system, 'SF Pro Text', system-ui, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+  }
+  .tg__banner {
+    display: flex;
+    align-items: center;
+    min-height: 64px;
+    padding: 12px 14px;
+    border-radius: 14px;
+    font-family: -apple-system, 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #171717;
+  }
+  .tg__vars {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--fs-caption);
+    line-height: 1.45;
+  }
+  .tg__vars th,
+  .tg__vars td {
+    padding: 0.625rem 0.75rem 0.625rem 0;
+    border-bottom: 1px solid var(--paper-line);
+    text-align: left;
+    vertical-align: top;
+    color: var(--paper-soft);
+  }
+  .tg__vars thead th { font-weight: 600; color: var(--paper-muted); }
+  .tg__vars tbody th { font-weight: 600; color: var(--paper-ink); }
+  .tg__dot {
+    display: inline-block;
+    width: 0.75rem;
+    height: 0.75rem;
+    margin-right: 0.4rem;
+    border-radius: 50%;
+    vertical-align: -0.1em;
+  }
+  @media (max-width: 559px) {
+    .tg__vars thead { display: none; }
+    .tg__vars tr { display: grid; padding-block: 0.5rem; border-bottom: 1px solid var(--paper-line); }
+    .tg__vars th,
+    .tg__vars td { padding: 0.125rem 0; border: 0; }
+  }
+</style>

@@ -1,0 +1,215 @@
+---
+// Taggo case study. Sources: the Taggo Figma file (Customer App and Driver App
+// pages), the approved Stage 3 screen selection and Rajkumar's confirmed facts.
+// Not used (unverified): interview and usability-test counts, rider segments
+// and percentages, market statistics, ratings, booking-time or revenue
+// outcomes, screen and component counts, the "Arabic-first" claim.
+import CaseStudy from '../../layouts/CaseStudy.astro';
+import Chapter from '../../components/case/Chapter.astro';
+import Notes from '../../components/case/Notes.astro';
+import Screens from '../../components/case/Screens.astro';
+import Callout from '../../components/case/Callout.astro';
+import TaggoSystem from '../../components/case/TaggoSystem.astro';
+import { projects } from '../../data/projects';
+import { taggoSteps } from '../../data/taggo';
+
+import cancelAed5 from '../../assets/taggo/decisions/cancel-review-aed5.png';
+import cancelAed0 from '../../assets/taggo/decisions/cancel-review-aed0.png';
+import cancelUpdated from '../../assets/taggo/decisions/cancel-fee-updated.png';
+import recEstimate from '../../assets/taggo/decisions/recovery-price-estimate.png';
+import recPaused from '../../assets/taggo/decisions/recovery-price-change-paused.png';
+import recWaiting from '../../assets/taggo/decisions/recovery-customer-absent-warning.png';
+import drvServices from '../../assets/taggo/decisions/driver-choose-services.png';
+import drvOffer from '../../assets/taggo/decisions/driver-job-offer.png';
+import drvPrice from '../../assets/taggo/decisions/driver-price-change-request.png';
+import cargo1 from '../../assets/taggo/more/cargo-01-addresses.png';
+import cargo2 from '../../assets/taggo/more/cargo-02-details.png';
+import cargo3 from '../../assets/taggo/more/cargo-03-review.png';
+import cargo4 from '../../assets/taggo/more/cargo-04-tracking.png';
+import rental from '../../assets/taggo/more/rental.png';
+import wallet from '../../assets/taggo/more/wallet.png';
+import profile from '../../assets/taggo/more/profile.png';
+import aiAssistant from '../../assets/taggo/more/ai-assistant.png';
+
+const project = projects[0];
+const base = import.meta.env.BASE_URL;
+
+const decisions = [
+  { id: 'fare', title: 'Show the fare before the rider books' },
+  { id: 'cancellation', title: 'Show the cancellation fee before the rider cancels' },
+  { id: 'recovery', title: 'Pause a recovery job when the price changes' },
+  { id: 'driver', title: 'Design the driver’s side of the same job' },
+];
+const chapters = [
+  { id: 'product', title: 'The product and my role' },
+  ...decisions,
+  { id: 'more', title: 'Other services I designed' },
+  { id: 'system', title: 'Design system, prototypes and handoff' },
+  { id: 'next-tests', title: 'What I would test next' },
+];
+
+const rideCaptions = [
+  'The pickup is set from the rider’s location, and “Where to?” sits in the bottom sheet, within reach of a thumb.',
+  'Vehicle classes, each with its fixed fare, share one screen with the saved payment method, directly above Confirm & pay.',
+  'A clear searching state, with Cancel ride kept visible, so the rider knows the request is being handled.',
+  'Driver, car and rating appear before arrival, with call and message one tap away.',
+  'The ride ends on the fare, distance and time, then rating and tips, before anything else.',
+  'The receipt repeats route, fare and payment method, so the amount charged can be checked later.',
+];
+---
+
+<CaseStudy
+  project={project}
+  lead="A UAE mobility app for rides, car rental, cargo and car recovery, with separate apps for customers and drivers."
+  meta={[
+    { label: 'Product status', value: 'Published on iOS and Android' },
+    { label: 'My role', value: 'UX/UI designer' },
+    { label: 'Scope', value: 'Customer app and driver app' },
+    { label: 'Company', value: 'Kief Consultancies & Technologies, Abu Dhabi' },
+  ]}
+  note="The screens on this page come from my Figma design files. They show the designs, not necessarily every screen exactly as released."
+  designed={[
+    'The customer ride flow from pickup to receipt, with the fare and payment shown before booking',
+    'A cancellation flow that states the fee and its reason, with “Keep my ride” as the alternative',
+    'Car recovery with a price breakdown, price-change reviews and timed waiting states',
+    'The driver side of a recovery job: service selection, job offers and price-change requests',
+    'Cargo, rental, wallet and profile screens',
+    'Prototypes driven by Figma variables for the cancellation, scheduled-ride, cargo and recovery flows',
+  ]}
+  decisions={decisions}
+  chapters={chapters}
+  headerScreens={taggoSteps}
+  rememberScreen
+  next={{ href: `${base}theevents/`, name: 'TheEvents', promise: projects[1].promise }}
+>
+  <Chapter id="product" title="The product and my role">
+    <p>
+      Taggo brings four core services into one app: Live Ride, Car Rental, Cargo and Car Recovery. A VIP chauffeur
+      service is a separate offering and is not part of this case study. Customers and drivers use separate apps.
+    </p>
+    <p>
+      I worked as the UX/UI designer on both apps. The direction came from stakeholder discussions and a review of
+      ride apps people in the UAE already use, such as Careem, Uber and Yango. I used their familiar patterns as a
+      starting point, not as proof that those apps fall short.
+    </p>
+    <Callout>
+      I haven’t run usability tests on the decisions below, so they are presented as design reasoning, not measured
+      results. The last chapter lists the tests I would run.
+    </Callout>
+  </Chapter>
+
+  <Chapter id="fare" label="Decision 1" title="Show the fare before the rider books">
+    <Notes
+      items={[
+        { term: 'The problem', text: 'Booking a ride commits money. If the price appears only after confirming, the rider is asked to agree before knowing what they will pay.' },
+        { term: 'What I designed', text: 'Vehicle choice and a fixed fare share one screen, with the saved payment method directly above the confirm button. Destination entry and the main actions sit in the bottom sheet, where a thumb can reach them on a large phone.' },
+        { term: 'Why', text: 'The decision and its cost are visible at the same moment, and the rest of the journey keeps confirming what was agreed: driver details before arrival, then a receipt that repeats the fare and payment.' },
+        { term: 'Still to test', text: 'Whether riders understand what the fare includes, and how easily they reach destination entry one-handed.' },
+      ]}
+    />
+    <Screens
+      size="sm"
+      items={taggoSteps.map((s, i) => ({ image: s.image, alt: s.alt, title: `${s.n} ${s.label}`, caption: rideCaptions[i] }))}
+    />
+  </Chapter>
+
+  <Chapter id="cancellation" label="Decision 2" title="Show the cancellation fee before the rider cancels">
+    <Notes
+      items={[
+        { term: 'The problem', text: 'A fee that appears only after tapping Cancel feels like a penalty. The rider needs the amount and the reason while they can still change their mind.' },
+        { term: 'What I designed', text: 'One review screen states the deduction and why it applies, shows the pickup and the reason given, and offers “Keep my ride” beside the cancel button. The same screen covers the no-fee case and the moment a driver is assigned while the rider is deciding.' },
+        { term: 'Why', text: 'Nothing is charged by surprise: the rider sees the exact amount before confirming, and the safe option is always one tap away. The flow also includes the waiting state, both outcomes and a failure state with a way to check status.' },
+        { term: 'Still to test', text: 'Whether riders read the fee and its reason correctly before confirming.' },
+      ]}
+    />
+    <Screens
+      items={[
+        { image: cancelAed5, alt: 'Cancel this ride? AED 5 will be deducted because a driver is assigned. Buttons: Cancel ride · AED 5 and Keep my ride.', title: 'A driver is assigned: AED 5', caption: 'The fee and its reason are stated before confirming, and the cancel button repeats the amount.' },
+        { image: cancelAed0, alt: 'Cancel this ride? No driver is assigned, nothing will be deducted. Buttons: Cancel ride · AED 0 and Keep my ride.', title: 'No driver yet: AED 0', caption: 'The same layout says plainly that nothing will be deducted, so the rider never has to guess.' },
+        { image: cancelUpdated, alt: 'A driver was just assigned. The deduction has changed from AED 0 to AED 5; review it before cancelling. Your ride is still active.', title: 'The fee changes while deciding', caption: 'If a driver is assigned mid-decision, the screen says the deduction has changed and that the ride is still active.' },
+      ]}
+    />
+  </Chapter>
+
+  <Chapter id="recovery" label="Decision 3" title="Pause a recovery job when the price changes">
+    <Notes
+      items={[
+        { term: 'The problem', text: 'A breakdown is stressful, and the final recovery price can change once the driver sees the car, for example if winching is needed.' },
+        { term: 'What I designed', text: 'The estimate is broken down line by line before the customer requests a truck, with a note that any change needs their approval. If the driver asks for more, the job pauses and the customer reviews the change. Waiting states show a countdown and what happens if the customer is late.' },
+        { term: 'Why', text: 'The customer stays in control of the cost at every point, and a price change never cancels the job or charges them silently.' },
+        { term: 'Still to test', text: 'Whether customers accept or decline price changes with confidence, and whether the countdown is clear.' },
+      ]}
+    />
+    <Screens
+      items={[
+        { image: recEstimate, alt: 'Price estimate: AED 480 estimated total, held for 09:58, with a breakdown of call-out fee, distance, crossing and covered truck, and a note that the driver may request more if winching is needed.', title: 'Estimate with the breakdown', caption: '“How is this calculated?” lists every charge, and a note explains that any extra must be approved before it is charged.' },
+        { image: recPaused, alt: 'Map with a red banner: Your driver needs to change the price. Tap to review, your job is paused. Below, the driver Ahmed K. arriving in 6 minutes.', title: 'The job pauses for review', caption: 'A price-change request pauses the job until the customer reviews it. The job is not cancelled.' },
+        { image: recWaiting, alt: 'Time is running out, driver still waiting. Countdown 07:42 until 9:42 PM, after which a storage fee applies. Buttons: Call or message your driver, I’m nearby, I can’t make it.', title: 'Waiting, with a countdown', caption: 'One of three timed states (calm, warning, urgent). It shows the deadline, the consequence and the next actions.' },
+      ]}
+    />
+    <Callout>Prices, fees and names in these screens are sample design data, not Taggo’s pricing.</Callout>
+  </Chapter>
+
+  <Chapter id="driver" label="Decision 4" title="Design the driver’s side of the same job">
+    <Notes
+      items={[
+        { term: 'The problem', text: 'A recovery job involves two people. If only the customer side is designed, the driver’s steps, and the rules both sides depend on, are left to chance.' },
+        { term: 'What I designed', text: 'The truck driver chooses the services their truck can handle before going online, sees each job in one card with a clear Decline and Accept, and can request a price change only with a reason and a photo.' },
+        { term: 'Why', text: 'Each driver screen mirrors a customer screen: the request the driver sends is the review the customer receives, so the rules match on both sides.' },
+        { term: 'Still to test', text: 'How quickly drivers judge a job offer while working.' },
+      ]}
+    />
+    <Screens
+      items={[
+        { image: drvServices, alt: 'Driver home, online: What services are you offering today? Towing selected, plus Battery Boost, Tyre, Fuel, Lost Key and Flatbed Haul. Licence, permit and insurance valid. Go online · receive jobs.', title: 'Choose services before going online', caption: 'Offers match the truck’s equipment, and a check confirms licence, permit and insurance before the driver goes online.' },
+        { image: drvOffer, alt: 'New recovery request card: payout, pickup and drop-off, distance and duration, the vehicle and its problem, with Decline and Accept buttons and an expiry timer.', title: 'One job, one card', caption: 'Payout, route, distance and the vehicle’s problem in one view. Decline and Accept are clearly separated, and the offer expires on a visible timer.' },
+        { image: drvPrice, alt: 'Request price change: Sarah must approve; the job pauses while she decides and is never cancelled. Reasons, extra amount options and one required photo.', title: 'Request a change, with evidence', caption: 'The driver picks a reason and an amount and must add a photo. The customer approves on their side (see Decision 3).' },
+      ]}
+    />
+    <Callout>Payouts and fees in the driver screens are illustrative design assumptions, not Taggo policy. Names, plates and permit details are sample data.</Callout>
+  </Chapter>
+
+  <Chapter id="more" title="Other services I designed" lead="Rides are one of four services. The same patterns carry into cargo, rental and the account screens.">
+    <Screens
+      size="sm"
+      items={[
+        { image: cargo1, alt: 'Cargo booking step 1 of 3: sender and receiver details with addresses and phone numbers, and delivery instructions.', title: 'Cargo: sender and receiver', caption: 'A three-step booking (addresses, cargo, payment) so each screen asks for one kind of information.' },
+        { image: cargo2, alt: 'Cargo booking step 2: cargo type options such as Package, Documents, Furniture, Food and Electrical, quantity, and optional size, photos and handling notes.', title: 'Cargo: what you’re shipping', caption: 'Cargo type is chosen from tiles; size, photos and special handling are optional, so the required part stays short.' },
+        { image: cargo3, alt: 'Review & pay: shipment details, pickup time, delivery option, price breakdown, a 30-minute price hold note and the total of AED 28.35.', title: 'Cargo: review and pay', caption: 'The full price is broken down before paying, with a note on how long the quoted price is held.' },
+        { image: cargo4, alt: 'Track shipment: confirmed, with progress steps from picked up to delivered, plus reschedule and cancel options.', title: 'Cargo: tracking', caption: 'Progress from confirmed to delivered, with reschedule and cancel kept on the same screen.' },
+        { image: rental, alt: 'Rent a car: location, pickup and return dates, vehicle type filters and available cars with daily prices.', title: 'Car rental', caption: 'Dates and location sit above the list, so prices shown are for the chosen period.' },
+        { image: wallet, alt: 'My wallet: available balance, quick recharge amounts, Apple Pay, Google Pay and a saved Visa card.', title: 'Wallet', caption: 'Balance first, then quick recharge amounts and payment methods.' },
+        { image: profile, alt: 'Profile: account and verification, an active Silver membership, payment methods, wallet and emergency contacts.', title: 'Profile', caption: 'Account, membership, payments and safety settings grouped in one place.' },
+        { image: aiAssistant, alt: 'Taggo AI chat: the rider asks by voice to book a ride to Dubai Mall; the assistant compares fares and offers a ride to review and book.', title: 'AI booking assistant', caption: 'A conversational way to book: the assistant states the fares before offering a ride to review.' },
+      ]}
+    />
+  </Chapter>
+
+  <Chapter id="system" title="Design system, prototypes and handoff">
+    <p>
+      The Taggo file is built on Figma variables: colour in light and dark modes, typography, buttons, spacing and
+      radius. Separate variable collections run the prototype states for cancellation, scheduled rides, cargo and
+      recovery, so each flow can be clicked through with its real states instead of a fixed path.
+    </p>
+    <TaggoSystem />
+    <p>
+      Each driver recovery screen has a design note beside it that explains the rule the screen applies, so
+      developers and stakeholders can see the reason, not only the layout.
+    </p>
+    <h3>Deliverables</h3>
+    <ul>
+      <li>Customer and driver app screens in Figma, including empty, loading, error and failure states</li>
+      <li>Variable-driven prototypes for the cancellation, scheduled-ride, cargo and recovery flows</li>
+      <li>Design notes beside the driver recovery screens</li>
+    </ul>
+  </Chapter>
+
+  <Chapter id="next-tests" title="What I would test next">
+    <ul>
+      <li>A one-handed task: enter a destination and pick a saved place while holding the phone naturally.</li>
+      <li>Fare comprehension: show the fare and ask what the rider expects to pay, and what could change it.</li>
+      <li>Cancellation fee: ask riders to explain the fee and its reason before they confirm.</li>
+      <li>Recovery price change: observe whether customers accept or decline a change with confidence.</li>
+    </ul>
+  </Chapter>
+</CaseStudy>

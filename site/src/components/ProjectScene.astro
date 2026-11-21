@@ -1,0 +1,383 @@
+---
+// One homepage project scene: what it is, status, my role, key decisions and a
+// direct link to the full case study, beside real screens in the device frame.
+// Taggo keeps its playing device (selectable steps + pause control).
+import { Image } from 'astro:assets';
+import Device from './Device.astro';
+import type { ProjectSummary } from '../data/projects';
+import { taggoSteps } from '../data/taggo';
+
+interface Props {
+  project: ProjectSummary;
+  index: number;
+}
+
+const { project, index } = Astro.props;
+const href = `${import.meta.env.BASE_URL}${project.slug}/`;
+const titleId = `${project.slug}-title`;
+---
+
+<section
+  class="scene"
+  id={project.slug}
+  aria-labelledby={titleId}
+  data-scene
+  style={`--accent: ${project.accent}; --on-accent: ${project.onAccent};`}
+>
+  <div class:list={['wrap', 'scene__grid', index % 2 === 1 && 'scene__grid--flip']}>
+    <div class="scene__text">
+      <p class="scene__label rise" style="--d: 0">
+        {
+          project.logo && (
+            <Image src={project.logo} alt="" width={64} class="scene__logo" loading="lazy" />
+          )
+        }
+        <span>{project.category} · {project.status}</span>
+      </p>
+      <div class="depth depth--wordmark">
+        <h3 id={titleId} class="scene__name" data-scene-name>
+          <span class="mask"><span class="mask__inner">{project.name}</span></span>
+        </h3>
+      </div>
+      <p class="scene__desc rise" style="--d: 1">{project.promise}</p>
+      <p class="scene__role rise" style="--d: 2">{project.role}</p>
+      <div class="scene__decisions rise" style="--d: 2">
+        <h4 class="scene__decisions-title">Key decisions</h4>
+        <ul>
+          {project.decisions.map((d) => <li>{d}</li>)}
+        </ul>
+      </div>
+      <div class="scene__action rise" style="--d: 3">
+        <a class="btn" href={href} data-case-link>Read the {project.name} case study</a>
+      </div>
+    </div>
+
+    <div class="scene__media" data-media>
+      <div class="depth depth--glow scene__glow" aria-hidden="true"></div>
+      <div class="depth depth--device scene__device">
+        <div class="device-enter">
+          <Device steps={project.screens} mode={project.player ? 'player' : 'static'} transition={project.transitionName} />
+        </div>
+      </div>
+
+      {
+        project.player && (
+          <div class="player rise" style="--d: 3" data-player>
+            <div class="player__bar">
+              <p class="player__now" aria-hidden="true">
+                <span class="player__num" data-now-num>{taggoSteps[0].n}</span>{' '}<span data-now-label>{taggoSteps[0].label}</span>
+              </p>
+              <button type="button" class="player__toggle" data-toggle aria-label={`Pause ${project.name} screens`}>
+                Pause
+              </button>
+            </div>
+            <div class="player__steps" role="group" aria-label={`${project.name} ride journey steps`}>
+              {taggoSteps.map((s, i) => (
+                <button
+                  type="button"
+                  class="step"
+                  data-step={i}
+                  data-num={s.n}
+                  data-label={s.label}
+                  aria-label={`${s.n} ${s.label}`}
+                  aria-current={i === 0 ? 'step' : undefined}
+                >
+                  <span class="step__bar">
+                    <span class="step__fill" />
+                  </span>
+                </button>
+              ))}
+            </div>
+            <p class="visually-hidden" aria-live="polite" data-live />
+          </div>
+        )
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .scene {
+    --device-w: min(70vw, 20rem);
+    --rise: 60px;
+    --rise-device: 120px;
+    position: relative;
+    overflow: clip;
+    padding-block: clamp(6rem, 3rem + 10vh, 10rem);
+  }
+  .scene + :global(.scene) { border-top: 1px solid var(--line); }
+  @media (max-width: 767px) {
+    .scene {
+      --rise: 30px;
+      --rise-device: 60px;
+    }
+  }
+  @media (min-width: 768px) {
+    .scene {
+      --device-w: clamp(15rem, (100svh - var(--header-h) - 12rem) * 0.44, 21rem);
+    }
+  }
+
+  .scene__grid {
+    display: grid;
+    gap: clamp(4rem, 2rem + 7vh, 6rem);
+    align-items: center;
+  }
+  @media (min-width: 768px) {
+    .scene__grid {
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: clamp(3rem, 7vw, 8rem);
+    }
+    .scene__grid--flip { grid-template-columns: auto minmax(0, 1fr); }
+    .scene__grid--flip .scene__media { order: -1; }
+  }
+
+  .scene__text { max-width: 34rem; }
+
+  .scene__label {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    margin-bottom: 1rem;
+    font-size: var(--fs-label);
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--ink-muted);
+  }
+  .scene__label :global(.scene__logo) {
+    width: 28px;
+    height: 28px;
+    border-radius: 7px;
+    object-fit: cover;
+  }
+  .scene__name {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: var(--fs-project);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    transition: color 0.6s var(--ease-out);
+  }
+  .scene:hover .scene__name,
+  .scene:focus-within .scene__name { color: color-mix(in srgb, var(--ink) 68%, var(--accent)); }
+  .scene__desc {
+    margin-top: clamp(1.25rem, 1rem + 1vw, 1.75rem);
+    color: var(--ink-soft);
+  }
+  .scene__role {
+    margin-top: 0.875rem;
+    font-size: var(--fs-label);
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--ink-muted);
+  }
+  .scene__decisions { margin-top: 2.5rem; }
+  .scene__decisions-title {
+    font-size: var(--fs-label);
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--ink);
+  }
+  .scene__decisions ul {
+    list-style: none;
+    margin-top: 0.75rem;
+    display: grid;
+    gap: 0.5rem;
+  }
+  .scene__decisions li {
+    position: relative;
+    padding-left: 1.25rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--ink-soft);
+  }
+  .scene__decisions li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.62em;
+    width: 0.5rem;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--accent);
+  }
+  .scene__action { margin-top: 2.75rem; }
+  .scene :global(.btn) { background: var(--accent); color: var(--on-accent); }
+  .scene :global(.btn:hover) { background: color-mix(in srgb, var(--accent) 82%, #ffffff); }
+
+  .scene__media {
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    justify-items: center;
+    gap: 1.25rem;
+  }
+  .scene__glow {
+    position: absolute;
+    z-index: -1;
+    top: 42%;
+    left: 50%;
+    width: calc(var(--device-w) * 2.4);
+    aspect-ratio: 1;
+    translate: -50% -50%;
+    background: radial-gradient(
+      closest-side,
+      color-mix(in srgb, var(--accent) 20%, transparent),
+      color-mix(in srgb, var(--accent) 7%, transparent) 50%,
+      transparent 100%
+    );
+    opacity: 0.45;
+    transition: opacity 1.2s var(--ease-out), scale 1.2s var(--ease-out);
+  }
+  .scene.is-in .scene__glow,
+  :global(html:not(.js)) .scene__glow { opacity: 1; }
+  .scene:hover .scene__glow,
+  .scene:focus-within .scene__glow { opacity: 1; scale: 1.12; }
+
+  /* Scroll depth on pointer and touch screens, scaled down on mobile */
+  .depth { transform: translate3d(0, calc(var(--depth, 0) * var(--k, 0px)), 0); }
+  .depth--wordmark { --k: 34px; }
+  .depth--device { --k: -28px; }
+  .depth--glow { --k: 20px; }
+  @media (max-width: 767px) {
+    .depth--wordmark { --k: 18px; }
+    .depth--device { --k: -14px; }
+    .depth--glow { --k: 10px; }
+  }
+
+  /* Player controls (Taggo) */
+  .player { width: var(--device-w); }
+  :global(html:not(.js)) .player { display: none; }
+  .player__bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .player__now {
+    font-size: var(--fs-label);
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--ink);
+  }
+  .player__num {
+    margin-right: 0.35em;
+    color: var(--ink-muted);
+    font-variant-numeric: tabular-nums;
+  }
+  .player__toggle {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 0 0.875rem;
+    border: 1px solid var(--ink-muted);
+    border-radius: 999px;
+    background: transparent;
+    font-size: var(--fs-label);
+    font-weight: 500;
+    cursor: pointer;
+    transition: border-color 0.2s linear, transform 0.16s var(--ease-out);
+  }
+  .player__toggle:hover { border-color: var(--ink); }
+  .player__toggle:active { transform: scale(0.97); }
+  .player__toggle[hidden] { display: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .player__toggle { display: none; }
+  }
+  .player__steps {
+    display: flex;
+    gap: 6px;
+    margin-top: 0.25rem;
+  }
+  .step {
+    flex: 1;
+    min-width: 24px;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    display: grid;
+    align-items: center;
+  }
+  /* Inactive bar 4.05:1 on the stage; yellow fill 3.3:1 against it (WCAG 1.4.11) */
+  .step__bar {
+    display: block;
+    height: 4px;
+    border-radius: 4px;
+    background: var(--ink-muted);
+    overflow: hidden;
+    transition: background-color 0.2s linear;
+  }
+  .step:hover .step__bar { background: var(--ink-soft); }
+  .step__fill {
+    display: block;
+    height: 100%;
+    background: var(--accent);
+    transform-origin: left center;
+    transform: scaleX(0);
+  }
+  .step.is-done .step__fill,
+  .step[aria-current='step'] .step__fill { transform: scaleX(1); }
+  .player.is-playing.is-ticking .step[aria-current='step'] .step__fill {
+    animation: step-fill 2.6s linear both;
+  }
+  @keyframes step-fill {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+  }
+
+  /* Scene entry: text rises, wordmark rises and drifts, device settles */
+  :global(html.js) .scene .rise {
+    opacity: 0;
+    transform: translateY(var(--rise));
+  }
+  :global(html.js) .scene.is-in .rise {
+    opacity: 1;
+    transform: none;
+    transition:
+      opacity 1s var(--ease-out) calc(var(--d, 0) * 40ms),
+      transform 1.1s var(--ease-out) calc(var(--d, 0) * 40ms);
+  }
+  :global(html.js) .scene .scene__name .mask__inner {
+    transform: translate(24px, 105%);
+  }
+  :global(html.js) .scene.is-in .scene__name .mask__inner {
+    transform: none;
+    transition: transform 1.6s var(--ease-out);
+  }
+  :global(html.js) .scene .device-enter {
+    opacity: 0;
+    transform: translateY(var(--rise-device)) rotate(4deg) scale(0.92);
+  }
+  :global(html.js) .scene.is-in .device-enter {
+    opacity: 1;
+    transform: none;
+    transition:
+      opacity 1s var(--ease-out) 0.15s,
+      transform 1.3s var(--ease-out) 0.15s;
+  }
+  :global(html.js) .scene.is-in .scene__media:hover .device-enter {
+    transform: translateY(-8px) rotate(-1deg);
+    transition: transform 0.7s var(--ease-out);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    :global(html.js) .scene.is-in .scene__media:hover .device-enter { transform: none; }
+  }
+  @media (max-width: 599px) {
+    .scene {
+      --device-w: min(60vw, 14rem);
+      margin: 0 var(--gutter) 1.25rem;
+      padding-block: 2.25rem 2.75rem;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: var(--stage-raised);
+    }
+    .scene + :global(.scene) { border-top-color: var(--line); }
+    .scene__grid { padding-inline: 1.25rem; gap: 2.5rem; }
+    .scene__decisions { display: none; }
+    .scene__action { margin-top: 1.75rem; }
+    .scene__label { margin-bottom: 0.75rem; }
+    .scene__desc { margin-top: 1rem; }
+    .scene__media { gap: 0.75rem; }
+  }
+</style>

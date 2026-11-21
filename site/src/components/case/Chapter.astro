@@ -1,0 +1,75 @@
+---
+interface Props {
+  id: string;
+  title: string;
+  /** Short context label, e.g. "Decision 1" (only for real sequences) */
+  label?: string;
+  lead?: string;
+}
+const { id, title, label, lead } = Astro.props;
+---
+
+<section class="chapter" id={id} aria-labelledby={`${id}-title`}>
+  {label && <p class="chapter__label">{label}</p>}
+  <h2 class="chapter__title" id={`${id}-title`}>{title}</h2>
+  {lead && <p class="chapter__lead">{lead}</p>}
+  <div class="chapter__body">
+    <slot />
+  </div>
+</section>
+
+<style>
+  .chapter {
+    padding-top: clamp(3.5rem, 1.5rem + 6vh, 6rem);
+    padding-bottom: clamp(5rem, 2.5rem + 8vh, 8rem);
+    border-bottom: 1px solid var(--paper-line);
+    scroll-margin-top: calc(var(--header-h) + 1rem);
+  }
+  .chapter:last-child { border-bottom: 0; }
+  .chapter__label {
+    margin-bottom: 0.5rem;
+    font-size: var(--fs-label);
+    font-weight: 600;
+    color: var(--paper-muted);
+  }
+  .chapter__title {
+    max-width: 40rem;
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: var(--fs-section);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+  .chapter__lead {
+    max-width: 40rem;
+    margin-top: 1rem;
+    font-size: var(--fs-lead);
+    line-height: 1.45;
+    color: var(--paper-soft);
+  }
+  .chapter__body { margin-top: 2.5rem; }
+  .chapter__body > :global(p),
+  .chapter__body > :global(ul) {
+    max-width: 40rem;
+    color: var(--paper-soft);
+  }
+  .chapter__body > :global(p + p) { margin-top: 1em; }
+  .chapter__body > :global(ul) {
+    padding-left: 1.25rem;
+    display: grid;
+    gap: 0.5rem;
+  }
+  .chapter__body > :global(* + figure),
+  .chapter__body > :global(* + .screens),
+  .chapter__body > :global(* + .board),
+  .chapter__body > :global(* + .callout),
+  .chapter__body > :global(* + .notes),
+  .chapter__body > :global(* + .lang),
+  .chapter__body > :global(* + h3) { margin-top: 3rem; }
+  .chapter__body > :global(h3) {
+    font-size: var(--fs-decision);
+    font-weight: 600;
+    line-height: 1.3;
+  }
+  .chapter__body > :global(h3 + p) { margin-top: 0.75rem; }
+</style>

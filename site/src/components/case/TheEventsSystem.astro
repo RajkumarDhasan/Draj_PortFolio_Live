@@ -1,0 +1,205 @@
+---
+// TheEvents design-system evidence. Values read from the New Events App Figma file:
+// - colour, text-style and radius variables on the Checkout frame (289:2887)
+// - the "Design System — Core Components" page (13:2): Button (15:26),
+//   PaymentMethodRow (21:149) and ProductCard (18:120) component sets
+import System from './System.astro';
+
+const colors = [
+  { token: 'bg-brand', hex: '#E27E72', role: 'Brand coral' },
+  { token: 'bg-brand-subtle', hex: '#F3A195', role: 'Lighter brand coral' },
+  { token: 'bg-inverse', hex: '#1A1A1A', role: 'Same value as the primary button fill' },
+  { token: 'text-primary', hex: '#1A1A1A', role: 'Titles, prices and labels' },
+  { token: 'text-tertiary', hex: '#808080', role: 'Secondary details; same value as disabled labels' },
+  { token: 'bg-subtle', hex: '#F5F5F5', role: 'Disabled fills and quiet surfaces' },
+  { token: 'border-muted', hex: '#D9D9D9', role: 'Quiet borders' },
+  { token: 'text-success', hex: '#2E7D32', role: 'Success text, e.g. savings' },
+  { token: 'bg-success-tint', hex: '#E2F5E2', role: 'Success background' },
+];
+
+const type = [
+  { style: 'Heading / XS', spec: 'Bold 18', size: 18, weight: 700, sample: 'Order summary' },
+  { style: 'Title / LG', spec: 'Semi Bold 16', size: 16, weight: 600, sample: 'Pay now' },
+  { style: 'Title / MD', spec: 'Semi Bold 14', size: 14, weight: 600, sample: 'Payment method' },
+  { style: 'Body / MD', spec: 'Regular 14, line height 1.4', size: 14, weight: 400, sample: 'Delivered to your saved address.' },
+  { style: 'Label / MD', spec: 'Medium 13', size: 13, weight: 500, sample: 'Field label' },
+  { style: 'Body / XS', spec: 'Regular 12', size: 12, weight: 400, sample: 'Detail · Expiry or note' },
+];
+
+const buttons = [
+  { name: 'Primary', bg: '#1A1A1A', fg: '#FFFFFF', border: 'transparent' },
+  { name: 'Secondary', bg: '#FFFFFF', fg: '#1A1A1A', border: '#808080' },
+  { name: 'Ghost', bg: 'transparent', fg: '#1A1A1A', border: 'transparent' },
+  { name: 'Disabled', bg: '#F5F5F5', fg: '#808080', border: 'transparent' },
+];
+---
+
+<System
+  id="theevents-sys"
+  colors={colors}
+  colorNote="The file names colour by job (bg-brand, text-tertiary, bg-success-tint) rather than by hue, so a screen asks for “the brand background” or “success text” and stays consistent. In the component library the primary button is near-black (bg-inverse), and coral is a separate brand token, which keeps the colour of the action apart from the colour of the brand."
+  type={type}
+  typeFamily="Inter"
+  typeStack="Inter, 'Inter Variable', system-ui, sans-serif"
+  typeNote="Text styles are named by role and size (Heading / XS, Title / LG, Body / MD, Label / MD), so prices, product names and form labels keep the same weight wherever they appear. The samples use Inter if your device has it, otherwise your system font."
+  radius={[
+    { name: 'radius-lg', value: 12 },
+    { name: 'radius-full', value: 999 },
+  ]}
+  scaleNote="Two radii carry the interface: 12 px (radius-lg) for fields and rows, fully rounded (radius-full) for buttons. spacing-lg (16) sets the inner side padding of rows and fields."
+>
+  <div class="te">
+    <figure class="te__panel">
+      <ul class="te__buttons" aria-label="Button variants, Large">
+        {
+          buttons.map((b) => (
+            <li>
+              <span class="te__btn" style={`background:${b.bg};color:${b.fg};border-color:${b.border}`}>
+                {b.name}
+              </span>
+            </li>
+          ))
+        }
+      </ul>
+      <figcaption>
+        <strong>Button.</strong> Primary, Secondary and Ghost types in Large (52 px, Semi Bold 16) and Medium (44 px,
+        Semi Bold 14), each with a Disabled state. Fully rounded, so a button never reads as a card or a field.
+      </figcaption>
+    </figure>
+
+    <figure class="te__panel">
+      <fieldset class="te__pay">
+        <legend class="te__legend">Payment method</legend>
+        <label class="te__row">
+          <input type="radio" name="te-pay" value="a" checked />
+          <span class="te__row-text"><span class="te__row-title">Payment method</span><span class="te__row-detail">Detail · Expiry or note</span></span>
+          <span class="te__row-change" aria-hidden="true">Change</span>
+        </label>
+        <label class="te__row">
+          <input type="radio" name="te-pay" value="b" />
+          <span class="te__row-text"><span class="te__row-title">Payment method</span><span class="te__row-detail">Detail · Expiry or note</span></span>
+          <span class="te__row-change" aria-hidden="true">Change</span>
+        </label>
+      </fieldset>
+      <figcaption>
+        <strong>PaymentMethodRow.</strong> Default and Selected states, recreated from the component (try it). Selection
+        darkens the border from #F5F5F5 to #1A1A1A at 1.5 px and adds “Change”, so the chosen method is clear before
+        the buyer pays.
+      </figcaption>
+    </figure>
+
+    <figure class="te__panel te__panel--wide">
+      <ul class="te__states" aria-label="ProductCard states">
+        <li><strong>Default</strong></li>
+        <li><strong>Discount</strong></li>
+        <li><strong>Sold Out</strong></li>
+        <li><strong>Skeleton</strong></li>
+      </ul>
+      <figcaption>
+        <strong>ProductCard.</strong> One card with four states in the component set: Default, Discount, Sold Out and
+        Skeleton (loading). The discount, sold-out and loading cases are designed into the card itself instead of being
+        left to each screen.
+      </figcaption>
+    </figure>
+  </div>
+</System>
+
+<style>
+  .te {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 1.25rem;
+  }
+  @media (min-width: 800px) {
+    .te { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+    .te__panel--wide { grid-column: 1 / -1; }
+  }
+  .te__panel {
+    margin: 0;
+    padding: clamp(1rem, 0.75rem + 1vw, 1.5rem);
+    border: 1px solid var(--paper-line);
+    border-radius: 16px;
+    background: #ffffff;
+    font-family: Inter, 'Inter Variable', system-ui, sans-serif;
+  }
+  .te__panel figcaption {
+    margin-top: 1.25rem;
+    font-family: var(--font-text);
+    font-size: var(--fs-caption);
+    line-height: 1.55;
+    color: var(--paper-soft);
+  }
+  .te__panel figcaption strong { color: var(--paper-ink); }
+  .te__buttons {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: 0.625rem;
+  }
+  .te__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 52px;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .te__pay {
+    display: grid;
+    gap: 0.625rem;
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+  .te__legend {
+    margin-bottom: 0.625rem;
+    padding: 0;
+    font-size: 13px;
+    font-weight: 500;
+    color: #1a1a1a;
+  }
+  .te__row {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    min-height: 64px;
+    padding: 0 16px;
+    border: 1px solid #f5f5f5;
+    border-radius: 12px;
+    background: #ffffff;
+    cursor: pointer;
+  }
+  .te__row:has(input:checked) {
+    border: 1.5px solid #1a1a1a;
+    padding: 0 15.5px;
+  }
+  .te__row input {
+    width: 1.125rem;
+    height: 1.125rem;
+    margin: 0;
+    accent-color: #1a1a1a;
+  }
+  .te__row:has(input:focus-visible) { outline: 2px solid var(--paper-ink); outline-offset: 3px; }
+  .te__row-text { display: grid; flex: 1; }
+  .te__row-title { font-size: 14px; font-weight: 600; color: #1a1a1a; }
+  .te__row-detail { font-size: 12px; color: #808080; }
+  .te__row-change { font-size: 13px; font-weight: 500; color: #1f1e1d; visibility: hidden; }
+  .te__row:has(input:checked) .te__row-change { visibility: visible; }
+  .te__states {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr));
+    gap: 0.625rem;
+  }
+  .te__states li {
+    padding: 0.875rem 1rem;
+    border: 1px solid var(--paper-line);
+    border-radius: 12px;
+    font-size: 14px;
+    color: #1a1a1a;
+  }
+</style>
