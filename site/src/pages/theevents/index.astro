@@ -58,6 +58,9 @@ const chapters = [
     { label: 'Scope', value: 'Buyer app, promoter pages and vendor tools' },
     { label: 'Screens shown', value: 'Designed July–October 2026' },
   ]}
+  stores={[
+    { name: 'TheEvents', google: 'https://play.google.com/store/apps/details?id=com.logicalyinfotech.events', apple: 'https://apps.apple.com/ae/app/theevents-gifts-shopping/id6739205204' },
+  ]}
   note="The screens on this page come from my New Events App Figma file. They show the designs, not necessarily every screen exactly as released."
   designed={[
     'The buyer journey from the home screen to a confirmed order',
@@ -115,11 +118,11 @@ const chapters = [
     <Screens
       size="sm"
       items={[
-        { image: p1, alt: 'Makeup Artists: a “Get the Look” banner, style filters, featured artists with Follow buttons and trending looks.', title: '1 · Discover', caption: '“Get the Look” frames artists as a way to find products, with featured artists and trending looks.' },
-        { image: p2, alt: 'Artist profile for Aisha Khan: followers, products and looks counts, Follow, style tags and a Looks grid with Shop This Look links.', title: '2 · Artist profile', caption: 'Looks and Products, never services: every look links to “Shop This Look”.' },
-        { image: p3, alt: 'Soft Glam Look: a portrait, the artist’s description and the six products used, with a Shop This Look button.', title: '3 · The look', caption: 'The look names the exact products used, so the next step is obvious.' },
-        { image: p4, alt: 'Shop This Look: each product used with its brand, price, rating and Add button, and an Add All to Cart button with the total.', title: '4 · Shop the look', caption: 'Every product with its price and Add, plus one “Add all to cart” with the total.' },
-        { image: p5, alt: 'Product details for a foundation: price and saving, the artist’s note about the product, available shades, delivery date, Add to Cart and Buy Now.', title: '5 · Product with the artist’s note', caption: 'The artist’s note sits on the product page, next to shades and delivery, before Add to cart.' },
+        { image: p1, alt: 'Makeup Artists: a “Get the Look” banner, style filters, featured artists with Follow buttons and trending looks.', title: '1 · Discover', caption: '“Get the Look” frames artists as a way to find products, with featured artists and trending looks.', scroll: true },
+        { image: p2, alt: 'Artist profile for Aisha Khan: followers, products and looks counts, Follow, style tags and a Looks grid with Shop This Look links.', title: '2 · Artist profile', caption: 'Looks and Products, never services: every look links to “Shop This Look”.', scroll: true },
+        { image: p3, alt: 'Soft Glam Look: a portrait, the artist’s description and the six products used, with a Shop This Look button.', title: '3 · The look', caption: 'The look names the exact products used, so the next step is obvious.', scroll: true },
+        { image: p4, alt: 'Shop This Look: each product used with its brand, price, rating and Add button, and an Add All to Cart button with the total.', title: '4 · Shop the look', caption: 'Every product with its price and Add, plus one “Add all to cart” with the total.', scroll: true },
+        { image: p5, alt: 'Product details for a foundation: price and saving, the artist’s note about the product, available shades, delivery date, Add to Cart and Buy Now.', title: '5 · Product with the artist’s note', caption: 'The artist’s note sits on the product page, next to shades and delivery, before Add to cart.', scroll: true },
         { image: artistProducts, alt: 'An artist profile on the Products tab: follow, ratings, and a grid of products with prices and Add to Cart.', title: 'Artist profile, Products tab', caption: 'The same profile can list products directly, using the shared product card.' },
       ]}
     />

@@ -14,7 +14,6 @@ const prefix = home ? '' : base;
     <nav class="site-header__nav" aria-label="Main">
       <a href={`${prefix}#work`} class="site-header__work">Work</a>
       <a href={`${base}about/`} aria-current={current === 'about' ? 'page' : undefined}>About</a>
-      <a href={`${base}Rajkumar-Dhasan-Resume.pdf`} class="site-header__cv">CV<span class="visually-hidden"> (PDF)</span></a>
       <a href={`${prefix}#contact`}>Contact</a>
     </nav>
     <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch color mode">
@@ -193,7 +192,7 @@ const prefix = home ? '' : base;
     const tabs = Array.from(mobileNav.querySelectorAll<HTMLAnchorElement>('[data-mobile-tab]'));
     const updateTab = () => {
       const threshold = window.innerHeight * 0.45;
-      const sections = ['contact', 'about', 'work'];
+      const sections = ['contact', 'work'];
       const active = sections.find((id) => {
         const section = document.getElementById(id);
         return section && section.getBoundingClientRect().top <= threshold;

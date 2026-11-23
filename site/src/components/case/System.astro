@@ -20,6 +20,7 @@ interface TypeStyle {
 }
 interface Props {
   id: string;
+  variant: 'taggo' | 'theevents' | 'noma';
   colors: Swatch[];
   colorNote: string;
   /** Labels for the two halves when swatches carry a dark value */
@@ -33,14 +34,14 @@ interface Props {
   radius: { name: string; value: number }[];
   scaleNote: string;
 }
-const { id, colors, colorNote, modes, type, typeFamily, typeStack, typeNote, spacing, spacingName, radius, scaleNote } =
+const { id, variant, colors, colorNote, modes, type, typeFamily, typeStack, typeNote, spacing, spacingName, radius, scaleNote } =
   Astro.props;
 const maxSpace = spacing && spacing.length ? Math.max(...spacing) : 0;
 ---
 
-<div class="sys" style={`--type-stack: ${typeStack}`}>
+<div class:list={['sys', `sys--${variant}`]} style={`--type-stack: ${typeStack}`}>
   <section class="sys__group" aria-labelledby={`${id}-color`}>
-    <h3 id={`${id}-color`}>Colour</h3>
+    <h3 id={`${id}-color`}><span class="sys__index" aria-hidden="true">01</span>Colour</h3>
     <p class="sys__note">{colorNote}</p>
     {modes && (
       <p class="sys__modes" aria-hidden="true">
@@ -78,7 +79,7 @@ const maxSpace = spacing && spacing.length ? Math.max(...spacing) : 0;
   </section>
 
   <section class="sys__group" aria-labelledby={`${id}-type`}>
-    <h3 id={`${id}-type`}>Typography · {typeFamily}</h3>
+    <h3 id={`${id}-type`}><span class="sys__index" aria-hidden="true">02</span>Typography · {typeFamily}</h3>
     <p class="sys__note">{typeNote}</p>
     <ul class="sys__type">
       {
@@ -99,7 +100,7 @@ const maxSpace = spacing && spacing.length ? Math.max(...spacing) : 0;
   </section>
 
   <section class="sys__group" aria-labelledby={`${id}-scale`}>
-    <h3 id={`${id}-scale`}>Spacing and radius</h3>
+    <h3 id={`${id}-scale`}><span class="sys__index" aria-hidden="true">03</span>Spacing and radius</h3>
     <p class="sys__note">{scaleNote}</p>
     <div class:list={['sys__scales', !spacing?.length && 'sys__scales--one']}>
       {spacing && spacing.length > 0 && (
@@ -135,7 +136,7 @@ const maxSpace = spacing && spacing.length ? Math.max(...spacing) : 0;
   </section>
 
   <section class="sys__group" aria-labelledby={`${id}-components`}>
-    <h3 id={`${id}-components`}>Components and states</h3>
+    <h3 id={`${id}-components`}><span class="sys__index" aria-hidden="true">04</span>Components and states</h3>
     <slot />
   </section>
 </div>
@@ -152,6 +153,7 @@ const maxSpace = spacing && spacing.length ? Math.max(...spacing) : 0;
     line-height: 1.3;
     color: var(--paper-ink);
   }
+  .sys__index { display: none; }
   .sys__note {
     max-width: 44rem;
     margin-top: 0.5rem;
@@ -291,4 +293,77 @@ const maxSpace = spacing && spacing.length ? Math.max(...spacing) : 0;
   }
   .sys__radius-name { font-weight: 600; color: var(--paper-ink); }
   .sys__radius-val { color: var(--paper-muted); font-variant-numeric: tabular-nums; }
+
+  /* Taggo reads like a controlled product specification. The rider and driver
+     apps share token names and state rules, so each foundation gets a numbered sheet. */
+  .sys--taggo { gap: 1.5rem; }
+  .sys--taggo .sys__group {
+    min-width: 0;
+    padding: clamp(1.25rem, 1rem + 2vw, 2.5rem);
+    border: 1px solid #d7d5c9;
+    border-top: 5px solid #f0dd50;
+    background: #fffefa;
+  }
+  .sys--taggo .sys__group h3 { display: flex; align-items: baseline; gap: 0.8rem; }
+  .sys--taggo .sys__index {
+    display: inline-block;
+    flex: none;
+    padding: 0.25rem 0.4rem;
+    border-radius: 3px;
+    background: #171717;
+    color: #f0dd50;
+    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+    font-size: 0.75rem;
+    line-height: 1;
+  }
+  .sys--taggo .sys__chip { border-radius: 3px; }
+  .sys--taggo .sys__bar { background: #171717; }
+  .sys--taggo .sys__radius-box { border-radius: 2px; background: #f0dd50; }
+
+  /* TheEvents is a commerce catalogue: broad coral swatches, light dividers,
+     and product-card-like specimens keep the focus on inventory and checkout. */
+  .sys--theevents { gap: clamp(3.5rem, 2rem + 4vw, 5.5rem); }
+  .sys--theevents .sys__group { padding-top: 1.5rem; border-top: 2px solid #e27e72; }
+  .sys--theevents .sys__group h3 { color: #1a1a1a; }
+  .sys--theevents .sys__index {
+    display: inline-block;
+    margin-right: 0.75rem;
+    color: #bb6258;
+    font-family: Inter, 'Inter Variable', system-ui, sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    vertical-align: 0.15em;
+  }
+  .sys--theevents .sys__swatches { grid-template-columns: repeat(auto-fill, minmax(min(8rem, 100%), 1fr)); }
+  .sys--theevents .sys__chip { height: 5rem; border-radius: 12px; }
+  .sys--theevents .sys__type li { border-color: #e8ddd9; }
+  .sys--theevents .sys__radius-box { border-color: #e27e72; }
+
+  /* Noma presents English and Arabic as paired surfaces, with the warm
+     selection colour used for the edge and the touch-target specimens. */
+  .sys--noma { gap: 2rem; }
+  .sys--noma .sys__group {
+    min-width: 0;
+    padding: clamp(1.25rem, 1rem + 2vw, 2.5rem);
+    border-left: 4px solid #5b3a29;
+    border-radius: 0 16px 16px 0;
+    background: #f8f3ee;
+  }
+  .sys--noma .sys__group h3 { color: #2a1d16; }
+  .sys--noma .sys__index {
+    display: inline-block;
+    margin-right: 0.75rem;
+    color: #7c5d4b;
+    font-family: ui-monospace, monospace;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+  .sys--noma .sys__chip { border-radius: 999px; }
+  .sys--noma .sys__bar { background: #5b3a29; }
+  .sys--noma .sys__radius-box { border-color: #5b3a29; background: #fff; }
+  @media (max-width: 479px) {
+    .sys--theevents .sys__swatches { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .sys--taggo .sys__group, .sys--noma .sys__group { padding: 1rem; }
+  }
 </style>

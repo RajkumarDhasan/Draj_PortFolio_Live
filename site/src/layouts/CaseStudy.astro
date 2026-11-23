@@ -16,12 +16,13 @@ interface Props {
   decisions: { id: string; title: string }[];
   chapters: { id: string; title: string }[];
   headerScreens: Screen[];
+  stores?: { name: string; google: string; apple: string }[];
   /** Taggo: open on the screen the visitor last saw on the homepage */
   rememberScreen?: boolean;
   next: { href: string; name: string; promise: string };
 }
 
-const { project, lead, meta, note, designed, decisions, chapters, headerScreens, rememberScreen = false, next } =
+const { project, lead, meta, note, designed, decisions, chapters, headerScreens, stores, rememberScreen = false, next } =
   Astro.props;
 const base = import.meta.env.BASE_URL;
 ---
@@ -63,6 +64,25 @@ const base = import.meta.env.BASE_URL;
               ))
             }
           </dl>
+          {stores && (
+            <div class="case-hero__stores" aria-label="Get the apps">
+              {stores.map((app) => (
+                <div class="case-hero__store">
+                  <p class="case-hero__store-name">{app.name}</p>
+                  <div class="case-hero__store-links">
+                    <a href={app.google} target="_blank" rel="noopener noreferrer" aria-label={`${app.name} on Google Play`}>
+                      <img src="https://cdn.simpleicons.org/googleplay/FFFFFF" width="17" height="17" alt="" loading="lazy" />
+                      <span>Google Play</span>
+                    </a>
+                    <a href={app.apple} target="_blank" rel="noopener noreferrer" aria-label={`${app.name} on the App Store`}>
+                      <img src="https://cdn.simpleicons.org/apple/FFFFFF" width="17" height="17" alt="" loading="lazy" />
+                      <span>App Store</span>
+                    </a>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
           {note && <p class="case-hero__note">{note}</p>}
         </div>
         <div class="case-hero__media" data-remember={rememberScreen ? 'true' : undefined}>
@@ -214,6 +234,35 @@ const base = import.meta.env.BASE_URL;
     font-size: 1rem;
     line-height: 1.45;
   }
+  .case-hero__stores {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1.75rem;
+  }
+  .case-hero__store-name {
+    margin-bottom: 0.5rem;
+    font-size: var(--fs-label);
+    font-weight: 600;
+    color: var(--ink-soft);
+  }
+  .case-hero__store-links { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .case-hero__store-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    min-height: 44px;
+    padding: 0.55rem 0.85rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    color: var(--ink);
+    font-size: var(--fs-label);
+    font-weight: 600;
+    text-decoration: none;
+    transition: border-color 180ms ease, background-color 180ms ease;
+  }
+  .case-hero__store-links a:hover { border-color: var(--ink-soft); background: color-mix(in srgb, var(--ink) 7%, transparent); }
+  .case-hero__store-links img { display: block; width: 17px; height: 17px; }
   .case-hero__note {
     margin-top: 1.5rem;
     max-width: 36rem;

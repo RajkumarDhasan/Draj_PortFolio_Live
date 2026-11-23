@@ -6,7 +6,7 @@ import type { ImageMetadata } from 'astro';
 import Device from '../Device.astro';
 
 interface Props {
-  items: { image: ImageMetadata; alt: string; title: string; caption: string }[];
+  items: { image: ImageMetadata; alt: string; title: string; caption: string; screen?: { x: number; y: number; width: number; height: number }; scroll?: boolean }[];
   /** Narrower columns fit more phones per row */
   size?: 'sm' | 'md';
 }
@@ -19,15 +19,16 @@ const sizes =
 
 <ol class:list={['screens', `screens--${size}`]}>
   {
-    items.map((s) => (
+    items.map((s, i) => (
       <li>
         <figure class="screen">
           <div class="screen__phone">
-            <Device steps={[{ image: s.image, alt: s.alt }]} mode="static" surface="paper" sizes={sizes} />
+            <Device steps={[{ image: s.image, alt: s.alt, screen: s.screen, scroll: s.scroll }]} mode="static" surface="paper" sizes={sizes} />
           </div>
           <figcaption>
             <strong>{s.title}</strong>
             <span>{s.caption}</span>
+            {s.scroll && i === 0 && <span class="screen__hint">Scroll inside each phone to see the full screen.</span>}
           </figcaption>
         </figure>
       </li>
@@ -67,4 +68,5 @@ const sizes =
     font-weight: 600;
     color: var(--paper-ink);
   }
+  .screen__hint { color: var(--paper-muted); font-size: 0.85em; }
 </style>

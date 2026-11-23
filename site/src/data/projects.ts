@@ -102,8 +102,8 @@ export const experience = [
 ];
 
 export const education = [
-  { title: 'MBA', org: 'Bharathiyar University', when: '2017' },
-  { title: 'BCA, Computer Applications', org: '', when: '' },
+  { title: 'BCA, Computer Applications', org: 'MS University', when: '' },
+  { title: 'MBA', org: 'Bharathiyar University', when: '' },
 ];
 
 export const skills = [
@@ -123,6 +123,4 @@ export const contact = {
   location: 'Abu Dhabi, UAE',
   phone: '+971 54 264 4838',
   phoneHref: 'tel:+971542644838',
-  /** One-page PDF in public/ (generated outside this repo) */
-  resume: 'Rajkumar-Dhasan-Resume.pdf',
 };

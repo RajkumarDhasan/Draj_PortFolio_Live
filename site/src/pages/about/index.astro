@@ -10,13 +10,13 @@ import { experience, education, skills, contact } from '../../data/projects';
 import portrait from '../../assets/about/portrait.jpeg';
 
 const base = import.meta.env.BASE_URL;
-const cv = `${base}${contact.resume}`;
 
 const sections = [
   { id: 'approach', title: 'How I think before I design' },
   { id: 'evidence', title: 'How I use evidence' },
   { id: 'flows', title: 'Task flows and personas' },
   { id: 'systems', title: 'Design systems' },
+  { id: 'web', title: 'Website work' },
   { id: 'experience', title: 'Experience and education' },
 ];
 
@@ -44,7 +44,7 @@ const projectMethods = [
 
 <Base
   title="About Rajkumar Dhasan, UX/UI - Product Designer"
-  description="How Rajkumar Dhasan works: decisions before screens, evidence kept apart from assumptions, task flows, personas as hypotheses, and design systems."
+  description="Rajkumar Dhasan designs websites and apps. Learn about his approach, design systems and product work for Taggo, TheEvents and ClinicClick."
   current="about"
 >
   <article class="about-page">
@@ -56,12 +56,11 @@ const projectMethods = [
           <p class="ab-hero__role">UX/UI - Product Designer · Abu Dhabi</p>
           <p class="ab-hero__lead">I make complex products clear at every decision.</p>
           <p class="ab-hero__body">
-            I’m a Senior UI/UX Designer at Kief Consultancies &amp; Technologies. I design mobile products end to end:
-            from the first flow to the edge case and the system behind it.
+            I’m a Senior UI/UX Designer at Kief Consultancies &amp; Technologies. I work across websites and apps,
+            from user flows and business rules to interfaces, design systems and the states teams need to build.
           </p>
           <div class="ab-hero__actions">
-            <a class="btn ab-hero__primary" href={cv}>Download CV<span class="visually-hidden"> (PDF)</span></a>
-            <a class="ab-hero__link" href={`mailto:${contact.email}`}>Email me</a>
+            <a class="btn ab-hero__primary" href={`mailto:${contact.email}`}>Email me</a>
           </div>
         </div>
         <Image
@@ -201,8 +200,20 @@ const projectMethods = [
               </li>
             </ul>
             <p>
-              A background in HTML, CSS and Java helps me structure components in a way developers recognise, and I use
+              A background in HTML and CSS helps me structure components in a way developers recognise, and I use
               AI tools to explore and prototype faster. Design stays the core of the work.
+            </p>
+          </section>
+
+          <section id="web" aria-labelledby="web-title">
+            <h2 id="web-title">Website work</h2>
+            <p>
+              My work extends beyond mobile apps. I have worked on websites for Taggo and TheEvents as well as their
+              app experiences, and on the ClinicClick website.
+            </p>
+            <p>
+              The case studies here go deep on the app flows and design files. ClinicClick is another website project
+              I worked on. <a href="https://clinicclick.ae/" target="_blank" rel="noopener noreferrer">Visit ClinicClick ↗</a>
             </p>
           </section>
 
@@ -257,7 +268,6 @@ const projectMethods = [
               <li><a class="btn ab-contact__primary" href={`mailto:${contact.email}`}>{contact.email}</a></li>
               <li><a href={contact.phoneHref}>{contact.phone}</a></li>
               <li><a href={contact.linkedin} rel="noopener">LinkedIn</a></li>
-              <li><a href={cv}>Download CV<span class="visually-hidden"> (PDF)</span></a></li>
             </ul>
           </section>
         </div>
@@ -323,13 +333,6 @@ const projectMethods = [
   }
   .ab-hero__primary { background: var(--ink); color: var(--stage); }
   .ab-hero__primary:hover { background: var(--ink-soft); }
-  .ab-hero__link {
-    display: inline-flex;
-    align-items: center;
-    min-height: 44px;
-    font-weight: 600;
-    text-underline-offset: 0.3em;
-  }
   .ab-hero__grid :global(.ab-hero__photo) {
     width: min(70vw, 20rem);
     height: auto;

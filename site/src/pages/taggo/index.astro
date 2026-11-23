@@ -67,6 +67,10 @@ const rideCaptions = [
     { label: 'Scope', value: 'Customer app and driver app' },
     { label: 'Company', value: 'Kief Consultancies & Technologies, Abu Dhabi' },
   ]}
+  stores={[
+    { name: 'Taggo Ride', google: 'https://play.google.com/store/apps/details?id=ae.kief.taggo', apple: 'https://apps.apple.com/us/app/taggo-ride-cargo/id6756260610' },
+    { name: 'Taggo Captain', google: 'https://play.google.com/store/apps/details?id=ae.kief.taggodriver.taggo_driver', apple: 'https://apps.apple.com/ae/app/taggo-captain/id6784939884' },
+  ]}
   note="The screens on this page come from my Figma design files. They show the designs, not necessarily every screen exactly as released."
   designed={[
     'The customer ride flow from pickup to receipt, with the fare and payment shown before booking',
@@ -187,14 +191,47 @@ const rideCaptions = [
 
   <Chapter id="system" title="Design system, prototypes and handoff">
     <p>
-      The Taggo file is built on Figma variables: colour in light and dark modes, typography, buttons, spacing and
-      radius. Separate variable collections run the prototype states for cancellation, scheduled rides, cargo and
-      recovery, so each flow can be clicked through with its real states instead of a fixed path.
+      Taggo is more than one booking screen. A rider moves between rides, rental, cargo and recovery, while a driver
+      handles offers, route progress and changes to a job. I used a shared set of visual rules so the same action or
+      status would look familiar across those journeys, even when the information on a screen changed.
+    </p>
+    <h3>Foundations that carry meaning</h3>
+    <p>
+      The Figma file defines colour as variables with Light Mode and Dark Mode values. Brand yellow stays constant;
+      text, backgrounds and borders change with the mode. That separation matters because yellow has a job: it
+      identifies the primary action or a chosen option. It should not be used to decorate every surface. Text styles
+      cover a compact heading, body copy, button labels and small helper text, so fares and destinations remain
+      prominent while instructions and metadata sit at a quieter level.
+    </p>
+    <p>
+      Spacing and radius variables hold the forms and cards together. The file records increments from 2 to 24 px,
+      with named uses such as an 8 px icon gap, a 16 px layout gap and a 24 px form-group margin. The button has its
+      own 14 px radius and 56 px height. These values give repeated controls a predictable size and make it easier
+      to extend a flow without judging every gap from scratch.
+    </p>
+    <h3>Components built around decisions</h3>
+    <p>
+      The DR/Button component has Primary, Secondary, Danger, Dark and Disabled types. A normal next step can be
+      yellow; an irreversible or destructive choice gets a distinct Danger treatment. The DR/Banner component has
+      info, warning, error and success tones. The consistent shape lets the message change without making the
+      placement and hierarchy of feedback change too. Below are the recorded variables and component variants,
+      alongside the states they support.
     </p>
     <TaggoSystem />
+    <h3>Prototypes that remember a choice</h3>
     <p>
-      Each driver recovery screen has a design note beside it that explains the rule the screen applies, so
-      developers and stakeholders can see the reason, not only the layout.
+      The prototypes use separate state collections for ride cancellation, scheduled rides, cargo, recovery and
+      driver earnings. Selecting a vehicle sets its border and label; choosing a cancellation reason carries that
+      reason to the next screen. Driver earnings can switch between today, week, month, all, custom and settled
+      views. These interactions let someone review the consequence of a decision in context, rather than clicking
+      through disconnected pictures of screens.
+    </p>
+    <h3>Rules available at handoff</h3>
+    <p>
+      The system also documents exceptions. A recovery price-change request needs a clear old and new amount;
+      cancellation needs the fee and its reason before confirmation. Each driver recovery screen has a design note
+      beside it explaining the rule it applies. That gives developers and stakeholders the behaviour behind the
+      layout, including what changes when a job moves into a waiting, error or failure state.
     </p>
     <h3>Deliverables</h3>
     <ul>

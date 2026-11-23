@@ -4,16 +4,12 @@ import IntroHead from '../components/IntroHead.astro';
 import Intro from '../components/Intro.astro';
 import Hero from '../components/Hero.astro';
 import ProjectScene from '../components/ProjectScene.astro';
-import { Image } from 'astro:assets';
 import { projects, contact } from '../data/projects';
-import portrait from '../assets/about/portrait.jpeg';
-
-const base = import.meta.env.BASE_URL;
 ---
 
 <Base
   title="Rajkumar Dhasan, UX/UI - Product Designer"
-  description="I make complex products clear at every decision. Case studies: Taggo, TheEvents and Noma."
+  description="Product design across websites and apps. Explore the decisions behind Taggo, TheEvents and Noma, and website work including ClinicClick."
   home
 >
   <IntroHead slot="head" />
@@ -24,39 +20,13 @@ const base = import.meta.env.BASE_URL;
     <div class="wrap work__head">
       <h2 id="work-title" class="section-title">Selected work</h2>
       <p class="section-lead section-lead--desktop">
-        Three products: two published on iOS and Android, one not yet released. Each case study shows my design files:
-        what I designed and why.
+        Three detailed product case studies, alongside website work for Taggo, TheEvents and
+        <a href="https://clinicclick.ae/" target="_blank" rel="noopener noreferrer">ClinicClick</a>. Explore the
+        decisions, flows and systems behind the work.
       </p>
-      <p class="section-lead section-lead--mobile">Three products. Explore the decisions behind each one.</p>
+      <p class="section-lead section-lead--mobile">Product design across websites and apps. Explore three case studies.</p>
     </div>
     {projects.map((project, index) => <ProjectScene project={project} index={index} />)}
-  </section>
-
-  <section id="about" class="about" aria-labelledby="about-title">
-    <div class="wrap about__teaser">
-      <Image
-        class="about__photo"
-        src={portrait}
-        alt="Rajkumar Dhasan"
-        widths={[160, 320]}
-        sizes="(min-width: 700px) 10rem, 7rem"
-        quality={80}
-        loading="lazy"
-        decoding="async"
-      />
-      <div>
-        <h2 id="about-title" class="section-title">About</h2>
-        <p class="about__bio about__bio--desktop">
-          I’m Rajkumar Dhasan, a UX/UI - Product Designer in Abu Dhabi. Before I draw a screen I map the decisions a
-          person has to make, then design the flow, the edge cases and the components that keep those decisions clear.
-        </p>
-        <p class="about__bio about__bio--mobile">I design the decisions, flows and systems behind clear mobile products.</p>
-        <div class="about__links">
-          <a class="btn about__primary" href={`${base}about/`}>How I work and my experience</a>
-          <a class="about__cv" href={`${base}${contact.resume}`}>Download CV<span class="visually-hidden"> (PDF)</span></a>
-        </div>
-      </div>
-    </div>
   </section>
 
   <section id="contact" class="contact" aria-labelledby="contact-title">
@@ -67,7 +37,6 @@ const base = import.meta.env.BASE_URL;
         <li><a class="btn contact__primary" href={`mailto:${contact.email}`}>{contact.email}</a></li>
         <li><a class="contact__link" href={contact.phoneHref}>{contact.phone}</a></li>
         <li><a class="contact__link" href={contact.linkedin} rel="noopener">LinkedIn</a></li>
-        <li><a class="contact__link" href={`${base}${contact.resume}`}>Download CV<span class="visually-hidden"> (PDF)</span></a></li>
         <li class="contact__place">{contact.location}</li>
       </ul>
     </div>
@@ -106,56 +75,15 @@ const base = import.meta.env.BASE_URL;
     margin-top: 1.5rem;
     color: var(--ink-soft);
   }
-  .section-lead--mobile,
-  .about__bio--mobile { display: none; }
+  .section-lead a { color: var(--ink); text-underline-offset: 0.2em; }
+  .section-lead--mobile { display: none; }
   .work { border-top: 1px solid var(--line); }
   .work__head { padding-top: clamp(6rem, 3rem + 9vh, 10rem); padding-bottom: clamp(2rem, 1rem + 3vh, 3.5rem); }
 
-  .about,
   .contact {
     border-top: 1px solid var(--line);
     padding-block: clamp(6rem, 3rem + 11vh, 11rem);
   }
-  .about__teaser {
-    display: grid;
-    gap: 1.75rem;
-    align-items: start;
-  }
-  @media (min-width: 700px) {
-    .about__teaser { grid-template-columns: 10rem minmax(0, 1fr); gap: clamp(2rem, 5vw, 4rem); }
-  }
-  .about__photo {
-    width: 7rem;
-    height: auto;
-    aspect-ratio: 1244 / 1600;
-    object-fit: cover;
-    border-radius: 12px;
-  }
-  @media (min-width: 700px) {
-    .about__photo { width: 10rem; }
-  }
-  .about__bio {
-    max-width: 40rem;
-    margin-top: 1.25rem;
-    color: var(--ink-soft);
-  }
-  .about__links {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.75rem 1.75rem;
-    margin-top: 2rem;
-  }
-  .about__primary { background: var(--ink); color: var(--stage); }
-  .about__primary:hover { background: var(--ink-soft); }
-  .about__cv {
-    display: inline-flex;
-    align-items: center;
-    min-height: 44px;
-    font-weight: 600;
-    text-underline-offset: 0.3em;
-  }
-
   .contact__list {
     list-style: none;
     display: flex;
@@ -181,17 +109,10 @@ const base = import.meta.env.BASE_URL;
     font-size: var(--fs-caption);
   }
   @media (max-width: 599px) {
-    .section-lead--desktop,
-    .about__bio--desktop { display: none; }
-    .section-lead--mobile,
-    .about__bio--mobile { display: block; }
+    .section-lead--desktop { display: none; }
+    .section-lead--mobile { display: block; }
     .work__head { padding-top: 4.5rem; padding-bottom: 2.5rem; }
-    .about,
     .contact { padding-block: 4.5rem; }
-    .about__teaser { grid-template-columns: 4rem minmax(0, 1fr); gap: 1rem; }
-    .about__photo { width: 4rem; border-radius: 10px; }
-    .about__bio { margin-top: 0.75rem; }
-    .about__links { margin-top: 1.5rem; }
     .contact__place { display: none; }
   }
 </style>
